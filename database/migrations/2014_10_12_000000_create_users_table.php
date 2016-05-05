@@ -5,6 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateUsersTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -15,6 +16,10 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->integer('city_id')->unsigned();
+            $table->enum('type', ['client', 'master']);
+            $table->string('phone_number')->unique();
+            $table->boolean('confirmed');
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();
