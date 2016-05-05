@@ -74,7 +74,7 @@ export default Vue.extend({
                     code : this.code,
                     number : this.phonenumber
                 };
-             //this.$http.post('api/sendsms', datas);
+             this.$http.post('api/sendsms', datas);
          }
         }
 
