@@ -11,9 +11,21 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
+    protected $casts = [
+        'phone_number' => 'integer',
     ];
+    protected $fillable = [
+        'name', 'password', 'phone_number', 'email', 'confirmed', 'city_id'
+    ];
+
+    public static function boot ()
+    {
+        parent::boot();
+
+        static::creating(function($user){
+            $user->token = str_random(30);
+        });
+    }
 
     /**
      * The attributes that should be hidden for arrays.
