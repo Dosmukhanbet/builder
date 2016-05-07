@@ -12824,7 +12824,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _vue2.default.use(_vueResource2.default);
 exports.default = _vue2.default.extend({
-    template: '\n            <label class="col-md-4 control-label">Мобильный номер</label>\n            <div class="col-md-3">\n                 <input type="text" class="form-control" placeholder="77075553322" v-model="phonenumber" name="phone_number">\n            </div>\n            <div class="col-md-3" v-show="!confirmed">\n                <button type="submit" @click="sendSMS" class="btn btn-primary">Отправить смс</button>\n            </div>\n            <div class="col-md-6 col-md-offset-4 Register--button" v-show="confirmed">\n                <button type="submit" class="btn btn-primary">\n                   Отправить\n                </button>\n            </div>\n\n\n\n',
+    template: '\n            <label class="col-md-4 control-label">Мобильный номер</label>\n            <div class="col-md-6">\n                 <input type="text" class="form-control" placeholder="77075553322" v-model="phonenumber" name="phone_number">\n            </div>\n            <div class="col-md-6 col-md-offset-4 Register--button"  v-show="!confirmed">\n                <button type="submit" @click="sendSMS" class="btn btn-primary">Отправить смс</button>\n            </div>\n\n            <div class="col-md-6 col-md-offset-4 Register--button" v-show="confirmed">\n                <button type="submit" class="btn btn-primary">\n                   Зарегистроваться\n                </button>\n            </div>\n',
 
     props: ['code'],
 

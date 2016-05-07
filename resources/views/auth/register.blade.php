@@ -81,18 +81,18 @@
                                             </div>
 
 
-                                             <div class="form-group">
-                                                <div class="col-md-6">
-                                                @if($errors->has('phone_number'))
-                                                                <span class="help-block">
-                                                                    <strong>{{ $errors->first('phone_number') }}</strong>
-                                                                </span>
-                                                 @endif
-                                                </div>
-                                             </div>
+
 
                                              <div class="form-group{{ $errors->has('phone_number') ? ' has-error' : '' }}">
                                                     <sendsms></sendsms>
+
+                                                    <div class="col-md-6">
+                                                        @if($errors->has('phone_number'))
+                                                            <span class="help-block">
+                                                             <strong>{{ $errors->first('phone_number') }}</strong>
+                                                            </span>
+                                                        @endif
+                                                    </div>
                                              </div>
 
 

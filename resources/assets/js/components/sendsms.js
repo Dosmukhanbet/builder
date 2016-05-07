@@ -5,20 +5,18 @@ Vue.use(VueResource);
 export default Vue.extend({
     template: `
             <label class="col-md-4 control-label">Мобильный номер</label>
-            <div class="col-md-3">
+            <div class="col-md-6">
                  <input type="text" class="form-control" placeholder="77075553322" v-model="phonenumber" name="phone_number">
             </div>
-            <div class="col-md-3" v-show="!confirmed">
+            <div class="col-md-6 col-md-offset-4 Register--button"  v-show="!confirmed">
                 <button type="submit" @click="sendSMS" class="btn btn-primary">Отправить смс</button>
             </div>
+
             <div class="col-md-6 col-md-offset-4 Register--button" v-show="confirmed">
                 <button type="submit" class="btn btn-primary">
-                   Отправить
+                   Зарегистроваться
                 </button>
             </div>
-
-
-
 `,
 
         props: ['code'],
