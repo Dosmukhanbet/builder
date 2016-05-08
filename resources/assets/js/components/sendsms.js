@@ -6,10 +6,10 @@ export default Vue.extend({
     template: `
             <label class="col-md-4 control-label">Мобильный номер</label>
             <div class="col-md-6">
-                 <input type="text" class="form-control" placeholder="77075553322" v-model="phonenumber" name="phone_number">
+                 <input type="text" class="form-control" placeholder="Например: 77075553322" v-model="phonenumber" name="phone_number">
             </div>
             <div class="col-md-6 col-md-offset-4 Register--button"  v-show="!confirmed">
-                <button type="submit" @click="sendSMS" class="btn btn-primary">Отправить смс</button>
+                <button type="submit" @click="sendSMS" class="btn btn-primary">Запросить Код подтверждения</button>
             </div>
 
             <div class="col-md-6 col-md-offset-4 Register--button" v-show="confirmed">
@@ -49,7 +49,7 @@ export default Vue.extend({
                  (inputValue) =>
                  {
                   var int = parseInt(inputValue)
-                     if ( int === this.code)
+                     if ( int === this.code )
                         {
 
                             swal("ОК", "Ваш номер подтвержден!", "success");
@@ -63,17 +63,16 @@ export default Vue.extend({
 
         },
 
-        send() {
-            let datas = {
-                    code : this.code,
-                    number : this.phonenumber
-                };
-             //   Раскомментировать!!!!
-             this.$http.post('api/sendsms', datas).success(function(response){
-                                  this.code = parseInt(response);
-                                                });
+            send() {
+                        let datas = {
+                                    code : this.code,
+                                    number : this.phonenumber
+                                };
 
-         }
+                        this.$http.post('api/sendsms', datas).then(function(response){
+                                                    this.code = parseInt(response);
+                                                    });
+                    }
         }
 
 });

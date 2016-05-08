@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use App\Services\AppMailer;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -29,15 +30,20 @@ class AuthController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
+    /**
+     * @var Mailer
+     */
+    private $mailer;
 
     /**
      * Create a new authentication controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(AppMailer $mailer)
     {
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->mailer = $mailer;
     }
 
     /**
@@ -65,7 +71,7 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'email' =>$data['email'],
             'name' => $data['name'],
             'type' => $data['type'],
@@ -74,6 +80,12 @@ class AuthController extends Controller
             'phone_number' => $data['phone_number'],
             'password' => bcrypt($data['password']),
         ]);
+
+        $this->mailer->sendEmailTo($user, 'email.confirm');
+
+        flash()->success('Спасибо за регистрацию!', 'Подтвердите Ваш электронный адрес, переидя по ссылке отправленный на ваш емэйл!,');
+
+        return $user;
     }
 
 

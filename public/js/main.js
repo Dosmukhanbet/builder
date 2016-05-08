@@ -12824,7 +12824,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _vue2.default.use(_vueResource2.default);
 exports.default = _vue2.default.extend({
-    template: '\n            <label class="col-md-4 control-label">Мобильный номер</label>\n            <div class="col-md-6">\n                 <input type="text" class="form-control" placeholder="77075553322" v-model="phonenumber" name="phone_number">\n            </div>\n            <div class="col-md-6 col-md-offset-4 Register--button"  v-show="!confirmed">\n                <button type="submit" @click="sendSMS" class="btn btn-primary">Отправить смс</button>\n            </div>\n\n            <div class="col-md-6 col-md-offset-4 Register--button" v-show="confirmed">\n                <button type="submit" class="btn btn-primary">\n                   Зарегистроваться\n                </button>\n            </div>\n',
+    template: '\n            <label class="col-md-4 control-label">Мобильный номер</label>\n            <div class="col-md-6">\n                 <input type="text" class="form-control" placeholder="Например: 77075553322" v-model="phonenumber" name="phone_number">\n            </div>\n            <div class="col-md-6 col-md-offset-4 Register--button"  v-show="!confirmed">\n                <button type="submit" @click="sendSMS" class="btn btn-primary">Запросить Код подтверждения</button>\n            </div>\n\n            <div class="col-md-6 col-md-offset-4 Register--button" v-show="confirmed">\n                <button type="submit" class="btn btn-primary">\n                   Зарегистроваться\n                </button>\n            </div>\n',
 
     props: ['code'],
 
@@ -12867,8 +12867,8 @@ exports.default = _vue2.default.extend({
                 code: this.code,
                 number: this.phonenumber
             };
-            //   Раскомментировать!!!!
-            this.$http.post('api/sendsms', datas).success(function (response) {
+
+            this.$http.post('api/sendsms', datas).then(function (response) {
                 this.code = parseInt(response);
             });
         }
@@ -12890,7 +12890,7 @@ var _vueResource2 = _interopRequireDefault(_vueResource);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-    template: '\n    <div class="form-group">\n        <label class="col-md-4 control-label">Зарегистрироватся в качестве:</label>\n        <div class="col-md-6">\n            <select name="type" v-model="type" id="type" class="form-control" v-model="type">\n                <option v-for="type in types" value="{{type.value}}">{{type.name}}</option >\n            </select>\n        </div>\n    </div>\n\n    <div class="form-group" v-show="type === \'master\'">\n    <label class="col-md-4 control-label">Категория</label>\n    <div class="col-md-6">\n    <select name="category_id" id="category_id" class="form-control">\n        <option v-for="cat in categories" value="{{cat.id}}">{{cat.name}}</option>\n    </select>\n    </div>\n    </div>\n    ',
+    template: '\n    <div class="form-group">\n        <label class="col-md-4 control-label">Я</label>\n        <div class="col-md-6">\n            <select name="type" v-model="type" id="type" class="form-control" v-model="type">\n                <option v-for="type in types" value="{{type.value}}">{{type.name}}</option >\n            </select>\n        </div>\n    </div>\n\n    <div class="form-group" v-show="type === \'master\'">\n    <label class="col-md-4 control-label">Специалист по</label>\n    <div class="col-md-6">\n    <select name="category_id" id="category_id" class="form-control">\n        <option v-for="cat in categories" value="{{cat.id}}">{{cat.name}}</option>\n    </select>\n    </div>\n    </div>\n    ',
     props: {},
 
     ready: function ready() {
@@ -12898,7 +12898,7 @@ exports.default = {
     },
     data: function data() {
         return {
-            types: [{ value: 'client', name: 'Клиента' }, { value: 'master', name: 'Мастера' }],
+            types: [{ value: 'client', name: 'Клиент' }, { value: 'master', name: 'Мастер' }],
             type: '',
             categories: ''
         };

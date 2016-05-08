@@ -1,13 +1,9 @@
 <?php
+
 use App\User;
 
 Route::get('/', function () {
-    \Mail::send('email.confirm', ['user' => $user], function ($m) use ($user) {
-        $m->from('hello@app.com', 'Your Application');
-
-        $m->to('dosmukhanbet@mail.ru', $user->name)->subject('Your Reminder!');
-    });
-
+  return view('welcome');
 });
 
 Route::auth();
