@@ -20,6 +20,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('cities', \App\City::lists('name', 'id'));
         });
 
+        view()->composer('jobs.create', function($view){
+            $view->with('cities', \App\City::lists('name', 'id'));
+        });
+
         view()->composer('partials.navigation', function($view){
             $view->with('user', Auth::user());
         });

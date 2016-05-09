@@ -5753,7 +5753,8 @@ button.close {
   margin-top: 1em; }
 
 body {
-  font-family: 'Open Sans Condensed', sans-serif; }
+  font-family: 'Open Sans Condensed', sans-serif;
+  background: #fcfdff; }
 
 .fa-btn {
   margin-right: 6px; }

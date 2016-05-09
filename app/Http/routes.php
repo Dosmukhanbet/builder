@@ -1,12 +1,12 @@
 <?php
 
-use App\User;
-
 Route::get('/', function () {
   return view('welcome');
 });
 
 Route::auth();
+
+//ConfirmEmail
 Route::get('register/confirm/{token}', 'RegistrationController@confirmEmail');
 
 
@@ -16,4 +16,11 @@ Route::get('api/categories', function (){
 });
 
 Route::get('/home', 'HomeController@index');
+
+Route::group(['prefix'=> 'job'], function()
+    {
+        Route::get('create', 'JobsController@create');
+        Route::post('create', 'JobsController@store');
+    }
+);
 
