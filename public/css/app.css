@@ -5752,6 +5752,9 @@ button.close {
 .Register--button {
   margin-top: 1em; }
 
+.Register--link {
+  padding-left: 10px; }
+
 body {
   font-family: 'Open Sans Condensed', sans-serif; }
 
