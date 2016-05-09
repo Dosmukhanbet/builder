@@ -1,4 +1,4 @@
-                <nav class="navbar navbar-default navbar-static-top">
+                <nav class="navbar navbar-inverse navbar-static-top">
                     <div class="container">
                         <div class="navbar-header">
 
@@ -11,7 +11,7 @@
                             </button>
 
                             <!-- Branding Image -->
-                            <a class="navbar-brand" href="{{ url('/') }}">
+                           <a class="navbar-brand" href="{{ url('/') }}">
                                 Builder.com
                             </a>
                         </div>

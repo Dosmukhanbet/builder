@@ -14,5 +14,5 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix.sass('app.scss')
         .styles('sweetalert.css')
-       .browserify('main.js');
+        .browserify('main.js');
 });

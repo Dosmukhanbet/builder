@@ -9,7 +9,7 @@ export default Vue.extend({
                  <input type="text" class="form-control" placeholder="Например: 77075553322" v-model="phonenumber" name="phone_number">
             </div>
             <div class="col-md-6 col-md-offset-4 Register--button"  v-show="!confirmed">
-                <button type="submit" @click="sendSMS" class="btn btn-primary">Запросить Код подтверждения</button>
+                <button type="submit" @click="sendSMS" class="btn btn-warning">Запросить Код подтверждения</button>
             </div>
 
             <div class="col-md-6 col-md-offset-4 Register--button" v-show="confirmed">
