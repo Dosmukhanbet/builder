@@ -49,9 +49,9 @@ export default Vue.extend({
                  (inputValue) =>
                  {
                   var int = parseInt(inputValue)
-                     if ( int === this.code )
+                     // 1111 заменить на this.code
+                     if ( int === 1111 )
                         {
-
                             swal("ОК", "Ваш номер подтвержден!", "success");
                             this.confirmed = true;
                          }

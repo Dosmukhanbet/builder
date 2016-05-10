@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\JobWasPublished;
 use App\Job;
 use Auth;
 use Illuminate\Http\Request;
@@ -18,14 +19,13 @@ class JobsController extends Controller
 
     public function store(Request $request)
     {
-//        dd($request);
         $this->validate($request, [
             'Кратко_о_работе' => 'required',
             'city_id' => 'required',
             'Описание' => 'required',
             'Дата_Исполнения' => 'required|date'
         ]);
-        $user = Auth::loginUsingId(9);
+        $user = Auth::user();
 
         $job = new Job;
         $job->name = $request['Кратко_о_работе'];
@@ -36,8 +36,18 @@ class JobsController extends Controller
         $job->user_id = $user->id;
         $job->save();
 
-        return 'Done';
+        flash()->success('Заявка добавлена!', "валофапывпдод");
+
+        event(new JobWasPublished($job));
+
+        return redirect('job/show/'.$job->id);
+
+    }
 
 
+    public function show($id)
+    {
+        $job = Job::find($id);
+        return view('jobs.show', compact('job'));
     }
 }

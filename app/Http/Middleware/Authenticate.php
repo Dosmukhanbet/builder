@@ -20,7 +20,9 @@ class Authenticate
         if (Auth::guard($guard)->guest()) {
             if ($request->ajax() || $request->wantsJson()) {
                 return response('Unauthorized.', 401);
+                flash()->info('Внимание!', 'Необходимо авторизироваться!');
             } else {
+                flash()->info('Внимание!', 'Необходимо авторизироваться!');
                 return redirect()->guest('login');
             }
         }

@@ -16,12 +16,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('auth.register', function($view){
+        view()->composer(['auth.register', 'jobs.create', 'jobs.show'], function($view){
             $view->with('cities', \App\City::lists('name', 'id'));
         });
 
-        view()->composer('jobs.create', function($view){
-            $view->with('cities', \App\City::lists('name', 'id'));
+        view()->composer(['jobs.show', 'email.jobposted'], function($view){
+            $view->with('categories', \App\Category::lists('name', 'id'));
         });
 
         view()->composer('partials.navigation', function($view){

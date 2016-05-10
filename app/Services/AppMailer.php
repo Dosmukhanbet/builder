@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Job;
 use App\User;
 use Illuminate\Contracts\Mail\Mailer;
 
@@ -33,11 +34,11 @@ class AppMailer {
     }
 
 
-    public function sendEmailTo(User $user, $view)
+    public function sendEmailTo(User $user, $view, Job $job = null)
     {
         $this->to = $user->email;
         $this->view = $view;
-        $this->data = compact('user');
+        $this->data = compact('user', 'job');
         $this->deliver();
 
     }

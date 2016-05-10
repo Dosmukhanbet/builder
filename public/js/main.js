@@ -12891,8 +12891,8 @@ exports.default = _vue2.default.extend({
                 animation: "slide-from-top",
                 inputPlaceholder: "3342" }, function (inputValue) {
                 var int = parseInt(inputValue);
-                if (int === _this.code) {
-
+                // 1111 заменить на this.code
+                if (int === 1111) {
                     swal("ОК", "Ваш номер подтвержден!", "success");
                     _this.confirmed = true;
                 } else {
