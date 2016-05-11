@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('categories', \App\Category::lists('name', 'id'));
         });
 
-        view()->composer('partials.navigation', function($view){
+        view()->composer(['partials.navigation','partials.masternav'], function($view){
             $view->with('user', Auth::user());
         });
     }

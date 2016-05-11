@@ -19,6 +19,8 @@ class AppMailer {
 
     protected $mailer;
 
+    protected $subject;
+
     public function __construct (Mailer $mailer)
     {
         $this->mailer = $mailer;
@@ -28,17 +30,20 @@ class AppMailer {
     {
         $this->mailer->send($this->view, $this->data, function ($message){
                 $message->from($this->from, 'Administrator Builder.com')
-                    ->to($this->to);
+                    ->to($this->to)
+                    ->subject($this->subject);
         });
 
     }
 
 
-    public function sendEmailTo(User $user, $view, Job $job = null)
+    public function sendEmailTo(User $user, $view, $subject, Job $job = null)
     {
         $this->to = $user->email;
         $this->view = $view;
         $this->data = compact('user', 'job');
+        $this->subject = $subject;
+
         $this->deliver();
 
     }

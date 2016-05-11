@@ -12,7 +12,7 @@ template : `
     </div>
 
     <div class="form-group" v-show="type === 'master'">
-    <label class="col-md-4 control-label">Специалист по</label>
+    <label class="col-md-4 control-label">Специальность</label>
     <div class="col-md-6">
     <select name="category_id" id="category_id" class="form-control">
         <option v-for="cat in categories" value="{{cat.id}}">{{cat.name}}</option>

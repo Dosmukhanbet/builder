@@ -3,6 +3,7 @@
 namespace App;
 
 use App\User;
+use App\JobPhoto;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
@@ -26,6 +27,12 @@ class Job extends Model
     public function setdateOfMakeAttribute($date)
     {
         $this->attributes['dateOfMake'] = Carbon::createFromFormat('Y-m-d H:i', $date);
+    }
+
+
+    public function photos()
+    {
+        return $this->hasMany(JobPhoto::class);
     }
 
 }

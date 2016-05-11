@@ -2,7 +2,9 @@
 
 namespace App\Listeners;
 
+use App\Category;
 use App\Services\AppMailer;
+use App\Services\SMS;
 use App\User;
 use App\Events\JobWasPublished;
 use Illuminate\Queue\InteractsWithQueue;
@@ -15,16 +17,21 @@ class JobWasPublishedListener implements ShouldQueue
      * @var AppMailer
      */
     private $mailer;
+    /**
+     * @var SMS
+     */
+    private $sms;
 
     /**
      * Create the event listener.
      *
      * @return void
      */
-    public function __construct(AppMailer $mailer)
+    public function __construct(AppMailer $mailer, SMS $sms)
     {
 
         $this->mailer = $mailer;
+        $this->sms = $sms;
     }
 
     /**
@@ -39,10 +46,18 @@ class JobWasPublishedListener implements ShouldQueue
                         ->where('city_id', $event->job->city_id)
                         ->get();
 
-        foreach ( $users as $user)
+        foreach ($users as $user)
         {
-            $this->mailer->sendEmailTo($user, 'email.jobposted',$event->job);
+            $categories = Category::lists('name', 'id');
+            $this->mailer->sendEmailTo($user, 'email.jobposted','Новая заявка в категории '.$categories[$event->job->category_id], $event->job);
+//            $categories = Category::lists('name', 'id');
+//            $text =  "Уважаемый пользователь, в категории ".
+//                        $categories[ $event->job->category_id ]
+//                        . " была добавлена новая заявка. <a href='"
+//                        . url('job/show/'.$event->job->id)
+//                        . ">Перейти к заявке</a>";
+//            $this->sms->send($user->phone_number, $text);
         }
+    }
 
     }
-}

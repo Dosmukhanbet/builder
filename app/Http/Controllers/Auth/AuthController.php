@@ -71,6 +71,7 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+//        dd($data);
         $user = User::create([
             'email' =>$data['email'],
             'name' => $data['name'],
@@ -81,9 +82,9 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
 
-        $this->mailer->sendEmailTo($user, 'email.confirm');
+        $this->mailer->sendEmailTo($user, 'email.confirm', 'Регистрация завершена!');
 
-        flash()->success('Спасибо за регистрацию!', 'На Ваш электронный адрес отправлено письмо, подтвердите свой электронный адрес перейдя по ссылке!');
+        flash()->success('Поздравляем!','Вы успешно зарегистрировались!');
 
         return $user;
     }

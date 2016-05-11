@@ -12929,7 +12929,7 @@ var _vueResource2 = _interopRequireDefault(_vueResource);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-    template: '\n    <div class="form-group">\n        <label class="col-md-4 control-label">Я</label>\n        <div class="col-md-6">\n            <select name="type" v-model="type" id="type" class="form-control" v-model="type">\n                <option v-for="type in types" value="{{type.value}}">{{type.name}}</option >\n            </select>\n        </div>\n    </div>\n\n    <div class="form-group" v-show="type === \'master\'">\n    <label class="col-md-4 control-label">Специалист по</label>\n    <div class="col-md-6">\n    <select name="category_id" id="category_id" class="form-control">\n        <option v-for="cat in categories" value="{{cat.id}}">{{cat.name}}</option>\n    </select>\n    </div>\n    </div>\n    ',
+    template: '\n    <div class="form-group">\n        <label class="col-md-4 control-label">Я</label>\n        <div class="col-md-6">\n            <select name="type" v-model="type" id="type" class="form-control" v-model="type">\n                <option v-for="type in types" value="{{type.value}}">{{type.name}}</option >\n            </select>\n        </div>\n    </div>\n\n    <div class="form-group" v-show="type === \'master\'">\n    <label class="col-md-4 control-label">Специальность</label>\n    <div class="col-md-6">\n    <select name="category_id" id="category_id" class="form-control">\n        <option v-for="cat in categories" value="{{cat.id}}">{{cat.name}}</option>\n    </select>\n    </div>\n    </div>\n    ',
     props: {},
 
     ready: function ready() {

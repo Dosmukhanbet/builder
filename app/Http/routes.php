@@ -22,7 +22,8 @@ Route::group(['prefix'=> 'job', 'middleware' => 'auth'], function()
         Route::get('create', 'JobsController@create');
         Route::post('create', 'JobsController@store');
         Route::get('show/{id}', 'JobsController@show');
-
+        Route::get('/category/{category}/city/{city}', 'JobsController@getPostedJobs');
+        Route::post('addphoto/{job}', 'JobsController@addPhoto');
     }
 );
 

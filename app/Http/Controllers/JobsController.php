@@ -11,6 +11,15 @@ use App\Http\Requests;
 class JobsController extends Controller
 {
 
+
+    public function getPostedJobs($categoryId, $cityId)
+    {
+        $jobs = Job::where('category_id', $categoryId)
+                        ->where('city_id', $cityId)
+                        ->get();
+        dd($jobs);
+    }
+    
     public function create()
     {
         return view('jobs.create');
@@ -40,7 +49,24 @@ class JobsController extends Controller
 
         event(new JobWasPublished($job));
 
-        return redirect('job/show/'.$job->id);
+        return redirect('job/show/'. $job->id);
+
+        return view('forms.addphoto', compact('job'));
+
+    }
+
+
+    public function addPhoto($jobId, Request $request)
+    {
+
+        $file = $request->file('photo');
+        $filename = time().$file->getClientOriginalName();
+        $file->move('jobs/photos', $filename);
+
+        $job = Job::find($jobId);
+        $job->photos()->create(['path' => "/jobs/photos/{$filename}" ]);
+
+
 
     }
 

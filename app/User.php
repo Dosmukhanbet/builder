@@ -16,7 +16,7 @@ class User extends Authenticatable
         'phone_number' => 'integer',
     ];
     protected $fillable = [
-        'name', 'password', 'phone_number', 'email', 'confirmed', 'city_id'
+        'name', 'password', 'phone_number', 'email', 'type','confirmed', 'city_id', 'category_id'
     ];
 
     public static function boot ()
