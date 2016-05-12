@@ -27,3 +27,8 @@ Route::group(['prefix'=> 'job', 'middleware' => 'auth'], function()
     }
 );
 
+
+Route::group(['prefix' => 'job', 'middleware' => 'masters'], function(){
+
+});
+

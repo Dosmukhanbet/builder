@@ -16,7 +16,7 @@ require('laravel-elixir-vueify');
 
 elixir(function(mix) {
     mix.sass('app.scss')
-        .styles(['sweetalert.css', 'dropzone.css'])
-        .scripts(['libs/dropzone.js'])
+        .styles(['sweetalert.css', 'dropzone.css', 'lity.css'])
+        .scripts(['libs/dropzone.js', 'libs/lity.js'])
         .browserify('main.js');
 });

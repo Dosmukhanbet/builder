@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Events\JobWasPublished;
 use App\Job;
+use App\JobPhoto;
 use Auth;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
@@ -16,6 +18,7 @@ class JobsController extends Controller
     {
         $jobs = Job::where('category_id', $categoryId)
                         ->where('city_id', $cityId)
+                        ->where('dateOfMake', '>=' , Carbon::now())
                         ->get();
         dd($jobs);
     }
@@ -45,7 +48,7 @@ class JobsController extends Controller
         $job->user_id = $user->id;
         $job->save();
 
-        flash()->success('Заявка добавлена!', "валофапывпдод");
+        flash()->success('Заявка добавлена!', "Вы можете добавить фотографии");
 
         event(new JobWasPublished($job));
 
@@ -59,12 +62,16 @@ class JobsController extends Controller
     public function addPhoto($jobId, Request $request)
     {
 
-        $file = $request->file('photo');
-        $filename = time().$file->getClientOriginalName();
-        $file->move('jobs/photos', $filename);
+//        $file = $request->file('photo');
+//        $filename = time().$file->getClientOriginalName();
+//        $file->move('jobs/photos', $filename);
 
-        $job = Job::find($jobId);
-        $job->photos()->create(['path' => "/jobs/photos/{$filename}" ]);
+        $photo = new JobPhoto();
+
+        $photo->addPhoto($request->file('photo'),Job::find($jobId) );
+//        $job = Job::find($jobId)->addPhoto($request->file('photo'));
+//
+//        $job->photos()->create(['path' => "/jobs/photos/{$filename}" ]);
 
 
 

@@ -5,7 +5,7 @@ template : `
     <div class="form-group">
         <label class="col-md-4 control-label">Я</label>
         <div class="col-md-6">
-            <select name="type" v-model="type" id="type" class="form-control" v-model="type">
+            <select name="type" v-model="type" id="type" class="form-control" v-model="type" required>
                 <option v-for="type in types" value="{{type.value}}">{{type.name}}</option >
             </select>
         </div>

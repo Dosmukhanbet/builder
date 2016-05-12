@@ -6,7 +6,7 @@ export default Vue.extend({
     template: `
             <label class="col-md-4 control-label">Мобильный номер</label>
             <div class="col-md-6">
-                 <input type="text" class="form-control" placeholder="Например: 77075553322" v-model="phonenumber" name="phone_number">
+                 <input type="text" class="form-control" placeholder="Например: 77075553322" v-model="phonenumber" name="phone_number" required>
             </div>
             <div class="col-md-6 col-md-offset-4 Register--button"  v-show="!confirmed">
                 <button type="submit" @click="sendSMS" class="btn btn-warning">Запросить Код подтверждения</button>
