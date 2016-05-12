@@ -10,8 +10,7 @@ class SMS {
 
             public function send($recipient, $body)
             {
-
-$api = new MobizonApi(getenv('MOBIZON_KEY'));
+                $api = new MobizonApi(getenv('MOBIZON_KEY'));
                 $code = mt_rand(999, 10000);
 
 $alphaname = 'sellwithus';

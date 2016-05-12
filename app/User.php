@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Job;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -15,7 +16,7 @@ class User extends Authenticatable
         'phone_number' => 'integer',
     ];
     protected $fillable = [
-        'name', 'password', 'phone_number', 'email', 'confirmed', 'city_id'
+        'name', 'password', 'phone_number', 'email', 'type','confirmed', 'city_id', 'category_id'
     ];
 
     public static function boot ()
@@ -35,4 +36,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function jobs()
+    {
+        return $this->hasMany(Job::class);
+    }
 }

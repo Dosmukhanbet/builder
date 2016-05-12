@@ -1,32 +1,32 @@
                 <nav class="navbar navbar-inverse navbar-static-top">
                     <div class="container">
-                        <div class="navbar-header">
+                         <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="navbar-header">
+                                    <!-- Branding Image -->
+                                   <a class="navbar-brand" href="{{ url('/') }}">
+                                        Builder.com
+                                    </a>
+                                </div>
+                                                            <!-- Left Side Of Navbar -->
+                                                            {{--<ul class="nav navbar-nav">--}}
+                                                                {{--<li><a href="{{ url('/job/create') }}">Начать работу</a></li>--}}
+                                                               {{--<li><a href="{{ url('/pages/howitworks') }}">Как это работает?</a></li>--}}
 
-                            <!-- Collapsed Hamburger -->
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                                <span class="sr-only">Toggle Navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
+                                                            {{--</ul>--}}
 
-                            <!-- Branding Image -->
-                           <a class="navbar-brand" href="{{ url('/') }}">
-                                Builder.com
-                            </a>
-                        </div>
+                                @if($user && $user->type == 'client')
+                                    @include('partials.clientnav')
+                                @elseif($user && $user->type == 'master')
+                                    @include('partials.masternav')
+                                @else
+                                        <ul class="nav navbar-nav navbar-right">
+                                             <li><a href="{{ url('/login') }}">Вход</a></li>
+                                             <li><a href="{{ url('/register') }}">Регистрация</a></li>
+                                        </ul>
 
-                        @if($user && $user->type == 'client')
-                            @include('partials.clientnav')
-                        @elseif($user && $user->type == 'master')
-                            @include('partials.masternav')
-                        @else
-                                <ul class="nav navbar-nav navbar-right">
-                                     <!-- Authentication Links -->
-                                     <li><a href="{{ url('/login') }}">Вход</a></li>
-                                     <li><a href="{{ url('/register') }}">Регистрация</a></li>
-                                </ul>
-
-                        @endif
+                                @endif
+                            </div>
+                         </div>
                     </div>
                 </nav>

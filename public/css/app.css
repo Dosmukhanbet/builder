@@ -5756,7 +5756,8 @@ button.close {
   padding-left: 10px; }
 
 body {
-  font-family: 'Open Sans Condensed', sans-serif; }
+  font-family: 'Open Sans Condensed', sans-serif;
+  background: #f9f9f9; }
 
 .fa-btn {
   margin-right: 6px; }
