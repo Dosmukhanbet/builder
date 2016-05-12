@@ -8,7 +8,7 @@
 <body>
             <h1>Новая заявка!</h1>
             Уважаемый пользователь, в категории {{ $categories[$job->category_id] }} была добавлена новая заявка.
-                <a href='{{ url("/job/show/".$job->id) }}'>Переити к заявке</a>
+                <a href='{{ url("master/active/jobs/") }}'>Переити к активным заявкам </a>
 
              </body>
 </html>

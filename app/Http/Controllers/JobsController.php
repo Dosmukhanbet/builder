@@ -14,13 +14,13 @@ class JobsController extends Controller
 {
 
 
-    public function getPostedJobs($categoryId, $cityId)
+    public function getPostedJobs()
     {
-        $jobs = Job::where('category_id', $categoryId)
-                        ->where('city_id', $cityId)
+        $jobs = Job::where('category_id', Auth::user()->category_id )
+                        ->where('city_id', Auth::user()->city_id )
                         ->where('dateOfMake', '>=' , Carbon::now())
                         ->get();
-        dd($jobs);
+        return view('master.activejobs', compact('jobs'));
     }
     
     public function create()
@@ -80,7 +80,13 @@ class JobsController extends Controller
 
     public function show($id)
     {
+
         $job = Job::find($id);
+        if($job->user_id != Auth::user()->id)
+        {
+
+            return back();
+        }
         return view('jobs.show', compact('job'));
     }
 }

@@ -5755,6 +5755,18 @@ button.close {
 .Register--link {
   padding-left: 10px; }
 
+.Job__name {
+  margin-top: 0; }
+
+ul.Job__list {
+  padding: 0; }
+
+.Job__list li {
+  list-style: none; }
+
+.Images {
+  padding: 0 7px 5px 0; }
+
 body {
   font-family: 'Open Sans Condensed', sans-serif;
   background: #f9f9f9; }

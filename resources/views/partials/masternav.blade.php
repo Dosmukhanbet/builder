@@ -1,7 +1,7 @@
-<div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    <div class="collapse navbar-collapse" id="app-navbar-collapse">
                             <!-- Left Side Of Navbar -->
                             <ul class="nav navbar-nav">
-                                <li><a href='{{ url("/job/category/".$user->category_id."/city/".$user->city_id) }}'>Активные заявки</a></li>
+                                <li><a href='{{ url("master/active/jobs") }}'>Активные заявки</a></li>
                             </ul>
 
                             <!-- Right Side Of Navbar -->
