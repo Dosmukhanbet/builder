@@ -19,14 +19,7 @@
  </head>
 <body id="app-layout">
         {{--Navigation--}}
-<<<<<<< HEAD
-        @include('partials.navigation')
-=======
 @include('partials.navigation')
-
-<div class="container">
-
->>>>>>> JobObject
 
         <div class="container">
             @yield('content')
