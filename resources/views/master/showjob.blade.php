@@ -17,7 +17,7 @@
                             <li>Опубликовано : {{ $job->created_at->diffForHumans() }}</li>
                             @if($job->price)
                                 <li>Цена : {{ $job->price }}</li>
-                            @endif
+                             @endif
                          </ul>
                     </div>
                     <div class="col-md-7 Images__block">
@@ -37,40 +37,10 @@
 
 
                 </div>
-                 @unless($job->photos->count() >= 5)
-                            <div class="row">
-                            <div class="col-md-8 col-md-offset-1" style="padding-top: 35px;">
-                                 <form id="addPhotos" class="dropzone" action="/job/addphoto/{{$job->id}}">
-                                    {{ csrf_field() }}
-                                  </form>
-                            </div>
-                            </div>
-                  @endunless
 
 
 @endsection
+
 @section('scripts.footer')
     <script src="/js/all.js"></script>
-    <script>
-        Dropzone.options.addPhotos =
-        {
-              paramName: "photo", // The name that will be used to transfer the file
-              maxFilesize: 2,
-              acceptedFiles : '.jpg, .jpeg, .png',
-              dictDefaultMessage : 'Загрузить фотографии. Можно сразу выбрать несколько. Максимум 5 фотографии.',
-              dictInvalidFileType : 'Вы не можете загружать файлы данного типа',
-              dictFileTooBig: "Размер файла не должен превышать 2мб",
-              maxFiles: 5,
-              init: function () {
-                      // Set up any event handlers
-                      this.on('complete', function () {
-                          if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
-                              location.reload();
-                          }
-                      });
-                  }
-         }
-
-
-    </script>
 @endsection

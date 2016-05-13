@@ -14,14 +14,7 @@ class JobsController extends Controller
 {
 
 
-    public function getPostedJobs()
-    {
-        $jobs = Job::where('category_id', Auth::user()->category_id )
-                        ->where('city_id', Auth::user()->city_id )
-                        ->where('dateOfMake', '>=' , Carbon::now())
-                        ->get();
-        return view('master.activejobs', compact('jobs'));
-    }
+
     
     public function create()
     {
@@ -31,6 +24,8 @@ class JobsController extends Controller
 
     public function store(Request $request)
     {
+
+//        dd($request->all());
         $this->validate($request, [
             'Кратко_о_работе' => 'required',
             'city_id' => 'required',
@@ -46,6 +41,7 @@ class JobsController extends Controller
         $job->dateOfMake = $request['Дата_Исполнения'];
         $job->category_id = $request['category_id'];
         $job->user_id = $user->id;
+        $job->price= $request['price'];
         $job->save();
 
         flash()->success('Заявка добавлена!', "Вы можете добавить фотографии");
@@ -54,7 +50,6 @@ class JobsController extends Controller
 
         return redirect('job/show/'. $job->id);
 
-        return view('forms.addphoto', compact('job'));
 
     }
 

@@ -32,6 +32,7 @@ class CreateJobsTable extends Migration
                   ->onDelete('cascade');
 
             $table->boolean('status')->default(0);
+            $table->string('price')->nullable();
             $table->dateTime('dateOfMake');
             $table->timestamps();
         });

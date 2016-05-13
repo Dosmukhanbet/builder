@@ -13,7 +13,7 @@
                             <label class="col-md-4 control-label">Кратко о работе</label>
 
                             <div class="col-md-6">
-                                <input type="name" class="form-control" name="Кратко_о_работе" value="{{ old('Кратко_о_работе') }}">
+                                <input type="name" class="form-control" name="Кратко_о_работе" value="{{ old('Кратко_о_работе') }}" required>
 
                                 @if ($errors->has('Кратко_о_работе'))
                                     <span class="help-block">
@@ -27,7 +27,7 @@
                             <label class="col-md-4 control-label">Описание</label>
 
                             <div class="col-md-6">
-                                <textarea class="form-control" rows="3" name="Описание" value="{{ old('Описание') }}"></textarea>
+                                <textarea class="form-control" rows="3" name="Описание" value="{{ old('Описание') }}" required></textarea>
                                  @if ($errors->has('Описание'))
                                      <span class="help-block">
                                      <strong>{{ $errors->first('Описание') }}</strong>
@@ -51,20 +51,22 @@
 
                          <div class="form-group{{ $errors->has('Дата_Исполнения') ? ' has-error' : '' }}">
                              <label class="col-md-4 control-label">Дата и Время исполнения</label>
-
-                                                    <div class="col-md-6">
-                                                        <input type="datetime" class="form-control" name="Дата_Исполнения" value="{{ date('Y-m-d H:i') }}">
-
+                                  <div class="col-md-6">
+                                       <input type="datetime" class="form-control" name="Дата_Исполнения" value="{{ date('Y-m-d H:i') }}">
                                                         @if ($errors->has('Дата_Исполнения'))
                                                             <span class="help-block">
                                                                 <strong>{{ $errors->first('Дата_Исполнения') }}</strong>
                                                             </span>
                                                         @endif
+                                  </div>
+                          </div>
 
-
-
-                                                    </div>
-                                                </div>
+                         <div class="form-group">
+                             <label class="col-md-4 control-label">Сколько вы готовы заплатить?</label>
+                                  <div class="col-md-6">
+                                       <input type="text" class="form-control" v-model="price | currency 'KZT '"   name="price" value="{{ old('price') }}">
+                                  </div>
+                          </div>
 
 
 

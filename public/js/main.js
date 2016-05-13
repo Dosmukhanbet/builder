@@ -12982,7 +12982,9 @@ _vue2.default.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#tok
 
 new _vue2.default({
     el: '#app-layout',
-    data: {},
+    data: {
+        price: ''
+    },
 
     components: {
         sendsms: _sendsms2.default, types: _types2.default, jobstype: _jobstype2.default

@@ -29,6 +29,7 @@ Route::group(['prefix'=> 'job', 'middleware' => 'auth'], function()
 
 
 Route::group(['prefix' => 'master', 'middleware' => 'master'], function(){
-    Route::get('active/jobs', 'JobsController@getPostedJobs');
+    Route::get('active/jobs', 'MastersController@getActiveJobs');
+    Route::get('show/job/{jobId}', 'MastersController@show');
 });
 

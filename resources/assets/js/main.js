@@ -9,6 +9,7 @@ import jobstype from './components/jobstype.js';
 new Vue ({
    el : '#app-layout',
     data:{
+        price : ''
     },
 
 
