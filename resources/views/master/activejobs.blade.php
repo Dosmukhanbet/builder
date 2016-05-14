@@ -7,12 +7,13 @@
                 <h1>Active Jobs</h1>
                    <table class="table table-bordered">
                     <tr class="active">
+
                     		<td>Короткое описание</td>
                     		<td>Город</td>
                     		<td>Статус</td>
                     		<td>Дата время исполнения</td>
                     		<td>Опубликовано</td>
-                    		<td>Цена</td>
+                    		<td>Бюджет</td>
                     		<td> .... </td>
 
                    </tr>
@@ -28,13 +29,13 @@
                         <td>{{ $job->dateOfMake->diffForHumans() }}</td>
                         <td>{{ $job->created_at->diffForHumans() }}</td>
                         <td>{{ $job->price }}</td>
-                        <td> <a href='{{ url( "master/show/job/". $job->id ) }}'>Посмотреть...</a> </td>
+                        <td> <a href='{{ url( "master/show/job/". $job->id ) }}'>Посмотреть</a> </td>
                         </tr>
                         @endforeach
                 </table>
 
                @else
-                 <h1>There is no Active Jobs</h1>
+                 <h1>Нет активных заявок в Вашем регионе по вашей специальости</h1>
                @endif
 
 

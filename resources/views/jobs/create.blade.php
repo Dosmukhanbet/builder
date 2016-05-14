@@ -8,7 +8,6 @@
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/job/create') }}">
                         {!! csrf_field() !!}
-
                         <div class="form-group{{ $errors->has('Кратко_о_работе') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Кратко о работе</label>
 
@@ -52,10 +51,10 @@
                          <div class="form-group{{ $errors->has('Дата_Исполнения') ? ' has-error' : '' }}">
                              <label class="col-md-4 control-label">Дата и Время исполнения</label>
                                   <div class="col-md-6">
-                                       <input type="datetime" class="form-control" name="Дата_Исполнения" value="{{ date('Y-m-d H:i') }}">
-                                                        @if ($errors->has('Дата_Исполнения'))
+                                       <input id="datetimepicker" type="text" class="form-control" name="dateOfMake">
+                                                        @if ($errors->has('dateOfMake'))
                                                             <span class="help-block">
-                                                                <strong>{{ $errors->first('Дата_Исполнения') }}</strong>
+                                                                <strong>{{ $errors->first('dateOfMake') }}</strong>
                                                             </span>
                                                         @endif
                                   </div>
@@ -87,3 +86,15 @@
 
 
 @endsection
+
+@section('scripts.footer')
+<script src="/js/all.js"></script>
+<script>
+jQuery('#datetimepicker').datetimepicker({
+  format:'Y-m-d H:i',
+//  inline:true,
+  lang:'ru'
+});
+
+</script>
+@stop

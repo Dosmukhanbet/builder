@@ -24,13 +24,13 @@ class JobsController extends Controller
 
     public function store(Request $request)
     {
+//        dd($request->dateOfMake);
 
-//        dd($request->all());
         $this->validate($request, [
             'Кратко_о_работе' => 'required',
             'city_id' => 'required',
             'Описание' => 'required',
-            'Дата_Исполнения' => 'required|date'
+            'dateOfMake' => 'required|date'
         ]);
         $user = Auth::user();
 
@@ -38,7 +38,7 @@ class JobsController extends Controller
         $job->name = $request['Кратко_о_работе'];
         $job->city_id = $request['city_id'];
         $job->description = $request['Описание'];
-        $job->dateOfMake = $request['Дата_Исполнения'];
+        $job->dateOfMake = $request['dateOfMake'];
         $job->category_id = $request['category_id'];
         $job->user_id = $user->id;
         $job->price= $request['price'];
@@ -72,6 +72,12 @@ class JobsController extends Controller
 
     }
 
+    public function all()
+    {
+        $jobs = Job::with('offers.user')->where('user_id', Auth::user()->id)->get();
+        return view('jobs.all', compact('jobs'));
+    }
+
 
     public function show($id)
     {
@@ -79,7 +85,7 @@ class JobsController extends Controller
         $job = Job::find($id);
         if($job->user_id != Auth::user()->id)
         {
-
+            flash()->error('Ошибка', 'Нельзя просматривать и редактировать чужие записи!');
             return back();
         }
         return view('jobs.show', compact('job'));

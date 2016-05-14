@@ -3,6 +3,7 @@
 namespace App;
 
 use App\User;
+use App\Offer;
 use App\JobPhoto;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -15,6 +16,7 @@ class Job extends Model
                             'category_id',
                             'status',
                             'dateOfMake'];
+
     protected $dates = ['dateOfMake'];
 
 
@@ -33,6 +35,11 @@ class Job extends Model
     public function photos()
     {
         return $this->hasMany(JobPhoto::class);
+    }
+
+    public function offers()
+    {
+        return $this->hasMany(Offer::class);
     }
 
 }

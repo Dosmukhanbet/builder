@@ -3,6 +3,8 @@
                             <ul class="nav navbar-nav">
                                 <li><a href="{{ url('/home') }}">Главная</a></li>
                                 <li><a href="{{ url('/job/create') }}">Подать заявку</a></li>
+                                <li><a href="{{ url('/job/all') }}">Мои заявки</a></li>
+
 
                             </ul>
 
@@ -14,9 +16,8 @@
                                         </a>
 
                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                                            <li><a href="{{ url('/profile') }}"><i class="fa fa-btn fa-sign-out"></i>Профиль</a></li>
-                                            <li><a href="{{ url('/profile') }}"><i class="fa fa-btn fa-sign-out"></i>Мои заказы</a></li>
+                                            <li><a href="{{ url('/logout') }}">Выйти</a></li>
+                                            <li><a href="{{ url('/profile') }}">Профиль</a></li>
                                         </ul>
                                     </li>
                              </ul>

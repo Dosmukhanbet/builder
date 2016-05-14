@@ -16,11 +16,14 @@
                             <li>Дата/время исполнения : {{ $job->dateOfMake->diffForHumans() }}</li>
                             <li>Опубликовано : {{ $job->created_at->diffForHumans() }}</li>
                             @if($job->price)
-                                <li>Цена : {{ $job->price }}</li>
+                                <li><h4>Цена : {{ $job->price }}</h4></li>
                              @endif
                          </ul>
                     </div>
                     <div class="col-md-7 Images__block">
+                            @if($job->photos->isEmpty())
+                                <h3>Пользователь не добавил фотографии</h3>
+                            @else
                                             @foreach($job->photos->chunk(3) as $set)
                                                     <div class="row">
                                                           <div class="col-md-12  Images">
@@ -33,11 +36,55 @@
 
                                                     </div>
                                             @endforeach
+                            @endif
                      </div>
 
 
                 </div>
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-1 ">
+                    <hr>
+                            @if($job->price)
+                                <a href="#">Готовь выполнить за эту цену</a>
+                            @endif
+                            <form  class="form-horizontal Offer__form" action="{{ url('master/offer/for/'. $job->id) }}" method="POST">
+                                                                {!! csrf_field() !!}
 
+                                                    <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }} Offer__block">
+                                                        <label class="control-label">Предложить свою цену:</label>
+
+
+                                                            <input type="name" class="form-control" v-model="price | currency 'KZT '  " name="price" value="{{ old('price') }}" required>
+
+                                                            @if ($errors->has('price'))
+                                                                <span class="help-block">
+                                                                    <strong>{{ $errors->first('price') }}</strong>
+                                                                </span>
+                                                            @endif
+
+                                                    </div>
+
+                                                    <div class="Offer__block form-group{{ $errors->has('comment') ? ' has-error' : '' }}">
+                                                        <label class="control-label">Добавить комментарии:</label>
+
+                                                            <textarea class="form-control" rows="3" name="comment" value="{{ old('comment') }}"></textarea>
+                                                             @if ($errors->has('comment'))
+                                                                 <span class="help-block">
+                                                                 <strong>{{ $errors->first('comment') }}</strong>
+                                                              @endif
+
+                                                    </div>
+
+                                                     <div class="form-group">
+                                                         <button type="submit" class="btn btn-warning">
+                                                             <i class="fa fa-btn fa-sign-in"></i>Отправить предложение
+                                                          </button>
+                                                      </div>
+
+                            </form>
+
+                    </div>
+                </div>
 
 @endsection
 

@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('cities', \App\City::lists('name', 'id'));
         });
 
-        view()->composer(['jobs.show', 'email.jobposted', 'master.showjob'], function($view){
+        view()->composer(['jobs.show', 'jobs.all' , 'email.jobposted', 'master.showjob'], function($view){
             $view->with('categories', \App\Category::lists('name', 'id'));
         });
 

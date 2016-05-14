@@ -1,4 +1,4 @@
-                <nav class="navbar navbar-inverse navbar-static-top">
+                <nav class="navbar navbar-inverse  navbar-static-top Nav__gen">
                     <div class="container">
                          <div class="row">
                             <div class="col-md-10 col-md-offset-1">
