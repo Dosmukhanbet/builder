@@ -45,7 +45,16 @@
                     <div class="col-md-3 col-md-offset-1 ">
                     <hr>
                             @if($job->price)
-                                <a href="#">Готовь выполнить за эту цену</a>
+                            <form  class="form-horizontal Offer__form" action="{{ url('master/offer/for/'. $job->id) }}" method="POST">
+                                                                                            {!! csrf_field() !!}
+                            <input name="price" type="hidden" value="{{$job->price}}">
+                            <div class="form-group">
+                                   <button type="submit" class="btn btn-warning">
+                                      Готовь выполнить за эту цену
+                                   </button>
+                            </div>
+
+                            </form>
                             @endif
                             <form  class="form-horizontal Offer__form" action="{{ url('master/offer/for/'. $job->id) }}" method="POST">
                                                                 {!! csrf_field() !!}

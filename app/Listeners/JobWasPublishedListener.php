@@ -12,7 +12,6 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 class JobWasPublishedListener implements ShouldQueue
 {
-
     /**
      * @var AppMailer
      */

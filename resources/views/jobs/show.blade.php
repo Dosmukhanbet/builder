@@ -57,7 +57,7 @@
               paramName: "photo", // The name that will be used to transfer the file
               maxFilesize: 2,
               acceptedFiles : '.jpg, .jpeg, .png',
-              dictDefaultMessage : 'Загрузить фотографии. Можно сразу выбрать несколько. Максимум 5 фотографии.',
+              dictDefaultMessage : 'Загрузить фотографии. Можно сразу выбрать несколько. Максимальный размер фотографии 2МБ. Максимум 5 фотографии.',
               dictInvalidFileType : 'Вы не можете загружать файлы данного типа',
               dictFileTooBig: "Размер файла не должен превышать 2мб",
               maxFiles: 5,

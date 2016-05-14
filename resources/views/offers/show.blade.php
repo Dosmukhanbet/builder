@@ -3,12 +3,12 @@
 
 
 @section('content')
-        @foreach($offers->chunk(4) as $set)
-            <div class="row">
-                <h3>Предложения на заявку {{$offers[0]->job->name}} № {{$offers[0]->job->id}}  </h3>
+         <h3 class="Offer__header">Предложения на заявку {{$offers[0]->job->name}} № {{$offers[0]->job->id}}  </h3>
+        @foreach($offers->chunk(3) as $set)
+            <div class="row Offer__row">
                 @foreach($set as $offer)
-                    <div class="col-md-3">
-                    <ul>
+                    <div class="col-md-3 Offer__block">
+                    <ul class="Offer__list">
                         <li>Мастер: {{$offer->user->name}} </li>
                         <li>Сотовый номер: {{$offer->user->phone_number}} </li>
                         <li>Предложенная цена: {{$offer->price}}</li>
@@ -17,6 +17,9 @@
                                          @endif
                         </li>
                     </ul>
+                       <button type="submit" class="btn btn-warning " >
+                         Принять предложение
+                        </button>
                     </div>
                 @endforeach
             </div>

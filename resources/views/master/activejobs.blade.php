@@ -4,7 +4,7 @@
     <div class="row">
     <div class="col-md-10 col-md-offset-1">
             @if($jobs->count() >= 1)
-                <h1>Active Jobs</h1>
+                <h1>Активные заявки в вашем регионе</h1>
                    <table class="table table-bordered">
                     <tr class="active">
                             <td> # Заявки </td>
@@ -20,7 +20,7 @@
                         @foreach($jobs as $job)
                         <tr>
                         <td> {{ $job->id }} </td>
-                        <td><a href='{{ url( "master/show/job/". $job->id ) }}'>{{$job->name}}</a></td>
+                        <td><a href='{{ url( "master/show/job/". $job->id ) }}'>{{str_limit($job->name, 15)}}</a></td>
                         <td>{{ $cities[$job->city_id]}}</td>
                         <td>{{ $job->dateOfMake->diffForHumans() }}</td>
                         <td>{{ $job->created_at->diffForHumans() }}</td>
