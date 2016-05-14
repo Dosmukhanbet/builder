@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
                     <div class="col-md-4 col-md-offset-1 Job__view">
-                         <h3 class="Job__name">{{ $job->name }}</h3>
+                         <h3 class="Job__name">Заявка № {{ $job->id . " " . $job->name }}</h3>
                          <ul class="Job__list">
                             <li>Категория :{{ $categories[$job->category_id]}}</li>
                             <li>Описание : {{ $job->description }}</li>
@@ -16,7 +16,7 @@
                             <li>Дата/время исполнения : {{ $job->dateOfMake->diffForHumans() }}</li>
                             <li>Опубликовано : {{ $job->created_at->diffForHumans() }}</li>
                             @if($job->price)
-                                <li>Цена : {{ $job->price }}</li>
+                                <li>Бюджет : {{ $job->price }}</li>
                             @endif
                          </ul>
                     </div>

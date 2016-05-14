@@ -20,7 +20,9 @@ class OffersController extends Controller
             $offer->user_id = Auth::user()->id;
             $offer->save();
 
-            return $offer;
+            flash()->success(" ", "Ваше предложение успешно добавлено");
+
+            return redirect(url('master/active/jobs'));
 
     }
 

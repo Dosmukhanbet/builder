@@ -61,9 +61,9 @@
                           </div>
 
                          <div class="form-group">
-                             <label class="col-md-4 control-label">Сколько вы готовы заплатить?</label>
+                             <label class="col-md-4 control-label">Бюджет</label>
                                   <div class="col-md-6">
-                                       <input type="text" class="form-control" v-model="price | currency 'KZT '"   name="price" value="{{ old('price') }}">
+                                       <input type="text" placeholder="в тенге" class="form-control" v-model="price | currency 'KZT '"   name="price" value="{{ old('price') }}">
                                   </div>
                           </div>
 

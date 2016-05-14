@@ -7,29 +7,25 @@
                 <h1>Active Jobs</h1>
                    <table class="table table-bordered">
                     <tr class="active">
-
+                            <td> # Заявки </td>
                     		<td>Короткое описание</td>
                     		<td>Город</td>
-                    		<td>Статус</td>
                     		<td>Дата время исполнения</td>
                     		<td>Опубликовано</td>
                     		<td>Бюджет</td>
-                    		<td> .... </td>
+
 
                    </tr>
 
                         @foreach($jobs as $job)
                         <tr>
-                        <td>{{$job->name}}</td>
+                        <td> {{ $job->id }} </td>
+                        <td><a href='{{ url( "master/show/job/". $job->id ) }}'>{{$job->name}}</a></td>
                         <td>{{ $cities[$job->city_id]}}</td>
-                        <td>@if($job->status == 0 ) Активен
-                                @else Не активен
-                            @endif
-                        </td>
                         <td>{{ $job->dateOfMake->diffForHumans() }}</td>
                         <td>{{ $job->created_at->diffForHumans() }}</td>
                         <td>{{ $job->price }}</td>
-                        <td> <a href='{{ url( "master/show/job/". $job->id ) }}'>Посмотреть</a> </td>
+
                         </tr>
                         @endforeach
                 </table>

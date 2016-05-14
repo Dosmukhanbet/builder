@@ -4,6 +4,7 @@ namespace App\Providers;
 
 
 use App\City;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 
@@ -27,6 +28,8 @@ class AppServiceProvider extends ServiceProvider
         view()->composer(['partials.navigation','partials.masternav'], function($view){
             $view->with('user', Auth::user());
         });
+
+        Carbon::setLocale('ru');
     }
 
     /**

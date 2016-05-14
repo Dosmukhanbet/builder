@@ -16,7 +16,7 @@
                             <li>Дата/время исполнения : {{ $job->dateOfMake->diffForHumans() }}</li>
                             <li>Опубликовано : {{ $job->created_at->diffForHumans() }}</li>
                             @if($job->price)
-                                <li><h4>Цена : {{ $job->price }}</h4></li>
+                                <li><h4>Бюджет : {{ $job->price }}</h4></li>
                              @endif
                          </ul>
                     </div>
