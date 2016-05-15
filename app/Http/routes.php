@@ -23,7 +23,7 @@ Route::group(['prefix'=> 'job', 'middleware' => 'auth'], function()
         Route::post('create', 'JobsController@store');
         Route::get('all', 'JobsController@all');
         Route::get('show/{id}', 'JobsController@show');
-//        Route::get('/category/{category}/city/{city}', 'JobsController@getPostedJobs');
+//      Route::get('/category/{category}/city/{city}', 'JobsController@getPostedJobs');
         Route::post('addphoto/{job}', 'JobsController@addPhoto');
         Route::get('showoffers/{jobId}', 'OffersController@showOffers');
 
