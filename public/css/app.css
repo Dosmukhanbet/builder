@@ -5789,6 +5789,9 @@ ul.Offer__list {
   list-style: none;
   padding-left: 10px; }
 
+.Offer__button {
+  margin: 0 0 10px 10px; }
+
 body {
   font-family: 'Open Sans Condensed', sans-serif;
   background: #f9f9f9; }

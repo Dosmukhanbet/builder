@@ -16,8 +16,9 @@
                                          @else нет комментарии
                                          @endif
                         </li>
+                        <li> Поступило: {{ $offer->created_at->diffForHumans()  }}</li>
                     </ul>
-                       <button type="submit" class="btn btn-warning " >
+                       <button type="submit" class="btn btn-warning Offer__button" >
                          Принять предложение
                         </button>
                     </div>
