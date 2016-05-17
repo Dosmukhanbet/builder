@@ -30,10 +30,26 @@ Route::group(['prefix'=> 'job', 'middleware' => 'auth'], function()
     }
 );
 
+Route::group(['prefix'=> 'job', 'middleware' => 'client'], function()
+    {
+        Route::get('all', 'JobsController@all');
+        Route::get('show/{id}', 'JobsController@show');
+        Route::post('addphoto/{job}', 'JobsController@addPhoto');
+        Route::get('showoffers/{jobId}', 'OffersController@showOffers');
+        Route::get('accept/offer/{offerId}/{offeredUserId}', 'OffersController@acceptOffer');
+        Route::get('client/profile/', 'ProfileController@clientProfileShow');
+        Route::post('clientprofile/addphoto', 'ProfileController@savePhoto');
+    }
+);
+
+
+
 
 Route::group(['prefix' => 'master', 'middleware' => 'master'], function(){
     Route::get('active/jobs', 'MastersController@getActiveJobs');
     Route::get('show/job/{jobId}', 'MastersController@show');
     Route::post('offer/for/{jobId}', 'OffersController@store');
+    Route::get('profile', 'ProfileController@show');
+    Route::post('profile/addphoto', 'ProfileController@savePhoto');
 });
 

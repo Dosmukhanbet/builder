@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Job;
+use App\Offer;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -42,6 +43,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Job::class);
     }
+
+    public function offers()
+    {
+        return $this->hasMany(Offer::class);
+    }
+
 
 
 }

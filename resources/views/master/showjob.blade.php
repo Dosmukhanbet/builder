@@ -16,7 +16,7 @@
                             <li>Дата/время исполнения : {{ $job->dateOfMake->diffForHumans() }}</li>
                             <li>Опубликовано : {{ $job->created_at->diffForHumans() }}</li>
                             @if($job->price)
-                                <li><h4>Бюджет : {{ $job->price }}</h4></li>
+                                <li class="green__box"><h4>Бюджет : {{ $job->price }}</h4></li>
                              @endif
                          </ul>
                     </div>
@@ -44,54 +44,57 @@
                 <div class="row">
                     <div class="col-md-3 col-md-offset-1 ">
                     <hr>
-                            @if($job->price)
-                            <form  class="form-horizontal Offer__form" action="{{ url('master/offer/for/'. $job->id) }}" method="POST">
-                                                                                            {!! csrf_field() !!}
-                            <input name="price" type="hidden" value="{{$job->price}}">
-                            <div class="form-group">
-                                   <button type="submit" class="btn btn-warning">
-                                      Готовь выполнить за эту цену
-                                   </button>
-                            </div>
+                        @if($job->offers->where('user_id', Auth::user()->id)->isEmpty())
+                                     @if($job->price)
+                                        <form  class="form-horizontal Offer__form" action="{{ url('master/offer/for/'. $job->id) }}" method="POST">
+                                                                                                        {!! csrf_field() !!}
+                                        <input name="price" type="hidden" value="{{$job->price}}">
+                                        <div class="form-group">
+                                               <button type="submit" class="btn btn-warning">
+                                                  Готовь выполнить за эту цену
+                                               </button>
+                                        </div>
 
-                            </form>
+                                        </form>
+                                    @endif
+                                        <form  class="form-horizontal Offer__form" action="{{ url('master/offer/for/'. $job->id) }}" method="POST">
+                                                                            {!! csrf_field() !!}
+
+                                                                <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }} Offer__block">
+                                                                    <label class="control-label">Предложить свою цену:</label>
+
+
+                                                                        <input type="name" class="form-control" v-model="price | currency 'KZT '  " name="price" value="{{ old('price') }}" required>
+
+                                                                        @if ($errors->has('price'))
+                                                                            <span class="help-block">
+                                                                                <strong>{{ $errors->first('price') }}</strong>
+                                                                            </span>
+                                                                        @endif
+
+                                                                </div>
+
+                                                                <div class="Offer__block form-group{{ $errors->has('comment') ? ' has-error' : '' }}">
+                                                                    <label class="control-label">Добавить комментарии:</label>
+
+                                                                        <textarea class="form-control" rows="3" name="comment" value="{{ old('comment') }}"></textarea>
+                                                                         @if ($errors->has('comment'))
+                                                                             <span class="help-block">
+                                                                             <strong>{{ $errors->first('comment') }}</strong>
+                                                                          @endif
+
+                                                                </div>
+
+                                                                 <div class="form-group">
+                                                                     <button type="submit" class="btn btn-warning">
+                                                                         <i class="fa fa-btn fa-sign-in"></i>Отправить предложение
+                                                                      </button>
+                                                                  </div>
+
+                                        </form>
+                            @else
+                                        <p class="red__box">Вы отправляли предложение для данной заявки</p>
                             @endif
-                            <form  class="form-horizontal Offer__form" action="{{ url('master/offer/for/'. $job->id) }}" method="POST">
-                                                                {!! csrf_field() !!}
-
-                                                    <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }} Offer__block">
-                                                        <label class="control-label">Предложить свою цену:</label>
-
-
-                                                            <input type="name" class="form-control" v-model="price | currency 'KZT '  " name="price" value="{{ old('price') }}" required>
-
-                                                            @if ($errors->has('price'))
-                                                                <span class="help-block">
-                                                                    <strong>{{ $errors->first('price') }}</strong>
-                                                                </span>
-                                                            @endif
-
-                                                    </div>
-
-                                                    <div class="Offer__block form-group{{ $errors->has('comment') ? ' has-error' : '' }}">
-                                                        <label class="control-label">Добавить комментарии:</label>
-
-                                                            <textarea class="form-control" rows="3" name="comment" value="{{ old('comment') }}"></textarea>
-                                                             @if ($errors->has('comment'))
-                                                                 <span class="help-block">
-                                                                 <strong>{{ $errors->first('comment') }}</strong>
-                                                              @endif
-
-                                                    </div>
-
-                                                     <div class="form-group">
-                                                         <button type="submit" class="btn btn-warning">
-                                                             <i class="fa fa-btn fa-sign-in"></i>Отправить предложение
-                                                          </button>
-                                                      </div>
-
-                            </form>
-
                     </div>
                 </div>
 

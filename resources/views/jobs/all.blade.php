@@ -2,10 +2,10 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-10 col-md-offset-1 table-responsive">
                 @if($jobs->count() >= 1)
                     <h4>Мои заявки</h4>
-                       <table class="table table-responsive">
+                       <table class="table Table__jobs">
                         <tr class="active">
                                 <td># Заявки</td>
                         		<td>Короткое описание</td>
@@ -21,7 +21,7 @@
                             @foreach($jobs as $job)
                             <tr>
                             <td> {{$job->id}}</td>
-                            <td>{{$job->name}}</td>
+                            <td>{{str_limit($job->name, 20)}}</td>
                             <td>{{ $categories[$job->category_id]}}</td>
 
                             <td>@if($job->status == 0 ) Активен
@@ -45,7 +45,7 @@
                     </table>
 
                    @else
-                     <h1>У Вас нет ни одной заявки</h1>
+                     <h4>У Вас нет ни одной заявки</h4>
                    @endif
                    </div>
 

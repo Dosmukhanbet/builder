@@ -42,4 +42,17 @@ class Job extends Model
         return $this->hasMany(Offer::class);
     }
 
+
+    public function isOffered()
+    {
+
+        foreach($this->offers as $offer){
+            if($offer->user_id == Auth::user()->id)
+            return true;
+
+        }
+
+        return false;
+    }
+
 }

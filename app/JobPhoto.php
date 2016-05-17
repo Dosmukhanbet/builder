@@ -2,10 +2,10 @@
 
 namespace App;
 
-use App\Job;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\UploadedFile;
 use Image;
+use App\Job;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Database\Eloquent\Model;
 
 
 class JobPhoto extends Model
@@ -30,7 +30,6 @@ class JobPhoto extends Model
         $path = $this->dir. "/" . $name;
         $thumb = sprintf("%s/thumb-%s",$this->dir, $name);
         $this->makeThumbnail($path, $thumb);
-
 
         $job->photos()->create(['path' =>  $path,
                                    'thumbnail_path' =>  $thumb

@@ -47,4 +47,15 @@ class AppMailer {
         $this->deliver();
 
     }
+
+    public function sendOfferAcceptedEmailTo(User $user, $view, $subject, $jobcreator)
+    {
+        $this->to = $user->email;
+        $this->view = $view;
+        $this->data = compact('jobcreator');
+        $this->subject = $subject;
+
+        $this->deliver();
+
+    }
 }
