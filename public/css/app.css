@@ -5830,7 +5830,8 @@ ul.Offer__list {
 
 body {
   font-family: 'Open Sans Condensed', sans-serif;
-  background: #f9f9f9; }
+  background: #f9f9f9;
+  font-size: 18px; }
 
 .fa-btn {
   margin-right: 6px; }
