@@ -35,18 +35,7 @@
 
                         </div>
 
-                         <div class="form-group">
-                              <label class="col-md-4 control-label">Город</label>
-                              <div class="col-md-6">
-                                <select name="city_id" id="city_id" class="form-control">
-                                     @foreach($cities as $id => $name)
-                                       <option value="{{ $id }}"> {{ $name }} </option>
-                                     @endforeach
-                               </select>
-                               </div>
-                         </div>
-
-                        <jobstype></jobstype>
+                         <jobstype></jobstype>
 
                          <div class="form-group{{ $errors->has('Дата_Исполнения') ? ' has-error' : '' }}">
                              <label class="col-md-4 control-label">Дата и Время исполнения</label>

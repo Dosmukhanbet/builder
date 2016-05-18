@@ -28,7 +28,6 @@ class JobsController extends Controller
 
         $this->validate($request, [
             'Кратко_о_работе' => 'required',
-            'city_id' => 'required',
             'Описание' => 'required',
             'dateOfMake' => 'required|date'
         ]);
@@ -36,7 +35,7 @@ class JobsController extends Controller
 
         $job = new Job;
         $job->name = $request['Кратко_о_работе'];
-        $job->city_id = $request['city_id'];
+        $job->city_id = $user->city_id;
         $job->description = $request['Описание'];
         $job->dateOfMake = $request['dateOfMake'];
         $job->category_id = $request['category_id'];
