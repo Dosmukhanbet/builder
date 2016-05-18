@@ -86,6 +86,14 @@ class AuthController extends Controller
 
         flash()->success('Поздравляем!','Вы успешно зарегистрировались!');
 
+        if($user->type == 'master')
+        {
+            $this->redirectTo = 'master/active/jobs';
+        }else
+        {
+            $this->redirectTo = 'job/create';
+        }
+
         return $user;
     }
 
