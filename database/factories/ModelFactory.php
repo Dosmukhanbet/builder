@@ -14,8 +14,22 @@
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
-        'email' => $faker->safeEmail,
+        'description' => $faker->safeEmail,
         'password' => bcrypt(123456),
         'remember_token' => str_random(10),
+    ];
+});
+
+
+$factory->define(App\Job::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'description' => $faker->paragraph,
+        'city_id' => 1,
+        'user_id' => App\User()->first(),
+        'category_id' => 1,
+        'price' => $faker->randomNumber(4),
+        'dateOfMaker' => \Carbon\Carbon::now()->tomorrow();
+
     ];
 });

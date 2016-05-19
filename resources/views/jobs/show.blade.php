@@ -55,11 +55,11 @@
         Dropzone.options.addPhotos =
         {
               paramName: "photo", // The name that will be used to transfer the file
-              maxFilesize: 2,
+              maxFilesize: 5,
               acceptedFiles : '.jpg, .jpeg, .png',
-              dictDefaultMessage : 'Загрузить фотографии. Можно сразу выбрать несколько. Максимальный размер фотографии 2МБ. Максимум 5 фотографии.',
+              dictDefaultMessage : 'Загрузить фотографии. Можно сразу выбрать несколько. Максимальный размер фотографии 5МБ. Максимум 5 фотографии.',
               dictInvalidFileType : 'Вы не можете загружать файлы данного типа',
-              dictFileTooBig: "Размер файла не должен превышать 2мб",
+              dictFileTooBig: "Размер файла не должен превышать 5мб",
               maxFiles: 5,
               init: function () {
                       // Set up any event handlers
