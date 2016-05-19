@@ -8,12 +8,13 @@
                                         Builder.com
                                     </a>
                                 </div>
-                                                            <!-- Left Side Of Navbar -->
-                                                            {{--<ul class="nav navbar-nav">--}}
-                                                                {{--<li><a href="{{ url('/job/create') }}">Начать работу</a></li>--}}
-                                                               {{--<li><a href="{{ url('/pages/howitworks') }}">Как это работает?</a></li>--}}
-
-                                                            {{--</ul>--}}
+                                <!-- Left Side Of Navbar -->
+                                @if(Auth::guest())
+                                    <ul class="nav navbar-nav">
+                                           <li><a href="{{ url('/create/registerandcreatejob') }}">Создать заявку</a></li>
+                                           <li><a href="#">Найти исполнителя</a></li>
+                                     </ul>
+                                @endif
 
                                 @if($user && $user->type == 'client')
                                     @include('partials.clientnav')

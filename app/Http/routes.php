@@ -6,8 +6,9 @@ Route::get('/', function () {
 
 Route::auth();
 
-//ConfirmEmail
-Route::get('register/confirm/{token}', 'RegistrationController@confirmEmail');
+///Create client user and job
+Route::get('create/registerandcreatejob', 'RegistrationController@registerAndCreateJob');
+Route::post('registerandcreatejob', 'RegistrationController@storeUserAndJob');
 
 // API
 Route::post('api/sendsms', 'NotifyController@sendSms');
