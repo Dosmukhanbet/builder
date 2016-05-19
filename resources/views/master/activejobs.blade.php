@@ -4,7 +4,7 @@
     <div class="row">
     <div class="col-md-10 col-md-offset-1 table-responsive">
             @if($jobs->count() >= 1)
-                <h1>Активные заявки в вашем регионе</h1>
+                <h3>Активные заявки в вашем регионе</h3>
                    <table class="table Table__jobs">
                     <tr class="active">
                             <td> # Заявки </td>
