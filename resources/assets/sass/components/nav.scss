@@ -1,10 +1,22 @@
 .Nav__gen{
-  background: #006064;
+  background: #1F2D4C;
 }
 
 .Nav__list{
   margin-left: 25px;
 }
+
+.Nav__list > li{
+  background: #2B3E69;
+  margin: 2px 1px 1px 1px;
+}
+
+.Nav__list > li.login, .Nav__list .register{
+  background: #2B3E69;
+  margin: 2px 1px 1px 1px;
+//  font-family: 'Open Sans Condensed', sans-serif;
+}
+
 
 .Nav__links {
   color: #fff;

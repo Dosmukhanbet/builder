@@ -3,15 +3,14 @@
 @section('content')
 
      <div class="row">
-             <div class="col-md-8 col-md-offset-2">       <div class="panel panel-default">
-                <div class="panel-heading">Публикация заявки</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/job/create') }}">
+             <div class="col-md-8 col-md-offset-1 create__formbox">
+                    <h3 class="form_header">Добавить объявление</h3>
+                    <form class="create__form" role="form" method="POST" action="{{ url('/job/create') }}">
                         {!! csrf_field() !!}
                         <div class="form-group{{ $errors->has('Кратко_о_работе') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Кратко о работе</label>
+                            <label class="col-md-8 control-label">Кратко о работе</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input type="name" class="form-control" name="Кратко_о_работе" value="{{ old('Кратко_о_работе') }}" required>
 
                                 @if ($errors->has('Кратко_о_работе'))
@@ -23,9 +22,9 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('Описание') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Описание</label>
+                            <label class="col-md-8 control-label">Описание</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <textarea class="form-control" rows="3" name="Описание" value="{{ old('Описание') }}" required></textarea>
                                  @if ($errors->has('Описание'))
                                      <span class="help-block">
@@ -38,8 +37,8 @@
                          <jobstype></jobstype>
 
                          <div class="form-group{{ $errors->has('Дата_Исполнения') ? ' has-error' : '' }}">
-                             <label class="col-md-4 control-label">Дата и Время исполнения</label>
-                                  <div class="col-md-6">
+                             <label class="col-md-8 control-label">Дата и Время исполнения</label>
+                                  <div class="col-md-8">
                                        <input id="datetimepicker" type="text" class="form-control" name="dateOfMake">
                                                         @if ($errors->has('dateOfMake'))
                                                             <span class="help-block">
@@ -50,8 +49,8 @@
                           </div>
 
                          <div class="form-group">
-                             <label class="col-md-4 control-label">Бюджет</label>
-                                  <div class="col-md-6">
+                             <label class="col-md-8 control-label">Бюджет</label>
+                                  <div class="col-md-8">
                                        <input type="text" placeholder="в тенге" class="form-control" v-model="price | currency 'KZT '"   name="price" value="{{ old('price') }}">
                                   </div>
                           </div>
@@ -60,17 +59,16 @@
 
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-warning">
+                            <div class="col-md-8">
+                                <button type="submit" class="btn btn-warning __button">
                                     <i class="fa fa-btn fa-sign-in"></i>Опубликовать
                                 </button>
 
                             </div>
                         </div>
                     </form>
-                </div>
-            </div>
-        </div>
+
+
     </div>
 
 
