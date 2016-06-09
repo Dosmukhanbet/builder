@@ -1,0 +1,46 @@
+.job__list__header{
+  background: #fff;
+  padding: 10px;
+  color:#2B3E69;
+}
+
+.job__block{
+  background: #fff;
+  margin: 5px 0 10px 0;
+  padding: 15px;
+  position: relative;
+}
+
+.job__block > p{
+  margin: 0px;
+}
+.job__block > a{
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.job__block > p a.offer{
+
+}
+
+
+.job__block > .published_date {
+  color: #999999;
+  font-style: italic;
+}
+
+.job__block > .price {
+  color: #EF9E01;
+}
+.job__block span.notification {
+  font-size: 0.9em;
+  color: #999999;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.job__block .images {
+ position: absolute;
+  top: 15px;
+  right: 15px;
+}

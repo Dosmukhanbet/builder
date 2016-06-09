@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
                     <div class="col-md-4 col-md-offset-1 Job__view">
-                         <h3 class="Job__name">Заявка № {{ $job->id . " " . $job->name }}</h3>
+                         <h3 class="Job__name">{{ $job->name }}</h3>
                          <ul class="Job__list">
                             <li>Категория :{{ $categories[$job->category_id]}}</li>
                             <li>Описание : {{ $job->description }}</li>
@@ -18,6 +18,15 @@
                             @if($job->price)
                                 <li>Бюджет : {{ $job->price }}</li>
                             @endif
+                              <p>
+                                                              @if($job->offers->count())
+                                                                  <a href='{{ url( "job/showoffers/". $job->id ) }}'>
+                                                                            {{$job->offers->count()}} предложение
+                                                                  </a>
+                                                              @else
+                                                                   нет предложении
+                                                              @endif
+                                                         </p>
                          </ul>
                     </div>
                     <div class="col-md-7 Images__block">

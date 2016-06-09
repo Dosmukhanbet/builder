@@ -4,16 +4,16 @@ import VueResource from 'vue-resource';
 Vue.use(VueResource);
 export default Vue.extend({
     template: `
-            <label class="col-md-4 control-label">Мобильный номер</label>
-            <div class="col-md-6">
+            <label class="col-md-8 control-label">Мобильный номер</label>
+            <div class="col-md-8">
                  <input type="text" class="form-control" placeholder="Например: 77075553322" v-model="phonenumber" name="phone_number" required>
             </div>
-            <div class="col-md-6 col-md-offset-4 Register--button"  v-show="!confirmed">
-                <button type="submit" @click="sendSMS" class="btn btn-warning">Запросить Код подтверждения</button>
+            <div class="col-md-6 Register--button"  v-show="!confirmed">
+                <button type="submit" @click="sendSMS" class="btn btn-warning __button">Запросить Код подтверждения</button>
             </div>
 
-            <div class="col-md-6 col-md-offset-4 Register--button" v-show="confirmed">
-                <button type="submit" class="btn btn-primary">
+            <div class="col-md-8 Register--button" v-show="confirmed">
+                <button type="submit" class="btn btn-primary __button">
                    Зарегистроваться
                 </button>
             </div>

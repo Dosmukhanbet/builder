@@ -2,47 +2,39 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-10 col-md-offset-1 table-responsive">
-                @if($jobs->count() >= 1)
-                    <h4>Мои заявки</h4>
-                       <table class="table Table__jobs">
-                        <tr class="active">
-                                <td># Заявки</td>
-                        		<td>Короткое описание</td>
-                        		<td>Категория</td>
-                        		<td>Статус</td>
-                        		<td>Истекает через</td>
-                        		<td>Опубликовано</td>
-                        		<td>Бюджет</td>
-                        		<td> Предложения</td>
 
-                       </tr>
+              @if($jobs->count() >= 1)
+                <div class="col-md-8 col-md-offset-1">
+                     <h4 class="job__list__header">Мои заявки</h4>
 
-                            @foreach($jobs as $job)
-                            <tr>
-                            <td> {{$job->id}}</td>
-                            <td>{{str_limit($job->name, 20)}}</td>
-                            <td>{{ $categories[$job->category_id]}}</td>
+                         @foreach($jobs as $job)
+                          <div class="job__block">
+                                     <a href="{{url('job/show/'.$job->id)}}">{{ $job->name}}</a><br>
+                                     <p class="published_date">Опубликовано: {{ $job->created_at }}</p>
+                                     <p>Категория: {{ $categories[$job->category_id]}}</p>
+                                     <p>Дата/Время исполнения: {{ $job->dateOfMake->diffForHumans() }}</p>
+                                     <p class="price">{{ $job->price }}</p>
+                                     <p>
+                                          @if($job->offers->count())
+                                              <a class="offer" href='{{ url( "job/showoffers/". $job->id ) }}'>
+                                                     У Вас  {{$job->offers->count()}} предложение
+                                              </a>
+                                          @else
+                                           нет предложении
+                                          @endif
+                                     </p>
 
-                            <td>@if($job->status == 0 ) Активен
-                                    @else Не активен
-                                @endif
-                            </td>
-                            <td>{{ $job->dateOfMake->diffForHumans() }}</td>
-                            <td>{{ $job->created_at->diffForHumans() }}</td>
-                            <td>{{ $job->price }}</td>
-                            <td>
-                                   @if($job->offers->count())
-                                        <a href='{{ url( "job/showoffers/". $job->id ) }}'>
-                                                 {{$job->offers->count()}}
-                                        </a>
-                                   @else
-                                            нет предложении
-                                   @endif
-                            </td>
-                            </tr>
-                            @endforeach
-                    </table>
+                                      <div class="images">
+                                          @foreach($job->photos as $photo)
+                                            <a href="/{{$photo->path}}" data-lity>
+                                               <img src="/{{$photo->thumbnail_path}}"  width="75px" class="img-thumbnail">
+                                            </a>
+                                          @endforeach
+                                      </div>
+                          </div>
+                        @endforeach
+                </div>
+
 
                    @else
                      <h4>У Вас нет ни одной заявки</h4>
@@ -52,4 +44,7 @@
 </div>
 
 
+@endsection
+@section('scripts.footer')
+    <script src="/js/all.js"></script>
 @endsection

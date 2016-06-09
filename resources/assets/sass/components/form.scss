@@ -1,0 +1,52 @@
+.create__formbox{
+
+}
+
+.create__form{
+  }
+
+.form_header{
+  margin-top: 1em;
+  margin-left: 15px;
+  color: #2B3E69;
+  font-weight: bold;
+//  border: 1px solid #ddd;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.form-group select,.form-group textarea, .form-group input {
+  border: 2px solid #ccc;
+  border-radius: 0px;
+  -webkit-appearance: none
+}
+
+.form-control {
+   border-radius: 0px;
+ }
+
+.__button{
+  padding: 5px 15px 5px 15px;
+}
+
+.register__link{
+  margin-left: 15px;
+}
+.control-label{
+  text-align: left;
+  margin: 0;
+  color: #282828;
+  font-weight: 300;
+  font-size: 0.9em;
+}
+
+hr{
+  border: none; /* Убираем границу для браузера Firefox */
+  color: #344B7F; /* Цвет линии для остальных браузеров */
+  background-color: #4A90E2; /* Цвет линии для браузера Firefox и Opera */
+  height: 2px;}
+

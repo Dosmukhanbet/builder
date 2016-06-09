@@ -3,6 +3,7 @@
 
 
 @section('content')
+
          <h4 class="Offer__header">Предложения на заявку № {{$offers[0]->job->id}} {{$offers[0]->job->name}}   </h4>
         @foreach($offers->chunk(3) as $set)
             <div class="row Offer__row">
