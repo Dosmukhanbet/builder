@@ -6,7 +6,7 @@
     @foreach($masters as $master)
         <div class="findedmasters">
         <p><a data-lity href="{{ $master->photo_path ? '/' .$master->photo_path : "/profile/sitephotos/no-photo.jpg" }}">
-        <img class="img-thumbnail" width="85px" src="{{ $master->photo_path ? '/'.$master->photo_path : "/profile/sitephotos/no-photo.jpg" }}"></a></p>
+        <img class="img-thumbnail" width="85px" height="85px" src="{{ $master->photo_path ? '/'.$master->photo_path : "/profile/sitephotos/no-photo.jpg" }}"></a></p>
         <p>
             <span>Имя:</span> {{$master->name}}<br>
             <span>Город:</span> {{$cities[$master->city_id]}}<br>
