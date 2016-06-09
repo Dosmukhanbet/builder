@@ -3,6 +3,7 @@
 @section('content')
 <div class="col-md-6 col-md-offset-2">
 <h3>Мастера</h3>
+    @if($masters)
     @foreach($masters as $master)
         <div class="findedmasters">
         <p><a data-lity href="{{ $master->photo_path ? '/' .$master->photo_path : "/profile/sitephotos/no-photo.jpg" }}">
@@ -15,6 +16,9 @@
         </p>
         </div>
     @endforeach
+    @else
+        <h5>нет мастеров в Вашем регионе</h5>
+    @endif
 </div>
 @stop
 @section('scripts.footer')

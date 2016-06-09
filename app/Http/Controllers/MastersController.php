@@ -39,7 +39,7 @@ class MastersController extends Controller
                            ->where('city_id', Auth::user()->city_id)
                            ->where('category_id',Auth::user()->category_id)
                            ->get();
-        
+
         }
 
         return view('client.findmasters', compact('masters'));
