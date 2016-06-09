@@ -3,7 +3,7 @@ import VueResource from 'vue-resource';
 export default {
 template : `
     <div class="form-group">
-        <label class="col-md-4 control-label">Тип пользователя</label>
+        <label class="col-md-8 control-label">Тип пользователя</label>
         <div class="col-md-8">
             <select name="type" v-model="type" id="type" class="form-control" v-model="type" required>
                 <option v-for="type in types" value="{{type.value}}">{{type.name}}</option >

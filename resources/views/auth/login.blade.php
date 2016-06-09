@@ -38,7 +38,7 @@
                         <div class="form-group">
                             <div class="col-md-8">
                                 <button type="submit" class="btn btn-primary __button">
-                                    <i class="fa fa-btn fa-sign-in"></i>Войти
+                                    Войти
                                 </button>
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}" style="margin-left: 15px">Забыли пароль</a>
 

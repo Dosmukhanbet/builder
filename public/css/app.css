@@ -5770,14 +5770,11 @@ ul.Job__list {
 
 .Nav__list > li {
   background: #2B3E69;
-  margin: 2px 1px 1px 1px;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 1em; }
+  margin: 2px 1px 1px 1px; }
 
 .Nav__list > li.login, .Nav__list .register {
   background: #2B3E69;
-  margin: 2px 1px 1px 1px;
-  font-family: 'Open Sans Condensed', sans-serif; }
+  margin: 2px 1px 1px 1px; }
 
 .Nav__links {
   color: #fff; }
@@ -5789,9 +5786,13 @@ ul.Job__list {
   margin-left: 25px; }
 
 .Offer__block {
-  background: #F3F9FE;
-  padding: 10px 0 0 0;
-  margin: 5px; }
+  background: #fff;
+  padding: 10px; }
+
+.Offer__image {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 5px; }
 
 .Accepted {
   background: #ffebee;
@@ -5806,8 +5807,10 @@ ul.Offer__list {
 
 .Profile__block {
   padding: 0 0 10 10px;
-  background: #e0f7fa;
-  border: 1px solid #b2ebf2; }
+  background: #fff; }
+
+.Profile__block h4 {
+  color: #2B3E69; }
 
 .Profile__header {
   margin-bottom: 20px;
@@ -5848,14 +5851,18 @@ ul.Offer__list {
 
 .form-group select, .form-group textarea, .form-group input {
   border: 2px solid #ccc;
-  border-radius: 0px;
-  -webkit-appearance: none; }
-
-.form-control {
   border-radius: 0px; }
 
+.form-control {
+  border-radius: 0px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
 .__button {
-  padding: 5px 15px 5px 15px; }
+  padding: 5px 15px 5px 15px;
+  border-radius: 2px;
+  font-size: 15px; }
 
 .register__link {
   margin-left: 15px; }
@@ -5870,9 +5877,9 @@ ul.Offer__list {
 hr {
   border: none;
   /* Убираем границу для браузера Firefox */
-  color: #344B7F;
+  color: #ccc;
   /* Цвет линии для остальных браузеров */
-  background-color: #4A90E2;
+  background-color: #ccc;
   /* Цвет линии для браузера Firefox и Opera */
   height: 2px; }
 
@@ -5936,7 +5943,8 @@ hr {
   margin: 15px 0 10px 0; }
 
 .header > h5 {
-  margin: 5px 0 15px 0; }
+  margin: 5px 0 15px 0;
+  font-weight: 400; }
 
 .create__button {
   padding: 10px 15px 10px 15px;
@@ -6006,5 +6014,8 @@ p {
 ul li {
   font-weight: 300;
   font-size: 14px; }
+
+a {
+  font-size: 15px; }
 
 /*# sourceMappingURL=app.css.map */

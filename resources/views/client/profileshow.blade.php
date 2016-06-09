@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div class="col-md-4 col-md-offset-1 Profile__block">
-                <h3 class="Profile__header">Профиль пользователя</h3>
+                <h4 class="Profile__header">Профиль пользователя</h4>
                 <ul class="Profile__list">
                     <li>Имя: {{$user->name}} </li>
                     <li>Электронный адрес: {{$user->email}} </li>
