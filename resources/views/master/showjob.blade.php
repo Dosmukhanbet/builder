@@ -10,7 +10,6 @@
                             <li>Категория :{{ $categories[$job->category_id]}}</li>
                             <li>Город: {{ $cities[$job->city_id]}}</li>
                             <li>Дата/время исполнения : {{ $job->dateOfMake->diffForHumans() }}</li>
-                            <li>Опубликовано : {{ $job->created_at->diffForHumans() }}</li>
                             @if($job->price)
                                 <li class="green__box">Бюджет : {{ $job->price }}</li>
                              @endif
