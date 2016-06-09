@@ -37,8 +37,11 @@ class MastersController extends Controller
         }else{
             $masters = User::where('type','master')
                            ->where('city_id', Auth::user()->city_id)
-                           ->get('category_id',Auth::user()->category_id);
+                           ->where('category_id',Auth::user()->category_id)
+                           ->get();
+        
         }
+
         return view('client.findmasters', compact('masters'));
     }
 

@@ -11,7 +11,7 @@
                           <span class="titles">Город:</span>  {{ $cities[$job->city_id]}}<br>
                           <span class="titles">Дата/Время исполнения:</span>  {{ $job->dateOfMake->diffForHumans()}}<br>
 
-                           <span class="titles">Цена:</span> {{ $job->price }}
+                           <span class="titles">Бюджет:</span> {{ $job->price }}
                        </div>
                         @endforeach
 
