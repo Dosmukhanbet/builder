@@ -15,7 +15,9 @@
             <span>Мобильный номер:</span> +{{$master->phone_number}}<br>
         </p>
         </div>
+
     @endforeach
+    {{$masters->links()}}
     @else
         <h5>В данный момент, нет мастеров в Вашем регионе</h5>
     @endif

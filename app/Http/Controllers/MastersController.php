@@ -33,7 +33,7 @@ class MastersController extends Controller
     public function findMasters()
     {
         if(Auth::guest()){
-            $masters = User::where('type','master')->get();
+            $masters = User::where('type','master')->paginate(10);
         }else{
             $masters = User::where('type','master')
                            ->where('city_id', Auth::user()->city_id)
