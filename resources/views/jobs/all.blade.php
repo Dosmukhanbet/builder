@@ -5,20 +5,22 @@
 
               @if($jobs->count() >= 1)
                 <div class="col-md-8 col-md-offset-1">
-                     <h4 class="job__list__header">Мои заявки</h4>
+                     <h4 class="job__list__header">Мои заявки <span>({{$jobs->count()}})</span></h4>
 
                          @foreach($jobs as $job)
                           <div class="job__block">
                                      <a href="{{url('job/show/'.$job->id)}}">{{ $job->name}}</a><br>
-                                     <p class="published_date">Опубликовано: {{ $job->created_at }}</p>
+                                     <p class="published_date">Опубликовано: {{ $job->created_at->diffForHumans() }}</p>
                                      <p>Категория: {{ $categories[$job->category_id]}}</p>
                                      <p>Дата/Время исполнения: {{ $job->dateOfMake->diffForHumans() }}</p>
                                      <p class="price">{{ $job->price }}</p>
                                      <p>
                                           @if($job->offers->count())
+                                          <blink>
                                               <a class="offer" href='{{ url( "job/showoffers/". $job->id ) }}'>
                                                      У Вас  {{$job->offers->count()}} предложение
                                               </a>
+                                          </blink>
                                           @else
                                            нет предложении
                                           @endif

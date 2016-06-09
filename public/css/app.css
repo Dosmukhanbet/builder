@@ -5901,6 +5901,9 @@ hr {
   padding: 10px;
   color: #2B3E69; }
 
+.job__list__header > span {
+  color: #727272; }
+
 .job__block {
   background: #fff;
   margin: 5px 0 10px 0;
@@ -5916,7 +5919,7 @@ hr {
 
 .job__block > .published_date {
   color: #999999;
-  font-style: italic; }
+  font-size: 0.8em; }
 
 .job__block > .price {
   color: #EF9E01; }

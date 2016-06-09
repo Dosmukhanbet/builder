@@ -29,7 +29,7 @@ class ProfileController extends Controller
 
         $photo->move('profile/photos', $name);
         $path = 'profile/photos/' . $name;
-        $thumb = sprintf("%s/thumb-%s",'profile/photos/', $name);
+        $thumb = sprintf("%sthumb-%s",'profile/photos/', $name);
         $this->makeThumbnail($path, $thumb);
 
         $user = Auth::user();
@@ -47,7 +47,7 @@ class ProfileController extends Controller
     public function makeThumbnail($path, $thumb)
     {
         Image::make($path)
-            ->fit(50)
+            ->fit(75)
 //            ->circle(80,50, 50, function ($draw) {
 //                $draw->background('#fff');
 //                $draw->border(5, '#ccc');

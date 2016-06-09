@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="col-md-6 col-md-offset-2">
-<h3>Мастера</h3>
+<h3>Мастера ({{$masters->count()}})</h3>
     @if(!$masters->isEmpty())
     @foreach($masters as $master)
         <div class="findedmasters">
         <p><a data-lity href="{{ $master->photo_path ? '/' .$master->photo_path : "/profile/sitephotos/no-photo.jpg" }}">
-        <img class="img-thumbnail" width="85px" height="85px" src="{{ $master->photo_path ? '/'.$master->photo_path : "/profile/sitephotos/no-photo.jpg" }}"></a></p>
+        <img class="img-thumbnail" src="{{ $master->thumbnail_path ? '/'.$master->thumbnail_path : "/profile/sitephotos/thumb-no-photo.jpg" }}"></a></p>
         <p>
             <span>Имя:</span> {{$master->name}}<br>
             <span>Город:</span> {{$cities[$master->city_id]}}<br>
@@ -17,7 +17,7 @@
         </div>
     @endforeach
     @else
-        <h5>нет мастеров в Вашем регионе</h5>
+        <h5>В данный момент, нет мастеров в Вашем регионе</h5>
     @endif
 </div>
 @stop

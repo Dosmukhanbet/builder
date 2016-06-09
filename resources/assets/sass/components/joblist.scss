@@ -3,6 +3,9 @@
   padding: 10px;
   color:#2B3E69;
 }
+.job__list__header > span {
+  color: #727272;
+}
 
 .job__block{
   background: #fff;
@@ -26,7 +29,7 @@
 
 .job__block > .published_date {
   color: #999999;
-  font-style: italic;
+  font-size: 0.8em;
 }
 
 .job__block > .price {
