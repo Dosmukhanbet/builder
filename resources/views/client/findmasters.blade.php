@@ -12,7 +12,7 @@
             <span>Имя:</span> {{$master->name}}<br>
             <span>Город:</span> {{$cities[$master->city_id]}}<br>
             <span>Специальность:</span> {{$categories[$master->category_id]}}<br>
-            <span>Мобильный номер:</span> {{$master->phone_number}}<br>
+            <span>Мобильный номер:</span> +{{$master->phone_number}}<br>
         </p>
         </div>
     @endforeach
