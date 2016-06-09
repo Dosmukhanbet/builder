@@ -9,7 +9,7 @@
  </div>
  <div class="how__it__works">
     <div class="steps"><h4><span>1</span>Создайте заявку</h4>
-        <p>Это просто и бесплатно. Как только Вы создадите заявку на нашем сайте, мастера Вашего региона проявять интерес</p>
+        <p>Это просто и бесплатно. Как только Вы создадите заявку на нашем сайте, мастера Вашего региона смогуть увидеть его</p>
     </div>
     <div class="steps"><h4><span>2</span>Найдите мастера</h4>
         <p>Choose from local tradesmen interested in your job. Contact details are shared only when you say so.</p>
