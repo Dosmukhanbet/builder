@@ -2,40 +2,25 @@
 
 @section('content')
     <div class="row">
-    <div class="col-md-10 col-md-offset-1 table-responsive">
+        <div class="col-md-6 col-md-offset-1 table-responsive">
             @if($jobs->count() >= 1)
-                <h3>Активные заявки в вашем регионе</h3>
-                   <table class="table Table__jobs">
-                    <tr class="active">
-                            <td> # Заявки </td>
-                    		<td>Короткое описание</td>
-                    		<td>Город</td>
-                    		<td>Дата время исполнения</td>
-                    		<td>Опубликовано</td>
-                    		<td>Бюджет</td>
+                <h4>Активные заявки в вашем регионе</h4>
+                     @foreach($jobs as $job)
+                     <div class="active__jobs">
+                        <a href='{{ url( "master/show/job/". $job->id ) }}'>{{$job->name}}</a> <span class="titles__published">Опубликовано: {{ $job->created_at->diffForHumans() }}</span><br>
+                          <span class="titles">Город:</span>  {{ $cities[$job->city_id]}}<br>
+                          <span class="titles">Дата/Время исполнения:</span>  {{ $job->dateOfMake->diffForHumans()}}<br>
 
-
-                   </tr>
-
-                        @foreach($jobs as $job)
-                        <tr>
-                        <td> {{ $job->id }} </td>
-                        <td><a href='{{ url( "master/show/job/". $job->id ) }}'>{{str_limit($job->name, 20)}}</a></td>
-                        <td>{{ $cities[$job->city_id]}}</td>
-                        <td>{{ $job->dateOfMake->diffForHumans() }}</td>
-                        <td>{{ $job->created_at->diffForHumans() }}</td>
-                        <td class="green__box">{{ $job->price }}</td>
-
-                        </tr>
+                           <span class="titles">Цена:</span> {{ $job->price }}
+                       </div>
                         @endforeach
-                </table>
 
                @else
                  <h4>В данный момент нет активных заявок в Вашем регионе по вашей специальности</h4>
                @endif
 
 
-    </div>
+        </div>
     </div>
 
 @endsection

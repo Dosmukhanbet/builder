@@ -5,7 +5,11 @@ div .Job__view {
 
 .Job__name {
   margin-top: 0;
+}
 
+.Job__view >.published_date{
+	color:#ccc;
+	font-style: italic;
 }
 
 ul.Job__list {
@@ -24,5 +28,10 @@ ul.Job__list {
 
 .Offer__form{
 margin-left: 15px;
+ }
+
+ .Offer__for__job{
+ 	padding: 0;
+ 	margin-left: 95px;
  }
 

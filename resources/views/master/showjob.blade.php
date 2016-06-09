@@ -3,26 +3,22 @@
 @section('content')
     <div class="row">
                     <div class="col-md-4 col-md-offset-1 Job__view">
-                         <h3 class="Job__name">{{ $job->name }}</h3>
+                         <h4 class="Job__name">{{ $job->name }}</h4>
+                         <p class="published_date">Опубликовано : {{ $job->created_at->diffForHumans() }}</p>
                          <ul class="Job__list">
+                           <li>Описание : {{ $job->description }}</li>
                             <li>Категория :{{ $categories[$job->category_id]}}</li>
-                            <li>Описание : {{ $job->description }}</li>
                             <li>Город: {{ $cities[$job->city_id]}}</li>
-                            <li>Статус:
-                                    @if($job->status == 0 ) Активен
-                                            @else Не активен
-                                    @endif
-                            </li>
                             <li>Дата/время исполнения : {{ $job->dateOfMake->diffForHumans() }}</li>
                             <li>Опубликовано : {{ $job->created_at->diffForHumans() }}</li>
                             @if($job->price)
-                                <li class="green__box"><h4>Бюджет : {{ $job->price }}</h4></li>
+                                <li class="green__box">Бюджет : {{ $job->price }}</li>
                              @endif
                          </ul>
                     </div>
                     <div class="col-md-7 Images__block">
                             @if($job->photos->isEmpty())
-                                <h3>Пользователь не добавил фотографии</h3>
+                                <h4>Пользователь не добавил фотографии</h4>
                             @else
                                             @foreach($job->photos->chunk(3) as $set)
                                                     <div class="row">
@@ -42,25 +38,25 @@
 
                 </div>
                 <div class="row">
-                    <div class="col-md-3 col-md-offset-1 ">
-                    <hr>
+                    <div class="col-md-4 col-md-offset-1 Offer__for__job">
+                    <hr style="margin-left: 15px">
                         @if($job->offers->where('user_id', Auth::user()->id)->isEmpty())
                                      @if($job->price)
-                                        <form  class="form-horizontal Offer__form" action="{{ url('master/offer/for/'. $job->id) }}" method="POST">
+                                        <form  class="Offer__form" action="{{ url('master/offer/for/'. $job->id) }}" method="POST">
                                                                                                         {!! csrf_field() !!}
                                         <input name="price" type="hidden" value="{{$job->price}}">
                                         <div class="form-group">
-                                               <button type="submit" class="btn btn-warning">
+                                               <button type="submit" class="btn btn-warning __button ">
                                                   Готовь выполнить за эту цену
                                                </button>
                                         </div>
 
                                         </form>
                                     @endif
-                                        <form  class="form-horizontal Offer__form" action="{{ url('master/offer/for/'. $job->id) }}" method="POST">
+                                        <form  class="Offer__form" action="{{ url('master/offer/for/'. $job->id) }}" method="POST">
                                                                             {!! csrf_field() !!}
 
-                                                                <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }} Offer__block">
+                                                                <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">
                                                                     <label class="control-label">Предложить свою цену:</label>
 
 
@@ -74,7 +70,7 @@
 
                                                                 </div>
 
-                                                                <div class="Offer__block form-group{{ $errors->has('comment') ? ' has-error' : '' }}">
+                                                                <div class="form-group{{ $errors->has('comment') ? ' has-error' : '' }}">
                                                                     <label class="control-label">Добавить комментарии:</label>
 
                                                                         <textarea class="form-control" rows="3" name="comment" value="{{ old('comment') }}"></textarea>
@@ -86,8 +82,8 @@
                                                                 </div>
 
                                                                  <div class="form-group">
-                                                                     <button type="submit" class="btn btn-warning">
-                                                                         <i class="fa fa-btn fa-sign-in"></i>Отправить предложение
+                                                                     <button type="submit" class="btn btn-warning __button">
+                                                                         Отправить предложение
                                                                       </button>
                                                                   </div>
 

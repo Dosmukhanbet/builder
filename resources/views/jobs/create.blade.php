@@ -61,7 +61,7 @@
                         <div class="form-group">
                             <div class="col-md-8">
                                 <button type="submit" class="btn btn-warning __button">
-                                    <i class="fa fa-btn fa-sign-in"></i>Опубликовать
+                                   Опубликовать
                                 </button>
 
                             </div>

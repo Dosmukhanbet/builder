@@ -5750,6 +5750,10 @@ button.close {
 .Job__name {
   margin-top: 0; }
 
+.Job__view > .published_date {
+  color: #ccc;
+  font-style: italic; }
+
 ul.Job__list {
   padding: 0; }
 
@@ -5762,11 +5766,15 @@ ul.Job__list {
 .Offer__form {
   margin-left: 15px; }
 
+.Offer__for__job {
+  padding: 0;
+  margin-left: 95px; }
+
 .Nav__gen {
   background: #1F2D4C; }
 
 .Nav__list {
-  margin-left: 25px; }
+  margin-left: 5px; }
 
 .Nav__list > li {
   background: #2B3E69;
@@ -5821,14 +5829,19 @@ ul.Offer__list {
   padding-left: 0; }
 
 .green__box {
-  background: #e0f7fa;
-  border: 1px solid #b2ebf2;
-  padding: 10px; }
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 1em;
+  width: 250px;
+  text-align: center; }
 
 .red__box {
   background: #fce4ec;
   border: 1px solid #f8bbd0;
-  padding: 10px; }
+  padding: 10px;
+  margin-left: 15px; }
 
 .Table__jobs {
   background: #fff;
@@ -5860,7 +5873,7 @@ ul.Offer__list {
   appearance: none; }
 
 .__button {
-  padding: 5px 15px 5px 15px;
+  padding: 8px 15px 8px 15px;
   border-radius: 2px;
   font-size: 15px; }
 
@@ -5999,6 +6012,25 @@ hr {
 
 .steps > p {
   font-size: 0.9em; }
+
+.active__jobs {
+  background: #fff;
+  padding: 10px;
+  font-size: 0.8em;
+  margin-bottom: 7px;
+  position: relative; }
+
+.active__jobs > .titles__published {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #ccc; }
+
+.active__jobs > .titles {
+  color: #2B3E69; }
+
+.active__jobs > a {
+  font-size: 1.2em; }
 
 body {
   font-family: 'Roboto Slab', serif;
