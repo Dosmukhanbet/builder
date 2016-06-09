@@ -10,6 +10,9 @@ Route::auth();
 Route::get('create/registerandcreatejob', 'RegistrationController@registerAndCreateJob');
 Route::post('registerandcreatejob', 'RegistrationController@storeUserAndJob');
 
+//find masters
+Route::get('find/masters', 'MastersController@findMasters');
+
 // API
 Route::post('api/sendsms', 'NotifyController@sendSms');
 Route::get('/home', 'HomeController@index');

@@ -22,7 +22,7 @@
                                 @else
                                         <ul class="nav navbar-nav navbar-right Nav__list">
                                              <li><a class="Nav__links" href="{{ url('/create/registerandcreatejob') }}">Создать заявку</a></li>
-                                             <li><a class="Nav__links" href="#">Найти мастера</a></li>
+                                             <li><a class="Nav__links" href="{{url('find/masters')}}">Найти мастера</a></li>
                                              <li class="login"><a class="Nav__links" href="{{ url('/login') }}">Вход</a></li>
                                              <li class="register"><a class="Nav__links" href="{{ url('/register') }}">Регистрация</a></li>
                                         </ul>

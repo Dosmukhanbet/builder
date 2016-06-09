@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Job;
 use Auth;
 use App\Http\Requests;
@@ -27,6 +28,18 @@ class MastersController extends Controller
 //        dd($job);
 
         return view('master.showjob', compact('job'));
+    }
+
+    public function findMasters()
+    {
+        if(Auth::guest()){
+            $masters = User::where('type','master')->get();
+        }else{
+            $masters = User::where('type','master')
+                           ->where('city_id', Auth::user()->city_id)
+                           ->get('category_id',Auth::user()->category_id);
+        }
+        return view('client.findmasters', compact('masters'));
     }
 
 

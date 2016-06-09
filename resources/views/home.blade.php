@@ -3,7 +3,9 @@
  <div class="header">
         <h3>Найдите лучшего мастера в своем деле</h3>
         <h5>С Sheber.club вы с легкостью найдете подходящего мастера</h5>
+        @if(Auth::guest())
         <a class="create__button" href="create/registerandcreatejob">Создать заявку</a>
+        @endif
         <img width="900px" src="/profile/sitephotos/line-up.svg">
 
  </div>
