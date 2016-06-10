@@ -5,9 +5,15 @@ import types from './components/types.js';
 import jobstype from './components/jobstype.js';
 import masters from './components/masters.js';
 
+Vue.filter('pluck', function(value, id){
+    return value.filter(function(item){
+        if(item.id == id){
+            console.log(item.name);
+            return item.name;
 
-
-
+        };
+    });
+});
 new Vue ({
    el : '#app-layout',
     data:{
@@ -35,6 +41,9 @@ new Vue ({
 
 
     }
+
+
+
 
 
 });

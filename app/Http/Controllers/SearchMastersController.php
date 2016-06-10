@@ -29,7 +29,7 @@ class SearchMastersController extends Controller
 
     public function mastersbycategory($id)
     {
-        $masters = User::where('type','master')->where('category_id', $id)->get(['email','name', 'phone_number', 'photo_path', 'thumbnail_path']);
+        $masters = User::where('type','master')->where('category_id', $id)->get();
         return $masters;
     }
 }

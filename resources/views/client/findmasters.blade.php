@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<masters :cats="{{$cats}}"></masters>
+<masters :cats="{{json_encode($cats)}}"></masters>
 
-<div class="col-md-5">
-        <h4>Новые мастера ({{$masters->count()}})</h4>
+<div class="col-md-4">
+{{--{{dd($cats)}}--}}
+            <h4>Новые мастера</h4>
         @if(!$masters->isEmpty())
         @foreach($masters as $master)
             <div class="findedmasters">
