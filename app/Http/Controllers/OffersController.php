@@ -39,7 +39,7 @@ class OffersController extends Controller
 
     public function showOffers($jobId)
     {
-        $offers = Offer::with('user')->with('job')->where('job_id', $jobId)->get();
+        $offers = Offer::with('user')->with('job')->where('job_id', $jobId)->paginate(10);
         return view('offers.show', compact('offers', 'job'));
     }
 

@@ -49,6 +49,13 @@ class User extends Authenticatable
         return $this->hasMany(Offer::class);
     }
 
+//    public function masters($category = null)
+//    {
+//        return static::where('type','master')
+//            ->where('city_id', $this->user->city_id)
+//            ->paginate(10);
+//    }
+
 
 
 }

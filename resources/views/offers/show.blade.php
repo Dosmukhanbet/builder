@@ -4,11 +4,11 @@
 
 @section('content')
          <div class="col-md-8 col-md-offset-1">
-         <h4>Предложения на заявку {{$offers[0]->job->name}} </h4>
+         <h4>Предложения на заявку: {{$offers[0]->job->name}} </h4>
          @foreach($offers as $offer)
          <div class="Offer__block">
                @if($offer->user->photo_path)
-                      <a href="/{{ $offer->user->photo_path }}" data-lity> <img  width="80px" src="/{{$offer->user->thumbnail_path}}" class="Offer__image img-thumbnail"></a>
+                      <a href="/{{ $offer->user->photo_path }}" data-lity> <img  src="/{{$offer->user->thumbnail_path}}" class="Offer__image img-thumbnail"></a>
                @endif
                 <ul class="Offer__list">
                                  <li>Мастер: {{$offer->user->name}} </li>
@@ -30,6 +30,7 @@
 
          </div>
          @endforeach
+         {{$offers->links()}}
          </div>
 
 

@@ -6053,6 +6053,20 @@ hr {
 .findedmasters span {
   color: #2B3E69; }
 
+.categories {
+  padding: 10px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background: #fff; }
+
+.categories .user_length {
+  color: #ccc;
+  font-size: 0.9em; }
+
 body {
   font-family: 'Roboto Slab', serif;
   background: #f5f5f5; }

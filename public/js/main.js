@@ -12847,6 +12847,49 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _vueResource = require('vue-resource');
+
+var _vueResource2 = _interopRequireDefault(_vueResource);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+    template: '\n    <div class="col-md-2">\n        <h4>Категории</h4>\n        <div class="categories">\n            <a v-for="cat in cats" @click="findmaster(cat.id)">{{cat.name}}<span class="user_length"> ({{cat.user.length}})</span></a>\n        </div>\n    </div>\n    <div class="col-md-5">\n    <h4>Мастера</h4>\n    <div class=\'findedmasters\' v-for="master in masters" v-show="masters">\n              <p>\n                  <a data-lity href="{{ makephotopath(master.photo_path) }}">\n                <img class="img-thumbnail" src="{{ makethumbpath(master.thumbnail_path) }}"></a>\n              </p>\n\n               <p><span>Имя:</span> {{master.name}}<br>\n                <span>Мобильный номер:</span> +{{master.phone_number}}<br>\n                <span>Электронный адрес:</span> {{master.email}}<br>\n               </p>\n\n    </div>\n    </div>\n    ',
+
+    props: ['cats', 'masters'],
+
+    methods: {
+        findmaster: function findmaster(id) {
+            this.$http.post('/api/findmasters/' + id).then(function (response) {
+
+                this.masters = response.data;
+            });
+        },
+        makethumbpath: function makethumbpath(path) {
+            if (path) {
+                return '/' + path;
+            } else {
+                return "/profile/sitephotos/thumb-no-photo.jpg";
+            }
+        },
+        makephotopath: function makephotopath(path) {
+            if (path) {
+                return '/' + path;
+            } else {
+                return "/profile/sitephotos/no-photo.jpg";
+            }
+        }
+    }
+
+};
+
+},{"vue-resource":24}],38:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _vue = require('vue');
 
 var _vue2 = _interopRequireDefault(_vue);
@@ -12915,7 +12958,7 @@ exports.default = _vue2.default.extend({
 
 });
 
-},{"sweetalert":10,"vue":35,"vue-resource":24}],38:[function(require,module,exports){
+},{"sweetalert":10,"vue":35,"vue-resource":24}],39:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -12956,7 +12999,7 @@ exports.default = {
 
 };
 
-},{"vue-resource":24}],39:[function(require,module,exports){
+},{"vue-resource":24}],40:[function(require,module,exports){
 'use strict';
 
 var _vue = require('vue');
@@ -12975,6 +13018,10 @@ var _jobstype = require('./components/jobstype.js');
 
 var _jobstype2 = _interopRequireDefault(_jobstype);
 
+var _masters = require('./components/masters.js');
+
+var _masters2 = _interopRequireDefault(_masters);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue2.default.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
@@ -12987,7 +13034,7 @@ new _vue2.default({
     },
 
     components: {
-        sendsms: _sendsms2.default, types: _types2.default, jobstype: _jobstype2.default
+        sendsms: _sendsms2.default, types: _types2.default, jobstype: _jobstype2.default, masters: _masters2.default
     },
 
     ready: function ready() {},
@@ -13004,6 +13051,6 @@ new _vue2.default({
 
 });
 
-},{"./components/jobstype.js":36,"./components/sendsms":37,"./components/types.js":38,"vue":35}]},{},[39]);
+},{"./components/jobstype.js":36,"./components/masters.js":37,"./components/sendsms":38,"./components/types.js":39,"vue":35}]},{},[40]);
 
 //# sourceMappingURL=main.js.map

@@ -11,10 +11,11 @@ Route::get('create/registerandcreatejob', 'RegistrationController@registerAndCre
 Route::post('registerandcreatejob', 'RegistrationController@storeUserAndJob');
 
 //find masters
-Route::get('find/masters', 'MastersController@findMasters');
+Route::get('find/masters', 'SearchMastersController@findMasters');
 
 // API
 Route::post('api/sendsms', 'NotifyController@sendSms');
+Route::post('api/findmasters/{catId}', 'SearchMastersController@mastersbycategory');
 Route::get('/home', 'HomeController@index');
 Route::get('api/categories', function (){ return \App\Category::all(); });
 
@@ -55,5 +56,16 @@ Route::group(['prefix' => 'master', 'middleware' => 'master'], function(){
     Route::post('offer/for/{jobId}', 'OffersController@store');
     Route::get('profile', 'ProfileController@show');
     Route::post('profile/addphoto', 'ProfileController@savePhoto');
+});
+
+
+
+Route::group(['prefix' => 'admin'], function(){
+    Route::get('manage', function () {
+        return view('admin.manage');
+    });
+    Route::post('addCategories', 'AdminController@addcategory');
+    Route::post('addCities', 'AdminController@addcity');
+
 });
 

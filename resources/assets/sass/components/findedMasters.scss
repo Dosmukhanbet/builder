@@ -14,3 +14,14 @@
 .findedmasters span{
 color:#2B3E69;
 }
+
+.categories {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+.categories .user_length {
+  color:#ccc;
+  font-size: 0.9em;
+}

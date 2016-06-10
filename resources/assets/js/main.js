@@ -3,6 +3,8 @@ import Vue from 'vue';
 import sendsms from './components/sendsms';
 import types from './components/types.js';
 import jobstype from './components/jobstype.js';
+import masters from './components/masters.js';
+
 
 
 
@@ -16,7 +18,7 @@ new Vue ({
 
 
    components : {
-       sendsms, types, jobstype
+       sendsms, types, jobstype, masters
    },
 
    ready(){

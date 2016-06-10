@@ -17,11 +17,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer(['auth.register', 'jobs.create', 'jobs.show', 'master.activejobs', 'master.showjob', 'master.profile', 'client.profileshow' , 'client.findmasters' , 'jobs.createjobanduser'], function($view){
+        view()->composer(['auth.register', 'admin.manage' ,'jobs.create', 'jobs.show', 'master.activejobs', 'master.showjob', 'master.profile', 'client.profileshow' , 'client.findmasters' , 'jobs.createjobanduser'], function($view){
             $view->with('cities', \App\City::lists('name', 'id'));
         });
 
-        view()->composer(['jobs.show', 'jobs.all' , 'email.jobposted', 'master.showjob', 'master.profile', 'client.findmasters' ], function($view){
+        view()->composer(['jobs.show', 'jobs.all', 'admin.manage' , 'email.jobposted', 'master.showjob', 'master.profile', 'client.findmasters' ], function($view){
             $view->with('categories', \App\Category::lists('name', 'id'));
         });
 

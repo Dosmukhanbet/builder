@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 
 class MastersController extends Controller
 {
+
     public function getActiveJobs()
     {
         $jobs = Job::where('category_id', Auth::user()->category_id )
@@ -30,20 +31,6 @@ class MastersController extends Controller
         return view('master.showjob', compact('job'));
     }
 
-    public function findMasters()
-    {
-        if(Auth::guest()){
-            $masters = User::where('type','master')->paginate(10);
-        }else{
-            $masters = User::where('type','master')
-                           ->where('city_id', Auth::user()->city_id)
-                           ->where('category_id',Auth::user()->category_id)
-                           ->get();
-
-        }
-
-        return view('client.findmasters', compact('masters'));
-    }
 
 
 }
