@@ -71,13 +71,13 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-//        dd($data);
+
         $user = User::create([
             'email' =>$data['email'],
             'name' => $data['name'],
             'type' => $data['type'],
             'city_id' => $data['city_id'],
-            'category_id' => $data['category_id'],
+            'category_id' => $data['type'] == 'client' ? 0 : $data['category_id'],
             'phone_number' => $data['phone_number'],
             'password' => bcrypt($data['password']),
         ]);
