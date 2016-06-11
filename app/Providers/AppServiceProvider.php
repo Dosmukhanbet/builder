@@ -18,7 +18,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer(['auth.register', 'admin.manage' ,'jobs.create', 'jobs.show', 'master.activejobs', 'master.showjob', 'master.profile', 'client.profileshow' , 'client.findmasters' , 'jobs.createjobanduser'], function($view){
-            $view->with('cities', \App\City::lists('name', 'id'));
+            $view->with('cities', \App\City::orderBy('name')->lists('name', 'id'));
         });
 
         view()->composer(['jobs.show', 'jobs.all', 'admin.manage' , 'email.jobposted', 'master.showjob', 'master.profile', 'client.findmasters' ], function($view){

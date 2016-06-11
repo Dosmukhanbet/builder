@@ -104,3 +104,6 @@
     </div>
 
 @endsection
+@section('scripts.footer')
+    <script src="/js/all.js"></script>
+@endsection

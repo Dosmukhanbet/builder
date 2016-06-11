@@ -19,7 +19,7 @@ export default {
                <p><span>Имя:</span> {{master.name}}<br>
                 <span>Мобильный номер:</span> +{{master.phone_number}}<br>
                 <span>Электронный адрес:</span> {{master.email}}<br>
-                       {{ findCat(master.category_id) }}
+                       //{{ findCat(master.category_id) }}
                </p>
 
     </div>

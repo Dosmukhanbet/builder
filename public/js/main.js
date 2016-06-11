@@ -14408,7 +14408,7 @@ var _underscore2 = _interopRequireDefault(_underscore);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-    template: '\n    <div class="col-md-2 col-md-offset-1">\n        <h4>Категории</h4>\n        <div class="categories">\n            <a v-for="cat in cats" @click="findmaster(cat.id)">{{cat.name}}<span class="user_length"> ({{cat.user.length}})</span></a>\n        </div>\n    </div>\n    <div class="col-md-4">\n    <h4>Мастера </h4>\n    <div class=\'findedmasters\' v-for="master in masters" v-show="masters">\n              <p>\n                  <a data-lity href="{{ makephotopath(master.photo_path) }}">\n                <img class="img-thumbnail" src="{{ makethumbpath(master.thumbnail_path) }}"></a>\n              </p>\n\n               <p><span>Имя:</span> {{master.name}}<br>\n                <span>Мобильный номер:</span> +{{master.phone_number}}<br>\n                <span>Электронный адрес:</span> {{master.email}}<br>\n                       {{ findCat(master.category_id) }}\n               </p>\n\n    </div>\n    </div>\n    ',
+    template: '\n    <div class="col-md-2 col-md-offset-1">\n        <h4>Категории</h4>\n        <div class="categories">\n            <a v-for="cat in cats" @click="findmaster(cat.id)">{{cat.name}}<span class="user_length"> ({{cat.user.length}})</span></a>\n        </div>\n    </div>\n    <div class="col-md-4">\n    <h4>Мастера </h4>\n    <div class=\'findedmasters\' v-for="master in masters" v-show="masters">\n              <p>\n                  <a data-lity href="{{ makephotopath(master.photo_path) }}">\n                <img class="img-thumbnail" src="{{ makethumbpath(master.thumbnail_path) }}"></a>\n              </p>\n\n               <p><span>Имя:</span> {{master.name}}<br>\n                <span>Мобильный номер:</span> +{{master.phone_number}}<br>\n                <span>Электронный адрес:</span> {{master.email}}<br>\n                       //{{ findCat(master.category_id) }}\n               </p>\n\n    </div>\n    </div>\n    ',
 
     props: ['cats', 'masters', 'cities'],
 
@@ -14470,14 +14470,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _vue2.default.use(_vueResource2.default);
 exports.default = _vue2.default.extend({
-    template: '\n            <label class="col-md-8 control-label">Мобильный номер</label>\n            <div class="col-md-8">\n                 <input type="text" class="form-control" placeholder="Например: 77075553322" v-model="phonenumber" name="phone_number" required>\n            </div>\n            <div class="col-md-6 Register--button"  v-show="!confirmed">\n                <button type="submit" @click="sendSMS" class="btn btn-warning __button">Запросить Код подтверждения</button>\n            </div>\n\n            <div class="col-md-8 Register--button" v-show="confirmed">\n                <button type="submit" class="btn btn-primary __button">\n                   Зарегистроваться\n                </button>\n            </div>\n',
+    template: '\n            <label class="col-md-8 control-label">Мобильный номер</label>\n            <div class="col-md-8">\n                 <input type="text" class="form-control" placeholder="Например: 77075553322" v-model="phonenumber" name="phone_number" required>\n            </div>\n\n            <div class="col-md-8 checkbox">\n            <label>\n            <input v-model="checked" type="checkbox"> Я соглашаюсь с <a data-lity href="agreement.pdf">c пользовательским соглашением<a/>\n            </div>\n\n\n            <div class="col-md-6 Register--button"  v-show="!confirmed">\n                <button type="submit" @click="sendSMS" class="btn btn-warning __button">Запросить Код подтверждения</button>\n            </div>\n\n\n            <div class="col-md-8 Register--button" v-show="confirmed && checked">\n\n\n                <button type="submit" class="btn btn-primary __button">\n                   Зарегистроваться\n                </button>\n            </div>\n',
 
     props: ['code'],
 
     data: function data() {
         return {
             confirmed: false,
-            phonenumber: ''
+            phonenumber: '',
+            checked: true
         };
     },
 

@@ -8,11 +8,21 @@ export default Vue.extend({
             <div class="col-md-8">
                  <input type="text" class="form-control" placeholder="Например: 77075553322" v-model="phonenumber" name="phone_number" required>
             </div>
+
+            <div class="col-md-8 checkbox">
+            <label>
+            <input v-model="checked" type="checkbox"> Я соглашаюсь с <a data-lity href="agreement.pdf">c пользовательским соглашением<a/>
+            </div>
+
+
             <div class="col-md-6 Register--button"  v-show="!confirmed">
                 <button type="submit" @click="sendSMS" class="btn btn-warning __button">Запросить Код подтверждения</button>
             </div>
 
-            <div class="col-md-8 Register--button" v-show="confirmed">
+
+            <div class="col-md-8 Register--button" v-show="confirmed && checked">
+
+
                 <button type="submit" class="btn btn-primary __button">
                    Зарегистроваться
                 </button>
@@ -24,7 +34,8 @@ export default Vue.extend({
         data (){
                return {
                    confirmed : false,
-                        phonenumber : ''
+                        phonenumber : '',
+                        checked: true
                         }
 
                 },

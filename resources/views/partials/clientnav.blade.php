@@ -9,6 +9,7 @@
                             <!-- Right Side Of Navbar -->
                             <ul class="nav navbar-nav navbar-right Nav__list">
                                        <li><a class="Nav__links" href="{{ url('/job/create') }}">Подать заявку</a></li>
+                                        <li><a class="Nav__links" href="{{url('find/masters')}}">Найти мастера</a></li>
                                         <li><a class="Nav__links" href="{{ url('/job/all') }}">Мои заявки</a></li>
                                        <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
