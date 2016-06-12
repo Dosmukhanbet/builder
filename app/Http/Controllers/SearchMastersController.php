@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\User;
+use App\City;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -21,11 +22,13 @@ class SearchMastersController extends Controller
 
         }
 
+        $cities = City::all();
         $cats = Category::with('user')->orderBy('name')->get();
         return view('client.findmasters')
                 ->with('masters', $masters)
+                ->with('citis', $cities)
                 ->with('cats', $cats);            ;
-    }
+        }
 
     public function mastersbycategory($id)
     {

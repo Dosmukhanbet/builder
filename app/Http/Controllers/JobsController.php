@@ -89,4 +89,12 @@ class JobsController extends Controller
         }
         return view('jobs.show', compact('job'));
     }
+
+
+    public function makejobdone($id)
+    {
+        $job = Job::find($id);
+        $job->status = 1;
+        $job->save();
+    }
 }

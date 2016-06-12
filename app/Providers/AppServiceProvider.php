@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         view()->composer(['jobs.show', 'jobs.all', 'admin.manage' , 'email.jobposted', 'master.showjob', 'master.profile', 'client.findmasters' ], function($view){
-            $view->with('categories', \App\Category::lists('name', 'id'));
+            $view->with('categories', \App\Category::orderBy('name')->lists('name', 'id'));
         });
 
         view()->composer(['partials.navigation','partials.masternav', 'master.profile', 'client.profileshow'], function($view){

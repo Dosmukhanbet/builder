@@ -1,0 +1,1 @@
+{"version":3,"sources":["joblist.js"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA","file":"pages.js","sourcesContent":["export default {\n    data:{\n        done : false\n        },\n\n    ready(){\n    alert('eee');\n    },\n\n    methods: {  }\n\n\n\n\n  }"],"sourceRoot":"/source/"}

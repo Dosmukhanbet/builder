@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<masters :cats="{{json_encode($cats)}}"></masters>
+<masters :cats="{{$cats}}" :cities="{{$citis}}"></masters>
 
 <div class="col-md-4">
 {{--{{dd($cats)}}--}}

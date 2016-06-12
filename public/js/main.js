@@ -14362,6 +14362,45 @@ var _vueResource = require('vue-resource');
 
 var _vueResource2 = _interopRequireDefault(_vueResource);
 
+var _leavefeedback = require('./leavefeedback.js');
+
+var _leavefeedback2 = _interopRequireDefault(_leavefeedback);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+    template: '\n\n    <div class="jobdone" v-show="!done && jobstatus == 0">\n        <p>Данная завяка выполнена?\n            <label for="one">Да\n                 <input type="radio" @click="makeJobDone" id="one" value="1" v-model="done"  data-toggle="modal" data-target="#exampleModal" >\n            </label>\n            <label for="two">Нет\n                <input type="radio" @click="makeJobDone" id="two" value="0" v-model="done">\n            </label>\n            </p>\n        </div>\n\n    ',
+    props: ['jobid', 'jobstatus'],
+
+    ready: function ready() {},
+    data: function data() {
+        return { done: false };
+    },
+
+
+    components: { leavefeedback: _leavefeedback2.default },
+
+    methods: {
+        makeJobDone: function makeJobDone() {
+            if (this.jobstatus == 0) {
+                this.$http.post('/api/makejobdone/' + this.jobid);
+            }
+        }
+    }
+
+};
+
+},{"./leavefeedback.js":39,"vue-resource":25}],38:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _vueResource = require('vue-resource');
+
+var _vueResource2 = _interopRequireDefault(_vueResource);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
@@ -14390,7 +14429,34 @@ exports.default = {
 
 };
 
-},{"vue-resource":25}],38:[function(require,module,exports){
+},{"vue-resource":25}],39:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _vueResource = require('vue-resource');
+
+var _vueResource2 = _interopRequireDefault(_vueResource);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+    template: '\n        <div class="leave__feedback">\n            <div class="form-group">\n                <label class="control-label">Оставьте отзыв</label>\n                <textarea></textarea>\n            </div>\n        </div>\n        ',
+    props: [],
+
+    ready: function ready() {},
+    data: function data() {
+        return {};
+    },
+
+
+    methods: {}
+
+};
+
+},{"vue-resource":25}],40:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -14408,11 +14474,13 @@ var _underscore2 = _interopRequireDefault(_underscore);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-    template: '\n    <div class="col-md-2 col-md-offset-1">\n        <h4>Категории</h4>\n        <div class="categories">\n            <a v-for="cat in cats" @click="findmaster(cat.id)">{{cat.name}}<span class="user_length"> ({{cat.user.length}})</span></a>\n        </div>\n    </div>\n    <div class="col-md-4">\n    <h4>Мастера </h4>\n    <div class=\'findedmasters\' v-for="master in masters" v-show="masters">\n              <p>\n                  <a data-lity href="{{ makephotopath(master.photo_path) }}">\n                <img class="img-thumbnail" src="{{ makethumbpath(master.thumbnail_path) }}"></a>\n              </p>\n\n               <p><span>Имя:</span> {{master.name}}<br>\n                <span>Мобильный номер:</span> +{{master.phone_number}}<br>\n                <span>Электронный адрес:</span> {{master.email}}<br>\n                       //{{ findCat(master.category_id) }}\n               </p>\n\n    </div>\n    </div>\n    ',
+    template: '\n    <div class="col-md-2 col-md-offset-1">\n        <h4>Категории</h4>\n        <div class="categories">\n            <a v-for="cat in cats" @click="findmaster(cat.id)">{{cat.name}}<span class="user_length"> ({{cat.user.length}})</span></a>\n        </div>\n    </div>\n    <div class="col-md-4">\n    <h4>Мастера по категориям</h4>\n    <div class=\'findedmasters\' v-for="master in masters" v-show="masters">\n              <p>\n                  <a data-lity href="{{ makephotopath(master.photo_path) }}">\n                <img class="img-thumbnail" src="{{ makethumbpath(master.thumbnail_path) }}"></a>\n              </p>\n\n               <p><span>Имя:</span> {{master.name}}<br>\n                <span>Мобильный номер:</span> +{{master.phone_number}}<br>\n                <span>Специальность:</span>  {{ findCat(master.category_id) }}<br>\n                 <span>Город:</span>  {{ findCity(master.city_id) }}<br>\n             </p>\n\n    </div>\n    </div>\n    ',
 
     props: ['cats', 'masters', 'cities'],
 
     ready: function ready() {
+
+        console.log(this.cats[0].name);
         this.masters = this.findmaster(2);
     },
 
@@ -14439,15 +14507,16 @@ exports.default = {
             }
         },
         findCat: function findCat(id) {
-            return _underscore2.default.filter(this.cats, function (cat) {
-                if (cat.id == id) return cat.name;
-            });
+            return _underscore2.default.findWhere(this.cats, { id: id }).name;
+        },
+        findCity: function findCity(id) {
+            return _underscore2.default.findWhere(this.cities, { id: id }).name;
         }
     }
 
 };
 
-},{"underscore":11,"vue-resource":25}],39:[function(require,module,exports){
+},{"underscore":11,"vue-resource":25}],41:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -14523,7 +14592,7 @@ exports.default = _vue2.default.extend({
 
 });
 
-},{"sweetalert":10,"vue":36,"vue-resource":25}],40:[function(require,module,exports){
+},{"sweetalert":10,"vue":36,"vue-resource":25}],42:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -14564,7 +14633,7 @@ exports.default = {
 
 };
 
-},{"vue-resource":25}],41:[function(require,module,exports){
+},{"vue-resource":25}],43:[function(require,module,exports){
 'use strict';
 
 var _vue = require('vue');
@@ -14587,19 +14656,24 @@ var _masters = require('./components/masters.js');
 
 var _masters2 = _interopRequireDefault(_masters);
 
+var _jobdone = require('./components/jobdone.js');
+
+var _jobdone2 = _interopRequireDefault(_jobdone);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue2.default.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
 
 
-_vue2.default.filter('pluck', function (value, id) {
-    return value.filter(function (item) {
-        if (item.id == id) {
-            console.log(item.name);
-            return item.name;
-        };
-    });
-});
+//Vue.filter('pluck', function(value, id){
+//    return value.filter(function(item){
+//        if(item.id == id){
+//            console.log(item.name);
+//            return item.name;
+//
+//        };
+//    });
+//});
 new _vue2.default({
     el: '#app-layout',
     data: {
@@ -14607,7 +14681,7 @@ new _vue2.default({
     },
 
     components: {
-        sendsms: _sendsms2.default, types: _types2.default, jobstype: _jobstype2.default, masters: _masters2.default
+        sendsms: _sendsms2.default, types: _types2.default, jobstype: _jobstype2.default, masters: _masters2.default, jobdone: _jobdone2.default
     },
 
     ready: function ready() {},
@@ -14624,6 +14698,6 @@ new _vue2.default({
 
 });
 
-},{"./components/jobstype.js":37,"./components/masters.js":38,"./components/sendsms":39,"./components/types.js":40,"vue":36}]},{},[41]);
+},{"./components/jobdone.js":37,"./components/jobstype.js":38,"./components/masters.js":40,"./components/sendsms":41,"./components/types.js":42,"vue":36}]},{},[43]);
 
 //# sourceMappingURL=main.js.map

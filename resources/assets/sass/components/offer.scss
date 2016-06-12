@@ -10,7 +10,18 @@ margin-left: 30px;
 .Offer__block {
 background: #fff;
 padding: 10px;
+  margin-bottom: 7px;
 }
+
+.accepted {
+
+}
+
+.icon__accepted{
+  margin-right: 5px;
+  color: green;
+}
+
 .Offer__image {
   float:left;
   margin-right: 10px;
@@ -33,4 +44,14 @@ ul.Offer__list {
 
 .Offer__button{
   margin: 0 0 10px 10px;
+}
+
+.leave__feedback {
+  width: 70%;
+  margin:10px;
+}
+
+.leave__feedback .__button {
+  width: 50%;
+
 }

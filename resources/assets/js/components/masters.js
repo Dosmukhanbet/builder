@@ -9,7 +9,7 @@ export default {
         </div>
     </div>
     <div class="col-md-4">
-    <h4>Мастера </h4>
+    <h4>Мастера по категориям</h4>
     <div class='findedmasters' v-for="master in masters" v-show="masters">
               <p>
                   <a data-lity href="{{ makephotopath(master.photo_path) }}">
@@ -18,9 +18,9 @@ export default {
 
                <p><span>Имя:</span> {{master.name}}<br>
                 <span>Мобильный номер:</span> +{{master.phone_number}}<br>
-                <span>Электронный адрес:</span> {{master.email}}<br>
-                       //{{ findCat(master.category_id) }}
-               </p>
+                <span>Специальность:</span>  {{ findCat(master.category_id) }}<br>
+                 <span>Город:</span>  {{ findCity(master.city_id) }}<br>
+             </p>
 
     </div>
     </div>
@@ -31,6 +31,8 @@ export default {
 
 
    ready(){
+
+                   console.log(this.cats[0].name);
                    this.masters = this.findmaster(2);
                    },
 
@@ -59,12 +61,11 @@ export default {
                    },
 
         findCat(id){
-                      return _.filter(this.cats, function(cat){
-                               if(cat.id == id)
-                                    return cat.name;
-                                                        }
+                       return _.findWhere(this.cats, {id: id}).name;
+                   },
 
-                   );
+       findCity(id){
+                   return _.findWhere(this.cities, {id: id}).name;
                    }
 
                    

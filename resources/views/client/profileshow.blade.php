@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-4 col-md-offset-1 Profile__block">
+    <div class="col-md-5 col-md-offset-1 Profile__block">
                 <h4 class="Profile__header">Профиль пользователя</h4>
                 <ul class="Profile__list">
                     <li>Имя: {{$user->name}} </li>
@@ -18,8 +18,8 @@
                   </ul>
                   @else
                   </ul>
-                  <div class="col-md-6">
-                <form class="form-horizontal Profile__form" enctype="multipart/form-data" method="POST" action="{{url('job/clientprofile/addphoto')}}">
+                  <div class="col-md-12">
+                <form class="Profile__form" enctype="multipart/form-data" method="POST" action="{{url('job/clientprofile/addphoto')}}">
 
                         {{csrf_field()}}
 

@@ -18,13 +18,17 @@
                                           @if($job->offers->count())
                                           <blink>
                                               <a class="offer" href='{{ url( "job/showoffers/". $job->id ) }}'>
-                                                     У Вас  {{$job->offers->count()}} предложение
+                                                     У этой заявки {{$job->offers->count()}} предложение
                                               </a>
                                           </blink>
                                           @else
                                            нет предложении
                                           @endif
                                      </p>
+
+                                        {{--@if($job->dateOfMake < Carbon\Carbon::now())--}}
+                                            {{--<jobdone :jobid="{{$job->id}}" :jobstatus="{{$job->status}}"></jobdone>--}}
+                                         {{--@endif--}}
 
                                       <div class="images">
                                           @foreach($job->photos as $photo)

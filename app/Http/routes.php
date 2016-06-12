@@ -18,6 +18,8 @@ Route::post('api/sendsms', 'NotifyController@sendSms');
 Route::post('api/findmasters/{catId}', 'SearchMastersController@mastersbycategory');
 Route::get('/home', 'HomeController@index');
 Route::get('api/categories', function (){ return \App\Category::all(); });
+Route::post('api/makejobdone/{id}', 'JobsController@makejobdone');
+
 
 
 

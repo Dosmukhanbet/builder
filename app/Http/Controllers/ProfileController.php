@@ -23,6 +23,7 @@ class ProfileController extends Controller
 
     public function savePhoto(Request $request)
     {
+        $this->validate($request, ['photo' => 'required']);
         $photo = $request->file('photo');
 
         $name = time().$photo->getClientOriginalName();
