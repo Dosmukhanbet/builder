@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class Invitescontroller extends Controller
+class InvitesController extends Controller
 {
 
     public function all()
