@@ -1,0 +1,46 @@
+.invites {
+background: #fff;
+padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.invites > .invite__user{
+  flex: 1;
+}
+
+.invites > .invite__job{
+  margin-top: 20px;
+  flex: 1;
+}
+
+
+.invite__user > p{
+  margin: 0;
+  padding: 0;
+}
+
+.invite__user > .date_created_at{
+  padding: 0;
+  margin: 0;
+  color: #ccc;
+  font-size: 0.8em;
+}
+
+.invite__job > p{
+  margin: 0;
+  padding: 0;
+}
+.invites__header {  color: #2B3E69;
+}
+.invites__header > i{  margin-right: 10px;
+}
+
+.invite__user > h6, .invite__job > h6 {
+ color: #2B3E69;
+}
+
+.invite__user > p span, .invite__job > p span{
+  color: darken(#ccc, 30%);
+}

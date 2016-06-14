@@ -4,6 +4,8 @@ namespace App;
 
 use App\Job;
 use App\Offer;
+use App\Feedback;
+use App\Invite;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -49,12 +51,16 @@ class User extends Authenticatable
         return $this->hasMany(Offer::class);
     }
 
-//    public function masters($category = null)
-//    {
-//        return static::where('type','master')
-//            ->where('city_id', $this->user->city_id)
-//            ->paginate(10);
-//    }
+    public function feedbacks()
+    {
+        return $this->hasMany(Feedback::class);
+    }
+
+    public function invites()
+    {
+        return $this->hasMany(Invite::class);
+    }
+
 
 
 

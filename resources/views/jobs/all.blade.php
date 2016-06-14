@@ -18,7 +18,7 @@
                                           @if($job->offers->count())
                                           <blink>
                                               <a class="offer" href='{{ url( "job/showoffers/". $job->id ) }}'>
-                                                     У этой заявки {{$job->offers->count()}} предложение
+                                                     Заинтересованные мастера ( {{$job->offers->count()}} предложение )
                                               </a>
                                           </blink>
                                           @else

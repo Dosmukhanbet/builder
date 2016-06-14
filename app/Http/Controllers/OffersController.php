@@ -39,8 +39,12 @@ class OffersController extends Controller
 
     public function showOffers($jobId)
     {
-        $offers = Offer::with('user')->with('job')->where('job_id', $jobId)->paginate(10);
-        return view('offers.show', compact('offers', 'job'));
+        $offers = Offer::with('user')
+                        ->with('job')
+                        ->where('job_id', $jobId)
+                        ->get();
+
+        return view('offers.show', compact('offers'));
     }
 
 
@@ -54,10 +58,13 @@ class OffersController extends Controller
         flash()->success('Спасибо!', 'Мы отправили Ваши данные мастеру');
 
         return redirect(url('job/all'));
+    }
 
-
-
-
+    public function recommended($jobId)
+    {
 
     }
+
+
+
 }

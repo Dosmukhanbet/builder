@@ -7,7 +7,7 @@
         <a class="create__button" href="create/registerandcreatejob">Создать заявку</a>
         @endif
         <img width="900px" src="/profile/sitephotos/line-up.svg">
-
+  c
  </div>
  <div class="how__it__works">
     <div class="steps"><h4><span>1</span>Создайте заявку</h4>
@@ -20,4 +20,4 @@
         <p>Feedback rewards tradesmen for good work and holds them accountable for any problems.</p>
     </div>
  </div>
-@endsection
+ @endsection

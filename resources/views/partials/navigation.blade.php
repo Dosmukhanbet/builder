@@ -21,8 +21,8 @@
                                     @include('partials.masternav')
                                 @else
                                         <ul class="nav navbar-nav navbar-right Nav__list">
-                                             <li><a class="Nav__links" href="{{ url('/create/registerandcreatejob') }}">Создать заявку</a></li>
-                                             <li><a class="Nav__links" href="{{url('find/masters')}}">Найти мастера</a></li>
+                                             <li><a class="Nav__links" href="{{ url('/create/registerandcreatejob') }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Создать заявку</a></li>
+                                             <li><a class="Nav__links" href="{{url('find/masters')}}"><i class="fa fa-search" aria-hidden="true"></i>Найти мастера</a></li>
                                              <li class="login"><a class="Nav__links" href="{{ url('/login') }}">Вход</a></li>
                                              <li class="register"><a class="Nav__links" href="{{ url('/register') }}">Регистрация</a></li>
                                         </ul>

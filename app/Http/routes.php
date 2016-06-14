@@ -15,30 +15,33 @@ Route::get('find/masters', 'SearchMastersController@findMasters');
 
 // API
 Route::post('api/sendsms', 'NotifyController@sendSms');
+Route::post('api/invitesendsms', 'NotifyController@invitesendSms');
 Route::post('api/findmasters/{catId}', 'SearchMastersController@mastersbycategory');
 Route::get('/home', 'HomeController@index');
 Route::get('api/categories', function (){ return \App\Category::all(); });
 Route::post('api/makejobdone/{id}', 'JobsController@makejobdone');
-
+Route::post('api/recommendations/{categoryId}', 'RecommendationController@masters');
 
 
 
 // Job Publishing
 Route::group(['prefix'=> 'job', 'middleware' => 'auth'], function()
     {
-        Route::get('create', 'JobsController@create');
-        Route::post('create', 'JobsController@store');
+
         Route::get('all', 'JobsController@all');
         Route::get('show/{id}', 'JobsController@show');
 //      Route::get('/category/{category}/city/{city}', 'JobsController@getPostedJobs');
-        Route::post('addphoto/{job}', 'JobsController@addPhoto');
-        Route::get('showoffers/{jobId}', 'OffersController@showOffers');
+
 
     }
 );
 
 Route::group(['prefix'=> 'job', 'middleware' => 'client'], function()
     {
+        Route::post('addphoto/{job}', 'JobsController@addPhoto');
+        Route::get('showoffers/{jobId}', 'OffersController@showOffers');
+        Route::get('create', 'JobsController@create');
+        Route::post('create', 'JobsController@store');
         Route::get('all', 'JobsController@all');
         Route::get('show/{id}', 'JobsController@show');
         Route::post('addphoto/{job}', 'JobsController@addPhoto');
@@ -58,6 +61,8 @@ Route::group(['prefix' => 'master', 'middleware' => 'master'], function(){
     Route::post('offer/for/{jobId}', 'OffersController@store');
     Route::get('profile', 'ProfileController@show');
     Route::post('profile/addphoto', 'ProfileController@savePhoto');
+    Route::get('invites', 'InvitesController@all');
+
 });
 
 
@@ -71,3 +76,6 @@ Route::group(['prefix' => 'admin'], function(){
 
 });
 
+Route::group(['prefix' => 'feedbacks'], function(){
+    Route::post('leave', 'FeedbackController@leave');
+});

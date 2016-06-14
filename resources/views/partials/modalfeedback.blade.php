@@ -6,17 +6,19 @@
                                                 <h4 class="modal-title" id="exampleModalLabel">Отзыв</h4>
                                               </div>
                                               <div class="modal-body">
-                                                <form>
-
+                                                <form method="POST" action="/feedbacks/leave">
+                                                        {{ csrf_field() }}
+                                                        <input type="hidden" value="{{$offer->user->id}}" name="user_id" id="from_user_id">
                                                   <div class="form-group">
                                                     <label for="message-text" class="control-label">Оставьте отзыв для пользователя {{ $offer->user->name }}</label>
-                                                    <textarea class="form-control" id="message-text"></textarea>
+                                                    <textarea class="form-control" id="message-text" name="body"></textarea>
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                     <button type="submit" class="btn btn-primary">Отправить отзыв</button>
                                                   </div>
                                                 </form>
                                               </div>
-                                              <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary">Отправить отзыв</button>
-                                              </div>
+
                </div>
         </div>
  </div>

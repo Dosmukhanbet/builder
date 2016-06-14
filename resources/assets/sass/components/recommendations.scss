@@ -1,0 +1,40 @@
+.recommendations {
+  background: #fff;
+  padding: 10px;
+
+}
+.recommendation_header{
+  color: #2B3E69;
+//  text-align: center;
+  background: #fff;
+  padding: 10px;
+}
+.recommendation_header > i {
+  margin-right: 10px;
+}
+.recommendations > .masters {
+  background: #F5F5F5;
+  display: flex;
+  margin-bottom: 10px;
+  padding: 5px;
+  font-size: 0.8em;
+  border: 1px solid darken(#F5F5F5, 8%);
+//  border-right: 3px solid yellow;
+
+}
+
+.masters > p {
+  font-size: 0.9em;
+  margin-left: 10px;
+}
+
+.send__sms {
+  background: #51AC20;
+  margin: 15px 5px 0 0;
+  border:none;
+  color: white;
+  border-radius: 5px;
+  padding: 3px;
+
+}
+

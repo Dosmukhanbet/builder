@@ -5,6 +5,7 @@ import types from './components/types.js';
 import jobstype from './components/jobstype.js';
 import masters from './components/masters.js';
 import jobdone from './components/jobdone.js';
+import recommendations from './components/recommendations.js';
 
 
 //Vue.filter('pluck', function(value, id){
@@ -23,7 +24,7 @@ new Vue ({
     },
 
    components : {
-       sendsms, types, jobstype, masters, jobdone
+       sendsms, types, jobstype, masters, jobdone, recommendations
    },
 
    ready(){

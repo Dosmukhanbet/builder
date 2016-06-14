@@ -14523,6 +14523,79 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _vueResource = require('vue-resource');
+
+var _vueResource2 = _interopRequireDefault(_vueResource);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+    template: '\n    <div class="recommendations" v-show="masters">\n        <div class="masters" v-for="master in masters">\n            <p>\n                <a data-lity href="{{ makephotopath(master.photo_path) }}">\n                    <img class="img-thumbnail" src="{{ makethumbpath(master.thumbnail_path) }}"></a>\n                </p>\n\n                <p><span>Имя:</span> {{master.name}}<br>\n                    <span>Мобильный номер:</span> +{{master.phone_number}}\n                </p>\n                   <p> <button  @click="sendsms(master.id, master.phone_number)" class="send__sms">\n                    предложить работу\n                    </button>\n                   </p>\n        </div>\n\n    </div>\n     ',
+    props: ['catid', 'masters', 'jobid', 'jobownerid'],
+
+    ready: function ready() {
+        this.fetchMasters(this.catid);
+    },
+    data: function data() {
+        return {
+            invitesend: false,
+            sentTo: ''
+        };
+    },
+
+
+    methods: {
+        fetchMasters: function fetchMasters(id) {
+            return this.$http.post('/api/recommendations/' + id).then(function (response) {
+                console.log(response.data);
+                this.masters = response.data;
+            });
+        },
+        makethumbpath: function makethumbpath(path) {
+            if (path) {
+                return '/' + path;
+            } else {
+                return "/profile/sitephotos/thumb-no-photo.jpg";
+            }
+        },
+        makephotopath: function makephotopath(path) {
+            if (path) {
+                return '/' + path;
+            } else {
+                return "/profile/sitephotos/no-photo.jpg";
+            }
+        },
+        sendsms: function sendsms(masterid, phonenumber) {
+            var datas = {
+                id: masterid,
+                number: phonenumber,
+                jobid: this.jobid,
+                jobownerid: this.jobownerid
+            };
+
+            this.$http.post('/api/invitesendsms', datas).then(function (response) {
+                console.log(response.data);
+            });
+
+            swal("Ок!", "Предложение мастеру отправлено", "success");
+
+            this.invitesend = true;
+
+            this.sentTo = masterid;
+
+            console.log(this.sentTo);
+        }
+    }
+
+};
+
+},{"vue-resource":25}],42:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _vue = require('vue');
 
 var _vue2 = _interopRequireDefault(_vue);
@@ -14592,7 +14665,7 @@ exports.default = _vue2.default.extend({
 
 });
 
-},{"sweetalert":10,"vue":36,"vue-resource":25}],42:[function(require,module,exports){
+},{"sweetalert":10,"vue":36,"vue-resource":25}],43:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -14633,7 +14706,7 @@ exports.default = {
 
 };
 
-},{"vue-resource":25}],43:[function(require,module,exports){
+},{"vue-resource":25}],44:[function(require,module,exports){
 'use strict';
 
 var _vue = require('vue');
@@ -14660,6 +14733,10 @@ var _jobdone = require('./components/jobdone.js');
 
 var _jobdone2 = _interopRequireDefault(_jobdone);
 
+var _recommendations = require('./components/recommendations.js');
+
+var _recommendations2 = _interopRequireDefault(_recommendations);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue2.default.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
@@ -14681,7 +14758,7 @@ new _vue2.default({
     },
 
     components: {
-        sendsms: _sendsms2.default, types: _types2.default, jobstype: _jobstype2.default, masters: _masters2.default, jobdone: _jobdone2.default
+        sendsms: _sendsms2.default, types: _types2.default, jobstype: _jobstype2.default, masters: _masters2.default, jobdone: _jobdone2.default, recommendations: _recommendations2.default
     },
 
     ready: function ready() {},
@@ -14698,6 +14775,6 @@ new _vue2.default({
 
 });
 
-},{"./components/jobdone.js":37,"./components/jobstype.js":38,"./components/masters.js":40,"./components/sendsms":41,"./components/types.js":42,"vue":36}]},{},[43]);
+},{"./components/jobdone.js":37,"./components/jobstype.js":38,"./components/masters.js":40,"./components/recommendations.js":41,"./components/sendsms":42,"./components/types.js":43,"vue":36}]},{},[44]);
 
 //# sourceMappingURL=main.js.map
