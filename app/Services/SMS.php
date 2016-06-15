@@ -13,12 +13,12 @@ class SMS {
                 $api = new MobizonApi(getenv('MOBIZON_KEY'));
                 $code = mt_rand(999, 10000);
 
-$alphaname = 'sellwithus';
+                $alphaname = 'sellwithus';
 
                 if ($api->call('message','sendSMSMessage',
                                 array(
                                 'recipient' => $recipient,
-                                'text'      => $code,
+                                'text'      => $body,
                                 'from'      => $alphaname, //Optional, if you don't have registered alphaname, just skip this param and your message will be sent with our free common alphaname.
                                 ))
                 ) {
@@ -37,7 +37,7 @@ $alphaname = 'sellwithus';
 
                                 if ($api->hasData()) {
                                                         foreach ($api->getData() as $messageInfo) {
-                                                        echo $code;
+                                                        echo $body;
                                                         }
                                  }
 
