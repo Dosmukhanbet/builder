@@ -20,4 +20,4 @@
         <p>Feedback rewards tradesmen for good work and holds them accountable for any problems.</p>
     </div>
  </div>
- @endsection
+@endsection
