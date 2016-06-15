@@ -11,7 +11,7 @@ export default Vue.extend({
 
             <div class="col-md-8 checkbox">
             <label>
-            <input v-model="checked" type="checkbox"> Я соглашаюсь с <a data-lity href="agreement.pdf">c пользовательским соглашением<a/>
+            <input v-model="checked" type="checkbox"> Я соглашаюсь с <a data-lity href="/agreement.pdf">c пользовательским соглашением<a/>
             </div>
 
 
