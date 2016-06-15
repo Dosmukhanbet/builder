@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
              <div class="col-md-8 col-md-offset-1">
-                   <h4 class="form_header">Создание заявки</h4>
+                   <h4 class="form_header"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Создание заявки</h4>
                     <form role="form" method="POST" action="{{ url('/registerandcreatejob') }}">
                         {!! csrf_field() !!}
                         <div class="form-group{{ $errors->has('Кратко_о_работе') ? ' has-error' : '' }}">
@@ -58,7 +58,7 @@
                           <hr>
                           </div>
                           </div>
-                          <h4  class="form_header">Ваши данные:</h4>
+                          <h4  class="form_header"><i class="fa fa-info-circle" aria-hidden="true"></i>Ваши данные:</h4>
                           <div class="form-group">
                                <label class="col-md-8 control-label">Город</label>
                                <div class="col-md-8">

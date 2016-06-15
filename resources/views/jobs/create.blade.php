@@ -4,7 +4,7 @@
 
      <div class="row">
              <div class="col-md-8 col-md-offset-1 create__formbox">
-                    <h3 class="form_header">Добавить объявление</h3>
+                    <h4 class="form_header"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Добавить объявление</h4>
                     <form class="create__form" role="form" method="POST" action="{{ url('/job/create') }}">
                         {!! csrf_field() !!}
                         <div class="form-group{{ $errors->has('Кратко_о_работе') ? ' has-error' : '' }}">

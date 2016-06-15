@@ -5,7 +5,7 @@
 
               @if($jobs->count() >= 1)
                 <div class="col-md-8 col-md-offset-1">
-                     <h4 class="job__list__header">Мои заявки <span>({{$jobs->count()}})</span></h4>
+                     <h4 class="job__list__header"><i class="fa fa-list" aria-hidden="true"></i>Мои заявки <span>({{$jobs->count()}})</span></h4>
 
                          @foreach($jobs as $job)
                           <div class="job__block">
@@ -16,13 +16,13 @@
                                      <p class="price">{{ $job->price }}</p>
                                      <p>
                                           @if($job->offers->count())
-                                          <blink>
                                               <a class="offer" href='{{ url( "job/showoffers/". $job->id ) }}'>
-                                                     Заинтересованные мастера ( {{$job->offers->count()}} предложение )
+                                                     Заинтересованные мастера ( {{$job->offers->count()}} предложение(ии) )
                                               </a>
-                                          </blink>
+                                              <button class="all__recommend" data-toggle="modal" data-target="#exampleModal">рекомендуемые мастера</button>
                                           @else
                                            нет предложении
+
                                           @endif
                                      </p>
 
@@ -37,6 +37,8 @@
                                             </a>
                                           @endforeach
                                       </div>
+
+
                           </div>
                         @endforeach
                         {{$jobs->links()}}
@@ -47,7 +49,7 @@
                      <h4>У Вас нет ни одной заявки</h4>
                    @endif
                    </div>
-
+                       @include('partials.modal_recommended_masters')
 </div>
 
 
