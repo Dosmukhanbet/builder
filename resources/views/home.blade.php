@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('homecontent')
+
  <div class="header">
         <h3>Найдите лучшего мастера в своем деле</h3>
         <h5>С Sheber.club вы с легкостью найдете подходящего мастера</h5>

@@ -14530,7 +14530,7 @@ var _vueResource2 = _interopRequireDefault(_vueResource);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-    template: '\n    <div class="recommendations" v-show="masters">\n        <div class="masters" v-for="master in masters">\n            <p>\n                <a data-lity href="{{ makephotopath(master.photo_path) }}">\n                    <img class="img-thumbnail" src="{{ makethumbpath(master.thumbnail_path) }}"></a>\n                </p>\n\n                <p><span>Имя:</span> {{master.name}}<br>\n                    <span>Мобильный номер:</span> +{{master.phone_number}}\n                </p>\n                   <p> <button  @click="sendsms(master.id, master.phone_number)" class="send__sms">\n                    предложить работу\n                    </button>\n                   </p>\n        </div>\n\n    </div>\n     ',
+    template: '\n    <div class="recommendations" v-show="masters">\n        <div class="masters" v-for="master in masters">\n            <p>\n                <a data-lity href="{{ makephotopath(master.photo_path) }}">\n                    <img class="img-thumbnail" src="{{ makethumbpath(master.thumbnail_path) }}"></a>\n                </p>\n\n                <p><span>Имя:</span> {{master.name}}<br>\n                    <span>Мобильный номер:</span> +{{master.phone_number}}\n                </p>\n                   <p> <button  @click="sendsms(master.id, master.phone_number)" class="send__sms">\n                    пригласить выполнить работу\n                    </button>\n                   </p>\n        </div>\n\n    </div>\n     ',
     props: ['catid', 'masters', 'jobid', 'jobownerid'],
 
     ready: function ready() {

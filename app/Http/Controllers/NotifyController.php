@@ -31,9 +31,16 @@ class NotifyController extends Controller
     public function invitesendSms(Request $request)
     {
 
+        $url = url('master/invites');
 
         $job = Job::find($request['jobid']);
-        $text = "Уважаемый мастер, пользователь " . $job->user->name . " предлагает выполнить работу:" . $job->name  . ".  Бюджет:" . $job->price;
+        $text = "Уважаемый мастер, пользователь "
+                    . $job->user->name
+                    . " предлагает выполнить работу:"
+                    . $job->name
+                    . ".  Бюджет:" . $job->price
+                    . ". Переити в кабинет "
+                    . $url;
 
         $this->createInvite($request);
 

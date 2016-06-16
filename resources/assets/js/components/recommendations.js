@@ -13,7 +13,7 @@ export default {
                     <span>Мобильный номер:</span> +{{master.phone_number}}
                 </p>
                    <p> <button  @click="sendsms(master.id, master.phone_number)" class="send__sms">
-                    предложить работу
+                    пригласить выполнить работу
                     </button>
                    </p>
         </div>
@@ -27,7 +27,7 @@ export default {
             },
 
         data(){
-            return {
+            return {.
             invitesend : false,
             sentTo : ''
             }
