@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Job;
 use App\Invite;
 use App\Services\SMS;
@@ -32,17 +33,17 @@ class NotifyController extends Controller
     {
 
         $url = url('master/invites');
-
+        $fromUser = User::find($request['jobownerid']);
         $job = Job::find($request['jobid']);
-        $text = "Уважаемый мастер, пользователь "
-                    . $job->user->name
-                    . " предлагает выполнить работу:"
-                    . $job->name
-                    . ".  Бюджет:" . $job->price
-                    . ". Переити в кабинет "
+        $text = "Uvajaemyi master, client priglashaet vypolnit' rabotu"
+                    . ". Kontaktnyi nomer clienta +7"
+                    . $fromUser->phone_number
+                    . " Pereiti v kabinet "
                     . $url;
 
         $this->createInvite($request);
+
+//        return $text . " " . strlen($text);
 
         return $this->sms->send($request['number'], $text);
     }

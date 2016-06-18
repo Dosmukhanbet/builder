@@ -1,11 +1,3 @@
-<div class="collapse navbar-collapse" id="app-navbar-collapse">
-                            <!-- Left Side Of Navbar -->
-                            {{--<ul class="nav navbar-nav Nav__list">--}}
-                                {{----}}
-
-
-                            {{--</ul>--}}
-
                             <!-- Right Side Of Navbar -->
                             <ul class="nav navbar-nav navbar-right Nav__list">
                                        <li><a class="Nav__links" href="{{ url('/job/create') }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Подать заявку</a></li>
@@ -25,4 +17,3 @@
                                         </ul>
                                     </li>
                              </ul>
-                        </div>

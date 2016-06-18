@@ -1,4 +1,5 @@
 import VueResource from 'vue-resource';
+import _ from 'underscore';
 
 export default {
     template : `
@@ -12,10 +13,11 @@ export default {
                 <p><span>Имя:</span> {{master.name}}<br>
                     <span>Мобильный номер:</span> +{{master.phone_number}}
                 </p>
-                   <p> <button  @click="sendsms(master.id, master.phone_number)" class="send__sms">
-                    пригласить выполнить работу
+                <p>
+                    <button  @click="sendsms(master.id, master.phone_number)" class="send__sms">
+                      пригласить выполнить работу
                     </button>
-                   </p>
+                </p>
         </div>
 
     </div>
@@ -27,9 +29,8 @@ export default {
             },
 
         data(){
-            return {.
-            invitesend : false,
-            sentTo : ''
+            return {
+            invitesend : false
             }
             },
 
@@ -53,26 +54,36 @@ export default {
                     {   return "/profile/sitephotos/no-photo.jpg";}
 
                     },
-            sendsms(masterid,phonenumber){
-            let datas = {
-            id: masterid,
-            number : phonenumber,
-            jobid : this.jobid,
-            jobownerid : this.jobownerid
-            };
+        sendsms(masterid,phonenumber){
+                    let datas = {
+                                    id: masterid,
+                                    number : phonenumber,
+                                    jobid : this.jobid,
+                                    jobownerid : this.jobownerid
+                                };
 
 
-            this.$http.post('/api/invitesendsms', datas).then(function(response){
+
+            var master = _.findWhere(this.masters, {id: masterid});
+
+            if( ! master.invited ) {
+
+                this.$http.post('/api/invitesendsms', datas).then(function(response){
                 console.log(response.data );
-            });
+                });
 
-            swal("Ок!", "Предложение мастеру отправлено", "success");
+                swal("Ок!", "Приглашение мастеру отправлено!", "success");
+
+            } else {
+                    swal("!", "Вы уже отправили приглашение этому мастеру!", "error");
+            }
 
             this.invitesend = true;
 
-            this.sentTo = masterid;
 
-            console.log(this.sentTo);
+            master.invited = true;
+
+            console.log(master.name);
 
             }
 

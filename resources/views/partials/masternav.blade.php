@@ -1,5 +1,4 @@
-                    <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                           <!-- Right Side Of Navbar -->
+ß                           <!-- Right Side Of Navbar -->
                             <ul class="nav navbar-nav Nav__list navbar-right">
                                        <li><a class="Nav__links" href='{{ url("master/active/jobs") }}'><i class="fa fa-cogs" aria-hidden="true"></i>Активные заявки</a></li>
                                        <li><a class="Nav__links" href='{{ url("master/invites") }}'><i class="fa fa-tasks" aria-hidden="true"></i>My invites</a></li>
@@ -18,4 +17,3 @@
                                         </ul>
                                     </li>
                              </ul>
-                        </div>

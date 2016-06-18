@@ -21,7 +21,8 @@
                                               </a>
                                               <button class="all__recommend" data-toggle="modal" data-target="#exampleModal">рекомендуемые мастера</button>
                                           @else
-                                           нет предложении
+                                            <button class="all__recommend" data-toggle="modal" data-target="#exampleModal">рекомендуемые мастера</button>
+
 
                                           @endif
                                      </p>

@@ -14527,10 +14527,14 @@ var _vueResource = require('vue-resource');
 
 var _vueResource2 = _interopRequireDefault(_vueResource);
 
+var _underscore = require('underscore');
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-    template: '\n    <div class="recommendations" v-show="masters">\n        <div class="masters" v-for="master in masters">\n            <p>\n                <a data-lity href="{{ makephotopath(master.photo_path) }}">\n                    <img class="img-thumbnail" src="{{ makethumbpath(master.thumbnail_path) }}"></a>\n                </p>\n\n                <p><span>Имя:</span> {{master.name}}<br>\n                    <span>Мобильный номер:</span> +{{master.phone_number}}\n                </p>\n                   <p> <button  @click="sendsms(master.id, master.phone_number)" class="send__sms">\n                    пригласить выполнить работу\n                    </button>\n                   </p>\n        </div>\n\n    </div>\n     ',
+    template: '\n    <div class="recommendations" v-show="masters">\n        <div class="masters" v-for="master in masters">\n            <p>\n                <a data-lity href="{{ makephotopath(master.photo_path) }}">\n                    <img class="img-thumbnail" src="{{ makethumbpath(master.thumbnail_path) }}"></a>\n                </p>\n\n                <p><span>Имя:</span> {{master.name}}<br>\n                    <span>Мобильный номер:</span> +{{master.phone_number}}\n                </p>\n                <p>\n                    <button  @click="sendsms(master.id, master.phone_number)" class="send__sms">\n                      пригласить выполнить работу\n                    </button>\n                </p>\n        </div>\n\n    </div>\n     ',
     props: ['catid', 'masters', 'jobid', 'jobownerid'],
 
     ready: function ready() {
@@ -14538,8 +14542,7 @@ exports.default = {
     },
     data: function data() {
         return {
-            invitesend: false,
-            sentTo: ''
+            invitesend: false
         };
     },
 
@@ -14573,23 +14576,30 @@ exports.default = {
                 jobownerid: this.jobownerid
             };
 
-            this.$http.post('/api/invitesendsms', datas).then(function (response) {
-                console.log(response.data);
-            });
+            var master = _underscore2.default.findWhere(this.masters, { id: masterid });
 
-            swal("Ок!", "Предложение мастеру отправлено", "success");
+            if (!master.invited) {
+
+                this.$http.post('/api/invitesendsms', datas).then(function (response) {
+                    console.log(response.data);
+                });
+
+                swal("Ок!", "Приглашение мастеру отправлено!", "success");
+            } else {
+                swal("!", "Вы уже отправили приглашение этому мастеру!", "error");
+            }
 
             this.invitesend = true;
 
-            this.sentTo = masterid;
+            master.invited = true;
 
-            console.log(this.sentTo);
+            console.log(master.name);
         }
     }
 
 };
 
-},{"vue-resource":25}],42:[function(require,module,exports){
+},{"underscore":11,"vue-resource":25}],42:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
