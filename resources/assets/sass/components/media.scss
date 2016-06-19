@@ -16,13 +16,19 @@
 
 @media (max-width: 750px) {
   .how__it__works {
+    width: 90%;
+    margin: auto;
     flex-direction: column;
-    
+    justify-content: center;
+    align-items: flex-start;
   }
 
   .how__it__works > * {
-    display: block;
-    flex-basis: auto;
+   flex-basis: 90%;
+  }
+
+  .how__it__works h4, .how__it__works p {
+
   }
 
 }

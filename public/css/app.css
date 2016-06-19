@@ -6198,14 +6198,21 @@ hr {
 
 @media (max-width: 750px) {
   .how__it__works {
+    width: 90%;
+    margin: auto;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
-    flex-direction: column; }
+    flex-direction: column;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start; }
   .how__it__works > * {
-    display: block;
-    -webkit-flex-basis: auto;
-    -ms-flex-preferred-size: auto;
-    flex-basis: auto; } }
+    -webkit-flex-basis: 90%;
+    -ms-flex-preferred-size: 90%;
+    flex-basis: 90%; } }
 
 body {
   font-family: 'Roboto Slab', serif;
