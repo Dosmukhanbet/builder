@@ -7,7 +7,7 @@
         @if(Auth::guest())
         <a class="create__button" href="create/registerandcreatejob">Создать заявку</a>
         @endif
-        <img width="900px" src="/profile/sitephotos/line-up.svg">
+        <img class="main_image" width="900px" src="/profile/sitephotos/line-up.svg">
 
  </div>
  <div class="how__it__works">

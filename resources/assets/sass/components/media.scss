@@ -1,0 +1,28 @@
+@media (max-width: 900px) {
+  .main_image {
+    display: none;
+  }
+
+  .header {
+    padding-bottom: 20px;
+  }
+
+  .header > *{
+    color:#fff;
+    text-align: center;
+  }
+
+}
+
+@media (max-width: 750px) {
+  .how__it__works {
+    flex-direction: column;
+    
+  }
+
+  .how__it__works > * {
+    display: block;
+    flex-basis: auto;
+  }
+
+}

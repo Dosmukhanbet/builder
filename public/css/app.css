@@ -3647,7 +3647,7 @@ tbody.collapse.in {
   overflow-x: visible;
   padding-right: 15px;
   padding-left: 15px;
-  border-top: 1px solid transparent;
+  border-top: 0px solid transparent;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
   -webkit-overflow-scrolling: touch; }
   .navbar-collapse:before, .navbar-collapse:after {
@@ -5787,7 +5787,8 @@ ul.Job__list {
   color: #fff; }
 
 .Nav__links > i {
-  margin-right: 5px; }
+  margin-right: 5px;
+  color: #609BCD; }
 
 .Offer__header {
   margin-left: 30px; }
@@ -6185,6 +6186,26 @@ hr {
 
 .invite__user > p span, .invite__job > p span {
   color: gray; }
+
+@media (max-width: 900px) {
+  .main_image {
+    display: none; }
+  .header {
+    padding-bottom: 20px; }
+  .header > * {
+    color: #fff;
+    text-align: center; } }
+
+@media (max-width: 750px) {
+  .how__it__works {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .how__it__works > * {
+    display: block;
+    -webkit-flex-basis: auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto; } }
 
 body {
   font-family: 'Roboto Slab', serif;
