@@ -21,5 +21,4 @@
 @stop
 @section('scripts.footer')
     <script src="/js/all.js"></script>
-
 @stop

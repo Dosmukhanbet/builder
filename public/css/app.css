@@ -4246,11 +4246,12 @@ a.badge:hover, a.badge:focus {
   cursor: pointer; }
 
 .jumbotron {
+  margin-top: -25px;
   padding-top: 30px;
   padding-bottom: 30px;
   margin-bottom: 30px;
   color: inherit;
-  background-color: #eeeeee; }
+  background-color: #4A90E2; }
   .jumbotron h1,
   .jumbotron .h1 {
     color: inherit; }
@@ -4258,6 +4259,8 @@ a.badge:hover, a.badge:focus {
     margin-bottom: 15px;
     font-size: 27px;
     font-weight: 200; }
+  .jumbotron a {
+    color: white; }
   .jumbotron > hr {
     border-top-color: #d5d5d5; }
   .container .jumbotron,
@@ -5965,33 +5968,6 @@ hr {
 .jobdone > p {
   margin-bottom: 0; }
 
-.header {
-  width: 100%;
-  background: #4A90E2;
-  margin-top: -25px;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center; }
-
-.header > * {
-  color: #fff; }
-
-.header > h2 {
-  margin: 15px 0 10px 0; }
-
-.header > h5 {
-  margin: 5px 0 15px 0;
-  font-weight: 400; }
-
 .create__button {
   padding: 10px 15px 10px 15px;
   background: #51AC20;
@@ -6002,33 +5978,6 @@ hr {
   color: #ffffff;
   text-decoration: nonw; }
 
-.how__it__works {
-  margin: auto;
-  width: 950px;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center; }
-
-.how__it__works > * {
-  margin: 5px;
-  -webkit-flex-basis: 300px;
-  -ms-flex-preferred-size: 300px;
-  flex-basis: 300px; }
-
-.steps {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
-  align-items: flex-start; }
-
 .steps span {
   color: #EF9E01;
   padding: 3px 13px 3px 13px;
@@ -6036,15 +5985,11 @@ hr {
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
-  margin: 0 10px 0 5px;
-  display: inline-block; }
+  margin: 0 10px 0 5px; }
 
-.steps > h3 {
-  color: #2B3E69;
-  font-weight: 700; }
-
-.steps > p {
-  font-size: 0.9em; }
+.nopaddings {
+  padding-bottom: 0px;
+  padding-top: 0px; }
 
 .active__jobs {
   background: #fff;
@@ -6189,30 +6134,7 @@ hr {
 
 @media (max-width: 900px) {
   .main_image {
-    display: none; }
-  .header {
-    padding-bottom: 20px; }
-  .header > * {
-    color: #fff;
-    text-align: center; } }
-
-@media (max-width: 750px) {
-  .how__it__works {
-    width: 90%;
-    margin: auto;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-align-items: flex-start;
-    -ms-flex-align: start;
-    align-items: flex-start; }
-  .how__it__works > * {
-    -webkit-flex-basis: 90%;
-    -ms-flex-preferred-size: 90%;
-    flex-basis: 90%; } }
+    display: none; } }
 
 body {
   font-family: 'Roboto Slab', serif;

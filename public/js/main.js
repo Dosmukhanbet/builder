@@ -14527,6 +14527,37 @@ var _vueResource = require('vue-resource');
 
 var _vueResource2 = _interopRequireDefault(_vueResource);
 
+var _leavefeedback = require('./leavefeedback.js');
+
+var _leavefeedback2 = _interopRequireDefault(_leavefeedback);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+    template: '\n\n\n        ',
+    props: ['offers'],
+
+    ready: function ready() {},
+    data: function data() {
+        return {};
+    },
+
+
+    methods: {}
+
+};
+
+},{"./leavefeedback.js":39,"vue-resource":25}],42:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _vueResource = require('vue-resource');
+
+var _vueResource2 = _interopRequireDefault(_vueResource);
+
 var _underscore = require('underscore');
 
 var _underscore2 = _interopRequireDefault(_underscore);
@@ -14599,7 +14630,7 @@ exports.default = {
 
 };
 
-},{"underscore":11,"vue-resource":25}],42:[function(require,module,exports){
+},{"underscore":11,"vue-resource":25}],43:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -14675,7 +14706,7 @@ exports.default = _vue2.default.extend({
 
 });
 
-},{"sweetalert":10,"vue":36,"vue-resource":25}],43:[function(require,module,exports){
+},{"sweetalert":10,"vue":36,"vue-resource":25}],44:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -14716,7 +14747,7 @@ exports.default = {
 
 };
 
-},{"vue-resource":25}],44:[function(require,module,exports){
+},{"vue-resource":25}],45:[function(require,module,exports){
 'use strict';
 
 var _vue = require('vue');
@@ -14747,6 +14778,10 @@ var _recommendations = require('./components/recommendations.js');
 
 var _recommendations2 = _interopRequireDefault(_recommendations);
 
+var _realtimeoffers = require('./components/realtimeoffers.js');
+
+var _realtimeoffers2 = _interopRequireDefault(_realtimeoffers);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue2.default.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
@@ -14768,7 +14803,13 @@ new _vue2.default({
     },
 
     components: {
-        sendsms: _sendsms2.default, types: _types2.default, jobstype: _jobstype2.default, masters: _masters2.default, jobdone: _jobdone2.default, recommendations: _recommendations2.default
+        sendsms: _sendsms2.default,
+        types: _types2.default,
+        jobstype: _jobstype2.default,
+        masters: _masters2.default,
+        jobdone: _jobdone2.default,
+        recommendations: _recommendations2.default,
+        realtimeoffers: _realtimeoffers2.default
     },
 
     ready: function ready() {},
@@ -14785,6 +14826,6 @@ new _vue2.default({
 
 });
 
-},{"./components/jobdone.js":37,"./components/jobstype.js":38,"./components/masters.js":40,"./components/recommendations.js":41,"./components/sendsms":42,"./components/types.js":43,"vue":36}]},{},[44]);
+},{"./components/jobdone.js":37,"./components/jobstype.js":38,"./components/masters.js":40,"./components/realtimeoffers.js":41,"./components/recommendations.js":42,"./components/sendsms":43,"./components/types.js":44,"vue":36}]},{},[45]);
 
 //# sourceMappingURL=main.js.map

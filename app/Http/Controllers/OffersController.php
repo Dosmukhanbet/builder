@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\OfferWasCreated;
 use App\Services\AppMailer;
 use Auth;
 use App\Job;
 use App\Offer;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 class OffersController extends Controller
 {
@@ -32,6 +34,11 @@ class OffersController extends Controller
 
             flash()->success(" ", "Ваше предложение успешно отправлено заказчику");
 
+//            Redis::publish($offer, $jobId);
+
+//            event(new OfferWasCreated($offer,$jobId));
+
+        Redis::publish('offers-channel', json_encode($offer));
             return redirect(url('master/active/jobs'));
 
     }
