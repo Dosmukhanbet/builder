@@ -6137,9 +6137,8 @@ hr {
     display: none; }
   .jumbotron {
     margin-top: -25px;
-    background-color: #4A90E2; }
-  .create__button {
-    margin-bottom: 20px; } }
+    padding-bottom: 25px;
+    background-color: #4A90E2; } }
 
 body {
   font-family: 'Roboto Slab', serif;
