@@ -6138,7 +6138,13 @@ hr {
   .jumbotron {
     margin-top: -25px;
     padding-bottom: 25px;
-    background-color: #4A90E2; } }
+    background-color: #4A90E2; }
+  .home_page_heading {
+    font-size: 1.5em; }
+  p.home_page_text {
+    font-size: 1.2em; }
+  .steps {
+    margin-bottom: 2em; } }
 
 body {
   font-family: 'Roboto Slab', serif;

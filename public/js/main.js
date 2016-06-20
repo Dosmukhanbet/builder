@@ -14527,10 +14527,6 @@ var _vueResource = require('vue-resource');
 
 var _vueResource2 = _interopRequireDefault(_vueResource);
 
-var _leavefeedback = require('./leavefeedback.js');
-
-var _leavefeedback2 = _interopRequireDefault(_leavefeedback);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
@@ -14547,7 +14543,7 @@ exports.default = {
 
 };
 
-},{"./leavefeedback.js":39,"vue-resource":25}],42:[function(require,module,exports){
+},{"vue-resource":25}],42:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

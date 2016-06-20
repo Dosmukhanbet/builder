@@ -1,5 +1,4 @@
 import VueResource from 'vue-resource';
-import leavefeedback from './leavefeedback.js';
 
 export default {
     template : `
@@ -9,8 +8,6 @@ export default {
         props :['offers'],
 
         ready() {
-
-
 
             },
 
