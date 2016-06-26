@@ -14525,7 +14525,7 @@ Object.defineProperty(exports, "__esModule", {
 var socket = io('104.236.12.84:3000');
 
 exports.default = {
-    template: '\n    <span class="btn btn-info">\n    {{ offers.length }} новых предложении\n    </span>\n    ',
+    template: '\n    <a href="{{makeurl()}}" class="btn btn-info">\n    {{ offers.length }} новых предложении\n    </a>\n    ',
     props: ['jobid'],
 
     data: function data() {
@@ -14536,7 +14536,15 @@ exports.default = {
         socket.on('offers-channel-' + this.jobid, function (data) {
             this.offers.push(data);
         }.bind(this));
+    },
+
+
+    methods: {
+        makeurl: function makeurl() {
+            return "/job/showoffers/" + this.jobid;
+        }
     }
+
 };
 
 },{}],42:[function(require,module,exports){

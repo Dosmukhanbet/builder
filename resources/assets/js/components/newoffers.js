@@ -2,9 +2,9 @@ var socket = io('104.236.12.84:3000');
 
 export default  {
     template : `
-    <span class="btn btn-info">
+    <a href="{{makeurl()}}" class="btn btn-info">
     {{ offers.length }} новых предложении
-    </span>
+    </a>
     `,
     props : ['jobid'],
 
@@ -19,6 +19,13 @@ export default  {
             this.offers.push(data);
 
         }.bind(this));
+    },
+
+    methods : {
+        makeurl(){
+            return "/job/showoffers/" + this.jobid;
+        }
+
     }
 
 
