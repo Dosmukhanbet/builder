@@ -14525,7 +14525,7 @@ Object.defineProperty(exports, "__esModule", {
 var socket = io('104.236.12.84:3000');
 
 exports.default = {
-    template: '\n    <a href="{{makeurl()}}" class="btn btn-info">\n    {{ offers.length }} новых предложении\n    </a>\n    ',
+    template: '\n    <a style="padding-left:5px; padding-right:5px" href="{{makeurl()}}" class="btn btn-info">\n    {{ offers.length }} новых предложении\n    </a>\n    ',
     props: ['jobid'],
 
     data: function data() {
