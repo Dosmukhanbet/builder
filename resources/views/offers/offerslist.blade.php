@@ -1,4 +1,5 @@
  <h4>Предложения на заявку: {{$offers[0]->job->name}} </h4>
+         <realtimeoffers :jobid="{{ $offers[0]->job->id }}"></realtimeoffers>
          @foreach($offers as $offer)
          <div class="Offer__block {{$offer->status ? 'accepted' : ''}}">
                       <a href="/{{ $offer->user->photo_path ? $offer->user->photo_path : "profile/sitephotos/no-photo.jpg" }}" data-lity>
@@ -28,7 +29,6 @@
                              @endif
                 </div>
                 @endforeach
-                <realtimeoffers :jobid="{{ $offers[0]->job->id }}"></realtimeoffers>
 
          @section('scripts.footer')
          @stop
