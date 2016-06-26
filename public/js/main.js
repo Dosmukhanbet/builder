@@ -14530,6 +14530,40 @@ var _vueResource2 = _interopRequireDefault(_vueResource);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var socket = io('104.236.12.84:3000');
+
+exports.default = {
+    template: '\n    {{ offers.length }}\n    ',
+    props: ['jobid'],
+
+    data: function data() {
+        return { offers: [], users: [] };
+    },
+    ready: function ready() {
+
+        socket.on('offers-channel-' + this.jobid, function (data) {
+            this.offers.push(data);
+        }.bind(this));
+    },
+
+
+    methods: {}
+
+};
+
+},{"vue-resource":25}],42:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _vueResource = require('vue-resource');
+
+var _vueResource2 = _interopRequireDefault(_vueResource);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var socket = io('104.236.12.84:3000');
 exports.default = {
     template: '\n                <div class="Offer__block" v-for="offer in offers">\n                    <a data-lity href="{{ makephotopath(offer.user.photo_path) }}">\n                        <img class="Offer__image img-thumbnail" src="{{ makethumbpath(offer.user.thumbnail_path) }}"></a>\n                    <ul class="Offer__list">\n                        <li>Мастер: {{offer.user.name}} </li>\n                        <li>Сотовый номер: +{{offer.user.phone_number}} </li>\n                        <li>Предложенная цена: {{offer.offer.price}}</li>\n                        <li>Комментария: {{makecomment(offer.offer.comment)}}</li>\n                        <li> Поступило: {{ offer.offer.created_at}}</li>\n                    </ul>\n                    <a href="{{ makeurl(offer.offer.id,offer.user.id )}}" class="btn btn-warning __button" >\n                        Принять предложение\n                    </a>\n                </div>\n        ',
     props: ['jobid'],
@@ -14575,7 +14609,7 @@ exports.default = {
 
 };
 
-},{"vue-resource":25}],42:[function(require,module,exports){
+},{"vue-resource":25}],43:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -14658,7 +14692,7 @@ exports.default = {
 
 };
 
-},{"underscore":11,"vue-resource":25}],43:[function(require,module,exports){
+},{"underscore":11,"vue-resource":25}],44:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -14734,7 +14768,7 @@ exports.default = _vue2.default.extend({
 
 });
 
-},{"sweetalert":10,"vue":36,"vue-resource":25}],44:[function(require,module,exports){
+},{"sweetalert":10,"vue":36,"vue-resource":25}],45:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -14775,7 +14809,7 @@ exports.default = {
 
 };
 
-},{"vue-resource":25}],45:[function(require,module,exports){
+},{"vue-resource":25}],46:[function(require,module,exports){
 'use strict';
 
 var _vue = require('vue');
@@ -14810,6 +14844,10 @@ var _realtimeoffers = require('./components/realtimeoffers.js');
 
 var _realtimeoffers2 = _interopRequireDefault(_realtimeoffers);
 
+var _newoffers = require('./components/newoffers.js');
+
+var _newoffers2 = _interopRequireDefault(_newoffers);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue2.default.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
@@ -14828,7 +14866,8 @@ new _vue2.default({
         masters: _masters2.default,
         jobdone: _jobdone2.default,
         recommendations: _recommendations2.default,
-        realtimeoffers: _realtimeoffers2.default
+        realtimeoffers: _realtimeoffers2.default,
+        newoffers: _newoffers2.default
     },
 
     ready: function ready() {},
@@ -14845,6 +14884,6 @@ new _vue2.default({
 
 });
 
-},{"./components/jobdone.js":37,"./components/jobstype.js":38,"./components/masters.js":40,"./components/realtimeoffers.js":41,"./components/recommendations.js":42,"./components/sendsms":43,"./components/types.js":44,"vue":36}]},{},[45]);
+},{"./components/jobdone.js":37,"./components/jobstype.js":38,"./components/masters.js":40,"./components/newoffers.js":41,"./components/realtimeoffers.js":42,"./components/recommendations.js":43,"./components/sendsms":44,"./components/types.js":45,"vue":36}]},{},[46]);
 
 //# sourceMappingURL=main.js.map

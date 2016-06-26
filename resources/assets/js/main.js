@@ -7,6 +7,7 @@ import masters from './components/masters.js';
 import jobdone from './components/jobdone.js';
 import recommendations from './components/recommendations.js';
 import realtimeoffers from './components/realtimeoffers.js';
+import newoffers from './components/newoffers.js';
 
 new Vue ({
    el : '#app-layout',
@@ -21,7 +22,8 @@ new Vue ({
        masters,
        jobdone,
        recommendations,
-       realtimeoffers
+       realtimeoffers,
+       newoffers
    },
 
    ready(){
