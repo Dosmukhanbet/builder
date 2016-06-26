@@ -9,7 +9,7 @@ export default {
                         <li>Мастер: {{offer.user.name}} </li>
                         <li>Сотовый номер: +{{offer.user.phone_number}} </li>
                         <li>Предложенная цена: {{offer.offer.price}}</li>
-                        <li>Комментария: {{offer.offer.comment}}</li>
+                        <li>Комментария: {{makecomment(offer.offer.comment)}}</li>
                         <li> Поступило: {{ offer.offer.created_at}}</li>
                     </ul>
                     <a href="{{ makeurl(offer.offer.id,offer.user.id )}}" class="btn btn-warning __button" >
@@ -53,7 +53,20 @@ export default {
 
                     return "/job/accept/offer/" + offerid + "/" + userid;
 
+                    },
+
+                    makecomment(comment)
+                    {
+                        if(comment)
+                        {
+                            return comment;
+                        }
+                        else
+                        {
+                            return "нет комментарии";
+                        }
                     }
+
 
 
 

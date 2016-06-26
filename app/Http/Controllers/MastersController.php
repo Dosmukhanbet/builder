@@ -20,6 +20,7 @@ class MastersController extends Controller
             ->where('dateOfMake', '>=' , Carbon::now())
             ->get();
         return view('master.activejobs', compact('jobs'));
+        
     }
 
     public function show($jobId)
