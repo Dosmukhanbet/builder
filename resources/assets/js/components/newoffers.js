@@ -14,6 +14,7 @@ export default {
 
         socket.on('offers-channel-'+ this.jobid, function(data){
             this.offers.push(data);
+            alert('ure');
         }.bind(this));
 
 
