@@ -36,9 +36,13 @@ class OffersController extends Controller
 
 //            Redis::publish($offer, $jobId);
 
+
 //            event(new OfferWasCreated($offer,$jobId));
 
-        Redis::publish('offers-channel', json_encode($offer));
+            $data = ['jobid' => $jobId, 'offer' => $offer, 'user'=> Auth::user()];
+
+            Redis::publish('offers-channel', json_encode($data));
+
             return redirect(url('master/active/jobs'));
 
     }
@@ -46,6 +50,7 @@ class OffersController extends Controller
 
     public function showOffers($jobId)
     {
+
         $offers = Offer::with('user')
                         ->with('job')
                         ->where('job_id', $jobId)

@@ -4,7 +4,7 @@
 
 @section('content')
          <div class="col-md-10 col-md-offset-1">
-            <div class="col-md-5">
+            <div class="col-md-6">
                     @include('offers.offerslist')
             </div>
 

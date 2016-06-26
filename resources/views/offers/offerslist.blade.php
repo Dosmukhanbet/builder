@@ -4,7 +4,7 @@
                       <a href="/{{ $offer->user->photo_path ? $offer->user->photo_path : "profile/sitephotos/no-photo.jpg" }}" data-lity>
                        <img  src="/{{$offer->user->thumbnail_path ? $offer->user->thumbnail_path : "profile/sitephotos/thumb-no-photo.jpg"}}" class="Offer__image img-thumbnail">
                       </a>
-                      <ul class="Offer__list">
+                       <ul class="Offer__list">
                                      <li>Мастер: {{$offer->user->name}} </li>
                                      <li>Сотовый номер: +{{$offer->user->phone_number}} </li>
                                      <li>Предложенная цена: {{$offer->price}}</li>
@@ -13,7 +13,7 @@
                                                       @endif
                                      </li>
                                      <li> Поступило: {{ $offer->created_at->diffForHumans()  }}</li>
-                      </ul>
+                       </ul>
                              @if($offer->status)
                                 <p><span class="icon__accepted"><i class="fa fa-check-circle" aria-hidden="true"></i></span>Вы приняли это предложение</p>
                                   @if($offer->job->dateOfMake < Carbon\Carbon::now())
@@ -26,9 +26,9 @@
                                   Принять предложение
                                 </a>
                              @endif
-         </div>
-         @stop
+                </div>
+                @endforeach
+                <realtimeoffers :jobid="{{ $offers[0]->job->id }}"></realtimeoffers>
 
          @section('scripts.footer')
-
          @stop

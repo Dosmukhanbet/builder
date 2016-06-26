@@ -9,10 +9,9 @@ redis.subscribe('offers-channel');
 
 redis.on('message', function(channel, message) {
 
-    //console.log(channel, message);
     message = JSON.parse(message);
-
-    io.emit(channel, message);
+    console.log(message);
+    io.emit(channel + '-' + message.jobid, message);
 });
 
 server.listen(3000);

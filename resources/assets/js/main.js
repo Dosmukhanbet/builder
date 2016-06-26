@@ -8,16 +8,6 @@ import jobdone from './components/jobdone.js';
 import recommendations from './components/recommendations.js';
 import realtimeoffers from './components/realtimeoffers.js';
 
-
-//Vue.filter('pluck', function(value, id){
-//    return value.filter(function(item){
-//        if(item.id == id){
-//            console.log(item.name);
-//            return item.name;
-//
-//        };
-//    });
-//});
 new Vue ({
    el : '#app-layout',
     data:{
