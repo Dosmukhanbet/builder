@@ -1,5 +1,5 @@
 import VueResource from 'vue-resource';
-var socket = io('192.168.10.10:3000');
+var socket = io('104.236.12.84:3000');
 export default {
     template : `
                 <div class="Offer__block" v-for="offer in offers">

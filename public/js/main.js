@@ -14529,7 +14529,7 @@ var _vueResource2 = _interopRequireDefault(_vueResource);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var socket = io('192.168.10.10:3000');
+var socket = io('104.236.12.84:3000');
 exports.default = {
     template: '\n                <div class="Offer__block" v-for="offer in offers">\n                    <a data-lity href="{{ makephotopath(offer.user.photo_path) }}">\n                        <img class="Offer__image img-thumbnail" src="{{ makethumbpath(offer.user.thumbnail_path) }}"></a>\n                    <ul class="Offer__list">\n                        <li>Мастер: {{offer.user.name}} </li>\n                        <li>Сотовый номер: +{{offer.user.phone_number}} </li>\n                        <li>Предложенная цена: {{offer.offer.price}}</li>\n                        <li>Комментария: {{offer.offer.comment}}</li>\n                        <li> Поступило: {{ offer.offer.created_at}}</li>\n                    </ul>\n                    <a href="{{ makeurl(offer.offer.id,offer.user.id )}}" class="btn btn-warning __button" >\n                        Принять предложение\n                    </a>\n                </div>\n        ',
     props: ['jobid'],
