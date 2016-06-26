@@ -20,7 +20,7 @@ export default {
         props :['jobid'],
 
         data(){
-        return {  offers : [] , users : []}
+        return {  offers : [] }
         },
 
         ready() {

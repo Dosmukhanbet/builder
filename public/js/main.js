@@ -14532,16 +14532,12 @@ exports.default = {
         return { offers: [] };
     },
     ready: function ready() {
-
+        alert(this.jobid);
         socket.on('offers-channel-' + this.jobid, function (data) {
             this.offers.push(data);
             alert(this.jobid);
         }.bind(this));
-    },
-
-
-    methods: {}
-
+    }
 };
 
 },{}],42:[function(require,module,exports){
@@ -14563,7 +14559,7 @@ exports.default = {
     props: ['jobid'],
 
     data: function data() {
-        return { offers: [], users: [] };
+        return { offers: [] };
     },
     ready: function ready() {
 
