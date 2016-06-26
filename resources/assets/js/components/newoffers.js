@@ -1,4 +1,3 @@
-import VueResource from 'vue-resource';
 var socket = io('104.236.12.84:3000');
 
 export default {
@@ -8,7 +7,7 @@ export default {
     props :['jobid'],
 
     data(){
-        return {  offers : [] , users : []}
+        return {  offers : []}
         },
 
     ready() {

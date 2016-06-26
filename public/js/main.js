@@ -14522,13 +14522,6 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-
-var _vueResource = require('vue-resource');
-
-var _vueResource2 = _interopRequireDefault(_vueResource);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var socket = io('104.236.12.84:3000');
 
 exports.default = {
@@ -14536,7 +14529,7 @@ exports.default = {
     props: ['jobid'],
 
     data: function data() {
-        return { offers: [], users: [] };
+        return { offers: [] };
     },
     ready: function ready() {
 
@@ -14550,7 +14543,7 @@ exports.default = {
 
 };
 
-},{"vue-resource":25}],42:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
