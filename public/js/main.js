@@ -14525,17 +14525,16 @@ Object.defineProperty(exports, "__esModule", {
 var socket = io('104.236.12.84:3000');
 
 exports.default = {
-    template: '\n    {{ offers.length }}\n    ',
+    template: '\n    <span class="btn btn-info">\n    {{ offers.length }} новых предложении\n    </span>\n    ',
     props: ['jobid'],
 
     data: function data() {
         return { offers: [] };
     },
     ready: function ready() {
-        alert(this.jobid);
+
         socket.on('offers-channel-' + this.jobid, function (data) {
             this.offers.push(data);
-            alert(this.jobid);
         }.bind(this));
     }
 };

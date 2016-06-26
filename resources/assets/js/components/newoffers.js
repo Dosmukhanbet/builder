@@ -2,7 +2,9 @@ var socket = io('104.236.12.84:3000');
 
 export default  {
     template : `
-    {{ offers.length }}
+    <span class="btn btn-info">
+    {{ offers.length }} новых предложении
+    </span>
     `,
     props : ['jobid'],
 
@@ -12,10 +14,10 @@ export default  {
 
     ready()
     {
-        alert(this.jobid);
+
         socket.on('offers-channel-' + this.jobid, function (data) {
             this.offers.push(data);
-            alert(this.jobid);
+
         }.bind(this));
     }
 
