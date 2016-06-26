@@ -3,7 +3,6 @@
 @section('content')
     <div class="row">
                     <div class="col-md-4 col-md-offset-1 Job__view">
-                    <socket :jobid="{{$job->id}}">s</socket>
                          <h4 class="Job__name">{{ $job->name }}</h4>
                          <p class="published_date">Опубликовано : {{ $job->created_at->diffForHumans() }}</p>
                          <ul class="Job__list">
