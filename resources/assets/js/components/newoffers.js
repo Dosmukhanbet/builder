@@ -2,7 +2,7 @@ var socket = io('104.236.12.84:3000');
 
 export default {
     template : `
-    {{ offers.length }}
+    {{ offers.length() }}
     `,
     props :['jobid'],
 
