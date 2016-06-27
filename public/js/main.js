@@ -14562,7 +14562,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var socket = io('104.236.12.84:3000');
 exports.default = {
-    template: '\n                <div v-show="alert" class="alert--offer"><i class="fa fa-envelope-o" aria-hidden="true"></i> Новое предложение </div>\n                <div class="Offer__block" v-for="offer in offers">\n                    <a data-lity href="{{ makephotopath(offer.user.photo_path) }}">\n                        <img class="Offer__image img-thumbnail" src="{{ makethumbpath(offer.user.thumbnail_path) }}"></a>\n                    <ul class="Offer__list">\n                        <li>Мастер: {{offer.user.name}} </li>\n                        <li>Сотовый номер: +{{offer.user.phone_number}} </li>\n                        <li>Предложенная цена: {{offer.offer.price}}</li>\n                        <li>Комментария: {{makecomment(offer.offer.comment)}}</li>\n                        <li> Поступило: {{ offer.offer.created_at}}</li>\n                    </ul>\n                    <a href="{{ makeurl(offer.offer.id,offer.user.id )}}" class="btn btn-warning __button" >\n                        Принять предложение\n                    </a>\n                </div>\n        ',
+    template: '\n                <div v-show="alert"\n                     transition="fade"\n                     class="alert--offer animated">\n                     <i class="fa fa-envelope-o" aria-hidden="true"></i> Новое предложение\n                </div>\n                <div class="Offer__block" v-for="offer in offers">\n                    <a data-lity href="{{ makephotopath(offer.user.photo_path) }}">\n                        <img class="Offer__image img-thumbnail" src="{{ makethumbpath(offer.user.thumbnail_path) }}"></a>\n                    <ul class="Offer__list">\n                        <li>Мастер: {{offer.user.name}} </li>\n                        <li>Сотовый номер: +{{offer.user.phone_number}} </li>\n                        <li>Предложенная цена: {{offer.offer.price}}</li>\n                        <li>Комментария: {{makecomment(offer.offer.comment)}}</li>\n                        <li> Поступило: {{ offer.offer.created_at}}</li>\n                    </ul>\n                    <a href="{{ makeurl(offer.offer.id,offer.user.id )}}" class="btn btn-warning __button" >\n                        Принять предложение\n                    </a>\n                </div>\n        ',
     props: ['jobid'],
 
     data: function data() {
@@ -14856,6 +14856,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _vue2.default.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
 
 
+_vue2.default.transition('fade', {
+    enterClass: 'fadeInUp',
+    leaveClass: 'fadeOutLeft'
+});
 new _vue2.default({
     el: '#app-layout',
     data: {

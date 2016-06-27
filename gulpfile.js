@@ -15,7 +15,7 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix.sass('app.scss')
-        .styles(['sweetalert.css', 'dropzone.css', 'lity.css', 'jquery.datetimepicker.min.css'])
+        .styles(['sweetalert.css', 'animate.css','dropzone.css', 'lity.css', 'jquery.datetimepicker.min.css'])
         .scripts(['libs/dropzone.js', 'libs/lity.js', 'libs/datetimepicker.js'])
         .browserify('main.js');
 });

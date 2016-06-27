@@ -9,6 +9,10 @@ import recommendations from './components/recommendations.js';
 import realtimeoffers from './components/realtimeoffers.js';
 import newoffers from './components/newoffers.js';
 
+Vue.transition('fade', {
+    enterClass: 'fadeInUp',
+    leaveClass: 'fadeOutLeft'
+});
 new Vue ({
    el : '#app-layout',
     data:{
