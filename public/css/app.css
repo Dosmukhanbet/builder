@@ -5834,6 +5834,9 @@ ul.Offer__list {
 .leave__feedback .__button {
   width: 50%; }
 
+.newoffer {
+  padding: 5 8 5 8px; }
+
 .Profile__block {
   padding: 0 0 10 10px;
   background: #fff; }

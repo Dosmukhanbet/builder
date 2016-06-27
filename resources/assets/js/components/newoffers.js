@@ -7,7 +7,7 @@ export default  {
     class="alert--offer animated">
         <i class="fa fa-paper-plane" aria-hidden="true"></i> Новое предложение
     </div>
-    <a v-show="offers.length" style="padding-left:5px; padding-right:5px" href="{{makeurl()}}" class="btn btn-info">
+    <a v-show="offers.length"  href="{{makeurl()}}" class="btn btn-info newoffer">
     {{ offers.length }} новых предложении
     </a>
     `,
