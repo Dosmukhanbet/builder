@@ -14562,16 +14562,22 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var socket = io('104.236.12.84:3000');
 exports.default = {
-    template: '\n                <div class="Offer__block" v-for="offer in offers">\n                    <a data-lity href="{{ makephotopath(offer.user.photo_path) }}">\n                        <img class="Offer__image img-thumbnail" src="{{ makethumbpath(offer.user.thumbnail_path) }}"></a>\n                    <ul class="Offer__list">\n                        <li>Мастер: {{offer.user.name}} </li>\n                        <li>Сотовый номер: +{{offer.user.phone_number}} </li>\n                        <li>Предложенная цена: {{offer.offer.price}}</li>\n                        <li>Комментария: {{makecomment(offer.offer.comment)}}</li>\n                        <li> Поступило: {{ offer.offer.created_at}}</li>\n                    </ul>\n                    <a href="{{ makeurl(offer.offer.id,offer.user.id )}}" class="btn btn-warning __button" >\n                        Принять предложение\n                    </a>\n                </div>\n        ',
+    template: '\n                <div v-show="alert" class="alert--offer"><i class="fa fa-envelope-o" aria-hidden="true"></i> Новое предложение </div>\n                <div class="Offer__block" v-for="offer in offers">\n                    <a data-lity href="{{ makephotopath(offer.user.photo_path) }}">\n                        <img class="Offer__image img-thumbnail" src="{{ makethumbpath(offer.user.thumbnail_path) }}"></a>\n                    <ul class="Offer__list">\n                        <li>Мастер: {{offer.user.name}} </li>\n                        <li>Сотовый номер: +{{offer.user.phone_number}} </li>\n                        <li>Предложенная цена: {{offer.offer.price}}</li>\n                        <li>Комментария: {{makecomment(offer.offer.comment)}}</li>\n                        <li> Поступило: {{ offer.offer.created_at}}</li>\n                    </ul>\n                    <a href="{{ makeurl(offer.offer.id,offer.user.id )}}" class="btn btn-warning __button" >\n                        Принять предложение\n                    </a>\n                </div>\n        ',
     props: ['jobid'],
 
     data: function data() {
-        return { offers: [] };
+        return { offers: [], alert: false };
     },
     ready: function ready() {
 
         socket.on('offers-channel-' + this.jobid, function (data) {
+            var _this = this;
+
             this.offers.push(data);
+            this.alert = true;
+            setTimeout(function () {
+                return _this.alert = false;
+            }, 3000);
         }.bind(this));
     },
 

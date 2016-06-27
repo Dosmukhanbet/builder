@@ -2,6 +2,7 @@ import VueResource from 'vue-resource';
 var socket = io('104.236.12.84:3000');
 export default {
     template : `
+                <div v-show="alert" class="alert--offer"><i class="fa fa-envelope-o" aria-hidden="true"></i> Новое предложение </div>
                 <div class="Offer__block" v-for="offer in offers">
                     <a data-lity href="{{ makephotopath(offer.user.photo_path) }}">
                         <img class="Offer__image img-thumbnail" src="{{ makethumbpath(offer.user.thumbnail_path) }}"></a>
@@ -20,13 +21,15 @@ export default {
         props :['jobid'],
 
         data(){
-        return {  offers : [] }
+        return {  offers : [], alert: false }
         },
 
         ready() {
 
                 socket.on('offers-channel-'+ this.jobid, function(data){
                     this.offers.push(data);
+                    this.alert = true;
+                    setTimeout(() => this.alert = false , 3000);
                 }.bind(this));
 
 
