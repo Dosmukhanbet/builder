@@ -5,7 +5,7 @@ export default {
                 <div v-show="alert"
                      transition="fade"
                      class="alert--offer animated">
-                     <i class="fa fa-envelope-o" aria-hidden="true"></i> Новое предложение
+                    <i class="fa fa-paper-plane" aria-hidden="true"></i> Новое предложение
                 </div>
                 <div class="Offer__block" v-for="offer in offers">
                     <a data-lity href="{{ makephotopath(offer.user.photo_path) }}">
