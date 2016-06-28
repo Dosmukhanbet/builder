@@ -1,16 +1,10 @@
  <div class="Offer__block Images__block">
-                                              @foreach($job->photos->chunk(3) as $set)
-                                                      <div class="row">
-                                                            <div class="col-md-12  Images">
-                                                       @foreach($set as $photo)
+                                                    @foreach($job->photos as $photo)
                                                                   <a href="/{{$photo->path}}" data-lity>
                                                                    <img src="/{{$photo->thumbnail_path}}"  width="50px" class="img-thumbnail">
                                                                    </a>
                                                         @endforeach
-                                                              </div>
-
-                                                      </div>
-                                              @endforeach
+                                
  </div>
 
   @unless($job->photos->count() >= 5)
