@@ -8,10 +8,10 @@ export default  {
         <i class="fa fa-paper-plane" aria-hidden="true"></i> Новое предложение
     </div>
     <a v-show="offers.length"  href="{{makeurl()}}" class="btn btn-info newoffer">
-    {{ offers.length }} новых предложении
+    {{ offers.length }}{{text}}
     </a>
     `,
-    props : ['jobid'],
+    props : ['jobid', 'text'],
 
     data(){
         return {  offers : [], alert: false }

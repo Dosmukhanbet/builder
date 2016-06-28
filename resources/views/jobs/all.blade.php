@@ -24,7 +24,7 @@
                                             <button class="all__recommend" data-toggle="modal" data-target="#exampleModal">рекомендуемые мастера</button>
                                           @endif
 
-                                          <newoffers :jobid="{{$job->id}}"></newoffers>
+                                          <newoffers :jobid="{{$job->id}}" :text=" новое предложение"></newoffers>
                                      </p>
 
                                         {{--@if($job->dateOfMake < Carbon\Carbon::now())--}}
