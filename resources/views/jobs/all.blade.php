@@ -26,7 +26,7 @@
 
                                             <br>
                                             <newoffers :jobid="{{$job->id}}"></newoffers>
-                                            <br>
+
 
 
                                      </p>
