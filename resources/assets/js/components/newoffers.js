@@ -7,11 +7,11 @@ export default  {
     class="alert--offer animated">
         <i class="fa fa-paper-plane" aria-hidden="true"></i> Новое предложение
     </div>
-    <span v-show="offers" class="offer__count">
+    <span v-show="offers.length" class="newoffer">
     {{ offers.length }}
     </span>
     `,
-    props : ['jobid'],
+    props : ['jobid', 'text'],
 
     data(){
         return {  offers : [], alert: false }

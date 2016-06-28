@@ -14562,8 +14562,8 @@ Object.defineProperty(exports, "__esModule", {
 var socket = io('104.236.12.84:3000');
 
 exports.default = {
-    template: '\n    <div v-show="alert"\n    transition="fade"\n    class="alert--offer animated">\n        <i class="fa fa-paper-plane" aria-hidden="true"></i> Новое предложение\n    </div>\n    <span v-show="offers" class="offer__count">\n    {{ offers.length }}\n    </span>\n    ',
-    props: ['jobid'],
+    template: '\n    <div v-show="alert"\n    transition="fade"\n    class="alert--offer animated">\n        <i class="fa fa-paper-plane" aria-hidden="true"></i> Новое предложение\n    </div>\n    <span v-show="offers.length" class="newoffer">\n    {{ offers.length }}\n    </span>\n    ',
+    props: ['jobid', 'text'],
 
     data: function data() {
         return { offers: [], alert: false };
