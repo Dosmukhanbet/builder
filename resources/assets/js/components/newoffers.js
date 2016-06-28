@@ -7,9 +7,9 @@ export default  {
     class="alert--offer animated">
         <i class="fa fa-paper-plane" aria-hidden="true"></i> Новое предложение
     </div>
-    <a v-show="offers.length"  href="{{makeurl()}}" class="btn btn-info newoffer">
+    <span class="offer__count">
     {{ offers.length }}{{text}}
-    </a>
+    </span>
     `,
     props : ['jobid', 'text'],
 
