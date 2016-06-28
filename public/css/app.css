@@ -5764,7 +5764,8 @@ ul.Job__list {
   list-style: none; }
 
 .Images {
-  padding: 0 7px 5px 0; }
+  padding: 0 7px 5px 0;
+  margin-left: 15px; }
 
 .Offer__form {
   margin-left: 15px; }
@@ -5802,7 +5803,10 @@ ul.Job__list {
 .Offer__block {
   background: #fff;
   padding: 10px;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  border-right: 1px solid #DDDDDD;
+  border-left: 1px solid #DDDDDD;
+  border-bottom: 1px solid #DDDDDD; }
 
 .icon__accepted {
   margin-right: 5px;

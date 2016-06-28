@@ -55,8 +55,9 @@ class OffersController extends Controller
                         ->with('job')
                         ->where('job_id', $jobId)
                         ->get();
+        $job = Job::find($jobId);
 
-        return view('offers.show', compact('offers'));
+        return view('offers.show', compact('offers', 'job'));
     }
 
 

@@ -9,7 +9,7 @@
 
                          @foreach($jobs as $job)
                           <div class="job__block">
-                                     <a href="{{url('job/show/'.$job->id)}}">{{ $job->name}}</a><br>
+                                     <a href="{{url('job/showoffers/'.$job->id)}}">{{ $job->name}}</a><br>
                                      <p class="published_date">Опубликовано: {{ $job->created_at->diffForHumans() }}</p>
                                      <p>Категория: {{ $categories[$job->category_id]}}</p>
                                      <p>Дата/Время исполнения: {{ $job->dateOfMake->diffForHumans() }}</p>
