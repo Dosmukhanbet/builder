@@ -10,7 +10,7 @@
                                                         {{ csrf_field() }}
                                                         <input type="hidden" value="{{$offer->user->id}}" name="user_id" id="from_user_id">
                                                   <div class="form-group">
-                                                    <label for="message-text" class="control-label">Оставьте отзыв для пользователя {{ $offer->user->name }}</label>
+                                                    <label for="message-text" class="control-label">Оставьте отзыв для мастера {{ $offer->user->name }}</label>
                                                     <textarea class="form-control" id="message-text" name="body"></textarea>
                                                   </div>
                                                   <div class="modal-footer">

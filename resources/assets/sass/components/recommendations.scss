@@ -6,8 +6,8 @@
 .recommendation_header{
   color: #2B3E69;
 //  text-align: center;
-  background: #fff;
   padding: 10px;
+  border-bottom: 1px solid #ddd;
 }
 .recommendation_header > i {
   margin-right: 10px;
@@ -39,6 +39,7 @@
 }
 
 .all__recommend{
+  float: right;
   background: #51AC20;
   margin-left: 0px;
   border:none;
