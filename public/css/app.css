@@ -5843,6 +5843,9 @@ ul.Offer__list {
   padding: 5px 8px 5px 8px;
   border-radius: 4px; }
 
+.image {
+  margin-left: 5px; }
+
 .Profile__block {
   padding: 0 0 10 10px;
   background: #fff; }
@@ -5938,6 +5941,7 @@ hr {
   color: #727272; }
 
 .job__block {
+  border: 1px solid #ddd;
   background: #fff;
   margin: 5px 0 10px 0;
   padding: 15px;
@@ -5947,7 +5951,7 @@ hr {
   margin: 0px; }
 
 .job__block > a {
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: 700; }
 
 .job__block > .published_date {

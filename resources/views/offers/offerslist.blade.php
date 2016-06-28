@@ -36,5 +36,5 @@
                 <realtimeoffers :jobid="{{ $job->id }}"></realtimeoffers>
 
 
-         @section('scripts.footer')
+         @section('footer')
          @stop

@@ -39,6 +39,7 @@ Route::group(['prefix'=> 'job', 'middleware' => 'auth'], function()
 Route::group(['prefix'=> 'job', 'middleware' => 'client'], function()
     {
         Route::post('addphoto/{job}', 'JobsController@addPhoto');
+        Route::patch('{job}', 'JobsController@update');
         Route::get('showoffers/{jobId}', 'OffersController@showOffers');
         Route::get('create', 'JobsController@create');
         Route::post('create', 'JobsController@store');

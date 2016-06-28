@@ -91,6 +91,27 @@ class JobsController extends Controller
     }
 
 
+    public function update(Request $request, Job $job)
+    {
+        $this->validate($request, [
+            'Кратко_о_работе' => 'required',
+            'Описание' => 'required',
+            'dateOfMake' => 'required|date'
+        ]);
+
+        $job->name = $request['Кратко_о_работе'];
+        $job->city_id = Auth::user()->city_id;
+        $job->description = $request['Описание'];
+        $job->dateOfMake = $request['dateOfMake'];
+        $job->category_id = $request['category_id'];
+        $job->user_id = Auth::user()->id;
+        $job->price= $request['price'];
+        $job->save();
+
+        flash()->success('ok', 'Данная заявка успешна отредактирована!');
+        return back();
+    }
+
     public function makejobdone($id)
     {
         $job = Job::find($id);

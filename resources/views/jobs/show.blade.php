@@ -58,7 +58,7 @@
 
 
 @endsection
-@section('scripts.footer')
+@section('footer')
     <script src="/js/all.js"></script>
     <script>
         Dropzone.options.addPhotos =

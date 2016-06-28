@@ -34,6 +34,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"></script>
     <script src="/js/main.js"></script>
     @yield('footer')
+    @yield('jsfooter')
     @include('messages.flash')
 </body>
 </html>

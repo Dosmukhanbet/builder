@@ -1,10 +1,10 @@
  <div class="Offer__block Images__block">
                                                     @foreach($job->photos as $photo)
                                                                   <a href="/{{$photo->path}}" data-lity>
-                                                                   <img src="/{{$photo->thumbnail_path}}"  width="50px" class="img-thumbnail">
+                                                                   <img src="/{{$photo->thumbnail_path}}"  width="70px" class="image img-thumbnail">
                                                                    </a>
                                                         @endforeach
-                                
+
  </div>
 
   @unless($job->photos->count() >= 5)

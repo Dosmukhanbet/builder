@@ -24,7 +24,7 @@
                 <div role="tabpanel" class="tab-pane" id="profile">
                     @include('offers.job')
                 </div>
-                <div role="tabpanel" class="tab-pane" id="messages">ssss...</div>
+                <div role="tabpanel" class="tab-pane" id="messages">@include('offers.editjob')</div>
                 <div role="tabpanel" class="tab-pane" id="settings">@include('offers.jobphotos')</div>
               </div>
 
@@ -46,12 +46,17 @@
 
 
 @stop
-@section('footer')
+@section('jsfooter')
     <script src="/js/all.js"></script>
     <script>
     $('#myTabs a').click(function (e) {
       e.preventDefault()
       $(this).tab('show')
+    });
+    jQuery('#datetimepicker').datetimepicker({
+      format:'Y-m-d H:i',
+    //  inline:true,
+      lang:'ru'
     });
 
     Dropzone.options.addPhotos =

@@ -9,6 +9,7 @@
 }
 
 .job__block{
+  border: 1px solid #ddd;
   background: #fff;
   margin: 5px 0 10px 0;
   padding: 15px;
@@ -20,8 +21,8 @@
 .job__block > p{
   margin: 0px;
 }
-.job__block > a{
-  font-size: 1.2em;
+.job__block > a {
+  font-size: 1.1em;
   font-weight: 700;
 }
 

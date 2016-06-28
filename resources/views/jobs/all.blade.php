@@ -9,8 +9,8 @@
 
                          @foreach($jobs as $job)
                           <div class="job__block">
-                                     <a href="{{url('job/showoffers/'.$job->id)}}">{{ $job->name}}</a><br>
-                                     <p class="published_date">Опубликовано: {{ $job->created_at->diffForHumans() }}</p>
+                                     <a href="{{url('job/showoffers/'.$job->id)}}">{{ $job->name}}</a>
+                                     <span class="published_date"> - {{ $job->created_at->diffForHumans() }}</span>
                                      <p>Категория: {{ $categories[$job->category_id]}}</p>
                                      <p>Дата/Время исполнения: {{ $job->dateOfMake->diffForHumans() }}</p>
                                      <p class="price">{{ $job->price }}</p>
@@ -36,7 +36,7 @@
                                          {{--@endif--}}
 
                                       <div class="images">
-                                          @foreach($job->photos as $photo)
+                                          @foreach($job->photos->take(3) as $photo)
                                             <a href="/{{$photo->path}}" data-lity>
                                                <img src="/{{$photo->thumbnail_path}}"  width="75px" class="img-thumbnail">
                                             </a>
@@ -59,6 +59,6 @@
 
 
 @endsection
-@section('scripts.footer')
+@section('footer')
     <script src="/js/all.js"></script>
 @endsection
