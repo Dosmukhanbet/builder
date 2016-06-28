@@ -1,5 +1,5 @@
 <div class="Offer__block">
-    <h6>Редактироание заявки: {{$job->name}}</h6>
+    <h6 class="editjob__header">Редактироание заявки: {{$job->name}}</h6>
     <form class="create__form" role="form" method="POST" action="{{ url('/job/'.$job->id ) }}">
                             {{ method_field('PATCH') }}
                             {!! csrf_field() !!}
