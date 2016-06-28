@@ -24,7 +24,7 @@
                                             <button class="all__recommend" data-toggle="modal" data-target="#exampleModal">рекомендуемые мастера</button>
                                           @endif
 
-                          <a href="{{url('job/showoffers/'.$job->id)}}"><newoffers :jobid="{{$job->id}}"></newoffers>новое предложение</a><br>
+                      <br><a href="{{url('job/showoffers/'.$job->id)}}"><newoffers :jobid="{{$job->id}}"></newoffers>новое предложение</a><br>
 
 
                                      </p>
