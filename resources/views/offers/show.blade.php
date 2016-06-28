@@ -9,7 +9,7 @@
 
               <!-- Nav tabs -->
               <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Предложения</a></li>
+                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Предложения<newoffers :jobid="{{$job->id}}"></newoffers></a></li>
                 <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Просмотр</a></li>
                 <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Редактировать</a></li>
                 <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Фотографии</a></li>
