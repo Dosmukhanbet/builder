@@ -39,7 +39,7 @@
                 <div class="row">
                     <div class="col-md-4 col-md-offset-1 Offer__for__job">
                     <hr style="margin-left: 15px">
-                        @if($job->offers->where('user_id', Auth::user()->id)->isEmpty())
+{{--                        @if($job->offers->where('user_id', Auth::user()->id)->isEmpty())--}}
                                      @if($job->price)
                                         <form  class="Offer__form" action="{{ url('master/offer/for/'. $job->id) }}" method="POST">
                                                                                                         {!! csrf_field() !!}
@@ -87,9 +87,9 @@
                                                                   </div>
 
                                         </form>
-                            @else
+                            {{--@else--}}
                                         <p class="red__box">Вы отправляли предложение для данной заявки</p>
-                            @endif
+                            {{--@endif--}}
                     </div>
                 </div>
 
