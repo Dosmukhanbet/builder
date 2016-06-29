@@ -6001,7 +6001,8 @@ hr {
   font-size: 0.9em; }
 
 .new__offer {
-  padding: 8px 12px 8px 12px; }
+  padding: 6px 12px 6px 12px;
+  border-radius: 4px; }
 
 .create__button {
   padding: 10px 15px 10px 15px;
