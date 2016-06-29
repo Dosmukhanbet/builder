@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-             <div class="col-md-8 col-md-offset-1">
+             <div class="col-md-8">
                    <h4 class="form_header"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Создание заявки</h4>
                     <form role="form" method="POST" action="{{ url('/registerandcreatejob') }}">
                         {!! csrf_field() !!}

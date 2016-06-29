@@ -2,13 +2,13 @@ import VueResource from 'vue-resource';
 import _ from 'underscore';
 export default {
     template : `
-    <div class="col-md-2 col-md-offset-1">
+    <div class="col-md-2">
         <h4>Категории</h4>
         <div class="categories">
             <a v-for="cat in cats" @click="findmaster(cat.id)">{{cat.name}}<span class="user_length"> ({{cat.user.length}})</span></a>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-5">
     <h4>Мастера по категориям</h4>
     <div class='findedmasters' v-for="master in masters" v-show="masters">
               <p>

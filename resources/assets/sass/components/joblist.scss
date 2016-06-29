@@ -22,8 +22,8 @@
   margin: 0px;
 }
 .job__block > a {
-  font-size: 1.1em;
-  font-weight: 700;
+  font-size: 1em;
+  font-weight: 400;
 }
 
 .job__block > p a.offer{
@@ -34,6 +34,7 @@
 .job__block > .published_date {
   color: #999999;
   font-size: 0.8em;
+  font-weight: normal;
 }
 
 .job__block > .price {
@@ -61,4 +62,16 @@
 
 .jobdone > p {
   margin-bottom: 0;
+}
+
+.offers__info
+{
+  border-top: 1px solid #ddd;
+  margin-top: 5px;
+  padding-top: 10px;
+}
+
+.offers__info
+{
+  font-size: 0.9em;
 }

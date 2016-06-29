@@ -4,7 +4,7 @@
 <div class="row">
 
               @if($jobs->count() >= 1)
-                <div class="col-md-8 col-md-offset-1">
+                <div class="col-md-8">
                      <h4 class="job__list__header"><i class="fa fa-list" aria-hidden="true"></i>Мои заявки <span>({{$jobs->count()}})</span></h4>
 
                          @foreach($jobs as $job)
@@ -14,10 +14,11 @@
                                      <p>Категория: {{ $categories[$job->category_id]}}</p>
                                      <p>Дата/Время исполнения: {{ $job->dateOfMake->diffForHumans() }}</p>
                                      <p class="price">{{ $job->price }}</p>
+                                     <div class="offers__info">
                                      <p>
                                           @if($job->offers->count())
                                               <a class="offer" href='{{ url( "job/showoffers/". $job->id ) }}'>
-                                                     Заинтересованные мастера ( {{$job->offers->count()}} предложение(ии) )
+                                                      <i class="fa fa-plus-square" aria-hidden="true"></i> {{$job->offers->count()}} предложение(ии)
                                               </a>
                                               <button class="all__recommend" data-toggle="modal" data-target="#exampleModal">рекомендуемые мастера</button>
                                           @else
@@ -30,6 +31,7 @@
 
 
                                      </p>
+                                     </div>
 
                                         {{--@if($job->dateOfMake < Carbon\Carbon::now())--}}
                                             {{--<jobdone :jobid="{{$job->id}}" :jobstatus="{{$job->status}}"></jobdone>--}}

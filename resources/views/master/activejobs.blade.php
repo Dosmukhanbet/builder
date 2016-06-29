@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="row">
-        <div class="col-md-6 col-md-offset-1 table-responsive">
+        <div class="col-md-6 table-responsive">
             @if($jobs->count() >= 1)
                 <h4><i class="fa fa-cogs" aria-hidden="true"></i>Активные заявки в вашем регионе</h4>
                      @foreach($jobs as $job)
@@ -18,7 +18,7 @@
                         @endforeach
 
                @else
-                 <h4>В данный момент нет активных заявок в Вашем регионе по вашей специальности</h4>
+                <div class="alert alert-info" role="alert"><p>В данный момент нет активных заявок в Вашем регионе по вашей специальности</p></div>
                @endif
 
 

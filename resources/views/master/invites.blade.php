@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-8 col-md-offset-1">
+        <div class="col-md-8">
             <h4 class="invites__header"><i class="fa fa-tasks" aria-hidden="true"></i>Мои приглашения</h4>
             @foreach($invites as $invite)
                 <div class="invites">

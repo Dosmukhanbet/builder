@@ -3,7 +3,7 @@
 @section('content')
 <masters :cats="{{$cats}}" :cities="{{$citis}}"></masters>
 
-<div class="col-md-4">
+<div class="col-md-5">
 {{--{{dd($cats)}}--}}
             <h4>Новые мастера</h4>
         @if(!$masters->isEmpty())

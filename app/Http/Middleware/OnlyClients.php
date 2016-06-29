@@ -16,6 +16,7 @@ class OnlyClients
      */
     public function handle($request, Closure $next)
     {
+
         if(Auth::user() && Auth::user()->type == 'client')
         {
             return $next($request);

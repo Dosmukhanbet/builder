@@ -1,7 +1,7 @@
                 <nav class="navbar navbar-inverse  navbar-static-top Nav__gen">
                     <div class="container">
                          <div class="row">
-                            <div class="col-md-10 col-md-offset-1">
+                            <div class="col-md-12">
                                 <div class="navbar-header">
                                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                                                   <span class="sr-only"></span>
@@ -11,7 +11,7 @@
                                      </button>
 
                                     <!-- Branding Image -->
-                                   <a class="navbar-brand" href="{{ url('/') }}">
+                                   <a class="navbar-brand" style="margin-left: 0px" href="{{ url('/') }}">
                                         Sheber.club
                                     </a>
                                 </div>
