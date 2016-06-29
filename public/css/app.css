@@ -6000,6 +6000,9 @@ hr {
 .offers__info {
   font-size: 0.9em; }
 
+.new__offer {
+  padding: 8px 12px 8px 12px; }
+
 .create__button {
   padding: 10px 15px 10px 15px;
   background: #51AC20;
