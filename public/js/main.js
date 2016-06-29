@@ -14562,7 +14562,7 @@ Object.defineProperty(exports, "__esModule", {
 var socket = io('104.236.12.84:3000');
 
 exports.default = {
-    template: '\n    <div v-show="alert"\n    transition="fade"\n    class="alert--offer animated">\n        <i class="fa fa-paper-plane" aria-hidden="true"></i> Новое предложение\n    </div>\n    <a v-show="offers.length"  class="btn btn-primary" href="{{makeurl()}}">\n    новые предложения  <span class="badge">{{ offers.length }}</span>\n    </a>\n    ',
+    template: '\n    <div v-show="alert"\n    transition="fade"\n    class="alert--offer animated">\n        <i class="fa fa-paper-plane" aria-hidden="true"></i> Новое предложение\n    </div>\n    <button v-show="offers.length" class="btn btn-primary" type="button">\n    <a v-show="offers.length"  href="{{makeurl()}}">\n    новые предложения  <span class="badge">{{ offers.length }}</span>\n    </a>\n    </button>\n    ',
     props: ['jobid', 'text'],
 
     data: function data() {
