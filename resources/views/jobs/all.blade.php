@@ -18,7 +18,7 @@
                                      <p>
                                           @if($job->offers->count())
                                               <a class="offer" href='{{ url( "job/showoffers/". $job->id ) }}'>
-                                                      Предложение(ии) <span class="badge">{{$job->offers->count()}}</span>
+                                                      Предложения от мастеров <span class="badge">{{$job->offers->count()}}</span>
                                               </a>
                                               <button class="all__recommend" data-toggle="modal" data-target="#exampleModal">рекомендуемые мастера</button>
                                           @else

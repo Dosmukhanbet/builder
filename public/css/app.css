@@ -5846,6 +5846,16 @@ ul.Offer__list {
 .image {
   margin-left: 5px; }
 
+.accept__offer {
+  font-weight: normal; }
+
+.accept__offer:hover {
+  text-decoration: none;
+  background: #5BC0DE; }
+
+a.accept__offer__link:hover {
+  text-decoration: none; }
+
 .Profile__block {
   padding: 0 0 10 10px;
   background: #fff; }

@@ -23,8 +23,8 @@
 
                                       @endif
                                  @else
-                                    <a href="{{ url('job/accept/offer/' . $offer->id . "/" . $offer->user->id) }}" class="btn btn-warning __button" >
-                                      Принять предложение
+                                    <a class="accept__offer__link" href="{{ url('job/accept/offer/' . $offer->id . "/" . $offer->user->id) }}">
+                                     <span class="label label-primary accept__offer">Принять предложение</span>
                                     </a>
                                  @endif
                     </div>
