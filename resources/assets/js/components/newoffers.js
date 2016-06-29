@@ -8,7 +8,7 @@ export default  {
         <i class="fa fa-paper-plane" aria-hidden="true"></i> Новое предложение
     </div>
     <a v-show="offers.length"  href="{{makeurl()}}" class="btn btn-info newoffer">
-    <span class="badge">{{ offers.length }}</span>новых предложении
+    <span class="badge">{{ offers.length }} </span> новых предложении
     </a>
     `,
     props : ['jobid', 'text'],
