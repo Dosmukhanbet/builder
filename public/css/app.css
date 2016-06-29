@@ -5944,7 +5944,7 @@ hr {
   border: 1px solid #ddd;
   background: #fff;
   margin: 5px 0 10px 0;
-  padding: 15px;
+  padding: 15px 15px 5px 15px;
   position: relative; }
 
 .job__block > p {
