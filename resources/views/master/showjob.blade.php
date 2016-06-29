@@ -17,7 +17,7 @@
                     </div>
                     <div class="col-md-7 Images__block">
                             @if($job->photos->isEmpty())
-                                <h4>Пользователь не добавил фотографии</h4>
+                            <div class="alert alert-success" role="alert"><p>Пользователь не добавил фотографии</p></div>
                             @else
                                             @foreach($job->photos->chunk(3) as $set)
                                                     <div class="row">
