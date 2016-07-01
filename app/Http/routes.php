@@ -36,7 +36,7 @@ Route::group(['prefix'=> 'job', 'middleware' => 'auth'], function()
     }
 );
 
-Route::group(['prefix'=> 'job', 'middleware' => 'client'], function()
+Route::group(['prefix'=> 'job', 'middleware' => ['auth','client']], function()
     {
         Route::post('addphoto/{job}', 'JobsController@addPhoto');
         Route::patch('{job}', 'JobsController@update');
@@ -56,7 +56,7 @@ Route::group(['prefix'=> 'job', 'middleware' => 'client'], function()
 
 
 
-Route::group(['prefix' => 'master', 'middleware' => 'master'], function(){
+Route::group(['prefix' => 'master', 'middleware' => ['auth','master']], function(){
     Route::get('active/jobs', 'MastersController@getActiveJobs');
     Route::get('show/job/{jobId}', 'MastersController@show');
     Route::post('offer/for/{jobId}', 'OffersController@store');

@@ -1,6 +1,6 @@
 var elixir = require('laravel-elixir');
 
-
+require('laravel-elixir-vueify');
 
 /*
  |--------------------------------------------------------------------------

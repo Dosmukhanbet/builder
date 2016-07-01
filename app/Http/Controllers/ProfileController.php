@@ -13,7 +13,7 @@ class ProfileController extends Controller
 
     public function show()
     {
-        return view('master.profile');
+        return view('master.profile.profile');
     }
 
     public function clientProfileShow()

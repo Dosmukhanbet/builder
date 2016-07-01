@@ -1,5 +1,6 @@
 Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
 import Vue from 'vue';
+import Vuikit from 'vuikit';
 import sendsms from './components/sendsms';
 import types from './components/types.js';
 import jobstype from './components/jobstype.js';
@@ -13,6 +14,7 @@ Vue.transition('fade', {
     enterClass: 'fadeInUp',
     leaveClass: 'fadeOutLeft'
 });
+Vue.use(Vuikit);
 new Vue ({
    el : '#app-layout',
     data:{
