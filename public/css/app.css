@@ -3746,9 +3746,8 @@ tbody.collapse.in {
   padding: 9px 10px;
   margin-top: 8px;
   margin-bottom: 8px;
-  background-color: transparent;
+  background-color: #4A90E2;
   background-image: none;
-  border: 1px solid transparent;
   border-radius: 4px; }
   .navbar-toggle:focus {
     outline: 0; }
@@ -5792,6 +5791,10 @@ ul.Job__list {
 .Nav__links > i {
   margin-right: 5px;
   color: #609BCD; }
+
+.navbar-toggle {
+  background-color: #2B3E69;
+  border: 1px solid #fff; }
 
 .Offer__header {
   margin-left: 30px; }

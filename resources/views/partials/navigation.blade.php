@@ -3,7 +3,7 @@
                          <div class="row">
                             <div class="col-md-12">
                                 <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                    <button type="button" class="navbar-toggle ç" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                                                   <span class="sr-only"></span>
                                                   <span class="icon-bar"></span>
                                                   <span class="icon-bar"></span>
