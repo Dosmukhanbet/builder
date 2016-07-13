@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use DB;
+use App\User;
+use App\Offer;
+use App\Invite;
 use Image;
 use App\Http\Requests;
 use Illuminate\Http\Request;
@@ -13,12 +17,30 @@ class ProfileController extends Controller
 
     public function show()
     {
-        return view('master.profile.profile');
+        $clients = User::where('type', 'client')->lists('name', 'id');
+        $feedbacks = Auth::user()->feedbacks()->paginate(10);
+
+        return view('master.profile.show', compact('feedbacks', 'clients'));
     }
 
     public function clientProfileShow()
     {
         return view('client.profileshow');
+    }
+
+
+    public function feedbackCreate()
+    {
+        $invites = Invite::where('from_user_id', Auth::user()->id)->pluck('user_id')->unique()->toArray();
+        $offers = Offer::whereIn('job_id', Auth::user()->jobs->pluck('id'))->pluck('user_id')->unique()->toArray();;
+        $merged = array_merge($offers, $invites);
+
+
+        $masters = DB::table('users')
+            ->whereIn('id', collect($merged)->unique())
+            ->paginate(8);
+
+        return view('client.leavefeedback', compact('masters'));
     }
 
     public function savePhoto(Request $request)

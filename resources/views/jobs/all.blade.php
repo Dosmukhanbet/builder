@@ -4,7 +4,7 @@
 <div class="row">
 
               @if($jobs->count() >= 1)
-                <div class="col-md-8">
+                <div class="col-md-8 col-md-offset-1">
                      <h4 class="job__list__header"><i class="fa fa-list" aria-hidden="true"></i>Мои заявки <span>({{$jobs->count()}})</span></h4>
 
                          @foreach($jobs as $job)
@@ -31,11 +31,10 @@
 
 
                                      </p>
-                                     </div>
+                                     <jobdone :jobid="{{$job->id}}" :jobstatus="{{$job->status}}"></jobdone>
 
-                                        {{--@if($job->dateOfMake < Carbon\Carbon::now())--}}
-                                            {{--<jobdone :jobid="{{$job->id}}" :jobstatus="{{$job->status}}"></jobdone>--}}
-                                         {{--@endif--}}
+
+                                     </div>
 
                                       <div class="images">
                                           @foreach($job->photos->take(3) as $photo)
@@ -56,7 +55,9 @@
                      <h4>У Вас нет ни одной заявки</h4>
                    @endif
                    </div>
+                   @if($jobs->count() >= 1)
                        @include('partials.modal_recommended_masters')
+                    @endif
 </div>
 
 

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Events\JobWasPublished;
+use DB;
+use App\User;
+use App\Offer;
+use App\Invite;
 use App\Job;
 use App\JobPhoto;
 use Auth;
@@ -47,7 +51,7 @@ class JobsController extends Controller
 
         event(new JobWasPublished($job));
 
-        return redirect('job/show/'. $job->id);
+        return redirect('job/showoffers/'. $job->id);
 
 
     }
@@ -55,19 +59,9 @@ class JobsController extends Controller
 
     public function addPhoto($jobId, Request $request)
     {
-
-//        $file = $request->file('photo');
-//        $filename = time().$file->getClientOriginalName();
-//        $file->move('jobs/photos', $filename);
-
-        $photo = new JobPhoto();
+       $photo = new JobPhoto();
 
         $photo->addPhoto($request->file('photo'),Job::find($jobId) );
-//        $job = Job::find($jobId)->addPhoto($request->file('photo'));
-//
-//        $job->photos()->create(['path' => "/jobs/photos/{$filename}" ]);
-
-
 
     }
 
@@ -117,5 +111,15 @@ class JobsController extends Controller
         $job = Job::find($id);
         $job->status = 1;
         $job->save();
+    }
+
+
+/*
+ * Return list of offered and invited masters for Job
+ * */
+    public function masterslist()
+    {
+
+
     }
 }

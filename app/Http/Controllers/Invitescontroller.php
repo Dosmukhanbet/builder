@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Auth;
 use App\User;
 use Illuminate\Http\Request;
@@ -17,5 +18,6 @@ class InvitesController extends Controller
         return view('master.invites', compact('invites'));
 
     }
+
 
 }

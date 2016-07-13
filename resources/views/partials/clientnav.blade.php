@@ -14,6 +14,7 @@
                                        <ul class="dropdown-menu" role="menu">
                                             <li><a href="{{ url('/logout') }}">Выйти</a></li>
                                             <li><a href="{{ url('job/client/profile') }}">Профиль</a></li>
+                                            <li><a href="{{ url('job/client/leavefeedback') }}">Оставить отзыв</a></li>
                                         </ul>
                                     </li>
                              </ul>

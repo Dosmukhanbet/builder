@@ -9,7 +9,7 @@ export default {
                 </div>
                 <div class="Offer__block" v-for="offer in offers">
                     <a data-lity href="{{ makephotopath(offer.user.photo_path) }}">
-                        <img class="Offer__image img-thumbnail" src="{{ makethumbpath(offer.user.thumbnail_path) }}"></a>
+                        <img class="Offer__image img-thumbnail" v-bind:src="makethumbpath(offer.user.thumbnail_path)"></a>
                     <ul class="Offer__list">
                         <li>Мастер: {{offer.user.name}} </li>
                         <li>Сотовый номер: +{{offer.user.phone_number}} </li>

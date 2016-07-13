@@ -10,6 +10,8 @@ import recommendations from './components/recommendations.js';
 import realtimeoffers from './components/realtimeoffers.js';
 import newoffers from './components/newoffers.js';
 import newofferalert from './components/newofferalert.js';
+import jobmademasters from './components/jobmademasters.js';
+
 Vue.transition('fade', {
     enterClass: 'fadeInUp',
     leaveClass: 'fadeOutLeft'
@@ -30,7 +32,8 @@ new Vue ({
        recommendations,
        realtimeoffers,
        newoffers,
-       newofferalert
+       newofferalert,
+       jobmademasters
    },
 
    ready(){

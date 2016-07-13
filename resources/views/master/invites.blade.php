@@ -2,12 +2,12 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-7 col-md-offset-1">
             <h4 class="invites__header"><i class="fa fa-tasks" aria-hidden="true"></i>Мои приглашения</h4>
             @foreach($invites as $invite)
                 <div class="invites">
                       <div class="invite__user">
-                      <p class="date_created_at">приглашение сделано: {{$invite->created_at}}</p>
+                      <p class="date_created_at">{{$invite->created_at}}</p>
                       <h6>От пользователя:</h6>
                         <a href="/{{ $invite->from()->photo_path ? $invite->from()->photo_path : "profile/sitephotos/no-photo.jpg" }}" data-lity>
                              <img  src="/{{$invite->from()->thumbnail_path ? $invite->from()->thumbnail_path : "profile/sitephotos/thumb-no-photo.jpg"}}" class="Offer__image img-thumbnail">

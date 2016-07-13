@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="row">
-        <div class="col-md-6 table-responsive">
+        <div class="col-md-6 col-md-offset-1">
             @if($jobs->count() >= 1)
                 <h4><i class="fa fa-cogs" aria-hidden="true"></i>Активные заявки в вашем регионе</h4>
                      @foreach($jobs as $job)

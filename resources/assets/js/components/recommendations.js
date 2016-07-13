@@ -7,7 +7,7 @@ export default {
         <div class="masters" v-for="master in masters">
             <p>
                 <a data-lity href="{{ makephotopath(master.photo_path) }}">
-                    <img class="img-thumbnail" src="{{ makethumbpath(master.thumbnail_path) }}"></a>
+                    <img class="img-thumbnail" v-bind:src="makethumbpath(master.thumbnail_path)"></a>
                 </p>
 
                 <p><span>Имя:</span> {{master.name}}<br>
@@ -66,13 +66,17 @@ export default {
 
             var master = _.findWhere(this.masters, {id: masterid});
 
-            if( ! master.invited ) {
+            if( master.invited ) {
 
                 this.$http.post('/api/invitesendsms', datas).then(function(response){
                 console.log(response.data );
                 });
+                this.$http.post('/api/invitemaster', datas).then(function(response){
+                console.log(response.data );
+                });
 
-                swal("Ок!", "Приглашение мастеру отправлено!", "success");
+
+            swal("Ок!", "Приглашение мастеру отправлено!", "success");
 
             } else {
                     swal("!", "Вы уже отправили приглашение этому мастеру!", "error");

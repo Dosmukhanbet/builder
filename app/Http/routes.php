@@ -17,6 +17,7 @@ Route::get('find/masters', 'SearchMastersController@findMasters');
 Route::post('api/sendsms', 'NotifyController@sendSms');
 Route::post('api/invitesendsms', 'NotifyController@invitesendSms');
 Route::post('api/findmasters/{catId}', 'SearchMastersController@mastersbycategory');
+Route::get('api/masterslist/', 'JobsController@masterslist');
 Route::get('/home', 'HomeController@index');
 Route::get('api/categories', function (){ return \App\Category::all(); });
 Route::post('api/makejobdone/{id}', 'JobsController@makejobdone');
@@ -49,6 +50,7 @@ Route::group(['prefix'=> 'job', 'middleware' => ['auth','client']], function()
         Route::get('showoffers/{jobId}', 'OffersController@showOffers');
         Route::get('accept/offer/{offerId}/{offeredUserId}', 'OffersController@acceptOffer');
         Route::get('client/profile/', 'ProfileController@clientProfileShow');
+        Route::get('client/leavefeedback/', 'ProfileController@feedbackCreate');
         Route::post('clientprofile/addphoto', 'ProfileController@savePhoto');
     }
 );
@@ -77,6 +79,6 @@ Route::group(['prefix' => 'admin'], function(){
 
 });
 
-Route::group(['prefix' => 'feedbacks'], function(){
-    Route::post('leave', 'FeedbackController@leave');
-});
+
+
+Route::post('addFeedback/{masterid}', 'FeedbackController@leave');

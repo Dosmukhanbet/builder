@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Events\OfferWasCreated;
 use App\Services\AppMailer;
 use Auth;
@@ -10,6 +11,7 @@ use App\Offer;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
+use Mockery\CountValidator\Exception;
 
 class OffersController extends Controller
 {
@@ -57,6 +59,13 @@ class OffersController extends Controller
                         ->get();
         $job = Job::find($jobId);
 
+        if($job->user_id != Auth::user()->id)
+        {
+            flash()->error('Ошибка', 'Нельзя просматривать и редактировать чужие записи!');
+            return redirect('job/all');
+        }
+
+
         return view('offers.show', compact('offers', 'job'));
     }
 
@@ -68,6 +77,8 @@ class OffersController extends Controller
         $offer->save();
         $jobCreator = $offer->job->user;
         $this->mailer->sendOfferAcceptedEmailTo($offer->user, 'email.offerAccepted', 'Ваше предложение было принято', $jobCreator);
+
+
         flash()->success('Спасибо!', 'Мы отправили Ваши данные мастеру');
 
         return redirect(url('job/all'));

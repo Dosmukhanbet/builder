@@ -1,0 +1,19 @@
+.masters_list {
+  display: flex;
+  background: #fff;
+  margin-bottom: 10px;
+  padding: 20px 5px 5px 5px;
+  border: 1px solid #ddd;
+}
+
+.masters_list > * {
+  margin-left: 10px;
+  margin-right: 20px;
+}
+.masters_list:hover{
+  border: 2px solid #ccc;
+  }
+
+.profile__master__name {
+  margin: 15px 0 0 10px;
+}

@@ -33877,7 +33877,7 @@ var _leavefeedback2 = _interopRequireDefault(_leavefeedback);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-    template: '\n\n    <div class="jobdone" v-show="!done && jobstatus == 0">\n        <p>Данная завяка выполнена?\n            <label for="one">Да\n                 <input type="radio" @click="makeJobDone" id="one" value="1" v-model="done"  data-toggle="modal" data-target="#exampleModal" >\n            </label>\n            <label for="two">Нет\n                <input type="radio" @click="makeJobDone" id="two" value="0" v-model="done">\n            </label>\n            </p>\n        </div>\n\n    ',
+    template: '\n\n    <div class="jobdone" v-show="!done && jobstatus == 0">\n        <p>Данная завяка выполнена?\n            <label for="one">Да\n                 <input type="radio" @click="makeJobDone" id="one" value="1" v-model="done"  data-toggle="modal" data-target="#feedbackModal" >\n            </label>\n            <label for="two">Нет\n                <input type="radio" @click="makeJobDone" id="two" value="0" v-model="done">\n            </label>\n            </p>\n        </div>\n\n    ',
     props: ['jobid', 'jobstatus'],
 
     ready: function ready() {},
@@ -33898,7 +33898,69 @@ exports.default = {
 
 };
 
-},{"./leavefeedback.js":42,"vue-resource":27}],41:[function(require,module,exports){
+},{"./leavefeedback.js":43,"vue-resource":27}],41:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _vueResource = require('vue-resource');
+
+var _vueResource2 = _interopRequireDefault(_vueResource);
+
+var _underscore = require('underscore');
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+    template: '\n            <div v-for="master in masters" class="masters_list" @click="masterSelected(master.name)">\n                <a data-lity href="{{ makephotopath(master.photo_path) }}">\n                    <img class="img-circle" v-bind:src="makethumbpath(master.thumbnail_path)">\n                </a>\n                 {{master.name}}\n                <form class="" style="float:right">\n                    <div class="form-group">\n                        <label class="control-label">Написать отзыв</label>\n                        <textarea class="form-control" rows="2" name="feedback" required></textarea>\n                    </div>\n                    <div class="form-group">\n                    <button type="submit" class="btn btn-default">Отправить</button>\n                    </div>\n                </form>\n            </div>\n        ',
+
+    props: ['masters'],
+
+    ready: function ready() {
+        this.findmaster();
+    },
+
+
+    methods: {
+        findmaster: function findmaster() {
+            this.$http.get('/api/masterslist/').then(function (response) {
+
+                console.log(response.data);
+                this.masters = response.data;
+            });
+        },
+        makethumbpath: function makethumbpath(path) {
+            if (path) {
+                return '/' + path;
+            } else {
+                return "/profile/sitephotos/thumb-no-photo.jpg";
+            }
+        },
+        makephotopath: function makephotopath(path) {
+            if (path) {
+                return '/' + path;
+            } else {
+                return "/profile/sitephotos/no-photo.jpg";
+            }
+        },
+        findCat: function findCat(id) {
+            return _underscore2.default.findWhere(this.cats, { id: id }).name;
+        },
+        findCity: function findCity(id) {
+            return _underscore2.default.findWhere(this.cities, { id: id }).name;
+        },
+        masterSelected: function masterSelected(name) {
+            alert(name);
+        }
+    }
+
+};
+
+},{"underscore":13,"vue-resource":27}],42:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -33937,7 +33999,7 @@ exports.default = {
 
 };
 
-},{"vue-resource":27}],42:[function(require,module,exports){
+},{"vue-resource":27}],43:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -33964,7 +34026,7 @@ exports.default = {
 
 };
 
-},{"vue-resource":27}],43:[function(require,module,exports){
+},{"vue-resource":27}],44:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -33982,13 +34044,12 @@ var _underscore2 = _interopRequireDefault(_underscore);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-    template: '\n    <div class="col-md-2">\n        <h4>Категории</h4>\n        <div class="categories">\n            <a v-for="cat in cats" @click="findmaster(cat.id)">{{cat.name}}<span class="user_length"> ({{cat.user.length}})</span></a>\n        </div>\n    </div>\n    <div class="col-md-5">\n    <h4>Мастера по категориям</h4>\n    <div class=\'findedmasters\' v-for="master in masters" v-show="masters">\n              <p>\n                  <a data-lity href="{{ makephotopath(master.photo_path) }}">\n                <img class="img-thumbnail" src="{{ makethumbpath(master.thumbnail_path) }}"></a>\n              </p>\n\n               <p><span>Имя:</span> {{master.name}}<br>\n                <span>Мобильный номер:</span> +{{master.phone_number}}<br>\n                <span>Специальность:</span>  {{ findCat(master.category_id) }}<br>\n                 <span>Город:</span>  {{ findCity(master.city_id) }}<br>\n             </p>\n\n    </div>\n    </div>\n    ',
+    template: '\n    <div class="col-md-2 col-md-offset-1">\n        <h4>Категории</h4>\n        <div class="categories">\n            <a v-for="cat in cats" @click="findmaster(cat.id)">{{cat.name}}<span class="user_length"> ({{cat.user.length}})</span></a>\n        </div>\n    </div>\n    <div class="col-md-4">\n    <h4>Мастера по категориям</h4>\n    <div class=\'findedmasters\' v-for="master in masters" v-show="masters">\n              <p>\n                  <a data-lity href="{{ makephotopath(master.photo_path) }}">\n                <img class="img-thumbnail" v-bind:src="makethumbpath(master.thumbnail_path)"></a>\n              </p>\n\n               <p><span>Имя:</span> {{master.name}}<br>\n                <span>Мобильный номер:</span> +{{master.phone_number}}<br>\n                <span>Специальность:</span>  {{ findCat(master.category_id) }}<br>\n                 <span>Город:</span>  {{ findCity(master.city_id) }}<br>\n             </p>\n\n    </div>\n    </div>\n    ',
 
     props: ['cats', 'masters', 'cities'],
 
     ready: function ready() {
 
-        console.log(this.cats[0].name);
         this.masters = this.findmaster(2);
     },
 
@@ -34024,7 +34085,7 @@ exports.default = {
 
 };
 
-},{"underscore":13,"vue-resource":27}],44:[function(require,module,exports){
+},{"underscore":13,"vue-resource":27}],45:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -34061,7 +34122,7 @@ exports.default = {
 
 };
 
-},{}],45:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -34098,7 +34159,7 @@ exports.default = {
 
 };
 
-},{}],46:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -34113,7 +34174,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var socket = io('104.236.12.84:3000');
 exports.default = {
-    template: '\n                <div v-show="alert"\n                     transition="fade"\n                     class="alert--offer animated">\n                    <i class="fa fa-paper-plane" aria-hidden="true"></i> Новое предложение\n                </div>\n                <div class="Offer__block" v-for="offer in offers">\n                    <a data-lity href="{{ makephotopath(offer.user.photo_path) }}">\n                        <img class="Offer__image img-thumbnail" src="{{ makethumbpath(offer.user.thumbnail_path) }}"></a>\n                    <ul class="Offer__list">\n                        <li>Мастер: {{offer.user.name}} </li>\n                        <li>Сотовый номер: +{{offer.user.phone_number}} </li>\n                        <li>Предложенная цена: {{offer.offer.price}}</li>\n                        <li>Комментария: {{makecomment(offer.offer.comment)}}</li>\n                        <li> Поступило: {{ offer.offer.created_at}}</li>\n                    </ul>\n                    <a href="{{ makeurl(offer.offer.id,offer.user.id )}}" class="btn btn-warning __button" >\n                        Принять предложение\n                    </a>\n                </div>\n        ',
+    template: '\n                <div v-show="alert"\n                     transition="fade"\n                     class="alert--offer animated">\n                    <i class="fa fa-paper-plane" aria-hidden="true"></i> Новое предложение\n                </div>\n                <div class="Offer__block" v-for="offer in offers">\n                    <a data-lity href="{{ makephotopath(offer.user.photo_path) }}">\n                        <img class="Offer__image img-thumbnail" v-bind:src="makethumbpath(offer.user.thumbnail_path)"></a>\n                    <ul class="Offer__list">\n                        <li>Мастер: {{offer.user.name}} </li>\n                        <li>Сотовый номер: +{{offer.user.phone_number}} </li>\n                        <li>Предложенная цена: {{offer.offer.price}}</li>\n                        <li>Комментария: {{makecomment(offer.offer.comment)}}</li>\n                        <li> Поступило: {{ offer.offer.created_at}}</li>\n                    </ul>\n                    <a href="{{ makeurl(offer.offer.id,offer.user.id )}}" class="btn btn-warning __button" >\n                        Принять предложение\n                    </a>\n                </div>\n        ',
     props: ['jobid'],
 
     data: function data() {
@@ -34163,7 +34224,7 @@ exports.default = {
 
 };
 
-},{"vue-resource":27}],47:[function(require,module,exports){
+},{"vue-resource":27}],48:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -34181,7 +34242,7 @@ var _underscore2 = _interopRequireDefault(_underscore);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-    template: '\n    <div class="recommendations" v-show="masters">\n        <div class="masters" v-for="master in masters">\n            <p>\n                <a data-lity href="{{ makephotopath(master.photo_path) }}">\n                    <img class="img-thumbnail" src="{{ makethumbpath(master.thumbnail_path) }}"></a>\n                </p>\n\n                <p><span>Имя:</span> {{master.name}}<br>\n                    <span>Мобильный номер:</span> +{{master.phone_number}}\n                </p>\n                <p>\n                    <button  @click="sendsms(master.id, master.phone_number)" class="send__sms">\n                      пригласить выполнить работу\n                    </button>\n                </p>\n        </div>\n\n    </div>\n     ',
+    template: '\n    <div class="recommendations" v-show="masters">\n        <div class="masters" v-for="master in masters">\n            <p>\n                <a data-lity href="{{ makephotopath(master.photo_path) }}">\n                    <img class="img-thumbnail" v-bind:src="makethumbpath(master.thumbnail_path)"></a>\n                </p>\n\n                <p><span>Имя:</span> {{master.name}}<br>\n                    <span>Мобильный номер:</span> +{{master.phone_number}}\n                </p>\n                <p>\n                    <button  @click="sendsms(master.id, master.phone_number)" class="send__sms">\n                      пригласить выполнить работу\n                    </button>\n                </p>\n        </div>\n\n    </div>\n     ',
     props: ['catid', 'masters', 'jobid', 'jobownerid'],
 
     ready: function ready() {
@@ -34225,9 +34286,12 @@ exports.default = {
 
             var master = _underscore2.default.findWhere(this.masters, { id: masterid });
 
-            if (!master.invited) {
+            if (master.invited) {
 
                 this.$http.post('/api/invitesendsms', datas).then(function (response) {
+                    console.log(response.data);
+                });
+                this.$http.post('/api/invitemaster', datas).then(function (response) {
                     console.log(response.data);
                 });
 
@@ -34246,7 +34310,7 @@ exports.default = {
 
 };
 
-},{"underscore":13,"vue-resource":27}],48:[function(require,module,exports){
+},{"underscore":13,"vue-resource":27}],49:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -34322,7 +34386,7 @@ exports.default = _vue2.default.extend({
 
 });
 
-},{"sweetalert":11,"vue":38,"vue-resource":27}],49:[function(require,module,exports){
+},{"sweetalert":11,"vue":38,"vue-resource":27}],50:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -34363,7 +34427,7 @@ exports.default = {
 
 };
 
-},{"vue-resource":27}],50:[function(require,module,exports){
+},{"vue-resource":27}],51:[function(require,module,exports){
 'use strict';
 
 var _vue = require('vue');
@@ -34410,9 +34474,14 @@ var _newofferalert = require('./components/newofferalert.js');
 
 var _newofferalert2 = _interopRequireDefault(_newofferalert);
 
+var _jobmademasters = require('./components/jobmademasters.js');
+
+var _jobmademasters2 = _interopRequireDefault(_jobmademasters);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue2.default.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
+
 
 _vue2.default.transition('fade', {
     enterClass: 'fadeInUp',
@@ -34434,7 +34503,8 @@ new _vue2.default({
         recommendations: _recommendations2.default,
         realtimeoffers: _realtimeoffers2.default,
         newoffers: _newoffers2.default,
-        newofferalert: _newofferalert2.default
+        newofferalert: _newofferalert2.default,
+        jobmademasters: _jobmademasters2.default
     },
 
     ready: function ready() {},
@@ -34451,6 +34521,6 @@ new _vue2.default({
 
 });
 
-},{"./components/jobdone.js":40,"./components/jobstype.js":41,"./components/masters.js":43,"./components/newofferalert.js":44,"./components/newoffers.js":45,"./components/realtimeoffers.js":46,"./components/recommendations.js":47,"./components/sendsms":48,"./components/types.js":49,"vue":38,"vuikit":39}]},{},[50]);
+},{"./components/jobdone.js":40,"./components/jobmademasters.js":41,"./components/jobstype.js":42,"./components/masters.js":44,"./components/newofferalert.js":45,"./components/newoffers.js":46,"./components/realtimeoffers.js":47,"./components/recommendations.js":48,"./components/sendsms":49,"./components/types.js":50,"vue":38,"vuikit":39}]},{},[51]);
 
 //# sourceMappingURL=main.js.map

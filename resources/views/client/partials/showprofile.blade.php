@@ -1,21 +1,20 @@
-    <div class="col-md-5 Profile__block">
+<div class=" Profile__block">
                 <ul class="Profile__list">
                     <li>Имя: {{$user->name}} </li>
                     <li>Электронный адрес: {{$user->email}} </li>
                     <li>Мобильный номер: {{$user->phone_number}} </li>
-                    <li>Специальность :{{ $categories[$user->category_id]}}</li>
                     <li>Город: {{ $cities[$user->city_id]}}</li>
 
 
                   @if($user->photo_path)
-                    <li>Фото профиля:
+                    <li>Фото профиля:<br>
                   <a href="/{{ $user->photo_path }}" data-lity> <img src="/{{$user->thumbnail_path}}" class="img-thumbnail"></a>
                      </li>
                   </ul>
                   @else
                   </ul>
                   <div class="col-md-12">
-                <form class="form-horizontal Profile__form" enctype="multipart/form-data" method="POST" action="{{url('master/profile/addphoto')}}">
+                <form class="Profile__form" enctype="multipart/form-data" method="POST" action="{{url('job/clientprofile/addphoto')}}">
 
                         {{csrf_field()}}
 
@@ -34,5 +33,4 @@
                  </form>
                 </div>
                 @endif
-
-    </div>
+</div>

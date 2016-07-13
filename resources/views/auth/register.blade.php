@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 col-md-offset-1">
                    <h3 class="form_header">Регистрация</h3>
                    <form @keyup.enter="onEnter" role="form" method="POST" action="{{ url('/register') }}">
                         {!! csrf_field() !!}

@@ -7,7 +7,7 @@ export default {
     <div class="jobdone" v-show="!done && jobstatus == 0">
         <p>Данная завяка выполнена?
             <label for="one">Да
-                 <input type="radio" @click="makeJobDone" id="one" value="1" v-model="done"  data-toggle="modal" data-target="#exampleModal" >
+                 <input type="radio" @click="makeJobDone" id="one" value="1" v-model="done"  data-toggle="modal" data-target="#feedbackModal" >
             </label>
             <label for="two">Нет
                 <input type="radio" @click="makeJobDone" id="two" value="0" v-model="done">
