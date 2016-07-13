@@ -30,6 +30,7 @@
 
 
 
+
                                      </p>
                                      <jobdone :jobid="{{$job->id}}" :jobstatus="{{$job->status}}"></jobdone>
 

@@ -5796,6 +5796,12 @@ ul.Job__list {
   background-color: #2B3E69;
   border: 1px solid #fff; }
 
+.navbar-brand {
+  font-family: 'Amatic SC', cursive;
+  font-size: 1.7em;
+  letter-spacing: 5px;
+  font-weight: 700; }
+
 .Offer__header {
   margin-left: 30px; }
 
@@ -5946,7 +5952,7 @@ hr {
   /* Цвет линии для остальных браузеров */
   background-color: #ccc;
   /* Цвет линии для браузера Firefox и Opera */
-  height: 2px; }
+  height: 1px; }
 
 .job__list__header {
   border-bottom: 1px solid #ddd;

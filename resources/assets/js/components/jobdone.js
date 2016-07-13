@@ -14,11 +14,14 @@ export default {
             </label>
             </p>
         </div>
+            <p style="color:green" v-show="jobstatus == 1"><i class="fa fa-check-square" aria-hidden="true"></i> Выполнена</p>
 
     `,
     props :['jobid', 'jobstatus'],
 
-    ready() { },
+    ready() {
+
+            },
 
     data(){
         return {  done: false }
@@ -31,7 +34,9 @@ export default {
         makeJobDone(){
             if(this.jobstatus == 0){
             this.$http.post('/api/makejobdone/' + this.jobid);
+
             }
+            this.jobstatus = 1;
             }
 
 

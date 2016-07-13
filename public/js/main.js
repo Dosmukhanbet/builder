@@ -33877,7 +33877,7 @@ var _leavefeedback2 = _interopRequireDefault(_leavefeedback);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-    template: '\n\n    <div class="jobdone" v-show="!done && jobstatus == 0">\n        <p>Данная завяка выполнена?\n            <label for="one">Да\n                 <input type="radio" @click="makeJobDone" id="one" value="1" v-model="done"  data-toggle="modal" data-target="#feedbackModal" >\n            </label>\n            <label for="two">Нет\n                <input type="radio" @click="makeJobDone" id="two" value="0" v-model="done">\n            </label>\n            </p>\n        </div>\n\n    ',
+    template: '\n\n    <div class="jobdone" v-show="!done && jobstatus == 0">\n        <p>Данная завяка выполнена?\n            <label for="one">Да\n                 <input type="radio" @click="makeJobDone" id="one" value="1" v-model="done"  data-toggle="modal" data-target="#feedbackModal" >\n            </label>\n            <label for="two">Нет\n                <input type="radio" @click="makeJobDone" id="two" value="0" v-model="done">\n            </label>\n            </p>\n        </div>\n            <p style="color:green" v-show="jobstatus == 1"><i class="fa fa-check-square" aria-hidden="true"></i> Выполнена</p>\n\n    ',
     props: ['jobid', 'jobstatus'],
 
     ready: function ready() {},
@@ -33893,6 +33893,7 @@ exports.default = {
             if (this.jobstatus == 0) {
                 this.$http.post('/api/makejobdone/' + this.jobid);
             }
+            this.jobstatus = 1;
         }
     }
 
