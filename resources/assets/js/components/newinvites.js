@@ -8,7 +8,7 @@ export default  {
         <i class="fa fa-paper-plane" aria-hidden="true"></i> Новое приглашение
     </div>
     `,
-    props : ['userId'],
+    props : ['userid'],
 
     data(){
         return {  alert: false }
@@ -20,6 +20,8 @@ export default  {
             this.alert = true;
             setTimeout(() => this.alert = false , 3000);
         }.bind(this));
+
+        console.log(this.userid);
     },
 
     methods : {

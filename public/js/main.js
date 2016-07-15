@@ -34096,7 +34096,7 @@ var socket = io('104.236.12.84:3000');
 
 exports.default = {
     template: '\n    <div v-show="alert"\n    transition="fade"\n    class="alert--offer animated">\n        <i class="fa fa-paper-plane" aria-hidden="true"></i> Новое приглашение\n    </div>\n    ',
-    props: ['userId'],
+    props: ['userid'],
 
     data: function data() {
         return { alert: false };
@@ -34110,6 +34110,8 @@ exports.default = {
                 return _this.alert = false;
             }, 3000);
         }.bind(this));
+
+        console.log(this.userid);
     },
 
 
