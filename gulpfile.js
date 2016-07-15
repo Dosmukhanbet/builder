@@ -15,7 +15,20 @@ require('laravel-elixir-vueify');
 
 elixir(function(mix) {
     mix.sass('app.scss')
-        .styles(['sweetalert.css', 'animate.css','dropzone.css', 'lity.css', 'jquery.datetimepicker.min.css'])
-        .scripts(['libs/dropzone.js', 'libs/lity.js', 'libs/datetimepicker.js'])
+        .styles( [
+                    'sweetalert.css',
+                    'animate.css',
+                    'dropzone.css',
+                    'lity.css',
+                    'jquery.datetimepicker.min.css',
+                    'slick.css',
+                    'slick-theme.css'
+        ])
+        .scripts([
+                    'libs/dropzone.js',
+                    'libs/lity.js',
+                    'libs/datetimepicker.js',
+                    'libs/slick.js'
+        ])
         .browserify('main.js');
 });

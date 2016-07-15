@@ -7,6 +7,8 @@ use App\Job;
 use App\Invite;
 use App\Services\SMS;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
+
 
 use App\Http\Requests;
 
@@ -43,7 +45,12 @@ class NotifyController extends Controller
 
         $this->createInvite($request);
 
+        $user = User::find($request['id']);
+        Redis::publish('invite-channel', json_encode($user->id));
+
 //        return $text . " " . strlen($text);
+
+
 
         return $this->sms->send($request['number'], $text);
     }

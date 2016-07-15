@@ -6,6 +6,7 @@
             <h4 class="invites__header"><i class="fa fa-tasks" aria-hidden="true"></i>Мои приглашения</h4>
             @foreach($invites as $invite)
                 <div class="invites">
+                <newinvites :userId="{{ Auth::user()->id }}"></newinvites>
                       <div class="invite__user">
                       <p class="date_created_at">{{$invite->created_at}}</p>
                       <h6>От пользователя:</h6>

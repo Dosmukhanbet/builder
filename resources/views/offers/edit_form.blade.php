@@ -5,7 +5,7 @@
     </div>
     <div class="form-group">
         {{ Form::label('Описание:', null, ['class' => 'control-label']) }}
-        {{ Form::textarea('description', null, ['class' => 'form-control']) }}
+        {{ Form::textarea('description', null, ['class' => 'form-control', 'rows' => 2, 'cols' => 40]) }}
     </div>
     <div class="form-group">
         {{ Form::label('Категория:', null, ['class' => 'control-label']) }}

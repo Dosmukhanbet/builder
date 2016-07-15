@@ -33877,7 +33877,7 @@ var _leavefeedback2 = _interopRequireDefault(_leavefeedback);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-    template: '\n\n    <div class="jobdone" v-show="!done && jobstatus == 0">\n        <p>Данная завяка выполнена?\n            <label for="one">Да\n                 <input type="radio" @click="makeJobDone" id="one" value="1" v-model="done"  data-toggle="modal" data-target="#feedbackModal" >\n            </label>\n            <label for="two">Нет\n                <input type="radio" @click="makeJobDone" id="two" value="0" v-model="done">\n            </label>\n            </p>\n        </div>\n            <p style="color:green" v-show="jobstatus == 1"><i class="fa fa-check-square" aria-hidden="true"></i> Выполнена</p>\n\n    ',
+    template: '\n\n    <div class="jobdone" v-show="!done && jobstatus == 0">\n        <p>Данная заявка выполнена?\n            <label for="one">Да\n                 <input type="radio" @click="makeJobDone" id="one" value="1" v-model="done"  data-toggle="modal" data-target="#feedbackModal" >\n            </label>\n            <label for="two">Нет\n                <input type="radio" @click="makeJobDone" id="two" value="0" v-model="done">\n            </label>\n            </p>\n    </div>\n            <p style="color:green" v-show="jobstatus == 1"><i class="fa fa-check-square" aria-hidden="true"></i> Выполнена</p>\n\n    ',
     props: ['jobid', 'jobstatus'],
 
     ready: function ready() {},
@@ -34095,6 +34095,37 @@ Object.defineProperty(exports, "__esModule", {
 var socket = io('104.236.12.84:3000');
 
 exports.default = {
+    template: '\n    <div v-show="alert"\n    transition="fade"\n    class="alert--offer animated">\n        <i class="fa fa-paper-plane" aria-hidden="true"></i> Новое приглашение\n    </div>\n    ',
+    props: ['userId'],
+
+    data: function data() {
+        return { alert: false };
+    },
+    ready: function ready() {
+        socket.on('invites-channel-' + this.userid, function (data) {
+            var _this = this;
+
+            this.alert = true;
+            setTimeout(function () {
+                return _this.alert = false;
+            }, 3000);
+        }.bind(this));
+    },
+
+
+    methods: {}
+
+};
+
+},{}],46:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var socket = io('104.236.12.84:3000');
+
+exports.default = {
     template: '\n    <div v-show="alert"\n    transition="fade"\n    class="alert--offer animated">\n        <i class="fa fa-paper-plane" aria-hidden="true"></i> Новое предложение\n    </div>\n\n</span>\n',
     props: ['jobid'],
 
@@ -34123,7 +34154,7 @@ exports.default = {
 
 };
 
-},{}],46:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -34160,7 +34191,7 @@ exports.default = {
 
 };
 
-},{}],47:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -34225,7 +34256,7 @@ exports.default = {
 
 };
 
-},{"vue-resource":27}],48:[function(require,module,exports){
+},{"vue-resource":27}],49:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -34311,7 +34342,7 @@ exports.default = {
 
 };
 
-},{"underscore":13,"vue-resource":27}],49:[function(require,module,exports){
+},{"underscore":13,"vue-resource":27}],50:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -34387,7 +34418,7 @@ exports.default = _vue2.default.extend({
 
 });
 
-},{"sweetalert":11,"vue":38,"vue-resource":27}],50:[function(require,module,exports){
+},{"sweetalert":11,"vue":38,"vue-resource":27}],51:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -34428,7 +34459,7 @@ exports.default = {
 
 };
 
-},{"vue-resource":27}],51:[function(require,module,exports){
+},{"vue-resource":27}],52:[function(require,module,exports){
 'use strict';
 
 var _vue = require('vue');
@@ -34471,6 +34502,10 @@ var _newoffers = require('./components/newoffers.js');
 
 var _newoffers2 = _interopRequireDefault(_newoffers);
 
+var _newinvites = require('./components/newinvites.js');
+
+var _newinvites2 = _interopRequireDefault(_newinvites);
+
 var _newofferalert = require('./components/newofferalert.js');
 
 var _newofferalert2 = _interopRequireDefault(_newofferalert);
@@ -34504,6 +34539,7 @@ new _vue2.default({
         recommendations: _recommendations2.default,
         realtimeoffers: _realtimeoffers2.default,
         newoffers: _newoffers2.default,
+        newinvites: _newinvites2.default,
         newofferalert: _newofferalert2.default,
         jobmademasters: _jobmademasters2.default
     },
@@ -34522,6 +34558,6 @@ new _vue2.default({
 
 });
 
-},{"./components/jobdone.js":40,"./components/jobmademasters.js":41,"./components/jobstype.js":42,"./components/masters.js":44,"./components/newofferalert.js":45,"./components/newoffers.js":46,"./components/realtimeoffers.js":47,"./components/recommendations.js":48,"./components/sendsms":49,"./components/types.js":50,"vue":38,"vuikit":39}]},{},[51]);
+},{"./components/jobdone.js":40,"./components/jobmademasters.js":41,"./components/jobstype.js":42,"./components/masters.js":44,"./components/newinvites.js":45,"./components/newofferalert.js":46,"./components/newoffers.js":47,"./components/realtimeoffers.js":48,"./components/recommendations.js":49,"./components/sendsms":50,"./components/types.js":51,"vue":38,"vuikit":39}]},{},[52]);
 
 //# sourceMappingURL=main.js.map

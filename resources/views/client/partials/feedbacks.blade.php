@@ -1,7 +1,7 @@
-<div class="col-md-6 col-md-offset-1">
-<h4>Список мастеров</h4>
+<div class="col-md-5 col-md-offset-1">
+<h4>Список мастеров ({{ $masters->count() }})</h4>
        @foreach($masters as $master)
-            <div class="masters_list">
+            <div class="feedback__block">
             <p>
                 <a data-lity href="/{{ $master->photo_path ? $master->photo_path : "profile/sitephotos/no-photo.jpg" }}">
                   <img class="img-circle" src="/{{ $master->thumbnail_path ? $master->thumbnail_path : 'profile/sitephotos/thumb-no-photo.jpg'}}">
@@ -12,7 +12,7 @@
                 </span>
             </p>
 
-                <form method="POST" class="" action="{{url('/addFeedback/'.$master->id)}}">
+                <form method="POST" class="feedback__form" action="{{url('/addFeedback/'.$master->id)}}">
                  {{ csrf_field() }}
                     <div class="form-group">
                         <label class="control-label">Написать отзыв</label>

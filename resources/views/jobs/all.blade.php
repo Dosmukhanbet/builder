@@ -4,7 +4,7 @@
 <div class="row">
 
               @if($jobs->count() >= 1)
-                <div class="col-md-8 col-md-offset-1">
+                <div class="col-md-6 col-md-offset-1">
                      <h4 class="job__list__header"><i class="fa fa-list" aria-hidden="true"></i>Мои заявки <span>({{$jobs->count()}})</span></h4>
 
                          @foreach($jobs as $job)
@@ -18,7 +18,7 @@
                                      <p>
                                           @if($job->offers->count())
                                               <a class="offer" href='{{ url( "job/showoffers/". $job->id ) }}'>
-                                                      Предложения от мастеров <span class="badge">{{$job->offers->count()}}</span>
+                                                      Предложения от мастеров &nbsp; <span class="badge">{{$job->offers->count()}}</span>
                                               </a>
                                               <button class="all__recommend" data-toggle="modal" data-target="#exampleModal">рекомендуемые мастера</button>
                                           @else
@@ -58,7 +58,7 @@
                    </div>
                    @if($jobs->count() >= 1)
                        @include('partials.modal_recommended_masters')
-                    @endif
+                   @endif
 </div>
 
 

@@ -9,6 +9,7 @@ import jobdone from './components/jobdone.js';
 import recommendations from './components/recommendations.js';
 import realtimeoffers from './components/realtimeoffers.js';
 import newoffers from './components/newoffers.js';
+import newinvites from './components/newinvites.js';
 import newofferalert from './components/newofferalert.js';
 import jobmademasters from './components/jobmademasters.js';
 
@@ -32,6 +33,7 @@ new Vue ({
        recommendations,
        realtimeoffers,
        newoffers,
+       newinvites,
        newofferalert,
        jobmademasters
    },

@@ -17,10 +17,10 @@
                 {{ Form::select('category_id', $categories, null, ['placeholder' => 'Выберите категорию']) }}
         </div>
 
-        <div class="col-md-9">
+
             <div class="form-group">
                 <button class="btn btn-primary" type="submit">Редактировать</button>
             </div>
-        </div>
+
      {{Form::close()}}
  </div>

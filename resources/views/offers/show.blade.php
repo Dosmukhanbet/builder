@@ -5,7 +5,7 @@
 @section('content')
            <newofferalert :jobid="{{$job->id}}" :text=""></newofferalert>
          <div class="col-md-12">
-            <div class="col-md-7">
+            <div class="col-md-6 col-md-offset-1">
             <h4 class="recommendation_header"><i class="fa fa-cog" aria-hidden="true"></i> {{$job->name}}</h4>
             <div>
                   <!-- Nav tabs -->
@@ -31,7 +31,7 @@
 
             </div>
 
-         <div class="col-md-5">
+         <div class="col-md-4">
                     @include('offers.recommended_masters')
          </div>
          </div>

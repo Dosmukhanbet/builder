@@ -5,7 +5,7 @@ export default {
     template : `
 
     <div class="jobdone" v-show="!done && jobstatus == 0">
-        <p>Данная завяка выполнена?
+        <p>Данная заявка выполнена?
             <label for="one">Да
                  <input type="radio" @click="makeJobDone" id="one" value="1" v-model="done"  data-toggle="modal" data-target="#feedbackModal" >
             </label>
@@ -13,7 +13,7 @@ export default {
                 <input type="radio" @click="makeJobDone" id="two" value="0" v-model="done">
             </label>
             </p>
-        </div>
+    </div>
             <p style="color:green" v-show="jobstatus == 1"><i class="fa fa-check-square" aria-hidden="true"></i> Выполнена</p>
 
     `,

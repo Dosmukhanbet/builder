@@ -29,3 +29,21 @@
   padding-left: 0;
 
 }
+
+.feedback__block {
+display: flex;
+  background: #fff;
+  padding: 10px;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+}
+
+.feedback__block > p {
+flex: 1;
+  padding: 15px;
+
+}
+.feedback__form {
+  flex: 2;
+}

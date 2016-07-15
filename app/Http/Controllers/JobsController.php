@@ -67,7 +67,7 @@ class JobsController extends Controller
 
     public function all()
     {
-        $jobs = Job::with('offers.user')->where('user_id', Auth::user()->id)->paginate(10);
+        $jobs = Job::with('offers.user')->where('user_id', Auth::user()->id)->orderBy('dateOfMake', 'desc')->paginate(10);
         return view('jobs.all', compact('jobs'));
     }
 

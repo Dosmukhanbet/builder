@@ -14,4 +14,13 @@ redis.on('message', function(channel, message) {
     io.emit(channel + '-' + message.jobid, message);
 });
 
+
+redis.subscribe('invite-channel');
+redis.on('message', function(channel, message) {
+
+    message = JSON.parse(message);
+    console.log(message);
+    io.emit(channel + '-' + message, message);
+});
+
 server.listen(3000);
