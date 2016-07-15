@@ -34334,7 +34334,7 @@ exports.default = {
 
             this.invitesend = true;
 
-            master.invited = true;
+            //master.invited = true;
 
             console.log(master.name);
         }
