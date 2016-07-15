@@ -66,7 +66,7 @@ export default {
 
             var master = _.findWhere(this.masters, {id: masterid});
 
-            if( master.invited ) {
+
 
                 this.$http.post('/api/invitesendsms', datas).then(function(response){
                 console.log(response.data );
@@ -78,9 +78,7 @@ export default {
 
             swal("Ок!", "Приглашение мастеру отправлено!", "success");
 
-            } else {
-                    swal("!", "Вы уже отправили приглашение этому мастеру!", "error");
-            }
+            
 
             this.invitesend = true;
 

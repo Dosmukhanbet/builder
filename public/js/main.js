@@ -34318,19 +34318,14 @@ exports.default = {
 
             var master = _underscore2.default.findWhere(this.masters, { id: masterid });
 
-            if (master.invited) {
+            this.$http.post('/api/invitesendsms', datas).then(function (response) {
+                console.log(response.data);
+            });
+            this.$http.post('/api/invitemaster', datas).then(function (response) {
+                console.log(response.data);
+            });
 
-                this.$http.post('/api/invitesendsms', datas).then(function (response) {
-                    console.log(response.data);
-                });
-                this.$http.post('/api/invitemaster', datas).then(function (response) {
-                    console.log(response.data);
-                });
-
-                swal("Ок!", "Приглашение мастеру отправлено!", "success");
-            } else {
-                swal("!", "Вы уже отправили приглашение этому мастеру!", "error");
-            }
+            swal("Ок!", "Приглашение мастеру отправлено!", "success");
 
             this.invitesend = true;
 
