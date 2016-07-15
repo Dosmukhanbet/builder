@@ -78,7 +78,7 @@ export default {
 
             swal("Ок!", "Приглашение мастеру отправлено!", "success");
 
-            
+
 
             this.invitesend = true;
 

@@ -15,7 +15,7 @@ redis.on('message', function(channel, message) {
 });
 
 
-redis.subscribe('invite-channel');
+redis.subscribe('invites-channel');
 redis.on('message', function(channel, message) {
 
     message = JSON.parse(message);
