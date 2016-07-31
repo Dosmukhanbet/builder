@@ -25,3 +25,10 @@
 
 
 }
+
+@media (max-width: 510px) {
+  .images > a:nth-child(2), .images > a:nth-child(3){
+    display: none;
+  }
+
+}

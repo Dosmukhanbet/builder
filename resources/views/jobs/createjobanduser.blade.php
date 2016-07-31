@@ -10,7 +10,17 @@
                             <label class="col-md-8 control-label">Кратко о работе</label>
 
                             <div class="col-md-8">
-                                <input type="name" class="form-control" name="Кратко_о_работе" value="{{ old('Кратко_о_работе') }}" required>
+                                <input
+                                        type="name"
+                                        class="form-control"
+                                        name="Кратко_о_работе"
+                                        value="{{ old('Кратко_о_работе') }}"
+                                        data-toggle="popover"
+                                        data-placement="top"
+                                        data-trigger="focus"
+                                        data-content="Опишите коротко вашу работу. Например: Отремонтировать компьютер"
+                                        required
+                                        >
 
                                 @if ($errors->has('Кратко_о_работе'))
                                     <span class="help-block">
@@ -160,6 +170,11 @@ jQuery('#datetimepicker').datetimepicker({
 //  inline:true,
   lang:'ru'
 });
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+});
+
 
 </script>
 @stop

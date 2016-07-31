@@ -6271,6 +6271,10 @@ a.offer__link {
   .steps {
     margin-bottom: 2em; } }
 
+@media (max-width: 510px) {
+  .images > a:nth-child(2), .images > a:nth-child(3) {
+    display: none; } }
+
 .alert--offer {
   margin: 15px;
   padding: 10px;
