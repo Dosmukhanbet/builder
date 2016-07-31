@@ -10,8 +10,16 @@
   text-decoration: none;
 }
 
-.home__font {
+.how_to, .home__font {
 font-family: 'Roboto Slab', serif;
+
+}
+.how_to > h2{
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+
+
 }
 
 .home_page_text {
@@ -21,6 +29,7 @@ font-family: 'Roboto Slab', serif;
 .jumbotron {
   background: #FFF;
   border-bottom: 1px solid #ccc;
+  margin-bottom: 0px;
 }
 
 
@@ -45,4 +54,10 @@ font-family: 'Roboto Slab', serif;
   background: #4A90E2;
   height: 200px;
   width: 100%;
+}
+
+.masters_count{
+  position: absolute;
+  top: 70px;
+  right: 50px;
 }

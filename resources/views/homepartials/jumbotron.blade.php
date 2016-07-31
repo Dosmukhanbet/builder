@@ -2,11 +2,10 @@
       <div class="container">
         <div class="col-md-8 col-md-offset-2 home__font">
             <h2 class="home_page_heading" style="text-align: center;">
-                Найдите лучшего <br>
-                мастера в своем деле
+                Доверьте Вашу работу <br>
+                профессионалам своего дела!
             </h2>
-            <p class="home_page_text" style="text-align: center;">С Sheber.club вы с легкостью, найдете
-                <br>подходящего мастера
+            <p class="home_page_text" style="text-align: center;">Тысячи мастеров из Вашего региона, готовы выполнить ваш заказ
             </p>
             @if(Auth::guest())
                <p style="text-align: center">

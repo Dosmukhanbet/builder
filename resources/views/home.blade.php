@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('homecontent')
-
     @include('homepartials.jumbotron')
     @include('homepartials.howto')
+    @include('homepartials.feedbacks')
 
 @stop
 

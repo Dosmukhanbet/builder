@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-
+use App\User;
 use App\City;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -28,6 +28,10 @@ class AppServiceProvider extends ServiceProvider
         view()->composer(['partials.navigation','partials.masternav', 'master.profile.profile', 'client.profileshow'], function($view){
             $view->with('user', Auth::user());
         });
+
+//        view()->composer(['home'], function($view){
+//            $view->with('masters', User::where('type', 'master')->get());
+//        });
 
         Carbon::setLocale('ru');
     }
