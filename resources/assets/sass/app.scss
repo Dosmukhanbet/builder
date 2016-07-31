@@ -18,11 +18,13 @@
 @import "components/editjob";
 @import "components/jobmademasters";
 @import "components/slick";
+@import "components/ratings";
 
 body {
-  font-family: 'Roboto Slab', serif;
-//  font-family: 'Open Sans Condensed', sans-serif;
-  font-family: 'Neucha', cursive;
+  margin: 0;
+  padding: 0;
+//  font-family: 'Roboto Slab', serif;
+// font-family: 'Neucha', cursive;
   font-family: 'Open Sans Condensed', sans-serif;
   background: #f5f5f5;
 }

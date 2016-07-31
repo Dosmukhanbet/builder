@@ -19,7 +19,7 @@ redis.subscribe('invites-channel');
 redis.on('message', function(channel, message) {
 
     message = JSON.parse(message);
-    console.log(message);
+    console.log(message + 'ok');
     io.emit(channel + '-' + message, message);
 });
 

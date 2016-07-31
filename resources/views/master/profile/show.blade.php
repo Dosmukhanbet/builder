@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-5 col-md-offset-1">
                  <div>
                                   <!-- Nav tabs -->
                                   <ul class="nav nav-tabs" role="tablist">

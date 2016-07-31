@@ -46,7 +46,7 @@ class NotifyController extends Controller
         $this->createInvite($request);
 
         $user = User::find($request['id']);
-        Redis::publish('invites-channel', json_encode($user->id));
+        Redis::publish('invites-channel', json_encode('text'));
 
 //        return $text . " " . strlen($text);
 

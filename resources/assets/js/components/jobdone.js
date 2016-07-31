@@ -14,7 +14,7 @@ export default {
             </label>
             </p>
     </div>
-            <p style="color:green" v-show="jobstatus == 1"><i class="fa fa-check-square" aria-hidden="true"></i> Выполнена</p>
+            <p style="color:#51AC20" v-show="jobstatus == 1"><i class="fa fa-check-square" aria-hidden="true"></i> Выполнена</p>
 
     `,
     props :['jobid', 'jobstatus'],

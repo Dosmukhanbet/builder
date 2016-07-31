@@ -1,5 +1,5 @@
 .Nav__gen{
-  background: #1F2D4C;
+  background: #2F3543;
 }
 
 .Nav__list{
@@ -7,25 +7,32 @@
 }
 
 .Nav__list > li{
-  background: #2B3E69;
+  background: #2F3543;
   margin: 2px 1px 1px 1px;
   text-align: center;
 
+}
+.Nav__list > li.login {
+  border: 1px solid #03CEBD;
+  font-weight: 700;
 }
 
 .Nav__list > li.login, .Nav__list .register{
-  background: #2B3E69;
   margin: 2px 1px 1px 1px;
   text-align: center;
-//  font-family: 'Open Sans Condensed', sans-serif;
 }
+
+.navbar-nav > li > a {
+
+    }
+
+
 
 
 .Nav__links {
   color: #fff;
   font-size: 1em;
   font-weight: 300;
-  font-family: 'Neucha', cursive;
   font-family: 'Open Sans Condensed', sans-serif;
 //  font-family: 'Cuprum', sans-serif;
 //  letter-spacing: 2px;
@@ -33,21 +40,37 @@
 
 .Nav__links > i {
   margin-right: 5px;
-  color:#609BCD;
+  color:#03CEBD;
 }
 
 .navbar-toggle {
-  background-color: #2B3E69;
+  background-color: #2F3543;
   border: 1px solid #fff;
 }
 
 .navbar-brand {
-  font-family: 'Amatic SC', cursive;
-  font-size: 1.7em;
-  letter-spacing: 5px;
-  font-weight: 700;
+  font-family:  'Jura', sans-serif;
+  font-size: 1.4em;
+  letter-spacing: 1px;
+  margin-top: -2px;
+}
+
+.navbar-brand > i{
+  font-size: 1em;
+  color:#03CEBD;
+  padding-top: 3px;
 }
 
 .dropdown-menu a {
   font-size: 0.9em;
+}
+
+.navbar-nav {
+  > li > a {
+
+    &:hover,
+    &:focus {
+      color: #03CEBD;
+    }
+  }
 }

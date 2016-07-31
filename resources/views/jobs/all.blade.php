@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -13,15 +14,16 @@
                                      <span class="published_date"> - {{ $job->created_at->diffForHumans() }}</span>
                                      <p>Категория: {{ $categories[$job->category_id]}}</p>
                                      <p>Дата/Время исполнения: {{ $job->dateOfMake->diffForHumans() }}</p>
-                                     <p class="price">{{ $job->price }}</p>
+                                     <p>Бюджет: {{ $job->price }}</p>
                                      <div class="offers__info">
                                      <p>
                                           @if($job->offers->count())
-                                              <a class="offer" href='{{ url( "job/showoffers/". $job->id ) }}'>
-                                                      Предложения от мастеров &nbsp; <span class="badge">{{$job->offers->count()}}</span>
-                                              </a>
+                                              <a class="offer__link" href='{{ url( "job/showoffers/". $job->id ) }}'>
+                                                      Предложения от мастеров
+                                              </a>&nbsp;<span style="background: #379DD6" class="badge">{{$job->offers->count()}}</span>
                                               <button class="all__recommend" data-toggle="modal" data-target="#exampleModal">рекомендуемые мастера</button>
                                           @else
+                                          нет предложении
                                             <button class="all__recommend" data-toggle="modal" data-target="#exampleModal">рекомендуемые мастера</button>
                                           @endif
 
@@ -32,8 +34,9 @@
 
 
                                      </p>
+                                     @if($job->dateOfMake < Carbon\Carbon::now()  )
                                      <jobdone :jobid="{{$job->id}}" :jobstatus="{{$job->status}}"></jobdone>
-
+                                     @endif
 
                                      </div>
 

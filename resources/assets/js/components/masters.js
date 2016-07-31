@@ -13,7 +13,7 @@ export default {
     <div class='findedmasters' v-for="master in masters" v-show="masters">
               <p>
                   <a data-lity href="{{ makephotopath(master.photo_path) }}">
-                <img class="img-thumbnail" v-bind:src="makethumbpath(master.thumbnail_path)"></a>
+                <img class="img-circle" v-bind:src="makethumbpath(master.thumbnail_path)"></a>
               </p>
 
                <p><span>Имя:</span> {{master.name}}<br>

@@ -7,19 +7,23 @@
 .create__button:hover{
   background: #EF9E01;
   color: #ffffff;
-  text-decoration: nonw;
+  text-decoration: none;
 }
 
 .home__font {
-  font-family: 'Neucha', cursive;
+font-family: 'Roboto Slab', serif;
+}
 
+.jumbotron {
+  background: #FFF;
+  border-bottom: 1px solid #ccc;
 }
 
 
 
 .steps span {
   color:#EF9E01;
-  padding: 6px 13px 3px 13px;
+  padding: 2px 13px 3px 13px;
   border:3px solid #EF9E01;
   border-radius: 50%;
   -webkit-border-radius: 50%;

@@ -5,6 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -3955,8 +3956,7 @@ tbody.collapse.in {
       color: #ccc; }
 
 .navbar-inverse {
-  background-color: #DF513B;
-  border-color: #c73720; }
+  background-color: #DF513B; }
   .navbar-inverse .navbar-brand {
     color: #fff; }
     .navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
@@ -3967,7 +3967,7 @@ tbody.collapse.in {
   .navbar-inverse .navbar-nav > li > a {
     color: #fff; }
     .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
-      color: #9d9d9d;
+      color: #03CEBD;
       background-color: transparent; }
   .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
     color: #9d9d9d;
@@ -5773,15 +5773,18 @@ ul.Job__list {
   padding: 0; }
 
 .Nav__gen {
-  background: #1F2D4C; }
+  background: #2F3543; }
 
 .Nav__list > li {
-  background: #2B3E69;
+  background: #2F3543;
   margin: 2px 1px 1px 1px;
   text-align: center; }
 
+.Nav__list > li.login {
+  border: 1px solid #03CEBD;
+  font-weight: 700; }
+
 .Nav__list > li.login, .Nav__list .register {
-  background: #2B3E69;
   margin: 2px 1px 1px 1px;
   text-align: center; }
 
@@ -5789,25 +5792,32 @@ ul.Job__list {
   color: #fff;
   font-size: 1em;
   font-weight: 300;
-  font-family: 'Neucha', cursive;
   font-family: 'Open Sans Condensed', sans-serif; }
 
 .Nav__links > i {
   margin-right: 5px;
-  color: #609BCD; }
+  color: #03CEBD; }
 
 .navbar-toggle {
-  background-color: #2B3E69;
+  background-color: #2F3543;
   border: 1px solid #fff; }
 
 .navbar-brand {
-  font-family: 'Amatic SC', cursive;
-  font-size: 1.7em;
-  letter-spacing: 5px;
-  font-weight: 700; }
+  font-family: 'Jura', sans-serif;
+  font-size: 1.4em;
+  letter-spacing: 1px;
+  margin-top: -2px; }
+
+.navbar-brand > i {
+  font-size: 1em;
+  color: #03CEBD;
+  padding-top: 3px; }
 
 .dropdown-menu a {
   font-size: 0.9em; }
+
+.navbar-nav > li > a:hover, .navbar-nav > li > a:focus {
+  color: #03CEBD; }
 
 .Offer__header {
   margin-left: 30px; }
@@ -5909,10 +5919,16 @@ a.accept__offer__link:hover {
   flex: 1;
   padding: 15px; }
 
-.feedback__form {
+.feedback__rating {
   -webkit-flex: 2;
   -ms-flex: 2;
   flex: 2; }
+
+.ratings {
+  margin-bottom: 10px; }
+
+.ratings > label {
+  padding: 3px 8px 3px 8px; }
 
 .green__box {
   background: #fff;
@@ -6008,6 +6024,9 @@ hr {
   font-size: 1em;
   font-weight: 400; }
 
+a.offer__link {
+  font-size: 1em; }
+
 .job__block > .published_date {
   color: #999999;
   font-size: 0.8em;
@@ -6057,14 +6076,18 @@ hr {
 .create__button:hover {
   background: #EF9E01;
   color: #ffffff;
-  text-decoration: nonw; }
+  text-decoration: none; }
 
 .home__font {
-  font-family: 'Neucha', cursive; }
+  font-family: 'Roboto Slab', serif; }
+
+.jumbotron {
+  background: #FFF;
+  border-bottom: 1px solid #ccc; }
 
 .steps span {
   color: #EF9E01;
-  padding: 6px 13px 3px 13px;
+  padding: 2px 13px 3px 13px;
   border: 3px solid #EF9E01;
   border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -6107,7 +6130,9 @@ hr {
   display: flex;
   background: #fff;
   padding: 10px;
-  margin-bottom: 12px; }
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px; }
 
 .findedmasters > p {
   padding: 0;
@@ -6173,7 +6198,7 @@ hr {
   margin-left: 0px;
   border: none;
   color: white;
-  border-radius: 5px;
+  border-radius: 3px;
   padding: 3px 10px 3px 10px; }
 
 .invites {
@@ -6230,7 +6255,7 @@ hr {
   .jumbotron {
     margin-top: -25px;
     padding-bottom: 25px;
-    background-color: #4A90E2; }
+    background-color: #fff; }
   .home_page_heading {
     font-size: 1.5em; }
   p.home_page_text {
@@ -6341,9 +6366,56 @@ hr {
 .slick-arrow.slick-hidden {
   display: none; }
 
+fieldset, label {
+  margin: 0;
+  padding: 0; }
+
 body {
-  font-family: 'Roboto Slab', serif;
-  font-family: 'Neucha', cursive;
+  margin: 20px; }
+
+h1 {
+  font-size: 1.5em;
+  margin: 10px; }
+
+/****** Style Star Rating Widget *****/
+.rating {
+  border: none;
+  float: left; }
+
+.rating > input {
+  display: none; }
+
+.rating > label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005"; }
+
+.rating > .half:before {
+  content: "\f089";
+  position: absolute; }
+
+.rating > label {
+  color: #ddd;
+  float: right; }
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #FFD700; }
+
+/* hover previous stars in list */
+.rating > input:checked + label:hover,
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label,
+.rating > input:checked ~ label:hover ~ label {
+  color: #FFED85; }
+
+body {
+  margin: 0;
+  padding: 0;
   font-family: 'Open Sans Condensed', sans-serif;
   background: #f5f5f5; }
 

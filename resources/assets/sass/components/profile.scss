@@ -44,6 +44,13 @@ flex: 1;
   padding: 15px;
 
 }
-.feedback__form {
+.feedback__rating {
   flex: 2;
+}
+
+.ratings {
+  margin-bottom: 10px;
+}
+.ratings > label{
+  padding:3px 8px 3px 8px;
 }

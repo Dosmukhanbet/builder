@@ -6,6 +6,7 @@ use App\Job;
 use App\Offer;
 use App\Feedback;
 use App\Invite;
+use App\Rating;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -59,6 +60,12 @@ class User extends Authenticatable
     public function invites()
     {
         return $this->hasMany(Invite::class);
+    }
+
+
+    public function ratings()
+    {
+        return $this->hasOne(Rating::class);
     }
 
 

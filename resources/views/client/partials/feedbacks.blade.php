@@ -1,4 +1,4 @@
-<div class="col-md-5 col-md-offset-1">
+<div class="col-md-6 col-md-offset-1">
 <h4>Список мастеров ({{ $masters->count() }})</h4>
        @foreach($masters as $master)
             <div class="feedback__block">
@@ -11,17 +11,29 @@
                 {{ $master->name }}
                 </span>
             </p>
+            <div class="feedback__rating">
 
-                <form method="POST" class="feedback__form" action="{{url('/addFeedback/'.$master->id)}}">
-                 {{ csrf_field() }}
-                    <div class="form-group">
-                        <label class="control-label">Написать отзыв</label>
-                        <textarea class="form-control" rows="2" name="body" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <button class="btn btn-primary">Отправить</button>
-                     </div>
-                </form>
+
+
+
+
+                        <form method="POST" action="{{url('/addFeedback/'.$master->id)}}">
+                         {{ csrf_field() }}
+                            <div class="form-group">
+                                <label class="control-label">Написать отзыв</label>
+                                <textarea class="form-control" rows="2" name="body" required></textarea>
+                            </div>
+                                <p>Оцените работу мастера: </p>
+
+
+
+
+
+                            <div class="form-group">
+                                <button class="btn btn-primary">Отправить</button>
+                             </div>
+                        </form>
+                </div>
             </div>
        @endforeach
 
