@@ -5780,9 +5780,14 @@ ul.Job__list {
   margin: 2px 1px 1px 1px;
   text-align: center; }
 
-.Nav__list > li.login {
-  border: 1px solid #03CEBD;
-  font-weight: 700; }
+.Nav__list > li.register {
+  margin-top: 10px;
+  border: 1px solid #03CEBD; }
+  .Nav__list > li.register > a {
+    padding: 3px 5px 3px 5px;
+    color: #03CEBD; }
+    .Nav__list > li.register > a:hover {
+      font-weight: 700; }
 
 .Nav__list > li.login, .Nav__list .register {
   margin: 2px 1px 1px 1px;
