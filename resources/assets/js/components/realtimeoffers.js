@@ -17,8 +17,8 @@ export default {
                         <li>Комментария: {{makecomment(offer.offer.comment)}}</li>
                         <li> Поступило: {{ offer.offer.created_at}}</li>
                     </ul>
-                    <a href="{{ makeurl(offer.offer.id,offer.user.id )}}" class="btn btn-warning __button" >
-                        Принять предложение
+                    <a href="{{ makeurl(offer.offer.id,offer.user.id )}}" class="accept__offer__link">
+                        <span class="label label-primary accept__offer">Принять предложение</span>
                     </a>
                 </div>
         `,
