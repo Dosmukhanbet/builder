@@ -2,7 +2,7 @@
       <div class="container">
         <div class="col-md-8 col-md-offset-2 home__font">
             <h2 class="home_page_heading" style="text-align: center;">
-                Доверьте Вашу работу <br>
+                Доверьте работу <br>
                 профессионалам своего дела!
             </h2>
             <p class="home_page_text" style="text-align: center;">Тысячи мастеров из Вашего региона, готовы выполнить ваш заказ
