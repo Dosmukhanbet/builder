@@ -18,6 +18,14 @@ font-family: 'Roboto Slab', serif;
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px;
+  &:after {
+    content: '';
+    display: block;
+    width: 130px;
+    height: 3px;
+    background: #EF9E01;;
+    margin: 35px auto;
+  }
 
 
 }

@@ -8,7 +8,6 @@
 .form_header{
   margin-top: 1em;
   margin-left: 15px;
-  color: #2B3E69;
   font-weight: bold;
 //  border: 1px solid #ddd;
 }
@@ -50,6 +49,15 @@
 
 .checkbox {
   font-size: 0.8em;
+}
+
+.popover {
+  margin-left: 100px;
+}
+.popover-content {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 0.8em;
+
 }
 
 hr{

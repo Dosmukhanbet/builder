@@ -5749,6 +5749,12 @@ button.close {
 .Register--link {
   padding-left: 10px; }
 
+.btn-primary {
+  background: #049e8e;
+  border: 1px solid #036359; }
+  .btn-primary:hover {
+    background: #036359; }
+
 .Job__name {
   margin-top: 0; }
 
@@ -5957,7 +5963,6 @@ a.accept__offer__link:hover {
 .form_header {
   margin-top: 1em;
   margin-left: 15px;
-  color: #2B3E69;
   font-weight: bold; }
 
 .form-group {
@@ -5995,6 +6000,13 @@ a.accept__offer__link:hover {
   font-size: 0.9em; }
 
 .checkbox {
+  font-size: 0.8em; }
+
+.popover {
+  margin-left: 100px; }
+
+.popover-content {
+  font-family: 'Open Sans Condensed', sans-serif;
   font-size: 0.8em; }
 
 hr {
@@ -6090,6 +6102,13 @@ a.offer__link {
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px; }
+  .how_to > h2:after {
+    content: '';
+    display: block;
+    width: 130px;
+    height: 3px;
+    background: #EF9E01;
+    margin: 35px auto; }
 
 .home_page_text {
   color: #2A2F4C; }

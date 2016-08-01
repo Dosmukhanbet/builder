@@ -5,3 +5,11 @@
 .Register--link {
   padding-left: 10px;
 }
+
+.btn-primary {
+  background: #049e8e;
+  border: 1px solid #036359;
+  &:hover {
+    background: #036359;
+  }
+}

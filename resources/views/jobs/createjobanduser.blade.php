@@ -3,7 +3,9 @@
 @section('content')
 <div class="row">
              <div class="col-md-8 col-md-offset-1">
-                   <h4 class="form_header"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Создание заявки</h4>
+                   <h4 class="form_header">
+                   <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Создание заявки
+                   </h4>
                     <form role="form" method="POST" action="{{ url('/registerandcreatejob') }}">
                         {!! csrf_field() !!}
                         <div class="form-group{{ $errors->has('Кратко_о_работе') ? ' has-error' : '' }}">
@@ -18,7 +20,7 @@
                                         data-toggle="popover"
                                         data-placement="top"
                                         data-trigger="focus"
-                                        data-content="Опишите коротко вашу работу. Например: Отремонтировать компьютер"
+                                        data-content="Опишите коротко Вашу работу. Например: Поклеить обои"
                                         required
                                         >
 
@@ -34,7 +36,16 @@
                             <label class="col-md-8 control-label">Описание</label>
 
                             <div class="col-md-8">
-                                <textarea class="form-control" rows="3" name="Описание" value="{{ old('Описание') }}" required></textarea>
+                                <textarea
+                                 class="form-control"
+                                 rows="3"
+                                 name="Описание"
+                                 value="{{ old('Описание') }}"
+                                 data-toggle="popover"
+                                 data-placement="top"
+                                 data-trigger="focus"
+                                 data-content="Опишите детали работы. Например: Поклеить обои. Площадь 25м/кв"
+                                 required></textarea>
                                  @if ($errors->has('Описание'))
                                      <span class="help-block">
                                      <strong>{{ $errors->first('Описание') }}</strong>
