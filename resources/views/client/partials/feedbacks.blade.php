@@ -23,7 +23,7 @@
                                 <label class="control-label">Написать отзыв</label>
                                 <textarea class="form-control" rows="2" name="body" required></textarea>
                             </div>
-                                <p class="evaluation">Оцените работу мастера: <br>
+                                <p class="evaluation">Поставьте оценку мастеру: <br>
                                     <label class="control-label">Отлично (5)
                                         <input type="radio" name="evaluation" value="5">
                                     </label>
@@ -36,13 +36,7 @@
                                     <label class="control-label">Плохо (3)
                                         <input type="radio" name="evaluation" value="3">
                                     </label>
-
-
-                                    <label class="control-label">Ужасно (2)
-                                        <input type="radio" name="evaluation" value="2">
-                                    </label>
-
-                            </p>
+                          </p>
 
 
 

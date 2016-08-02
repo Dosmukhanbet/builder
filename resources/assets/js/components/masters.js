@@ -20,6 +20,8 @@ export default {
                 <span>Мобильный номер:</span> +{{master.phone_number}}<br>
                 <span>Специальность:</span>  {{ findCat(master.category_id) }}<br>
                  <span>Город:</span>  {{ findCity(master.city_id) }}<br>
+                 <span>{{ ratingsum(master.ratings)}} </span>
+                 <span>{{ratingcounts(master.ratings)}}</span>
              </p>
 
     </div>
@@ -43,6 +45,7 @@ export default {
             this.$http.post('/api/findmasters/'+id).then(function(response){
 
                 this.masters = response.data;
+                   console.log(response.data.ratings);
 
             });
         },
@@ -65,7 +68,45 @@ export default {
 
        findCity(id){
                    return _.findWhere(this.cities, {id: id}).name;
+                   },
+
+       ratingsum (rating) {
+
+                           var sum = 0;
+                            _.each(rating, function(el){
+                                   sum += el.points;
+                                   });
+                            if ( sum > 0 )
+                            {
+
+                                return "Средний балл: "+ (sum / rating.length).toFixed(1);
+                            }
+                   },
+
+       ratingcounts (rating ) {
+                   var five = 0;
+                   var four = 0;
+                   var three = 0;
+
+                   _.each(rating, function(el){
+                            if (el.points == '5') {
+                           five += 1;
+                           }
+
+                           if (el.points == '4') {
+                           four += 1;
+                           }
+
+                           if (el.points == '3') {
+                           three += 1;
+                           }
+                   });
+
+                    return (five ? '5-' + five + ', ': '')
+                            + ( four ? '4-' + four  + ', ' : '' )
+                            + (three ? '3-' + three : '');
                    }
+
 
                    
 

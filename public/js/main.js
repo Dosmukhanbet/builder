@@ -34045,7 +34045,7 @@ var _underscore2 = _interopRequireDefault(_underscore);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-    template: '\n    <div class="col-md-2 col-md-offset-1">\n        <h4>Категории</h4>\n        <div class="categories">\n            <a v-for="cat in cats" @click="findmaster(cat.id)">{{cat.name}}<span class="user_length"> ({{cat.user.length}})</span></a>\n        </div>\n    </div>\n    <div class="col-md-4">\n    <h4>Мастера по категориям</h4>\n    <div class=\'findedmasters\' v-for="master in masters" v-show="masters">\n              <p>\n                  <a data-lity href="{{ makephotopath(master.photo_path) }}">\n                <img class="img-circle" v-bind:src="makethumbpath(master.thumbnail_path)"></a>\n              </p>\n\n               <p><span>Имя:</span> {{master.name}}<br>\n                <span>Мобильный номер:</span> +{{master.phone_number}}<br>\n                <span>Специальность:</span>  {{ findCat(master.category_id) }}<br>\n                 <span>Город:</span>  {{ findCity(master.city_id) }}<br>\n             </p>\n\n    </div>\n    </div>\n    ',
+    template: '\n    <div class="col-md-2 col-md-offset-1">\n        <h4>Категории</h4>\n        <div class="categories">\n            <a v-for="cat in cats" @click="findmaster(cat.id)">{{cat.name}}<span class="user_length"> ({{cat.user.length}})</span></a>\n        </div>\n    </div>\n    <div class="col-md-4">\n    <h4>Мастера по категориям</h4>\n    <div class=\'findedmasters\' v-for="master in masters" v-show="masters">\n              <p>\n                  <a data-lity href="{{ makephotopath(master.photo_path) }}">\n                <img class="img-circle" v-bind:src="makethumbpath(master.thumbnail_path)"></a>\n              </p>\n\n               <p><span>Имя:</span> {{master.name}}<br>\n                <span>Мобильный номер:</span> +{{master.phone_number}}<br>\n                <span>Специальность:</span>  {{ findCat(master.category_id) }}<br>\n                 <span>Город:</span>  {{ findCity(master.city_id) }}<br>\n                 <span>{{ ratingsum(master.ratings)}} </span>\n                 <span>{{ratingcounts(master.ratings)}}</span>\n             </p>\n\n    </div>\n    </div>\n    ',
 
     props: ['cats', 'masters', 'cities'],
 
@@ -34060,6 +34060,7 @@ exports.default = {
             this.$http.post('/api/findmasters/' + id).then(function (response) {
 
                 this.masters = response.data;
+                console.log(response.data.ratings);
             });
         },
         makethumbpath: function makethumbpath(path) {
@@ -34081,6 +34082,38 @@ exports.default = {
         },
         findCity: function findCity(id) {
             return _underscore2.default.findWhere(this.cities, { id: id }).name;
+        },
+        ratingsum: function ratingsum(rating) {
+
+            var sum = 0;
+            _underscore2.default.each(rating, function (el) {
+                sum += el.points;
+            });
+            if (sum > 0) {
+
+                return "Средний балл: " + (sum / rating.length).toFixed(1);
+            }
+        },
+        ratingcounts: function ratingcounts(rating) {
+            var five = 0;
+            var four = 0;
+            var three = 0;
+
+            _underscore2.default.each(rating, function (el) {
+                if (el.points == '5') {
+                    five += 1;
+                }
+
+                if (el.points == '4') {
+                    four += 1;
+                }
+
+                if (el.points == '3') {
+                    three += 1;
+                }
+            });
+
+            return (five ? '5-' + five + ', ' : '') + (four ? '4-' + four + ', ' : '') + (three ? '3-' + three : '');
         }
     }
 

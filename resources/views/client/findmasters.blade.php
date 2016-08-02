@@ -16,6 +16,9 @@
                 <span>Город:</span> {{$cities[$master->city_id]}}<br>
                 <span>Специальность:</span> {{$categories[$master->category_id]}}<br>
                 <span>Мобильный номер:</span> +{{$master->phone_number}}<br>
+                 @if ($master->ratings->pluck('points')->sum() > 0 )
+                     <span>Средний балл:</span> {{ $master->ratings->pluck('points')->sum() / $master->ratings->pluck('points')->count() }}<br>
+                 @endif
             </p>
             </div>
 

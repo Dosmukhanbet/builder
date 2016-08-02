@@ -82,8 +82,6 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
 
-        $user->ratings()->create([]);
-
         $this->mailer->sendEmailTo($user, 'email.confirm', 'Регистрация завершена!');
 
         flash()->success('Поздравляем!','Вы успешно зарегистрировались!');
