@@ -51,16 +51,26 @@
   color:#03CEBD;
 }
 
-.navbar-toggle {
-  background-color: #2F3543;
-  border: 1px solid #fff;
+.navbar-inverse {
+
+  .navbar-toggle {
+    background-color: #03CEBD;
+    border: 1px solid #1a9e90;
+    &:hover {
+      background-color: #1a9e90;
+    }
+   }
+
 }
+
+
 
 .navbar-brand {
   font-family:  'Jura', sans-serif;
   font-size: 1.4em;
   letter-spacing: 1px;
   margin-top: -2px;
+
 }
 
 .navbar-brand > i{
