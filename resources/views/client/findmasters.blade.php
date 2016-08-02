@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<masters :cats="{{$cats}}" :cities="{{$citis}}"></masters>
+<masters :cats="{{$cats}}" :cities="{{$citis}}" :clients="{{$allclients}}"></masters>
 
 <div class="col-md-4">
-{{--{{dd($cats)}}--}}
+
+{{--{{dd($clients)}}--}}
         <h4>Новые мастера</h4>
         @if(!$masters->isEmpty())
         @foreach($masters as $master)
@@ -16,9 +17,25 @@
                 <span>Город:</span> {{$cities[$master->city_id]}}<br>
                 <span>Специальность:</span> {{$categories[$master->category_id]}}<br>
                 <span>Мобильный номер:</span> +{{$master->phone_number}}<br>
+
                  @if ($master->ratings->pluck('points')->sum() > 0 )
-                     <span>Средний балл:</span> {{ $master->ratings->pluck('points')->sum() / $master->ratings->pluck('points')->count() }}<br>
+                     <span>Средний балл:</span> {{ number_format($master->ratings->pluck('points')->sum() / $master->ratings->pluck('points')->count(), 1) }}<br>
+                     <span class="ratingcounts">
+                      {{ $master->ratings->where('points', 5)->count() ? "Оценка 5 - " . $master->ratings->where('points', 5)->count() . " клиент(а) " : '' }}
+                      {{ $master->ratings->where('points', 4)->count() ? "Оценка 4 - " . $master->ratings->where('points', 4)->count() . " клиент(а) " : '' }}
+                      {{ $master->ratings->where('points', 3)->count() ? "Оценка 3 - " . $master->ratings->where('points', 3)->count() . " клиент(а) " : '' }}
+                     </span><br>
                  @endif
+                 @if($master->feedbacks->count())
+                    <span>
+                          <a class="feedbacks__link" data-toggle="modal" data-target="#masterfeedback_{{$master->id}}">
+                            Отзывы {{ $master->feedbacks->count() }}
+                          </a>
+                     </span>
+
+                    @include('client.modalfeedbacks')
+                 @endif
+
             </p>
             </div>
 

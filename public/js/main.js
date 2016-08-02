@@ -34045,12 +34045,12 @@ var _underscore2 = _interopRequireDefault(_underscore);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-    template: '\n    <div class="col-md-2 col-md-offset-1">\n        <h4>Категории</h4>\n        <div class="categories">\n            <a v-for="cat in cats" @click="findmaster(cat.id)">{{cat.name}}<span class="user_length"> ({{cat.user.length}})</span></a>\n        </div>\n    </div>\n    <div class="col-md-4">\n    <h4>Мастера по категориям</h4>\n    <div class=\'findedmasters\' v-for="master in masters" v-show="masters">\n              <p>\n                  <a data-lity href="{{ makephotopath(master.photo_path) }}">\n                <img class="img-circle" v-bind:src="makethumbpath(master.thumbnail_path)"></a>\n              </p>\n\n               <p><span>Имя:</span> {{master.name}}<br>\n                <span>Мобильный номер:</span> +{{master.phone_number}}<br>\n                <span>Специальность:</span>  {{ findCat(master.category_id) }}<br>\n                 <span>Город:</span>  {{ findCity(master.city_id) }}<br>\n                 <span>{{ ratingsum(master.ratings)}} </span>\n                 <span>{{ratingcounts(master.ratings)}}</span>\n             </p>\n\n    </div>\n    </div>\n    ',
+    template: '\n    <div class="col-md-2 col-md-offset-1">\n        <h4>Категории</h4>\n        <div class="categories">\n            <a v-for="cat in cats" @click="findmaster(cat.id)">{{cat.name}}<span class="user_length"> ({{cat.user.length}})</span></a>\n        </div>\n    </div>\n    <div class="col-md-4">\n    <h4>Мастера по категориям</h4>\n    <div class=\'findedmasters\' v-for="master in masters" v-show="masters">\n              <p>\n                  <a data-lity href="{{ makephotopath(master.photo_path) }}">\n                <img class="img-circle" v-bind:src="makethumbpath(master.thumbnail_path)"></a>\n              </p>\n\n               <p><span>Имя:</span> {{master.name}}<br>\n                <span>Мобильный номер:</span> +{{master.phone_number}}<br>\n                <span>Специальность:</span>  {{ findCat(master.category_id) }}<br>\n                <span>Город:</span>  {{ findCity(master.city_id) }}<br>\n\n                <span v-show="master.ratings.length" >{{ ratingsum(master.ratings)}}</span><br v-show="master.ratings.length">\n                <span v-show="master.ratings.length" class="ratingcounts">{{ratingcounts(master.ratings) }}</span><br v-show="master.ratings.length">\n                <span v-show="master.feedbacks.length" >\n                      <a class="feedbacks__link" data-toggle="modal" data-target="#masterfeedback_{{master.id}}">\n                        Отзывы {{ master.feedbacks.length }}\n                      </a>\n                </span><br v-show="master.feedbacks.length">\n               </p>\n\n                                   <div class="modal fade" id="masterfeedback_{{master.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">\n                                       <div class="modal-dialog" role="document">\n                                           <div class="modal-content">\n                                               <div class="modal-header">\n                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>\n                                                   <h4 class="modal-title" id="myModalLabel">Отзывы мастеру {{master.name}}</h4>\n                                               </div>\n                                               <div class="modal-body">\n                                                   <blockquote v-for="feedback in master.feedbacks">\n                                                       <p>{{feedback.body}}\n                                                           <br>\n                                                               <span>{{feedback.created_at}},\n                                                               от клиента:  {{ findclient(feedback.from_user_id) }} </span>\n                                                           </p>\n                                                   </blockquote>\n                                                   </div>\n                                                   <div class="modal-footer">\n                                                       <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>\n                                                   </div>\n                                               </div>\n                                           </div>\n                                       </div>\n\n    </div>\n    </div>\n    ',
 
-    props: ['cats', 'masters', 'cities'],
+    props: ['cats', 'masters', 'cities', 'clients'],
 
     ready: function ready() {
-
+        //console.log(this.clients);
         this.masters = this.findmaster(2);
     },
 
@@ -34060,7 +34060,7 @@ exports.default = {
             this.$http.post('/api/findmasters/' + id).then(function (response) {
 
                 this.masters = response.data;
-                console.log(response.data.ratings);
+                //console.log(response.data.ratings);
             });
         },
         makethumbpath: function makethumbpath(path) {
@@ -34083,6 +34083,9 @@ exports.default = {
         findCity: function findCity(id) {
             return _underscore2.default.findWhere(this.cities, { id: id }).name;
         },
+        findclient: function findclient(id) {
+            return _underscore2.default.findWhere(this.clients, { id: id }).name;
+        },
         ratingsum: function ratingsum(rating) {
 
             var sum = 0;
@@ -34091,7 +34094,7 @@ exports.default = {
             });
             if (sum > 0) {
 
-                return "Средний балл: " + (sum / rating.length).toFixed(1);
+                return "Средняя оценка: " + (sum / rating.length).toFixed(1);
             }
         },
         ratingcounts: function ratingcounts(rating) {
@@ -34113,7 +34116,7 @@ exports.default = {
                 }
             });
 
-            return (five ? '5-' + five + ', ' : '') + (four ? '4-' + four + ', ' : '') + (three ? '3-' + three : '');
+            return (five ? 'Оценка 5 - ' + five + ' клиент(а) ' : '') + (four ? 'Оценка 4 - ' + four + ' клиент(а) ' : '') + (three ? 'Оценка 3 - ' + three + ' клиент(а) ' : '');
         }
     }
 

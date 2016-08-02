@@ -29,9 +29,9 @@ class AppServiceProvider extends ServiceProvider
             $view->with('user', Auth::user());
         });
 
-//        view()->composer(['home'], function($view){
-//            $view->with('masters', User::where('type', 'master')->get());
-//        });
+        view()->composer(['client.findmasters'], function($view){
+            $view->with('clients', User::where('type', 'client')->lists('name', 'id'));
+        });
 
         Carbon::setLocale('ru');
     }

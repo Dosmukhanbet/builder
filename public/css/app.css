@@ -5,7 +5,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -6297,7 +6296,7 @@ a.offer__link {
     margin-top: -25px;
     padding-bottom: 25px;
     background-color: #fff; }
-  .home_page_heading, .how_to {
+  .home_page_heading, .how_to_heading {
     font-size: 1.5em; }
   p.home_page_text {
     font-size: 1.2em; }
@@ -6411,52 +6410,12 @@ a.offer__link {
 .slick-arrow.slick-hidden {
   display: none; }
 
-fieldset, label {
-  margin: 0;
-  padding: 0; }
+span.ratingcounts {
+  color: #939393;
+  font-size: 0.8em; }
 
-body {
-  margin: 20px; }
-
-h1 {
-  font-size: 1.5em;
-  margin: 10px; }
-
-/****** Style Star Rating Widget *****/
-.rating {
-  border: none;
-  float: left; }
-
-.rating > input {
-  display: none; }
-
-.rating > label:before {
-  margin: 5px;
-  font-size: 1.25em;
-  font-family: FontAwesome;
-  display: inline-block;
-  content: "\f005"; }
-
-.rating > .half:before {
-  content: "\f089";
-  position: absolute; }
-
-.rating > label {
-  color: #ddd;
-  float: right; }
-
-/***** CSS Magic to Highlight Stars on Hover *****/
-.rating > input:checked ~ label,
-.rating:not(:checked) > label:hover,
-.rating:not(:checked) > label:hover ~ label {
-  color: #FFD700; }
-
-/* hover previous stars in list */
-.rating > input:checked + label:hover,
-.rating > input:checked ~ label:hover,
-.rating > label:hover ~ input:checked ~ label,
-.rating > input:checked ~ label:hover ~ label {
-  color: #FFED85; }
+.feedbacks__link {
+  font-size: 0.9em; }
 
 body {
   margin: 0;

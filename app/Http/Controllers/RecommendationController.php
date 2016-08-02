@@ -12,7 +12,9 @@ class RecommendationController extends Controller
 
     public function masters($catid)
     {
-        $masters =  User::where('type', 'master')
+        $masters =  User::with('ratings')
+            ->with('feedbacks')
+            -> where('type', 'master')
             ->where('category_id', $catid)
             ->where('city_id', Auth::user()->city_id)
             ->get();

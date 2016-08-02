@@ -1,5 +1,6 @@
 import VueResource from 'vue-resource';
 import _ from 'underscore';
+
 export default {
     template : `
     <div class="col-md-2 col-md-offset-1">
@@ -19,21 +20,50 @@ export default {
                <p><span>Имя:</span> {{master.name}}<br>
                 <span>Мобильный номер:</span> +{{master.phone_number}}<br>
                 <span>Специальность:</span>  {{ findCat(master.category_id) }}<br>
-                 <span>Город:</span>  {{ findCity(master.city_id) }}<br>
-                 <span>{{ ratingsum(master.ratings)}} </span>
-                 <span>{{ratingcounts(master.ratings)}}</span>
-             </p>
+                <span>Город:</span>  {{ findCity(master.city_id) }}<br>
+
+                <span v-show="master.ratings.length" >{{ ratingsum(master.ratings)}}</span><br v-show="master.ratings.length">
+                <span v-show="master.ratings.length" class="ratingcounts">{{ratingcounts(master.ratings) }}</span><br v-show="master.ratings.length">
+                <span v-show="master.feedbacks.length" >
+                      <a class="feedbacks__link" data-toggle="modal" data-target="#masterfeedback_{{master.id}}">
+                        Отзывы {{ master.feedbacks.length }}
+                      </a>
+                </span><br v-show="master.feedbacks.length">
+               </p>
+
+                                   <div class="modal fade" id="masterfeedback_{{master.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                       <div class="modal-dialog" role="document">
+                                           <div class="modal-content">
+                                               <div class="modal-header">
+                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                   <h4 class="modal-title" id="myModalLabel">Отзывы мастеру {{master.name}}</h4>
+                                               </div>
+                                               <div class="modal-body">
+                                                   <blockquote v-for="feedback in master.feedbacks">
+                                                       <p>{{feedback.body}}
+                                                           <br>
+                                                               <span>{{feedback.created_at}},
+                                                               от клиента:  {{ findclient(feedback.from_user_id) }} </span>
+                                                           </p>
+                                                   </blockquote>
+                                                   </div>
+                                                   <div class="modal-footer">
+                                                       <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </div>
 
     </div>
     </div>
     `,
 
 
-    props :['cats', 'masters', 'cities'],
+    props :['cats', 'masters', 'cities', 'clients'],
 
 
    ready(){
-
+                    //console.log(this.clients);
                    this.masters = this.findmaster(2);
                    },
 
@@ -45,7 +75,7 @@ export default {
             this.$http.post('/api/findmasters/'+id).then(function(response){
 
                 this.masters = response.data;
-                   console.log(response.data.ratings);
+                   //console.log(response.data.ratings);
 
             });
         },
@@ -70,7 +100,11 @@ export default {
                    return _.findWhere(this.cities, {id: id}).name;
                    },
 
-       ratingsum (rating) {
+       findclient(id){
+                     return _.findWhere(this.clients, {id: id}).name;
+         },
+
+        ratingsum (rating) {
 
                            var sum = 0;
                             _.each(rating, function(el){
@@ -79,7 +113,7 @@ export default {
                             if ( sum > 0 )
                             {
 
-                                return "Средний балл: "+ (sum / rating.length).toFixed(1);
+                                return "Средняя оценка: "+ (sum / rating.length).toFixed(1);
                             }
                    },
 
@@ -102,9 +136,9 @@ export default {
                            }
                    });
 
-                    return (five ? '5-' + five + ', ': '')
-                            + ( four ? '4-' + four  + ', ' : '' )
-                            + (three ? '3-' + three : '');
+                    return (five ? 'Оценка 5 - ' + five + ' клиент(а) ' : '')
+                            + ( four ? 'Оценка 4 - ' + four + ' клиент(а) ' : '' )
+                            + (three ? 'Оценка 3 - ' + three  + ' клиент(а) ' : '');
                    }
 
 
