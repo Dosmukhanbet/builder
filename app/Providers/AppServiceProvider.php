@@ -33,6 +33,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('clients', User::where('type', 'client')->lists('name', 'id'));
         });
 
+        view()->composer(['offers.show', 'jobs.all'], function($view){
+            $view->with('clients', User::where('type', 'client')->get());
+        });
+
         Carbon::setLocale('ru');
     }
 

@@ -1,16 +1,32 @@
 import VueResource from 'vue-resource';
 import _ from 'underscore';
-
+import sweetalert from  'sweetalert';
 export default {
     template : `
     <div class="col-md-2 col-md-offset-1">
-        <h4>Категории</h4>
         <div class="categories">
-            <a v-for="cat in cats" @click="findmaster(cat.id)">{{cat.name}}<span class="user_length"> ({{cat.user.length}})</span></a>
+            <form action="/" v-on:submit.prevent="findMasters">
+                <div class="form-group">
+                    <label>Список категории:</label>
+                    <select v-model="selectedCat" class="form-control">
+                        <option v-for="cat in cats" :value="cat.id">{{cat.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Список городов:</label>
+                    <select v-model="selectedCity" class="form-control">
+                        <option v-for="city in cities" :value="city.id">{{city.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Найти</button>
+                </div>
+            </form>
         </div>
     </div>
     <div class="col-md-4">
-    <h4>Мастера по категориям</h4>
+    <h4>Мастера</h4>
+    <div v-show="!masters" class="alert alert-info" role="alert">Выберите категорию и город из списка</div>
     <div class='findedmasters' v-for="master in masters" v-show="masters">
               <p>
                   <a data-lity href="{{ makephotopath(master.photo_path) }}">
@@ -61,24 +77,39 @@ export default {
 
     props :['cats', 'masters', 'cities', 'clients'],
 
+    data: function ()
+          {
+           return {
+              selectedCat : '',
+              selectedCity : ''
+              }
+              },
 
    ready(){
                     //console.log(this.clients);
-                   this.masters = this.findmaster(2);
+
                    },
 
 
 
     methods: {
 
-        findmaster(id) {
-            this.$http.post('/api/findmasters/'+id).then(function(response){
+       findMasters() {
+           this.$http.post('/api/findmasters/' +this.selectedCat + '/' + this.selectedCity).then(function(response){
+                console.log(response.data);
+           if (_.isEmpty(response.data)){
+                                      swal(  {title: "",
+                                               text: "К сожалению поиск не дал результатов",
+                                               timer: 1500,
+                                               showConfirmButton: false });
+                                   }
+                                   else {
+                                   this.masters = response.data;
+                                   }
 
-                this.masters = response.data;
-                   //console.log(response.data.ratings);
+                                   });
 
-            });
-        },
+                      } ,
          makethumbpath(path){
            if(path) { return '/' + path;}
                    else

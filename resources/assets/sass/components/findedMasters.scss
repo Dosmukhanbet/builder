@@ -18,9 +18,11 @@ color:#2B3E69;
 }
 
 .categories {
+  margin-top: 50px;
   padding: 10px;
   display: flex;
   flex-direction: column;
+  border: 1px solid #ddd;
   background: #fff;
 }
 .categories .user_length {

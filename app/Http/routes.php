@@ -16,7 +16,7 @@ Route::get('find/masters', 'SearchMastersController@findMasters');
 // API
 Route::post('api/sendsms', 'NotifyController@sendSms');
 Route::post('api/invitesendsms', 'NotifyController@invitesendSms');
-Route::post('api/findmasters/{catId}', 'SearchMastersController@mastersbycategory');
+Route::post('api/findmasters/{catId}/{cityId}', 'SearchMastersController@mastersbycategoryandcity');
 Route::get('api/masterslist/', 'JobsController@masterslist');
 Route::get('/home', 'HomeController@index');
 Route::get('api/categories', function (){ return \App\Category::all(); });

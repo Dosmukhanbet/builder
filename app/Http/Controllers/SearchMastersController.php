@@ -39,12 +39,14 @@ class SearchMastersController extends Controller
                 ->with('allclients', $allclients);            ;
     }
 
-    public function mastersbycategory($id)
+    public function mastersbycategoryandcity($id, $cityId)
     {
         $masters = User::with('ratings')
             ->with('feedbacks')
             ->where('type','master')
-            ->where('category_id', $id)->get();
+            ->where('category_id', $id)
+            ->where('city_id', $cityId)
+            ->get();
         return $masters;
     }
 

@@ -1,6 +1,6 @@
 <div class="container">
       <div class="row">
-            <div class="col-md-10 col-md-offset-1 how_to">
+            <div class="col-md-11 col-md-offset-1 how_to">
                     <h2 class="how_to_heading">Как это работает ?</h2>
                     <div class="col-md-4 steps">
                       <h4><span>1</span> Создайте заявку</h4>

@@ -5,7 +5,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                       <h4 class="recommendation_header"><i class="fa fa-check-square-o" aria-hidden="true"></i>Рекомендуемые мастера </h4>
                     </div>
-                    <recommendations :catid="{{ $job->category_id }}" :jobid="{{$job->id}}" :jobownerid="{{$job->user->id}}"></recommendations>
+                    <recommendations :catid="{{ $job->category_id }}" :jobid="{{$job->id}}" :clients="{{$clients}}" :jobownerid="{{$job->user->id}}"></recommendations>
               </div>
         </div>
  </div>
