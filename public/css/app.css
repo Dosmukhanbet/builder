@@ -5778,7 +5778,8 @@ ul.Job__list {
   padding: 0; }
 
 .Nav__gen {
-  background: #2F3543; }
+  background: #2F3543;
+  border-bottom: 2px solid #4b515e; }
 
 .Nav__list > li {
   background: #2F3543;
@@ -5787,12 +5788,17 @@ ul.Job__list {
 
 .Nav__list > li.register {
   margin-top: 10px;
-  border: 1px solid #03CEBD; }
+  border: 1px solid #03CEBD;
+  border-radius: 2px; }
+  .Nav__list > li.register:hover {
+    border: 1px solid rgba(255, 255, 255, 0.9); }
   .Nav__list > li.register > a {
+    transition: background-color 0.3s linear, color 0.3s linear;
     padding: 3px 5px 3px 5px;
     color: #03CEBD; }
     .Nav__list > li.register > a:hover {
-      font-weight: 700; }
+      color: #124a58;
+      background: rgba(255, 255, 255, 0.9); }
 
 .Nav__list > li.login, .Nav__list .register {
   margin: 2px 1px 1px 1px;
@@ -6420,6 +6426,17 @@ span.ratingcounts {
 
 .feedbacks__link {
   font-size: 0.9em; }
+
+.footer {
+  height: 40px;
+  background: #2F3543; }
+
+.footer_copyright {
+  color: #fff; }
+
+.footer_copyright > p {
+  text-align: center;
+  padding-top: 10px; }
 
 body {
   margin: 0;

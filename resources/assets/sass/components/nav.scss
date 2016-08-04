@@ -1,5 +1,6 @@
 .Nav__gen{
   background: #2F3543;
+  border-bottom: 2px solid #4b515e;
 }
 
 .Nav__list{
@@ -15,12 +16,21 @@
 .Nav__list > li.register {
   margin-top: 10px;
   border: 1px solid #03CEBD;
+  border-radius: 2px;
+  &:hover {
+    border: 1px solid rgba(255,255,255,0.9);
+  }
   > a {
+    transition: background-color 0.3s linear, color 0.3s linear;
     padding: 3px 5px 3px 5px;
     color: #03CEBD;
     &:hover {
-      font-weight: 700;
+      color: #124a58;
+      background: rgba(255,255,255,0.9);
+
     }
+
+
   }
 
 }
