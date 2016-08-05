@@ -56,7 +56,10 @@
 
 
                    @else
+                   <div class="col-md-6 col-md-offset-1">
                      <h4>У Вас нет ни одной заявки</h4>
+                     <a href="{{ url('job/create') }}">Создайте заявку, это просто и бесплатно!</a>
+                     </div>
                    @endif
                    </div>
                    @if($jobs->count() >= 1)

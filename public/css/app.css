@@ -6097,22 +6097,24 @@ a.offer__link {
 
 .create__button {
   padding: 7px 12px 7px 12px;
-  background: #049e8e;
-  border-radius: 5px; }
+  background: #FF5C2D;
+  border-radius: 3px;
+  font-size: 0.6em;
+  font-weight: 300; }
 
 .create__button:hover {
-  background: #EF9E01;
+  background: #FF3900;
   color: #ffffff;
   text-decoration: none; }
 
 .how_to, .home__font {
   font-family: 'Roboto Slab', serif; }
 
-.how_to > h2 {
+.how_to > h3 {
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px; }
-  .how_to > h2:after {
+  .how_to > h3:after {
     content: '';
     display: block;
     width: 130px;
@@ -6120,8 +6122,9 @@ a.offer__link {
     background: #EF9E01;
     margin: 35px auto; }
 
-.home_page_text {
-  color: #2A2F4C; }
+p.home_page_text {
+  color: #2A2F4C;
+  font-size: 1em; }
 
 .jumbotron {
   background: #FFF;

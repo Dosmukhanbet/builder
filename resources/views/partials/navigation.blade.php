@@ -26,6 +26,8 @@
                                         @include('partials.clientnav')
                                     @elseif($user && $user->type == 'master')
                                         @include('partials.masternav')
+                                    @elseif($user && $user->type == 'admin')
+                                        @include('partials.adminnav')
                                     @else
                                             <ul class="nav navbar-nav navbar-right Nav__list">
                                                  <li><a class="Nav__links" href="{{ url('/create/registerandcreatejob') }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Создать заявку</a></li>

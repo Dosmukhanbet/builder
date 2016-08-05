@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
+use DB;
+use App\User;
 use App\Category;
 use App\City;
 use Illuminate\Http\Request;
@@ -25,5 +28,15 @@ class AdminController extends Controller
         $cat->name = $request['name'];
         $cat->save();
         return back();
+    }
+
+    public function users()
+    {
+        $users = User::where('type', 'master')
+            ->get();
+
+        return view('admin.users', compact('users'));
+
+        dd($users->groupBy('city_id'));
     }
 }

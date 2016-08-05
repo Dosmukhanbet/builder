@@ -76,6 +76,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function()
     });
     Route::post('addCategories', 'AdminController@addcategory');
     Route::post('addCities', 'AdminController@addcity');
+    Route::get('users', 'AdminController@users');
 
 });
 

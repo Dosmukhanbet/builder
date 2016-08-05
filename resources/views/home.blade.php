@@ -3,6 +3,7 @@
     @include('homepartials.jumbotron')
     @include('homepartials.howto')
     @include('homepartials.feedbacks')
+@include('partials.footer')
 @stop
 
 @section('jsfooter')
