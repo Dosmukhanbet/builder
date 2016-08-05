@@ -19,7 +19,7 @@ Route::post('api/invitesendsms', 'NotifyController@invitesendSms');
 Route::post('api/findmasters/{catId}/{cityId}', 'SearchMastersController@mastersbycategoryandcity');
 Route::get('api/masterslist/', 'JobsController@masterslist');
 Route::get('/home', 'HomeController@index');
-Route::get('api/categories', function (){ return \App\Category::all(); });
+Route::get('api/categories', function (){ return \App\Category::orderBy('name')->get(); });
 Route::post('api/makejobdone/{id}', 'JobsController@makejobdone');
 Route::post('api/recommendations/{categoryId}', 'RecommendationController@masters');
 
