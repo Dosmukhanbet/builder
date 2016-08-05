@@ -6429,6 +6429,7 @@ span.ratingcounts {
 
 .footer {
   height: 40px;
+  width: 100%;
   background: #2F3543; }
 
 .footer_copyright {
@@ -6443,6 +6444,10 @@ body {
   padding: 0;
   font-family: 'Open Sans Condensed', sans-serif;
   background: #f5f5f5; }
+
+#app-layout {
+  position: relative;
+  min-height: 100%; }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;

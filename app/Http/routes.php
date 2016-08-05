@@ -70,7 +70,7 @@ Route::group(['prefix' => 'master', 'middleware' => ['auth','master']], function
 
 
 
-Route::group(['prefix' => 'admin'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function(){
     Route::get('manage', function () {
         return view('admin.manage');
     });

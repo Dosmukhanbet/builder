@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 col-md-offset-1">
             <h3>Добавить категорию</h3>
             <form method="POST" action="addCategories">
             {{csrf_field()}}

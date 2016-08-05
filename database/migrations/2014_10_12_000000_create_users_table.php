@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->integer('city_id')->unsigned();
             $table->integer('category_id')->unsigned()->nullable()->default();
-            $table->enum('type', ['client', 'master']);
+            $table->enum('type', ['client', 'master', 'admin']);
             $table->string('phone_number')->unique();
             $table->boolean('confirmed')->default(false);
             $table->string('token')->nullable();
