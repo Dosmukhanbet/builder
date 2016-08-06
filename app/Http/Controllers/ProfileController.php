@@ -63,6 +63,26 @@ class ProfileController extends Controller
 
     }
 
+    public function update(Request $request, $userid)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'email'=> 'required|email',
+            'city_id'=>'required',
+            'category_id' => 'required'
+        ]);
+
+        $user = User::findOrFail($userid);
+        $user->name = $request['name'];
+        $user->email = $request['email'];
+        $user->city_id = $request['city_id'];
+        $user->category_id = $request['category_id'];
+        $user->save();
+
+        flash()->success('ok', 'Профиль успешно отредактирован!');
+        return back();
+    }
+
 
 
 

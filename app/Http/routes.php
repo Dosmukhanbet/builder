@@ -55,6 +55,7 @@ Route::group(['prefix'=> 'job', 'middleware' => ['auth','client']], function()
     }
 );
 
+Route::patch('editprofile/{userId}', 'ProfileController@update');
 
 
 

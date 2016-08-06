@@ -29,3 +29,15 @@ color:#2B3E69;
   color:#ccc;
   font-size: 0.9em;
 }
+
+.find__button {
+    background: #FF5C2D;
+    border-radius: 3px;
+    color:#fff;
+
+    &:hover {
+      background: #FF3900;
+      color:#fff;
+    }
+}
+

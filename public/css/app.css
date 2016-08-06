@@ -6211,6 +6211,14 @@ p.home_page_text {
   color: #ccc;
   font-size: 0.9em; }
 
+.find__button {
+  background: #FF5C2D;
+  border-radius: 3px;
+  color: #fff; }
+  .find__button:hover {
+    background: #FF3900;
+    color: #fff; }
+
 .recommendations {
   background: #fff;
   padding: 10px; }

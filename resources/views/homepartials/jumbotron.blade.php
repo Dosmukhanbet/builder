@@ -6,7 +6,7 @@
                 профессионалам своего дела!
             </h3>
             <p class="home_page_text" style="text-align: center;">
-               В нашем <span style="color:#049E8E">"Клубе Мастеров"</span> зарегистрированы только лучшие специалисты, которые возмутся за Вашу работу
+               В нашем <span style="color:#FF5C2D; font-weight: 700">"Клубе Мастеров"</span> зарегистрированы только лучшие специалисты, которые возмутся за Вашу работу
             </p>
             @if(Auth::guest())
                <p style="text-align: center">
