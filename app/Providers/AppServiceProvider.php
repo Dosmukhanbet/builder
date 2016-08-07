@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
 
         if(!Cache::has('ceties')){
             $cities = \App\City::orderBy('name')->lists('name', 'id')->toArray();
-            Cache::forever('ceties', $cities, 24*60);
+            Cache::forever('ceties', $cities);
         }
 
         view()->composer(['auth.register', 'admin.manage' ,'jobs.create', 'jobs.show', 'master.activejobs', 'master.showjob', 'master.profile.profile','master.profile.editprofile', 'client.profileshow' , 'client.findmasters' , 'jobs.createjobanduser','offers.show'], function($view){
@@ -34,9 +34,9 @@ class AppServiceProvider extends ServiceProvider
 
         if(!Cache::has('categories')){
             $categories = \App\Category::orderBy('name')->lists('name', 'id')->toArray();
-            Cache::forever('categories', $categories, 24*60);
+            Cache::put('categories', $categories, 1440);
         }
-        view()->composer(['jobs.show', 'jobs.all', 'admin.manage' , 'email.jobposted', 'master.showjob', 'master.profile.profile','master.profile.editprofile','client.partials.editprofile',  'client.findmasters', 'offers.show' ], function($view){
+        view()->composer(['auth.register', 'jobs.createjobanduser','jobs.show', 'jobs.all', 'admin.manage' , 'email.jobposted', 'master.showjob', 'master.profile.profile','master.profile.editprofile','client.partials.editprofile',  'client.findmasters', 'offers.show' ], function($view){
             $view->with('categories', Cache::get('categories'));
         });
 

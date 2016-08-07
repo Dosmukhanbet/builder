@@ -6211,6 +6211,10 @@ p.home_page_text {
   color: #ccc;
   font-size: 0.9em; }
 
+.categories > form .form-group select {
+  border: 1px solid #ccc;
+  border-radius: 0px; }
+
 .find__button {
   background: #FF5C2D;
   border-radius: 3px;

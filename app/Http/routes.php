@@ -1,6 +1,5 @@
 <?php
 
-
 Route::get('/', function () {
   return view('home');
 });
@@ -20,9 +19,18 @@ Route::post('api/invitesendsms', 'NotifyController@invitesendSms');
 Route::post('api/findmasters/{catId}/{cityId}', 'SearchMastersController@mastersbycategoryandcity');
 Route::get('api/masterslist/', 'JobsController@masterslist');
 Route::get('/home', 'HomeController@index');
-Route::get('api/categories', function (){ return \App\Category::orderBy('name')->get(); });
 Route::post('api/makejobdone/{id}', 'JobsController@makejobdone');
 Route::post('api/recommendations/{categoryId}', 'RecommendationController@masters');
+Route::get('api/categories', function (){
+            return \App\Category::orderBy('name')->get();
+//            if(!Cache::has('categories'))
+//            {
+//                $categories =  \App\Category::orderBy('name')->get();
+//                \Cache::put('categories', $categories, 1440);
+//            }
+//
+//            return \Cache::get('categories');
+        });
 
 
 

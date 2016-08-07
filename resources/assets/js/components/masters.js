@@ -7,13 +7,13 @@ export default {
         <div class="categories">
             <form action="/" v-on:submit.prevent="findMasters">
                 <div class="form-group">
-                    <label>Список категории:</label>
+                    <label>Категории:</label>
                     <select v-model="selectedCat" class="form-control">
                         <option v-for="cat in cats" :value="cat.id">{{cat.name}}</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Список городов:</label>
+                    <label>Города:</label>
                     <select v-model="selectedCity" class="form-control">
                         <option v-for="city in cities" :value="city.id">{{city.name}}</option>
                     </select>

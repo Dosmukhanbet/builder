@@ -6,8 +6,7 @@
                    <form @keyup.enter="onEnter" role="form" method="POST" action="{{ url('/register') }}">
                         {!! csrf_field() !!}
 
-
-                                            <types></types>
+                                           <types></types>
 
                                             <div class="form-group">
                                                  <label class="col-md-8 control-label">Город</label>

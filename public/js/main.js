@@ -34049,7 +34049,7 @@ var _sweetalert2 = _interopRequireDefault(_sweetalert);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-    template: '\n    <div class="col-md-2 col-md-offset-1">\n        <div class="categories">\n            <form action="/" v-on:submit.prevent="findMasters">\n                <div class="form-group">\n                    <label>Список категории:</label>\n                    <select v-model="selectedCat" class="form-control">\n                        <option v-for="cat in cats" :value="cat.id">{{cat.name}}</option>\n                    </select>\n                </div>\n                <div class="form-group">\n                    <label>Список городов:</label>\n                    <select v-model="selectedCity" class="form-control">\n                        <option v-for="city in cities" :value="city.id">{{city.name}}</option>\n                    </select>\n                </div>\n                <div class="form-group">\n                    <button class="btn find__button" type="submit">Найти</button>\n                </div>\n            </form>\n        </div>\n    </div>\n    <div class="col-md-4">\n    <h4>Мастера <i class="fa fa-chevron-down" style="color:#03CEBD" aria-hidden="true"></i></h4>\n    <div v-show="!masters" class="alert alert-info" role="alert">Выберите категорию и город из списка</div>\n    <div class=\'findedmasters\' v-for="master in masters" v-show="masters">\n              <p>\n                  <a data-lity href="{{ makephotopath(master.photo_path) }}">\n                <img class="img-circle" v-bind:src="makethumbpath(master.thumbnail_path)"></a>\n              </p>\n\n               <p><span>Имя:</span> {{master.name}}<br>\n                <span>Мобильный номер:</span> +{{master.phone_number}}<br>\n                <span>Специальность:</span>  {{ findCat(master.category_id) }}<br>\n                <span>Город:</span>  {{ findCity(master.city_id) }}<br>\n\n                <span v-show="master.ratings.length" >{{ ratingsum(master.ratings)}}</span><br v-show="master.ratings.length">\n                <span v-show="master.ratings.length" class="ratingcounts">{{ratingcounts(master.ratings) }}</span><br v-show="master.ratings.length">\n                <span v-show="master.feedbacks.length" >\n                      <a class="feedbacks__link" data-toggle="modal" data-target="#masterfeedback_{{master.id}}">\n                        Отзывы {{ master.feedbacks.length }}\n                      </a>\n                </span><br v-show="master.feedbacks.length">\n               </p>\n\n                                   <div class="modal fade" id="masterfeedback_{{master.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">\n                                       <div class="modal-dialog" role="document">\n                                           <div class="modal-content">\n                                               <div class="modal-header">\n                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>\n                                                   <h4 class="modal-title" id="myModalLabel">Отзывы мастеру {{master.name}}</h4>\n                                               </div>\n                                               <div class="modal-body">\n                                                   <blockquote v-for="feedback in master.feedbacks">\n                                                       <p>{{feedback.body}}\n                                                           <br>\n                                                               <span>{{feedback.created_at}},\n                                                               от клиента:  {{ findclient(feedback.from_user_id) }} </span>\n                                                           </p>\n                                                   </blockquote>\n                                                   </div>\n                                                   <div class="modal-footer">\n                                                       <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>\n                                                   </div>\n                                               </div>\n                                           </div>\n                                       </div>\n\n    </div>\n    </div>\n    ',
+    template: '\n    <div class="col-md-2 col-md-offset-1">\n        <div class="categories">\n            <form action="/" v-on:submit.prevent="findMasters">\n                <div class="form-group">\n                    <label>Категории:</label>\n                    <select v-model="selectedCat" class="form-control">\n                        <option v-for="cat in cats" :value="cat.id">{{cat.name}}</option>\n                    </select>\n                </div>\n                <div class="form-group">\n                    <label>Города:</label>\n                    <select v-model="selectedCity" class="form-control">\n                        <option v-for="city in cities" :value="city.id">{{city.name}}</option>\n                    </select>\n                </div>\n                <div class="form-group">\n                    <button class="btn find__button" type="submit">Найти</button>\n                </div>\n            </form>\n        </div>\n    </div>\n    <div class="col-md-4">\n    <h4>Мастера <i class="fa fa-chevron-down" style="color:#03CEBD" aria-hidden="true"></i></h4>\n    <div v-show="!masters" class="alert alert-info" role="alert">Выберите категорию и город из списка</div>\n    <div class=\'findedmasters\' v-for="master in masters" v-show="masters">\n              <p>\n                  <a data-lity href="{{ makephotopath(master.photo_path) }}">\n                <img class="img-circle" v-bind:src="makethumbpath(master.thumbnail_path)"></a>\n              </p>\n\n               <p><span>Имя:</span> {{master.name}}<br>\n                <span>Мобильный номер:</span> +{{master.phone_number}}<br>\n                <span>Специальность:</span>  {{ findCat(master.category_id) }}<br>\n                <span>Город:</span>  {{ findCity(master.city_id) }}<br>\n\n                <span v-show="master.ratings.length" >{{ ratingsum(master.ratings)}}</span><br v-show="master.ratings.length">\n                <span v-show="master.ratings.length" class="ratingcounts">{{ratingcounts(master.ratings) }}</span><br v-show="master.ratings.length">\n                <span v-show="master.feedbacks.length" >\n                      <a class="feedbacks__link" data-toggle="modal" data-target="#masterfeedback_{{master.id}}">\n                        Отзывы {{ master.feedbacks.length }}\n                      </a>\n                </span><br v-show="master.feedbacks.length">\n               </p>\n\n                                   <div class="modal fade" id="masterfeedback_{{master.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">\n                                       <div class="modal-dialog" role="document">\n                                           <div class="modal-content">\n                                               <div class="modal-header">\n                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>\n                                                   <h4 class="modal-title" id="myModalLabel">Отзывы мастеру {{master.name}}</h4>\n                                               </div>\n                                               <div class="modal-body">\n                                                   <blockquote v-for="feedback in master.feedbacks">\n                                                       <p>{{feedback.body}}\n                                                           <br>\n                                                               <span>{{feedback.created_at}},\n                                                               от клиента:  {{ findclient(feedback.from_user_id) }} </span>\n                                                           </p>\n                                                   </blockquote>\n                                                   </div>\n                                                   <div class="modal-footer">\n                                                       <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>\n                                                   </div>\n                                               </div>\n                                           </div>\n                                       </div>\n\n    </div>\n    </div>\n    ',
 
     props: ['cats', 'masters', 'cities', 'clients'],
 
@@ -34478,19 +34478,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _template$props$ready;
-
 var _vueResource = require('vue-resource');
 
 var _vueResource2 = _interopRequireDefault(_vueResource);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-exports.default = (_template$props$ready = {
+exports.default = {
     template: '\n    <div class="form-group">\n        <label class="col-md-8 control-label">Тип пользователя</label>\n        <div class="col-md-8">\n            <select name="type" v-model="type" class="form-control" required>\n                <option v-for="type in types" value="{{type.value}}">{{type.name}}</option >\n            </select>\n        </div>\n    </div>\n\n    <div class="form-group" v-show="type===\'master\'">\n        <label class="col-md-8 control-label">Специальность</label>\n        <div class="col-md-8">\n            <select name="category_id" id="category_id" class="form-control">\n                <option v-for="cat in categories" value="{{cat.id}}">{{cat.name}}</option>\n            </select>\n        </div>\n    </div>\n    ',
-    props: {},
+    props: [],
 
     ready: function ready() {
         this.fetchCategories();
@@ -34501,18 +34497,21 @@ exports.default = (_template$props$ready = {
             type: '',
             categories: ''
         };
-    }
-}, _defineProperty(_template$props$ready, 'ready', function ready() {
-    console.log(this.type);
-}), _defineProperty(_template$props$ready, 'methods', {
-    fetchCategories: function fetchCategories() {
-        var _this = this;
+    },
 
-        return this.$http.get('api/categories', function (response) {
-            _this.categories = response;
-        });
+    methods: {
+        fetchCategories: function fetchCategories() {
+            var _this = this;
+
+            return this.$http.get('api/categories', function (response) {
+
+                _this.categories = response;
+                console.log(response);
+            });
+        }
     }
-}), _template$props$ready);
+
+};
 
 },{"vue-resource":27}],52:[function(require,module,exports){
 'use strict';

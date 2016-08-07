@@ -20,7 +20,7 @@ template : `
         </div>
     </div>
     `,
-    props :{},
+    props :[],
 
     ready() { this.fetchCategories()},
 
@@ -34,13 +34,12 @@ template : `
                 categories: ''
     }
     },
-    ready(){
-        console.log(this.type);
-        },
     methods: {
         fetchCategories(){
          return this.$http.get('api/categories', (response)=> {
+
         this.categories = response;
+        console.log(response);
         });
         }
         }
