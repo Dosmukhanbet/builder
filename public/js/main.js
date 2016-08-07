@@ -34478,14 +34478,18 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _template$props$ready;
+
 var _vueResource = require('vue-resource');
 
 var _vueResource2 = _interopRequireDefault(_vueResource);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = {
-    template: '\n    <div class="form-group">\n        <label class="col-md-8 control-label">Тип пользователя</label>\n        <div class="col-md-8">\n            <select name="type" v-model="type" id="type" class="form-control" v-model="type" required>\n                <option v-for="type in types" value="{{type.value}}">{{type.name}}</option >\n            </select>\n        </div>\n    </div>\n\n    <div class="form-group" v-show="type === \'master\'">\n    <label class="col-md-8 control-label">Специальность</label>\n    <div class="col-md-8">\n    <select name="category_id" id="category_id" class="form-control">\n        <option v-for="cat in categories" value="{{cat.id}}">{{cat.name}}</option>\n    </select>\n    </div>\n    </div>\n    ',
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+exports.default = (_template$props$ready = {
+    template: '\n    <div class="form-group">\n        <label class="col-md-8 control-label">Тип пользователя</label>\n        <div class="col-md-8">\n            <select name="type" v-model="type" class="form-control" required>\n                <option v-for="type in types" value="{{type.value}}">{{type.name}}</option >\n            </select>\n        </div>\n    </div>\n\n    <div class="form-group" v-show="type===\'master\'">\n        <label class="col-md-8 control-label">Специальность</label>\n        <div class="col-md-8">\n            <select name="category_id" id="category_id" class="form-control">\n                <option v-for="cat in categories" value="{{cat.id}}">{{cat.name}}</option>\n            </select>\n        </div>\n    </div>\n    ',
     props: {},
 
     ready: function ready() {
@@ -34497,20 +34501,18 @@ exports.default = {
             type: '',
             categories: ''
         };
-    },
-
-
-    methods: {
-        fetchCategories: function fetchCategories() {
-            var _this = this;
-
-            return this.$http.get('api/categories', function (response) {
-                _this.categories = response;
-            });
-        }
     }
+}, _defineProperty(_template$props$ready, 'ready', function ready() {
+    console.log(this.type);
+}), _defineProperty(_template$props$ready, 'methods', {
+    fetchCategories: function fetchCategories() {
+        var _this = this;
 
-};
+        return this.$http.get('api/categories', function (response) {
+            _this.categories = response;
+        });
+    }
+}), _template$props$ready);
 
 },{"vue-resource":27}],52:[function(require,module,exports){
 'use strict';

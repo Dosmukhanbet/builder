@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use DB;
+use Cache;
 use App\User;
 use App\City;
 use Carbon\Carbon;
@@ -17,12 +19,25 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer(['auth.register', 'admin.manage' ,'jobs.create', 'jobs.show', 'master.activejobs', 'master.showjob', 'master.profile.profile','master.profile.editprofile', 'client.profileshow' , 'client.findmasters' , 'jobs.createjobanduser','offers.show'], function($view){
-            $view->with('cities', \App\City::orderBy('name')->lists('name', 'id'));
+        \Event::listen('Illuminate\Database\Events\QueryExecuted', function ($query) {
+            var_dump($query->sql);
         });
 
+        if(!Cache::has('ceties')){
+            $cities = \App\City::orderBy('name')->lists('name', 'id')->toArray();
+            Cache::forever('ceties', $cities, 24*60);
+        }
+
+        view()->composer(['auth.register', 'admin.manage' ,'jobs.create', 'jobs.show', 'master.activejobs', 'master.showjob', 'master.profile.profile','master.profile.editprofile', 'client.profileshow' , 'client.findmasters' , 'jobs.createjobanduser','offers.show'], function($view){
+            $view->with('cities', Cache::get('ceties'));
+        });
+
+        if(!Cache::has('categories')){
+            $categories = \App\Category::orderBy('name')->lists('name', 'id')->toArray();
+            Cache::forever('categories', $categories, 24*60);
+        }
         view()->composer(['jobs.show', 'jobs.all', 'admin.manage' , 'email.jobposted', 'master.showjob', 'master.profile.profile','master.profile.editprofile','client.partials.editprofile',  'client.findmasters', 'offers.show' ], function($view){
-            $view->with('categories', \App\Category::orderBy('name')->lists('name', 'id'));
+            $view->with('categories', Cache::get('categories'));
         });
 
         view()->composer(['partials.navigation','partials.masternav', 'master.profile.profile', 'client.profileshow'], function($view){

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+{{--{{dd($cities)}}--}}
 <masters :cats="{{$cats}}" :cities="{{$citis}}" :clients="{{$allclients}}"></masters>
 
 <div class="col-md-4">
