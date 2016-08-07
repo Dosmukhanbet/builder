@@ -19,9 +19,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        \Event::listen('Illuminate\Database\Events\QueryExecuted', function ($query) {
-            var_dump($query->sql);
-        });
+//        \Event::listen('Illuminate\Database\Events\QueryExecuted', function ($query) {
+//            var_dump($query->sql);
+//        });
 
         if(!Cache::has('ceties')){
             $cities = \App\City::orderBy('name')->lists('name', 'id')->toArray();
