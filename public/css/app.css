@@ -6123,12 +6123,17 @@ a.offer__link {
   margin-bottom: 70px; }
 
 .formasters .steps span {
-  color: #FF3900;
-  border: 3px solid #FF3900; }
+  color: #FF5C2D;
+  border: 3px solid #FF5C2D; }
 
 .home__line {
+  color: #EF9E01;
+  /* Цвет линии для остальных браузеров */
+  background-color: #EF9E01;
   margin-top: 42px;
-  width: 95%; }
+  margin-bottom: 42px;
+  height: 1px;
+  width: 80%; }
 
 .formasters > h3 {
   text-align: center;
@@ -6139,7 +6144,7 @@ a.offer__link {
     display: block;
     width: 130px;
     height: 3px;
-    background: #FF3900;
+    background: #FF5C2D;
     margin: 35px auto; }
 
 .how_to > h3 {
@@ -6170,13 +6175,6 @@ p.home_page_text {
 .nopaddings {
   padding-bottom: 0px;
   padding-top: 0px; }
-
-.feedback__slider {
-  margin: 0 0 300px 0px;
-  padding: 0px;
-  background: #4A90E2;
-  height: 200px;
-  width: 100%; }
 
 .masters_count {
   position: absolute;

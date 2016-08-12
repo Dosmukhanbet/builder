@@ -27,11 +27,10 @@
 
 
 </div>
-<hr class="home__line">
-
 <div class="container formasters__block">
       <div class="row">
                   <div class="col-md-11 col-md-offset-1 formasters">
+                  <hr class="home__line">
                           <h3 class="how_to_heading"> Вы мастер ?</h3>
                           <div class="col-md-4 steps">
                             <h4><span>1</span> Зарегистрируйтесь</h4>
