@@ -12,7 +12,7 @@
 
                                     <!-- Branding Image -->
                                    <a class="navbar-brand" style="margin-left: 0px" href="{{ url('/') }}">
-                                      <i class="fa fa-puzzle-piece" aria-hidden="true"></i> sheber.<span style="color:#03CEBD">club</span>
+                                      sheber.<span style="color:#03CEBD">club</span>
                                     </a>
                                 </div>
                                 <!-- Left Side Of Navbar -->

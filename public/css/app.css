@@ -5823,13 +5823,11 @@ ul.Job__list {
 .navbar-brand {
   font-family: 'Jura', sans-serif;
   font-size: 1.4em;
-  letter-spacing: 1px;
-  margin-top: -2px; }
+  letter-spacing: 1px; }
 
 .navbar-brand > i {
   font-size: 1em;
-  color: #03CEBD;
-  padding-top: 3px; }
+  color: #FF5C2D; }
 
 .dropdown-menu a {
   font-size: 0.9em; }
@@ -6010,7 +6008,8 @@ a.accept__offer__link:hover {
   font-size: 0.8em; }
 
 .popover {
-  margin-left: 100px; }
+  margin-left: 100px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); }
 
 .popover-content {
   font-family: 'Open Sans Condensed', sans-serif;
@@ -6107,8 +6106,41 @@ a.offer__link {
   color: #ffffff;
   text-decoration: none; }
 
-.how_to, .home__font {
+.how_to, .home__font, .formasters {
   font-family: 'Roboto Slab', serif; }
+  .how_to h3, .home__font h3, .formasters h3 {
+    font-size: 1.4em; }
+  .how_to h4, .home__font h4, .formasters h4 {
+    font-size: 1.1em; }
+  .how_to .steps span, .home__font .steps span, .formasters .steps span {
+    padding: 2px 13px 3px 13px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    margin: 0 10px 0 5px; }
+
+.formasters__block {
+  margin-bottom: 70px; }
+
+.formasters .steps span {
+  color: #FF3900;
+  border: 3px solid #FF3900; }
+
+.home__line {
+  margin-top: 42px;
+  width: 95%; }
+
+.formasters > h3 {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 25px; }
+  .formasters > h3:after {
+    content: '';
+    display: block;
+    width: 130px;
+    height: 3px;
+    background: #FF3900;
+    margin: 35px auto; }
 
 .how_to > h3 {
   text-align: center;
@@ -6133,12 +6165,7 @@ p.home_page_text {
 
 .steps span {
   color: #EF9E01;
-  padding: 2px 13px 3px 13px;
-  border: 3px solid #EF9E01;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  margin: 0 10px 0 5px; }
+  border: 3px solid #EF9E01; }
 
 .nopaddings {
   padding-bottom: 0px;

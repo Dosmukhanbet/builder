@@ -53,11 +53,12 @@
 
 .popover {
   margin-left: 100px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
 }
 .popover-content {
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 0.8em;
-
 }
 
 hr{

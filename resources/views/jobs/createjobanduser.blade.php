@@ -59,7 +59,15 @@
                          <div class="form-group{{ $errors->has('Дата_Исполнения') ? ' has-error' : '' }}">
                              <label class="col-md-8 control-label">Дата и Время исполнения</label>
                                   <div class="col-md-8">
-                                       <input id="datetimepicker" type="text" class="form-control" name="dateOfMake">
+                                       <input
+                                       id="datetimepicker"
+                                       type="text"
+                                       class="form-control"
+                                       name="dateOfMake"
+                                       data-toggle="popover"
+                                       data-placement="top"
+                                       data-trigger="focus"
+                                       data-content="Выберите удобное для Вас дату и время выполнения работы">
                                                         @if ($errors->has('dateOfMake'))
                                                             <span class="help-block">
                                                                 <strong>{{ $errors->first('dateOfMake') }}</strong>
@@ -71,7 +79,17 @@
                          <div class="form-group">
                              <label class="col-md-8 control-label">Бюджет</label>
                                   <div class="col-md-8">
-                                       <input type="text" placeholder="в тенге" class="form-control" v-model="price | currency 'KZT '"   name="price" value="{{ old('price') }}">
+                                       <input type="text"
+                                       placeholder="в тенге"
+                                       class="form-control"
+                                       v-model="price | currency 'KZT '"
+                                       name="price"
+                                       data-toggle="popover"
+                                       data-placement="top"
+                                       data-trigger="focus"
+                                       data-content="Введите сумму на которую расчитываете выполнить работу"
+                                       value="{{ old('price')
+                                       }}">
                                   </div>
                           </div>
                           <div class="form-group">

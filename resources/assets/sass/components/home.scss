@@ -12,8 +12,60 @@
   text-decoration: none;
 }
 
-.how_to, .home__font {
+.how_to, .home__font, .formasters {
 font-family: 'Roboto Slab', serif;
+  h3{
+    font-size: 1.4em;
+  }
+
+  h4{
+    font-size: 1.1em;
+  }
+
+  .steps span {
+    padding: 2px 13px 3px 13px;
+
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    margin: 0 10px 0 5px;
+  }
+
+}
+
+.formasters__block {
+margin-bottom: 70px;
+}
+
+.formasters{
+  .steps{
+
+  }
+
+  .steps span {
+    color:#FF3900;
+    border:3px solid #FF3900;
+  }
+
+
+}
+.home__line {
+  margin-top: 42px;
+  width: 95%;
+}
+.formasters > h3 {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  &:after {
+    content: '';
+    display: block;
+    width: 130px;
+    height: 3px;
+    background: #FF3900;
+    margin: 35px auto;
+  }
+
 
 }
 
@@ -44,16 +96,13 @@ p.home_page_text {
   margin-bottom: 0px;
 }
 
+.steps {
 
-
+}
 .steps span {
   color:#EF9E01;
-  padding: 2px 13px 3px 13px;
   border:3px solid #EF9E01;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  margin: 0 10px 0 5px;
+
 }
 
 .steps > h4 {
