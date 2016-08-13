@@ -13,34 +13,27 @@
 }
 
 .how_to, .home__font, .formasters {
-font-family: 'Roboto Slab', serif;
-  h3{
-    font-size: 1.4em;
-  }
+  font-family: 'Roboto Slab', serif;
+            h3{
+              font-size: 1.4em;
+            }
 
-  h4{
-    font-size: 1.1em;
-  }
+            h4{
+              font-size: 1.1em;
+            }
 
-  .steps span {
-    padding: 2px 13px 3px 13px;
+            .steps span {
+              padding: 2px 13px 3px 13px;
 
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    margin: 0 10px 0 5px;
-  }
+              border-radius: 50%;
+              -webkit-border-radius: 50%;
+              -moz-border-radius: 50%;
+              margin: 0 10px 0 5px;
+            }
 
-}
-
-.formasters__block {
-margin-bottom: 70px;
 }
 
 .formasters{
-  .steps{
-
-  }
 
   .steps span {
     color:#FF5C2D;
@@ -49,31 +42,8 @@ margin-bottom: 70px;
 
 
 }
-.home__line {
-  color: #EF9E01; /* Цвет линии для остальных браузеров */
-  background-color: #EF9E01;
-  margin-top: 42px;
-  margin-bottom: 42px;
-  height: 1px;
-  width: 80%;
-}
-.formasters > h3 {
-  text-align: center;
-  margin-top: 25px;
-  margin-bottom: 25px;
-  &:after {
-    content: '';
-    display: block;
-    width: 130px;
-    height: 3px;
-    background: #FF5C2D;
-    margin: 35px auto;
-  }
 
-
-}
-
-.how_to > h3 {
+h3.how_to_heading {
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px;
@@ -83,11 +53,24 @@ margin-bottom: 70px;
     width: 130px;
     height: 3px;
     background: #EF9E01;
-    margin: 35px auto;
+    margin: 25px auto;
   }
-
-
 }
+
+h3.how_to_heading_formasters {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  &:after {
+    content: '';
+    display: block;
+    width: 130px;
+    height: 3px;
+    background: #FF5C2D;
+    margin: 25px auto;
+  }
+}
+
 
 p.home_page_text {
   color:#2A2F4C;
@@ -100,8 +83,10 @@ p.home_page_text {
   margin-bottom: 0px;
 }
 
-.steps {
-
+.steps{
+  margin-bottom: 10px;
+}
+.steps > p {
 }
 .steps span {
   color:#EF9E01;

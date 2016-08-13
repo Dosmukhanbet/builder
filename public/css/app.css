@@ -6119,45 +6119,33 @@ a.offer__link {
     -moz-border-radius: 50%;
     margin: 0 10px 0 5px; }
 
-.formasters__block {
-  margin-bottom: 70px; }
-
 .formasters .steps span {
   color: #FF5C2D;
   border: 3px solid #FF5C2D; }
 
-.home__line {
-  color: #EF9E01;
-  /* Цвет линии для остальных браузеров */
-  background-color: #EF9E01;
-  margin-top: 42px;
-  margin-bottom: 42px;
-  height: 1px;
-  width: 80%; }
-
-.formasters > h3 {
+h3.how_to_heading {
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px; }
-  .formasters > h3:after {
-    content: '';
-    display: block;
-    width: 130px;
-    height: 3px;
-    background: #FF5C2D;
-    margin: 35px auto; }
-
-.how_to > h3 {
-  text-align: center;
-  margin-top: 25px;
-  margin-bottom: 25px; }
-  .how_to > h3:after {
+  h3.how_to_heading:after {
     content: '';
     display: block;
     width: 130px;
     height: 3px;
     background: #EF9E01;
-    margin: 35px auto; }
+    margin: 25px auto; }
+
+h3.how_to_heading_formasters {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 25px; }
+  h3.how_to_heading_formasters:after {
+    content: '';
+    display: block;
+    width: 130px;
+    height: 3px;
+    background: #FF5C2D;
+    margin: 25px auto; }
 
 p.home_page_text {
   color: #2A2F4C;
@@ -6167,6 +6155,9 @@ p.home_page_text {
   background: #FFF;
   border-bottom: 1px solid #ccc;
   margin-bottom: 0px; }
+
+.steps {
+  margin-bottom: 10px; }
 
 .steps span {
   color: #EF9E01;
@@ -6468,6 +6459,7 @@ span.ratingcounts {
   font-size: 0.9em; }
 
 .footer {
+  margin-top: 50px;
   height: 40px;
   width: 100%;
   background: #424242; }
