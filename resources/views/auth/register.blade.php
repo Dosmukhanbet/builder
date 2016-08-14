@@ -80,7 +80,7 @@
 
 
                                              <div class="form-group{{ $errors->has('phone_number') ? ' has-error' : '' }}">
-                                                    <sendsms></sendsms>
+                                               <sendsms></sendsms>
 
                                                     <div class="col-md-6">
                                                         @if($errors->has('phone_number'))
@@ -102,7 +102,7 @@
         </div>
     </div>
 
-@endsection
-@section('scripts.footer')
+@stop
+@section('footer')
     <script src="/js/all.js"></script>
-@endsection
+@stop

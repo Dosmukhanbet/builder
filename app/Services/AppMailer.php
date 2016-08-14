@@ -29,7 +29,7 @@ class AppMailer {
     public function deliver ()
     {
         $this->mailer->send($this->view, $this->data, function ($message){
-                $message->from($this->from, 'Administrator Builder.com')
+                $message->from($this->from, 'Администрация sheber.club')
                     ->to($this->to)
                     ->subject($this->subject);
         });

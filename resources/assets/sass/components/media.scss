@@ -32,3 +32,17 @@
   }
 
 }
+
+@media (max-width: 800px) {
+  .how_to, .home__font, .formasters
+  {
+        h3{
+          font-size: 1.2em;
+        }
+
+        h4{
+          font-size: 1em;
+        }
+  }
+
+}

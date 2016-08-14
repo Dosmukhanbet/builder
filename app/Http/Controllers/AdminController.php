@@ -32,11 +32,11 @@ class AdminController extends Controller
 
     public function users()
     {
-        $users = User::where('type', 'master')
-            ->get();
+        $cityWithusers = City::withCount(['users' => function($query){
+                 $query->where('type', 'master');
+                }])->get();
 
-        return view('admin.users', compact('users'));
-
-        dd($users->groupBy('city_id'));
+        return view('admin.users', compact('cityWithusers'));
+        dd($cityWithUsers);
     }
 }

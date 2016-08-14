@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'dfdf@mail.rt', 'name' => 'SAsh'],
+    'from' => ['address' => 'administrator@sheber.club', 'name' => 'SAsh'],
 
     /*
     |--------------------------------------------------------------------------

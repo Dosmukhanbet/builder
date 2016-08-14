@@ -6348,6 +6348,12 @@ p.home_page_text {
   .images > a:nth-child(2), .images > a:nth-child(3) {
     display: none; } }
 
+@media (max-width: 800px) {
+  .how_to h3, .home__font h3, .formasters h3 {
+    font-size: 1.2em; }
+  .how_to h4, .home__font h4, .formasters h4 {
+    font-size: 1em; } }
+
 .alert--offer {
   margin: 15px;
   padding: 10px;
