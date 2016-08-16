@@ -14,12 +14,10 @@ use App\Http\Requests;
 
 class NotifyController extends Controller
 {
-
-
     /**
      * @var SMS
      */
-    private $sms;
+    protected $sms;
 
     function __construct(SMS $sms)
     {
@@ -48,7 +46,6 @@ class NotifyController extends Controller
         $user = User::find($request['id']);
         Redis::publish('invites-channel', json_encode('text'));
 
-//        return $text . " " . strlen($text);
 
 
 
