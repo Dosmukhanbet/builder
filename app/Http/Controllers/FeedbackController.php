@@ -13,7 +13,11 @@ class FeedbackController extends Controller
 
     public function leave(Request $request, $masterId)
     {
-//        dd($request->all());
+
+        $this->validate($request, [
+            'body' => 'required',
+            'evaluation' => 'required',
+        ]);
 
         $feedback = new Feedback;
         $feedback->body = $request['body'];
