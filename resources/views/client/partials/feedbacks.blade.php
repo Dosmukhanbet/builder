@@ -22,13 +22,11 @@
                             <div class="form-group">
                                 <label class="control-label">Написать отзыв</label>
                                 <textarea class="form-control" rows="2" name="body" required></textarea>
-                                <div class="col-md-10">
                                          @if($errors->has('body'))
                                               <span class="help-block">
                                                <strong>{{ $errors->first('body') }}</strong>
                                               </span>
                                          @endif
-                                </div>
                             </div>
                                 <p class="evaluation">Поставьте оценку мастеру: <br>
                                     <label class="control-label">Отлично (5)
@@ -43,13 +41,11 @@
                                     <label class="control-label">Плохо (3)
                                         <input type="radio" name="evaluation" value="3">
                                     </label>
-                                    <div class="col-md-10">
                                          @if($errors->has('evaluation'))
                                              <span class="help-block">
                                                  <strong>{{ $errors->first('evaluation') }}</strong>
                                               </span>
                                          @endif
-                                    </div>
                           </p>
 
 
