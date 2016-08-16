@@ -54,14 +54,14 @@ export default Vue.extend({
                 showCancelButton: false,
                 closeOnConfirm: false,
                 animation: "slide-from-top",
-                inputPlaceholder: "3342" },
+                inputPlaceholder: "Например: 4432" },
 
 
                  (inputValue) =>
                  {
                   var int = parseInt(inputValue)
                      // 1111 заменить на this.code
-                     if ( int === 1111 )
+                     if ( int === this.code )
                         {
                             swal("ОК", "Ваш номер подтвержден!", "success");
                             this.confirmed = true;
@@ -76,13 +76,12 @@ export default Vue.extend({
 
             send() {
                         let datas = {
-                                    code : this.code,
                                     number : this.phonenumber
                                 };
 
                         this.$http.post('api/sendsms', datas).then(function(response){
-                                                    this.code = parseInt(response);
-                                                    });
+                                                    this.code = parseInt(response.data);
+                 });
                     }
         }
 

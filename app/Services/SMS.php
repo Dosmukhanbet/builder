@@ -7,11 +7,17 @@ use App\Services;
 
 class SMS {
 
+            public function sendcode($recipient)
+            {
+                $code = mt_rand(999, 10000);
+                return  $this->send($recipient, $code);
+
+            }
+
 
             public function send($recipient, $body)
             {
                 $api = new MobizonApi(getenv('MOBIZON_KEY'));
-                $code = mt_rand(999, 10000);
 
                 $alphaname = 'sellwithus';
 

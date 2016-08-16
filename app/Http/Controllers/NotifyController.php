@@ -28,7 +28,7 @@ class NotifyController extends Controller
 
     public function sendSms(Request $request)
     {
-      return $this->sms->send($request['number'], $request['code']);
+      return $this->sms->sendCode($request['number']);
     }
 
     public function invitesendSms(Request $request)

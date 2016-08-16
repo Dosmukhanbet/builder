@@ -34445,10 +34445,10 @@ exports.default = _vue2.default.extend({
                 showCancelButton: false,
                 closeOnConfirm: false,
                 animation: "slide-from-top",
-                inputPlaceholder: "3342" }, function (inputValue) {
+                inputPlaceholder: "Например: 4432" }, function (inputValue) {
                 var int = parseInt(inputValue);
                 // 1111 заменить на this.code
-                if (int === 1111) {
+                if (int === _this.code) {
                     swal("ОК", "Ваш номер подтвержден!", "success");
                     _this.confirmed = true;
                 } else {
@@ -34459,12 +34459,11 @@ exports.default = _vue2.default.extend({
         },
         send: function send() {
             var datas = {
-                code: this.code,
                 number: this.phonenumber
             };
 
             this.$http.post('api/sendsms', datas).then(function (response) {
-                this.code = parseInt(response);
+                this.code = parseInt(response.data);
             });
         }
     }

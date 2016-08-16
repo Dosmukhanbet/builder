@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 
 use DB;
+use App\City;
 use App\User;
 use App\Category;
-use App\City;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -32,11 +32,11 @@ class AdminController extends Controller
 
     public function users()
     {
-        $cityWithusers = City::withCount(['users' => function($query){
+        $cityWithusers = City::withCount(['users' => function($query)
+        {
                  $query->where('type', 'master');
-                }])->get();
+        }])->get();
 
         return view('admin.users', compact('cityWithusers'));
-        dd($cityWithUsers);
     }
 }
