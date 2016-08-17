@@ -34462,8 +34462,9 @@ exports.default = _vue2.default.extend({
                 number: this.phonenumber
             };
 
-            this.$http.post('api/sendsms', datas).then(function (response) {
+            this.$http.post('/api/sendsms', datas).then(function (response) {
                 this.code = parseInt(response.data);
+                ale;
             });
         }
     }
