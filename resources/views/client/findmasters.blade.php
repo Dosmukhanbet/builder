@@ -34,7 +34,7 @@
                           </a>
                      </span>
 
-                    @include('client.modalfeedbacks')
+                    {{--@include('client.modalfeedbacks')--}}
                  @endif
 
             </p>
