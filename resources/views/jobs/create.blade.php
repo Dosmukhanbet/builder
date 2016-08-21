@@ -51,7 +51,11 @@
                          <div class="form-group">
                              <label class="col-md-8 control-label">Бюджет</label>
                                   <div class="col-md-8">
-                                       <input type="text" placeholder="в тенге" class="form-control" v-model="price | currency 'KZT '"   name="price" value="{{ old('price') }}">
+                                       <input type="text" placeholder="в тенге"
+                                       data-toggle="popover"
+                                       data-placement="top"
+                                       data-trigger="focus"
+                                       data-content="Введите сумму, на которую расчитываете выполнить работу"class="form-control" v-model="price | currency 'KZT '"   name="price" value="{{ old('price') }}">
                                   </div>
                           </div>
 
@@ -81,6 +85,10 @@ jQuery('#datetimepicker').datetimepicker({
   format:'Y-m-d H:i',
 //  inline:true,
   lang:'ru'
+});
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
 });
 
 </script>

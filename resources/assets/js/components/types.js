@@ -3,15 +3,18 @@ import VueResource from 'vue-resource';
 export default {
 template : `
     <div class="form-group">
-        <label class="col-md-12 control-label">Тип пользователя</label>
+        <label class="col-md-12 control-label">Вы мастер или заказчик?
+            <i class="fa fa-angle-down" aria-hidden="true"></i>
+        </label>
         <div class="col-md-12">
             <select name="type"
+                    autofocus
                     v-model="type"
                     class="form-control"
                     data-toggle="popover"
                     data-placement="top"
                     data-trigger="focus"
-                    data-content="Выберите клиент если вы ищете мастера, выберите мастер если вы мастер"
+                    data-content="Выберите тип пользователя"
                     required>
                 <option v-for="type in types" value="{{type.value}}">{{type.name}}</option >
             </select>
@@ -19,9 +22,20 @@ template : `
     </div>
 
     <div class="form-group" v-show="type==='master'">
-        <label class="col-md-12 control-label">Специальность</label>
+        <label class="col-md-12 control-label">Специальность <i class="fa fa-angle-down" aria-hidden="true"></i>
+        </label>
         <div class="col-md-12">
-            <select name="category_id" id="category_id" class="form-control">
+            <select
+            name="category_id"
+            id="category_id"
+            class="form-control"
+            data-toggle="popover"
+            data-placement="top"
+            data-trigger="focus"
+            data-content="Выберите Вашу специализацию"
+            >
+                <option selected disabled>Выберите Вашу специализацию
+                </option>
                 <option v-for="cat in categories" value="{{cat.id}}">{{cat.name}}</option>
             </select>
         </div>
@@ -34,7 +48,7 @@ template : `
     data(){
             return {
                 types: [
-                        { value : 'client', name: 'Клиент'},
+                        { value : 'client', name: 'Заказчик'},
                         { value: 'master', name: 'Мастер'}
                         ],
                 type: '',

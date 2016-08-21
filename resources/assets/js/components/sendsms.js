@@ -11,18 +11,16 @@ export default Vue.extend({
 
             <div class="col-md-12 checkbox">
             <label>
-            <input v-model="checked" type="checkbox"> Я соглашаюсь с <a data-lity href="/agreement.pdf">c пользовательским соглашением<a/>
+                 <input v-model="checked" type="checkbox"> Я соглашаюсь с <a data-lity href="/agreement.pdf">c пользовательским соглашением<a/>
             </div>
 
 
             <div class="col-md-12 Register--button"  v-show="!confirmed">
-                <button type="submit" @click="sendSMS" class="btn btn-warning __button">Запросить Код подтверждения</button>
+                 <button type="submit" @click="sendSMS" class="btn btn-warning __button">Запросить Код подтверждения</button>
             </div>
 
 
             <div class="col-md-12 Register--button" v-show="confirmed && checked">
-
-
                 <button type="submit" class="btn btn-primary __button">
                    Зарегистроваться
                 </button>
@@ -45,13 +43,15 @@ export default Vue.extend({
         sendSMS(e){
 
         e.preventDefault();
+
         this.send();
         swal({
 
                 title: "Подтверждение номера",
-                text: "Введите код высланный на указанный вами номер:",
+                text: "Введите код, высланный на указанный Вами номер:",
                 type: "input",
                 showCancelButton: false,
+                cancelButtonText: 'Отмена',
                 closeOnConfirm: false,
                 animation: "slide-from-top",
                 inputPlaceholder: "Например: 4432" },

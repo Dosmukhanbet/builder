@@ -13,7 +13,7 @@ export default {
                     data-placement="top"
                     data-trigger="focus"
                     data-content="Выберите из списка необходимого специалиста">
-                <option selected disabled> Нажмите и выберите из списка необходимого специалиста
+                <option selected disabled>Выберите из списка необходимого специалиста
                 </option>
                 <option class="opt" v-for="cat in categories" value="{{cat.id}}">{{cat.name}}</option>
             </select>

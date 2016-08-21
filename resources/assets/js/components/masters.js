@@ -7,13 +7,17 @@ export default {
         <div class="categories">
             <form action="/" v-on:submit.prevent="findMasters">
                 <div class="form-group">
-                    <label>Найти специалиста:</label>
+                    <label>
+                            Найти специалиста <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </label>
                     <select v-model="selectedCat" class="form-control">
                         <option v-for="cat in cats" :value="cat.id">{{cat.name}}</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>В городе:</label>
+                    <label>
+                            В городе <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </label>
                     <select v-model="selectedCity" class="form-control">
                         <option v-for="city in cities" :value="city.id">{{city.name}}</option>
                     </select>
@@ -26,7 +30,7 @@ export default {
     </div>
     <div class="col-md-4">
     <h4>Мастера <i class="fa fa-chevron-down" style="color:#03CEBD" aria-hidden="true"></i></h4>
-    <div v-show="!masters" class="alert alert-info" role="alert">Выберите категорию и город из списка</div>
+    <div v-show="!masters" class="alert alert-info" role="alert">Выберите категорию специалиста и город из списка, нажмите кнопку "Найти"</div>
     <div class='findedmasters' v-for="master in masters" v-show="masters">
               <p>
                   <a data-lity href="{{ makephotopath(master.photo_path) }}">

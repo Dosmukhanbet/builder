@@ -9,9 +9,11 @@
                                            <types></types>
 
                                             <div class="form-group">
-                                                 <label class="col-md-12 control-label">Город</label>
+                                                 <label class="col-md-12 control-label">Город <i class="fa fa-angle-down" aria-hidden="true"></i></label>
                                                   <div class="col-md-12">
                                                         <select name="city_id" id="city_id" class="form-control" required>
+                                                        <option selected disabled> Выберите Ваш город из списка
+                                                                        </option>
                                                             @foreach($cities as $id => $name)
                                                               <option value="{{ $id }}"> {{ $name }} </option>
                                                             @endforeach
@@ -38,7 +40,17 @@
                                                <label class="col-md-12 control-label">Email адрес</label>
 
                                                 <div class="col-md-12">
-                                                    <input type="text" class="form-control" name="email" value="{{ old('email') }}" required>
+                                                    <input
+                                                            type="text"
+                                                            placeholder="Например: aman@mail.ru"
+                                                            class="form-control"
+                                                            name="email"
+                                                            data-toggle="popover"
+                                                            data-placement="top"
+                                                            data-trigger="focus"
+                                                            data-content="Адрес электронной почты, который будет использоваться как логин для входа в личный кабинет. На этот адрес будут отсылаться уведомления"
+                                                            value="{{ old('email') }}"
+                                                            required>
 
                                                     @if ($errors->has('email'))
                                                         <span class="help-block">
@@ -49,7 +61,7 @@
                                             </div>
 
                                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                                <label class="col-md-12 control-label">Пароль</label>
+                                                <label class="col-md-12 control-label">Пароль (не менее 6-и символов)</label>
 
                                                 <div class="col-md-12">
                                                     <input type="password" class="form-control" name="password" required>
@@ -63,7 +75,7 @@
                                             </div>
 
                                             <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                                                <label class="col-md-12 control-label">Подтверждение пароля</label>
+                                                <label class="col-md-12 control-label">Повторите пароль</label>
 
                                                 <div class="col-md-12">
                                                     <input type="password" class="form-control" name="password_confirmation" required>

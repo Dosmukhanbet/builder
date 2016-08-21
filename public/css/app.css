@@ -6027,6 +6027,9 @@ hr {
 .evaluation > label {
   margin-right: 5px; }
 
+.create__register a {
+  color: #104C65; }
+
 .job__list__header {
   border-bottom: 1px solid #ddd;
   padding: 10px;
@@ -6220,8 +6223,8 @@ p.home_page_text {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  border: 1px solid #ddd;
-  background: #fff; }
+  border: 1px solid #BCE8F1;
+  background: #D9EDF7; }
 
 .categories .user_length {
   color: #ccc;

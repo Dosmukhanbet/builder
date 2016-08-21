@@ -9,7 +9,6 @@
   margin-top: 1em;
   margin-left: 15px;
   font-weight: bold;
-//  border: 1px solid #ddd;
 }
 
 .form-group {
@@ -39,6 +38,7 @@
 .register__link{
   margin-left: 15px;
 }
+
 .control-label{
   text-align: left;
   margin: 0;
@@ -71,3 +71,12 @@ hr{
 .evaluation > label {
   margin-right: 5px;
 }
+
+.create__register{
+//  border: 1px solid #ccc; background: #fff;
+
+  a{
+    color: #104C65;
+  }
+}
+

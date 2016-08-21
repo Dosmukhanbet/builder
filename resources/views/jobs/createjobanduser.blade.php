@@ -17,6 +17,7 @@
 
                                         <div class="col-md-12">
                                             <input
+                                                    autofocus
                                                     type="name"
                                                     class="form-control"
                                                     name="Кратко_о_работе"
@@ -72,7 +73,7 @@
                                                    data-placement="top"
                                                    data-trigger="focus"
                                                    data-content="Выберите удобное для Вас дату и время выполнения работы"
-                                                   placeholder="Нажмите и выберите время выполнения работы"
+                                                   placeholder="Выберите время выполнения работы"
                                                    >
                                                                     @if ($errors->has('dateOfMake'))
                                                                         <span class="help-block">
@@ -93,20 +94,20 @@
                                                    data-toggle="popover"
                                                    data-placement="top"
                                                    data-trigger="focus"
-                                                   data-content="Введите сумму на которую расчитываете выполнить работу"
+                                                   data-content="Введите сумму, на которую расчитываете выполнить работу"
                                                    value="{{ old('price')
                                                    }}">
                                               </div>
                                       </div>
                           </div>
 
-                          <div class="col-md-5">
+                          <div class="col-md-5 create__register">
                           <h4  class="form_header"><i class="fa fa-info-circle" aria-hidden="true"></i>Ваши данные:</h4>
                           <div class="form-group">
                                <label class="col-md-12 control-label">Город <i class="fa fa-angle-down" aria-hidden="true"></i></label>
                                <div class="col-md-12">
                                    <select name="city_id" id="city_id" class="form-control" required>
-                                         <option selected disabled> Нажмите и выберите из списка Ваш город
+                                         <option value="" selected disabled> Выберите из списка Ваш город
                                                                 </option>
                                           @foreach($cities as $id => $name)
                                               <option value="{{ $id }}"> {{ $name }} </option>
@@ -134,7 +135,16 @@
                                                <label class="col-md-12 control-label">Email адрес</label>
 
                                                 <div class="col-md-12">
-                                                    <input type="text" class="form-control" name="email" value="{{ old('email') }}" required>
+                                                    <input
+                                                    type="text"
+                                                    placeholder="Например: aman@mail.ru"
+                                                    class="form-control"
+                                                    name="email"
+                                                    data-toggle="popover"
+                                                    data-placement="top"
+                                                    data-trigger="focus"
+                                                    data-content="Адрес электронной почты, который будет использоваться как логин для входа в личный кабинет. На этот адрес будут отсылаться уведомления"
+                                                    value="{{ old('email') }}" required>
 
                                                     @if ($errors->has('email'))
                                                         <span class="help-block">
@@ -145,7 +155,7 @@
                                             </div>
 
                                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                                <label class="col-md-12 control-label">Пароль</label>
+                                                <label class="col-md-12 control-label">Пароль (не менее 6-и символов)</label>
 
                                                 <div class="col-md-12">
                                                     <input type="password" class="form-control" name="password" required>
@@ -159,7 +169,7 @@
                                             </div>
 
                                             <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                                                <label class="col-md-12 control-label">Подтверждение пароля</label>
+                                                <label class="col-md-12 control-label">Повторите пароль</label>
 
                                                 <div class="col-md-12">
                                                     <input type="password" class="form-control" name="password_confirmation" required>
