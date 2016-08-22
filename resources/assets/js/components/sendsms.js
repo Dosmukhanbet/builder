@@ -16,12 +16,12 @@ export default Vue.extend({
 
 
             <div class="col-md-12 Register--button"  v-show="!confirmed">
-                 <button type="submit" @click="sendSMS" class="btn btn-warning __button">Запросить Код подтверждения</button>
+                 <button type="submit" @click="sendSMS" class="form-control btn btn-warning __button">Запросить Код подтверждения</button>
             </div>
 
 
             <div class="col-md-12 Register--button" v-show="confirmed && checked">
-                <button type="submit" class="btn btn-primary __button">
+                <button type="submit" class="form-control btn btn-primary __button">
                    Зарегистроваться
                 </button>
             </div>
@@ -47,8 +47,8 @@ export default Vue.extend({
         this.send();
         swal({
 
-                title: "Подтверждение номера",
-                text: "Введите код, высланный на указанный Вами номер:",
+                title: "На Ваш номер отправлен смс с кодом(1-5мин)",
+                text: "Введите полученный код",
                 type: "input",
                 showCancelButton: false,
                 cancelButtonText: 'Отмена',

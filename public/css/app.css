@@ -6027,8 +6027,38 @@ hr {
 .evaluation > label {
   margin-right: 5px; }
 
-.create__register a {
-  color: #104C65; }
+.create__register {
+  background: #fff; }
+  .create__register a {
+    color: #104C65; }
+
+.Registations__info__block {
+  margin-top: 25px;
+  padding: 20px;
+  background: #fff; }
+  .Registations__info__block .Registations__info {
+    margin-bottom: 50px; }
+    .Registations__info__block .Registations__info p {
+      font-size: 1em;
+      color: #595959; }
+    .Registations__info__block .Registations__info .Registations__info__header {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      margin-bottom: 10px; }
+      .Registations__info__block .Registations__info .Registations__info__header i {
+        font-size: 2em;
+        padding: 5px; }
+      .Registations__info__block .Registations__info .Registations__info__header .briefcase {
+        color: saddlebrown; }
+      .Registations__info__block .Registations__info .Registations__info__header .money {
+        color: #03CEBD; }
+      .Registations__info__block .Registations__info .Registations__info__header .clock {
+        color: #FF5C2D; }
+      .Registations__info__block .Registations__info .Registations__info__header h4 {
+        color: #000;
+        margin: 3px 0 0 10px;
+        padding: 5px; }
 
 .job__list__header {
   border-bottom: 1px solid #ddd;

@@ -74,9 +74,57 @@ hr{
 
 .create__register{
 //  border: 1px solid #ccc; background: #fff;
+  background: #fff;
 
   a{
     color: #104C65;
   }
 }
+
+
+.Registations__info__block {
+  margin-top: 25px;
+  padding: 20px;
+  background: #fff;
+//  border:1px solid #000;
+
+  .Registations__info {
+
+
+    margin-bottom: 50px;
+    p{
+      font-size: 1em;
+      color:#595959;
+    }
+        .Registations__info__header {
+          display: flex;
+          margin-bottom: 10px;
+                i {
+                  font-size: 2em;
+                  padding: 5px;
+                }
+
+                .briefcase {
+                  color: saddlebrown;
+                }
+
+                .money {
+                  color: #03CEBD;
+                }
+                .clock{
+                  color: #FF5C2D;
+                }
+                h4 {
+                  color: #000;
+                  margin: 3px 0 0 10px;
+                  padding: 5px;
+                }
+
+        }
+  }
+
+
+
+}
+
 
