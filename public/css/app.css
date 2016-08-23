@@ -5968,7 +5968,8 @@ a.accept__offer__link:hover {
 .form_header {
   margin-top: 1em;
   margin-left: 15px;
-  font-weight: bold; }
+  font-weight: bold;
+  color: #000; }
 
 .form-group {
   display: -webkit-flex;
@@ -6040,7 +6041,10 @@ hr {
     margin-bottom: 50px; }
     .Registations__info__block .Registations__info p {
       font-size: 1em;
-      color: #595959; }
+      color: #565656; }
+    .Registations__info__block .Registations__info .Registations__info__link {
+      color: #00827E;
+      font-weight: 700; }
     .Registations__info__block .Registations__info .Registations__info__header {
       display: -webkit-flex;
       display: -ms-flexbox;

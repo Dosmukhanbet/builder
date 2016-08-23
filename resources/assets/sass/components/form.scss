@@ -9,6 +9,7 @@
   margin-top: 1em;
   margin-left: 15px;
   font-weight: bold;
+  color:#000;
 }
 
 .form-group {
@@ -91,11 +92,17 @@ hr{
   .Registations__info {
 
 
+
     margin-bottom: 50px;
     p{
       font-size: 1em;
-      color:#595959;
+      color:#565656;
     }
+
+        .Registations__info__link{
+          color:#00827E;
+          font-weight: 700;
+        }
         .Registations__info__header {
           display: flex;
           margin-bottom: 10px;
