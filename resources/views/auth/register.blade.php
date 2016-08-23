@@ -43,9 +43,9 @@
             </div>
 
         </div>
-        <div class="col-md-5">
-                   <h4 class="form_header">Регистрация мастера</h4>
-                   <p></p>
+        <div class="col-md-5 Registations__form__block">
+                   <h4>Регистрация мастера</h4>
+                   <p><i class="fa fa-info-circle" aria-hidden="true"></i> Регистрация позволить вам получать заявки и управлять ими.<br> Это займет не более одной минуты</p>
                    <form @keyup.enter="onEnter" role="form" method="POST" action="{{ url('/register') }}">
                         {!! csrf_field() !!}
 

@@ -47,8 +47,8 @@ export default Vue.extend({
         this.send();
         swal({
 
-                title: "На Ваш номер отправлен смс с кодом(1-5мин)",
-                text: "Введите полученный код",
+                title: "Мы отправили вам SMS с кодом",
+                text: "Введите этот код в поле ниже",
                 type: "input",
                 showCancelButton: false,
                 cancelButtonText: 'Отмена',

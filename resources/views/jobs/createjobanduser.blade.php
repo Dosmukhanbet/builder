@@ -7,8 +7,8 @@
                     <form role="form" method="POST" action="{{ url('/registerandcreatejob') }}">
                         {!! csrf_field() !!}
 
-                        <div class="col-md-6">
-                                            <h4 class="form_header">
+                        <div class="col-md-6 Job__create__block">
+                                            <h4>
                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Создание заявки
                                            </h4>
 

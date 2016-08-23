@@ -5965,12 +5965,6 @@ a.accept__offer__link:hover {
   background: #fff;
   border: 1px solid #ccc; }
 
-.form_header {
-  margin-top: 1em;
-  margin-left: 15px;
-  font-weight: bold;
-  color: #000; }
-
 .form-group {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6036,6 +6030,7 @@ hr {
 .Registations__info__block {
   margin-top: 25px;
   padding: 20px;
+  padding-bottom: 97px;
   background: #fff; }
   .Registations__info__block .Registations__info {
     margin-bottom: 50px; }
@@ -6063,6 +6058,23 @@ hr {
         color: #000;
         margin: 3px 0 0 10px;
         padding: 5px; }
+
+.Registations__form__block {
+  background: #f5f5f5;
+  margin-top: 25px; }
+  .Registations__form__block h4 {
+    margin-top: 1em;
+    margin-left: 16px;
+    color: #000; }
+  .Registations__form__block p {
+    margin-left: 16px;
+    color: #c4c4c4; }
+
+.Job__create__block {
+  background: #f5f5f5;
+  padding-bottom: 125px; }
+  .Job__create__block h4 {
+    margin-left: 15px; }
 
 .job__list__header {
   border-bottom: 1px solid #ddd;
@@ -6391,6 +6403,15 @@ p.home_page_text {
   .how_to h4, .home__font h4, .formasters h4 {
     font-size: 1em; } }
 
+@media (max-width: 990px) {
+  .create__register, .Job__create__block {
+    padding-top: 12px; }
+  .Registations__info__block {
+    padding-bottom: 15px; }
+  .Registations__form__block {
+    padding-top: 10px;
+    margin-top: 0px; } }
+
 .alert--offer {
   margin: 15px;
   padding: 10px;
@@ -6519,7 +6540,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Open Sans Condensed', sans-serif;
-  background: #f5f5f5; }
+  background: #f0f2ea; }
 
 #app-layout {
   position: relative;

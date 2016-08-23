@@ -46,3 +46,19 @@
   }
 
 }
+
+@media (max-width: 990px) {
+  .create__register, .Job__create__block {
+    padding-top: 12px;
+  }
+
+  .Registations__info__block {
+    padding-bottom: 15px;
+  }
+
+  .Registations__form__block {
+    padding-top: 10px;
+    margin-top: 0px;
+  }
+
+}

@@ -29,7 +29,7 @@ export default {
         </div>
     </div>
     <div class="col-md-4">
-    <h4>Мастера <i class="fa fa-chevron-down" style="color:#03CEBD" aria-hidden="true"></i></h4>
+    <h4>Мастера</h4>
     <div v-show="!masters" class="alert alert-info" role="alert">Выберите категорию специалиста и город из списка, нажмите кнопку "Найти"</div>
     <div class='findedmasters' v-for="master in masters" v-show="masters">
               <p>
