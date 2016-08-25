@@ -6036,7 +6036,8 @@ hr {
     margin-bottom: 50px; }
     .Registations__info__block .Registations__info p {
       font-size: 1em;
-      color: #565656; }
+      color: #565656;
+      text-align: justify; }
     .Registations__info__block .Registations__info .Registations__info__link {
       color: #00827E;
       font-weight: 700; }
