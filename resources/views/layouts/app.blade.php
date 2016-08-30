@@ -21,6 +21,7 @@
 </head>
 
 <body id="app-layout">
+@include('services.googletagmanager')
         {{--Navigation--}}
             @include('partials.navigation')
             @yield('homecontent')

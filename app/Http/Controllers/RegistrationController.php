@@ -16,21 +16,21 @@ class RegistrationController extends Controller
     {
         $this->validate($request, [
             'Кратко_о_работе' => 'required',
-            'Описание' => 'required',
-            'dateOfMake' => 'required|date',
-            'name' => 'required|max:255',
-            'email' => 'required|email|unique:users',
-            'phone_number' => 'required|max:12|unique:users',
-            'password' => 'required|min:6|confirmed'
+            'Описание'        => 'required',
+            'dateOfMake'      => 'required|date',
+            'name'            => 'required|max:255',
+            'email'           => 'required|email|unique:users',
+            'phone_number'    => 'required|max:12|unique:users',
+            'password'        => 'required|min:6|confirmed'
         ]);
 
         $user = User::create([
-            'email' =>$request['email'],
-            'name' => $request['name'],
-            'type' => 'client',
-            'city_id' => $request['city_id'],
+            'email'        =>$request['email'],
+            'name'         => $request['name'],
+            'type'         => 'client',
+            'city_id'      => $request['city_id'],
             'phone_number' => $request['phone_number'],
-            'password' => bcrypt($request['password']),
+            'password'     => bcrypt($request['password']),
         ]);
 
         $job = new Job;

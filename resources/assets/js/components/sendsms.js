@@ -16,13 +16,13 @@ export default Vue.extend({
 
 
             <div class="col-md-12 Register--button"  v-show="!confirmed">
-                 <button type="submit" @click="sendSMS" class="form-control btn btn-warning __button">Запросить Код подтверждения</button>
+                 <button type="submit" @click="sendSMS" class="form-control btn btn-warning __button">Зарегистроваться</button>
             </div>
 
 
             <div class="col-md-12 Register--button" v-show="confirmed && checked">
                 <button type="submit" class="form-control btn btn-primary __button">
-                   Зарегистроваться
+                   Закончить регистрацию
                 </button>
             </div>
 `,
