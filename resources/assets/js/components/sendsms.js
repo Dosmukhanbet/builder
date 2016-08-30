@@ -6,7 +6,14 @@ export default Vue.extend({
     template: `
             <label class="col-md-12 control-label">Мобильный номер</label>
             <div class="col-md-12">
-                 <input type="text" class="form-control" placeholder="Например: 77075553322" v-model="phonenumber" name="phone_number" required>
+                 <input 
+                 type="text" 
+                 id="form-control.tel"   
+                 class="form-control" 
+                 placeholder="Например: 77075553322" 
+                 v-model="phonenumber" 
+                 name="phone_number" 
+                 required>
             </div>
 
             <div class="col-md-12 checkbox">
@@ -15,7 +22,7 @@ export default Vue.extend({
             </div>
 
 
-            <div class="col-md-12 Register--button form-control.tel"  v-show="!confirmed">
+            <div class="col-md-12 Register--button"  v-show="!confirmed">
                  <button type="submit" @click="sendSMS" class="form-control btn btn-warning __button">Зарегистроваться</button>
             </div>
 
