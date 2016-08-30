@@ -34441,10 +34441,10 @@ exports.default = _vue2.default.extend({
             swal({
 
                 title: "Мы отправили вам SMS с кодом",
-                text: "Введите этот код в поле ниже",
+                text: "Введите этот код в поле ниже, нажмите 'OK' ",
                 type: "input",
-                showCancelButton: false,
-                cancelButtonText: 'Отмена',
+                showCancelButton: true,
+                cancelButtonText: 'Не пришло СМС? Повторить',
                 closeOnConfirm: false,
                 animation: "slide-from-top",
                 inputPlaceholder: "Например: 4432" }, function (inputValue) {
