@@ -77,7 +77,7 @@ class AuthController extends Controller
             'name' => $data['name'],
             'type' => $data['type'],
             'city_id' => $data['city_id'],
-            'category_id' => $data['type'] == 'client' ? 0 : $data['category_id'],
+            'category_id' => $data['type'] == 'client' ?  0 : $data['category_id'],
             'phone_number' => $data['phone_number'],
             'password' => bcrypt($data['password']),
         ]);
@@ -89,7 +89,8 @@ class AuthController extends Controller
         if($user->type == 'master')
         {
             $this->redirectTo = 'master/active/jobs';
-        }else
+        }
+        else
         {
             $this->redirectTo = 'job/create';
         }

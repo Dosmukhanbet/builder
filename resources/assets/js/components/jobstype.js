@@ -22,12 +22,12 @@ export default {
     `,
     props :{},
 
-    ready() { this.fetchCategories()},
+    ready() { this.fetchCategories();},
 
     data(){
         return {
         categories: ''
-        }
+        };
         },
 
     methods: {

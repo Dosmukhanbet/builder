@@ -24,7 +24,7 @@ export default {
             },
 
     data(){
-        return {  done: false }
+        return {  done: false };
         },
 
             components:{ leavefeedback },
@@ -32,7 +32,7 @@ export default {
     methods: {
 
         makeJobDone(){
-            if(this.jobstatus == 0){
+            if(this.jobstatus === 0){
             this.$http.post('/api/makejobdone/' + this.jobid);
 
             }

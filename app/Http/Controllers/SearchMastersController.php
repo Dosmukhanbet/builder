@@ -11,9 +11,10 @@ use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
+
 class SearchMastersController extends Controller
 {
-    public function findMasters()
+    public function findMasters(User)
     {
 
         if (!Cache::has('masters')) {
@@ -47,6 +48,8 @@ class SearchMastersController extends Controller
                 ->with('cats', Cache::get('cats'))
                 ->with('allclients', $allclients);            ;
     }
+
+     
 
     public function mastersbycategoryandcity($id, $cityId)
     {

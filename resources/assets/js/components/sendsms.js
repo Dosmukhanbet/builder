@@ -41,9 +41,13 @@ export default Vue.extend({
                    confirmed : false,
                         phonenumber : '',
                         checked: true
-                        }
+                        };
 
                 },
+
+        computed : {
+
+        },
 
         methods: {
 
@@ -66,7 +70,7 @@ export default Vue.extend({
 
                  (inputValue) =>
                  {
-                  var int = parseInt(inputValue)
+                  var int = parseInt(inputValue);
                      // 1111 заменить на this.code
                      if ( int === this.code )
                         {
@@ -75,7 +79,7 @@ export default Vue.extend({
                          }
                      else {
 
-                            swal.showInputError("Неправильный номер");     return false
+                            swal.showInputError("Неправильный номер");     return false;
                            }
                     });
 
@@ -87,8 +91,8 @@ export default Vue.extend({
                                 };
 
                         this.$http.post('/api/sendsms', datas).then(function(response){
-                                                    this.code = parseInt(response.data);
-                 ale
+                            this.code = parseInt(response.data);
+                 
                  });
                     }
         }

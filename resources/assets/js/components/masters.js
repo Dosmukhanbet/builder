@@ -86,7 +86,7 @@ export default {
            return {
               selectedCat : '',
               selectedCity : ''
-              }
+              };
               },
 
    ready(){
@@ -170,10 +170,7 @@ export default {
                            three += 1;
                            }
                    });
-
-                    return (five ? 'Оценка 5 - ' + five + ' клиент(а) ' : '')
-                            + ( four ? 'Оценка 4 - ' + four + ' клиент(а) ' : '' )
-                            + (three ? 'Оценка 3 - ' + three  + ' клиент(а) ' : '');
+ return (five ? 'Оценка 5 - ' + five + ' клиент(а) ' : '') + ( four ? 'Оценка 4 - ' + four + ' клиент(а) ' : '' ) + (three ? 'Оценка 3 - ' + three  + ' клиент(а) ' : '');
                    }
 
 
@@ -187,4 +184,4 @@ export default {
 
 
 
-}
+};

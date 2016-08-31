@@ -33890,7 +33890,7 @@ exports.default = {
 
     methods: {
         makeJobDone: function makeJobDone() {
-            if (this.jobstatus == 0) {
+            if (this.jobstatus === 0) {
                 this.$http.post('/api/makejobdone/' + this.jobid);
             }
             this.jobstatus = 1;
@@ -34132,7 +34132,6 @@ exports.default = {
                     three += 1;
                 }
             });
-
             return (five ? 'Оценка 5 - ' + five + ' клиент(а) ' : '') + (four ? 'Оценка 4 - ' + four + ' клиент(а) ' : '') + (three ? 'Оценка 3 - ' + three + ' клиент(а) ' : '');
         }
     }
@@ -34431,6 +34430,8 @@ exports.default = _vue2.default.extend({
     },
 
 
+    computed: {},
+
     methods: {
         sendSMS: function sendSMS(e) {
             var _this = this;
@@ -34466,7 +34467,6 @@ exports.default = _vue2.default.extend({
 
             this.$http.post('/api/sendsms', datas).then(function (response) {
                 this.code = parseInt(response.data);
-                ale;
             });
         }
     }

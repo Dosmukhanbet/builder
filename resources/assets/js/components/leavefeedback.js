@@ -13,7 +13,7 @@ export default {
         ready() { },
 
         data(){
-            return { }
+            return { };
             },
 
 

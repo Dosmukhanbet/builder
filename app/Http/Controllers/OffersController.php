@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use DB;
-use App\Events\OfferWasCreated;
-use App\Services\AppMailer;
 use Auth;
 use App\Job;
 use App\Offer;
 use App\Http\Requests;
+use App\Services\AppMailer;
 use Illuminate\Http\Request;
+use App\Events\OfferWasCreated;
 use Illuminate\Support\Facades\Redis;
 use Mockery\CountValidator\Exception;
 
@@ -22,19 +22,19 @@ class OffersController extends Controller
     private $mailer;
 
     public function __construct(AppMailer $mailer)
-     {
-         $this->mailer = $mailer;
-     }
+    {
+        $this->mailer = $mailer;
+    }
     public function store($jobId, Request $request)
     {
-            $offer = new Offer;
-            $offer->price = $request['price'];
-            $offer->comment = $request['comment'];
-            $offer->job_id = $jobId;
-            $offer->user_id = Auth::user()->id;
-            $offer->save();
+        $offer = new Offer;
+        $offer->price = $request['price'];
+        $offer->comment = $request['comment'];
+        $offer->job_id = $jobId;
+        $offer->user_id = Auth::user()->id;
+        $offer->save();
 
-            flash()->success(" ", "Ваше предложение успешно отправлено заказчику");
+        flash()->success(" ", "Ваше предложение успешно отправлено заказчику");
 
 //            Redis::publish($offer, $jobId);
 
@@ -43,27 +43,25 @@ class OffersController extends Controller
 
             $data = ['jobid' => $jobId, 'offer' => $offer, 'user'=> Auth::user()];
 
-            Redis::publish('offers-channel', json_encode($data));
+        Redis::publish('offers-channel', json_encode($data));
 
-            return redirect(url('master/active/jobs'));
-
+        return redirect(url('master/active/jobs'));
     }
 
 
     public function showOffers($jobId)
     {
-
         $offers = Offer::with('user')
                         ->with('job')
                         ->where('job_id', $jobId)
                         ->get();
         $job = Job::find($jobId);
 
-        if($job->user_id != Auth::user()->id)
-        {
+        if ($job->user_id != Auth::user()->id) {
             flash()->error('Ошибка', 'Нельзя просматривать и редактировать чужие записи!');
             return redirect('job/all');
-        }
+        }        
+
 
 
         return view('offers.show', compact('offers', 'job'));
@@ -83,12 +81,4 @@ class OffersController extends Controller
 
         return redirect(url('job/all'));
     }
-
-    public function recommended($jobId)
-    {
-
-    }
-
-
-
 }
