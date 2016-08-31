@@ -14,7 +14,7 @@ use App\Http\Requests;
 
 class SearchMastersController extends Controller
 {
-    public function findMasters(User)
+    public function findMasters(User $user)
     {
 
         if (!Cache::has('masters')) {
