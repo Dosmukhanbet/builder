@@ -34409,8 +34409,6 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _templateObject = _taggedTemplateLiteral(['\n'], ['\n']);
-
 var _vue = require('vue');
 
 var _vue2 = _interopRequireDefault(_vue);
@@ -34425,12 +34423,10 @@ var _vueResource2 = _interopRequireDefault(_vueResource);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
 _vue2.default.use(_vueResource2.default);
 
 exports.default = _vue2.default.extend({
-    template: '\n            <label class="col-md-12 control-label">Мобильный номер</label>\n            <div class="col-md-12">\n                 <input \n                 type="text" \n                 id="form-control.tel"   \n                 class="form-control" \n                 placeholder="Например: 77075553322" \n                 v-model="phonenumber" \n                 name="phone_number" \n                 required>\n            </div>\n\n            <div class="col-md-12 checkbox">\n            <label>\n                 <input v-model="checked" type="checkbox"> Я соглашаюсь с <a data-lity href="/agreement.pdf">c пользовательским соглашением<a/>\n            </div>\n\n\n            <div class="col-md-12 Register--button"  v-show="!confirmed">\n                 <button type="submit" @click="sendSMS" class="form-control btn btn-warning __button">Зарегистроваться</button>\n            </div>\n\n\n            <div class="col-md-12 Register--button" v-show="confirmed && checked">\n                <button type="submit" class="form-control btn btn-primary __button">\n                   Закончить регистрацию\n                </button>\n            </div>'(_templateObject),
+    template: '\n            <label class="col-md-12 control-label">Мобильный номер</label>\n            <div class="col-md-12">\n                 <input \n                 type="text" \n                 id="form-control.tel"   \n                 class="form-control" \n                 placeholder="Например: 77075553322" \n                 v-model="phonenumber" \n                 name="phone_number" \n                 required>\n            </div>\n\n            <div class="col-md-12 checkbox">\n            <label>\n                 <input v-model="checked" type="checkbox"> Я соглашаюсь с <a data-lity href="/agreement.pdf">c пользовательским соглашением<a/>\n            </div>\n\n\n            <div class="col-md-12 Register--button"  v-show="!confirmed">\n                 <button type="submit" @click="sendSMS" class="form-control btn btn-warning __button">Зарегистроваться</button>\n            </div>\n\n\n            <div class="col-md-12 Register--button" v-show="confirmed && checked">\n                <button type="submit" class="form-control btn btn-primary __button">\n                   Закончить регистрацию\n                </button>\n            </div>    \n',
 
     props: ['code'],
 
@@ -34442,8 +34438,6 @@ exports.default = _vue2.default.extend({
         };
     },
 
-
-    computed: {},
 
     methods: {
         sendSMS: function sendSMS(e) {
@@ -34461,7 +34455,8 @@ exports.default = _vue2.default.extend({
                 cancelButtonText: 'Не пришло СМС? Повторить',
                 closeOnConfirm: false,
                 animation: "slide-from-top",
-                inputPlaceholder: "Например: 4432" }, function (inputValue) {
+                inputPlaceholder: "Например: 4432"
+            }, function (inputValue) {
                 var int = parseInt(inputValue);
                 // 1111 заменить на this.code
                 if (int === _this.code) {
@@ -34469,7 +34464,8 @@ exports.default = _vue2.default.extend({
                     _this.confirmed = true;
                 } else {
 
-                    swal.showInputError("Неправильный номер");return false;
+                    swal.showInputError("Неправильный номер");
+                    return false;
                 }
             });
         },
