@@ -11,4 +11,5 @@
     </div>
     @endforeach
     {{$feedbacks->links()}}
+    
 </div>
