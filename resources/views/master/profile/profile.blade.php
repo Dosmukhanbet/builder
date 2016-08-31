@@ -1,4 +1,4 @@
-    <div class="col-md-5 Profile__block">
+    <div class="col-md-12 Profile__block">
                 <ul class="Profile__list">
                     <li>Имя: {{$user->name}} </li>
                     <li>Электронный адрес: {{$user->email}} </li>

@@ -11,7 +11,7 @@ export default  {
     props : ['userid'],
 
     data(){
-        return {  alert: false }
+        return {  alert: false };
     },
 
     ready()

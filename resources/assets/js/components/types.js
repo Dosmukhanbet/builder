@@ -43,7 +43,7 @@ template : `
     `,
     props :[],
 
-    ready() { this.fetchCategories()},
+    ready() { this.fetchCategories();},
 
     data(){
             return {
@@ -53,7 +53,7 @@ template : `
                         ],
                 type: '',
                 categories: ''
-    }
+    };
     },
     methods: {
         fetchCategories(){

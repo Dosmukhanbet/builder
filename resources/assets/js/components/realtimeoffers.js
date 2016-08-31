@@ -25,7 +25,7 @@ export default {
         props :['jobid'],
 
         data(){
-        return {  offers : [], alert: false }
+        return {  offers : [], alert: false };
         },
 
         ready() {

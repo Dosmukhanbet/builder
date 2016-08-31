@@ -1,4 +1,4 @@
-<div class="col-md-6">
+<div class="col-md-12">
     @foreach($feedbacks as $feedback)
     <div class="feedback">
     <blockquote>

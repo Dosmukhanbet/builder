@@ -1,4 +1,4 @@
- <div class="col-md-6">
+ <div class="col-md-10">
      {{ Form::model(Auth::user(), [ 'url' => 'editprofile/'.Auth::user()->id, 'method' => 'PATCH']) }}
         <div class="form-group">
             {{ Form::label('Имя:', null, ['class' => 'control-label']) }}

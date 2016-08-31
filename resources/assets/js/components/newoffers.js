@@ -14,7 +14,7 @@ export default  {
     props : ['jobid', 'text'],
 
     data(){
-        return {  offers : [], alert: false }
+        return {  offers : [], alert: false };
     },
 
     ready()
