@@ -1,7 +1,7 @@
 import VueResource from 'vue-resource';
 
 export default {
-    template : `
+    template: `
     <div class="form-group">
         <label class="col-md-12 control-label">Категория <i class="fa fa-angle-down" aria-hidden="true"></i>
         </label>
@@ -20,23 +20,25 @@ export default {
         </div>
     </div>
     `,
-    props :{},
+    props: {},
 
-    ready() { this.fetchCategories();},
+    ready() {
+        this.fetchCategories();
+    },
 
-    data(){
+    data() {
         return {
-        categories: ''
+            categories: ''
         };
-        },
+    },
 
     methods: {
-        fetchCategories(){
-        return this.$http.get('/api/categories', (response)=> {
-        this.categories = response;
-        });
+        fetchCategories() {
+            return this.$http.get('/api/categories', (response) => {
+                this.categories = response;
+            });
         }
-        }
+    }
 
 
-    };
+};

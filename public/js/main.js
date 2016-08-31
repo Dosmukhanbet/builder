@@ -33882,11 +33882,15 @@ exports.default = {
 
     ready: function ready() {},
     data: function data() {
-        return { done: false };
+        return {
+            done: false
+        };
     },
 
 
-    components: { leavefeedback: _leavefeedback2.default },
+    components: {
+        leavefeedback: _leavefeedback2.default
+    },
 
     methods: {
         makeJobDone: function makeJobDone() {
@@ -33949,10 +33953,14 @@ exports.default = {
             }
         },
         findCat: function findCat(id) {
-            return _underscore2.default.findWhere(this.cats, { id: id }).name;
+            return _underscore2.default.findWhere(this.cats, {
+                id: id
+            }).name;
         },
         findCity: function findCity(id) {
-            return _underscore2.default.findWhere(this.cities, { id: id }).name;
+            return _underscore2.default.findWhere(this.cities, {
+                id: id
+            }).name;
         },
         masterSelected: function masterSelected(name) {
             alert(name);
@@ -34401,6 +34409,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _templateObject = _taggedTemplateLiteral(['\n'], ['\n']);
+
 var _vue = require('vue');
 
 var _vue2 = _interopRequireDefault(_vue);
@@ -34415,9 +34425,12 @@ var _vueResource2 = _interopRequireDefault(_vueResource);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 _vue2.default.use(_vueResource2.default);
+
 exports.default = _vue2.default.extend({
-    template: '\n            <label class="col-md-12 control-label">Мобильный номер</label>\n            <div class="col-md-12">\n                 <input \n                 type="text" \n                 id="form-control.tel"   \n                 class="form-control" \n                 placeholder="Например: 77075553322" \n                 v-model="phonenumber" \n                 name="phone_number" \n                 required>\n            </div>\n\n            <div class="col-md-12 checkbox">\n            <label>\n                 <input v-model="checked" type="checkbox"> Я соглашаюсь с <a data-lity href="/agreement.pdf">c пользовательским соглашением<a/>\n            </div>\n\n\n            <div class="col-md-12 Register--button"  v-show="!confirmed">\n                 <button type="submit" @click="sendSMS" class="form-control btn btn-warning __button">Зарегистроваться</button>\n            </div>\n\n\n            <div class="col-md-12 Register--button" v-show="confirmed && checked">\n                <button type="submit" class="form-control btn btn-primary __button">\n                   Закончить регистрацию\n                </button>\n            </div>\n',
+    template: '\n            <label class="col-md-12 control-label">Мобильный номер</label>\n            <div class="col-md-12">\n                 <input \n                 type="text" \n                 id="form-control.tel"   \n                 class="form-control" \n                 placeholder="Например: 77075553322" \n                 v-model="phonenumber" \n                 name="phone_number" \n                 required>\n            </div>\n\n            <div class="col-md-12 checkbox">\n            <label>\n                 <input v-model="checked" type="checkbox"> Я соглашаюсь с <a data-lity href="/agreement.pdf">c пользовательским соглашением<a/>\n            </div>\n\n\n            <div class="col-md-12 Register--button"  v-show="!confirmed">\n                 <button type="submit" @click="sendSMS" class="form-control btn btn-warning __button">Зарегистроваться</button>\n            </div>\n\n\n            <div class="col-md-12 Register--button" v-show="confirmed && checked">\n                <button type="submit" class="form-control btn btn-primary __button">\n                   Закончить регистрацию\n                </button>\n            </div>'(_templateObject),
 
     props: ['code'],
 

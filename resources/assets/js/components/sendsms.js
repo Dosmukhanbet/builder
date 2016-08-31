@@ -2,6 +2,7 @@ import Vue from 'vue';
 import sweetalert from  'sweetalert';
 import VueResource from 'vue-resource';
 Vue.use(VueResource);
+
 export default Vue.extend({
     template: `
             <label class="col-md-12 control-label">Мобильный номер</label>
@@ -31,7 +32,7 @@ export default Vue.extend({
                 <button type="submit" class="form-control btn btn-primary __button">
                    Закончить регистрацию
                 </button>
-            </div>
+            </div>``
 `,
 
         props: ['code'],

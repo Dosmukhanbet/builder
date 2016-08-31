@@ -2,7 +2,7 @@ import VueResource from 'vue-resource';
 import leavefeedback from './leavefeedback.js';
 
 export default {
-    template : `
+    template: `
 
     <div class="jobdone" v-show="!done && jobstatus == 0">
         <p>Данная заявка выполнена?
@@ -17,30 +17,34 @@ export default {
             <p style="color:#51AC20" v-show="jobstatus == 1"><i class="fa fa-check-square" aria-hidden="true"></i> Выполнена</p>
 
     `,
-    props :['jobid', 'jobstatus'],
+    props: ['jobid', 'jobstatus'],
 
     ready() {
 
-            },
+    },
 
-    data(){
-        return {  done: false };
-        },
+    data() {
+        return {
+            done: false
+        };
+    },
 
-            components:{ leavefeedback },
+    components: {
+        leavefeedback
+    },
 
     methods: {
 
-        makeJobDone(){
-            if(this.jobstatus === 0){
-            this.$http.post('/api/makejobdone/' + this.jobid);
+        makeJobDone() {
+            if (this.jobstatus === 0) {
+                this.$http.post('/api/makejobdone/' + this.jobid);
 
             }
             this.jobstatus = 1;
-            }
-
-
         }
 
 
-    };
+    }
+
+
+};
