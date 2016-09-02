@@ -9,7 +9,7 @@ use Illuminate\Contracts\Mail\Mailer;
 
 class AppMailer {
 
-    protected $from = 'dosmukhanbet@gmail.com';
+    protected $from = 'administrator@sheber.club';
 
     protected $to;
 
