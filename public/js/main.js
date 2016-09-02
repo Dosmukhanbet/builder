@@ -34039,7 +34039,7 @@ exports.default = {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _vueResource = require('vue-resource');
@@ -34057,92 +34057,100 @@ var _sweetalert2 = _interopRequireDefault(_sweetalert);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-    template: '\n    <div class="col-md-2 col-md-offset-1">\n        <div class="categories">\n            <form action="/" v-on:submit.prevent="findMasters">\n                <div class="form-group">\n                    <label>\n                            Найти специалиста <i class="fa fa-caret-down" aria-hidden="true"></i>\n                    </label>\n                    <select v-model="selectedCat" class="form-control">\n                        <option v-for="cat in cats" :value="cat.id">{{cat.name}}</option>\n                    </select>\n                </div>\n                <div class="form-group">\n                    <label>\n                            В городе <i class="fa fa-caret-down" aria-hidden="true"></i>\n                    </label>\n                    <select v-model="selectedCity" class="form-control">\n                        <option v-for="city in cities" :value="city.id">{{city.name}}</option>\n                    </select>\n                </div>\n                <div class="form-group">\n                    <button class="btn find__button" type="submit">Найти</button>\n                </div>\n            </form>\n        </div>\n    </div>\n    <div class="col-md-4">\n    <h4>Мастера</h4>\n    <div v-show="!masters" class="alert alert-info" role="alert">Выберите категорию специалиста и город из списка, нажмите кнопку "Найти"</div>\n    <div class=\'findedmasters\' v-for="master in masters" v-show="masters">\n              <p>\n                  <a data-lity href="{{ makephotopath(master.photo_path) }}">\n                <img class="img-circle" v-bind:src="makethumbpath(master.thumbnail_path)"></a>\n              </p>\n\n               <p><span>Имя:</span> {{master.name}}<br>\n                <span>Мобильный номер:</span> +{{master.phone_number}}<br>\n                <span>Специальность:</span>  {{ findCat(master.category_id) }}<br>\n                <span>Город:</span>  {{ findCity(master.city_id) }}<br>\n\n                <span v-show="master.ratings.length" >{{ ratingsum(master.ratings)}}</span><br v-show="master.ratings.length">\n                <span v-show="master.ratings.length" class="ratingcounts">{{ratingcounts(master.ratings) }}</span><br v-show="master.ratings.length">\n                <span v-show="master.feedbacks.length" >\n                      <a class="feedbacks__link" data-toggle="modal" data-target="#masterfeedback_{{master.id}}">\n                        Отзывы {{ master.feedbacks.length }}\n                      </a>\n                </span><br v-show="master.feedbacks.length">\n               </p>\n\n                                   <div class="modal fade" id="masterfeedback_{{master.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">\n                                       <div class="modal-dialog" role="document">\n                                           <div class="modal-content">\n                                               <div class="modal-header">\n                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>\n                                                   <h4 class="modal-title" id="myModalLabel">Отзывы мастеру {{master.name}}</h4>\n                                               </div>\n                                               <div class="modal-body">\n                                                   <blockquote v-for="feedback in master.feedbacks">\n                                                       <p>{{feedback.body}}\n                                                           <br>\n                                                               <span>{{feedback.created_at}},\n                                                               от клиента:  {{ findclient(feedback.from_user_id) }} </span>\n                                                           </p>\n                                                   </blockquote>\n                                                   </div>\n                                                   <div class="modal-footer">\n                                                       <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>\n                                                   </div>\n                                               </div>\n                                           </div>\n                                       </div>\n\n    </div>\n    </div>\n    ',
+  template: '\n    <div class="col-md-2 col-md-offset-1">\n        <div class="categories">\n            <form action="/" v-on:submit.prevent="findMasters">\n                <div class="form-group">\n                    <label>\n                            Найти специалиста <i class="fa fa-caret-down" aria-hidden="true"></i>\n                    </label>\n                    <select v-model="selectedCat" class="form-control">\n                        <option v-for="cat in cats" :value="cat.id">{{cat.name}}</option>\n                    </select>\n                </div>\n                <div class="form-group">\n                    <label>\n                            В городе <i class="fa fa-caret-down" aria-hidden="true"></i>\n                    </label>\n                    <select v-model="selectedCity" class="form-control">\n                        <option v-for="city in cities" :value="city.id">{{city.name}}</option>\n                    </select>\n                </div>\n                <div class="form-group">\n                    <button class="btn find__button" type="submit">Найти</button>\n                </div>\n            </form>\n        </div>\n    </div>\n    <div class="col-md-4">\n    <h4>Мастера</h4>\n    <div v-show="!masters" class="alert alert-info" role="alert">Выберите категорию специалиста и город из списка, нажмите кнопку "Найти"</div>\n    <div class=\'findedmasters\' v-for="master in masters" v-show="masters">\n              <p>\n                  <a data-lity href="{{ makephotopath(master.photo_path) }}">\n                <img class="img-circle" v-bind:src="makethumbpath(master.thumbnail_path)"></a>\n              </p>\n\n               <p><span>Имя:</span> {{master.name}}<br>\n                <span>Мобильный номер:</span> +{{master.phone_number}}<br>\n                <span>Специальность:</span>  {{ findCat(master.category_id) }}<br>\n                <span>Город:</span>  {{ findCity(master.city_id) }}<br>\n\n                <span v-show="master.ratings.length" >{{ ratingsum(master.ratings)}}</span><br v-show="master.ratings.length">\n                <span v-show="master.ratings.length" class="ratingcounts">{{ratingcounts(master.ratings) }}</span><br v-show="master.ratings.length">\n                <span v-show="master.feedbacks.length" >\n                      <a class="feedbacks__link" data-toggle="modal" data-target="#masterfeedback_{{master.id}}">\n                        Отзывы {{ master.feedbacks.length }}\n                      </a>\n                </span><br v-show="master.feedbacks.length">\n               </p>\n\n                                   <div class="modal fade" id="masterfeedback_{{master.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">\n                                       <div class="modal-dialog" role="document">\n                                           <div class="modal-content">\n                                               <div class="modal-header">\n                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>\n                                                   <h4 class="modal-title" id="myModalLabel">Отзывы мастеру {{master.name}}</h4>\n                                               </div>\n                                               <div class="modal-body">\n                                                   <blockquote v-for="feedback in master.feedbacks">\n                                                       <p>{{feedback.body}}\n                                                           <br>\n                                                               <span>{{feedback.created_at}},\n                                                               от клиента:  {{ findclient(feedback.from_user_id) }} </span>\n                                                           </p>\n                                                   </blockquote>\n                                                   </div>\n                                                   <div class="modal-footer">\n                                                       <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>\n                                                   </div>\n                                               </div>\n                                           </div>\n                                       </div>\n\n    </div>\n    </div>\n    ',
 
-    props: ['cats', 'masters', 'cities', 'clients'],
+  props: ['cats', 'masters', 'cities', 'clients'],
 
-    data: function data() {
-        return {
-            selectedCat: '',
-            selectedCity: ''
-        };
-    },
+  data: function data() {
+    return {
+      selectedCat: '',
+      selectedCity: ''
+    };
+  },
 
-    ready: function ready() {
-        //console.log(this.clients);
+  ready: function ready() {
+    //console.log(this.clients);
 
-    },
+  },
 
 
-    methods: {
-        findMasters: function findMasters() {
-            this.$http.post('/api/findmasters/' + this.selectedCat + '/' + this.selectedCity).then(function (response) {
-                console.log(response.data);
-                if (_underscore2.default.isEmpty(response.data)) {
-                    swal({ title: "",
-                        text: "К сожалению поиск не дал результатов",
-                        timer: 1500,
-                        showConfirmButton: false });
-                } else {
-                    this.masters = response.data;
-                }
-            });
-        },
-        makethumbpath: function makethumbpath(path) {
-            if (path) {
-                return '/' + path;
-            } else {
-                return "/profile/sitephotos/thumb-no-photo.jpg";
-            }
-        },
-        makephotopath: function makephotopath(path) {
-            if (path) {
-                return '/' + path;
-            } else {
-                return "/profile/sitephotos/no-photo.jpg";
-            }
-        },
-        findCat: function findCat(id) {
-            return _underscore2.default.findWhere(this.cats, { id: id }).name;
-        },
-        findCity: function findCity(id) {
-            return _underscore2.default.findWhere(this.cities, { id: id }).name;
-        },
-        findclient: function findclient(id) {
-            return _underscore2.default.findWhere(this.clients, { id: id }).name;
-        },
-        ratingsum: function ratingsum(rating) {
-
-            var sum = 0;
-            _underscore2.default.each(rating, function (el) {
-                sum += el.points;
-            });
-            if (sum > 0) {
-
-                return "Средняя оценка: " + (sum / rating.length).toFixed(1);
-            }
-        },
-        ratingcounts: function ratingcounts(rating) {
-            var five = 0;
-            var four = 0;
-            var three = 0;
-
-            _underscore2.default.each(rating, function (el) {
-                if (el.points == '5') {
-                    five += 1;
-                }
-
-                if (el.points == '4') {
-                    four += 1;
-                }
-
-                if (el.points == '3') {
-                    three += 1;
-                }
-            });
-            return (five ? 'Оценка 5 - ' + five + ' клиент(а) ' : '') + (four ? 'Оценка 4 - ' + four + ' клиент(а) ' : '') + (three ? 'Оценка 3 - ' + three + ' клиент(а) ' : '');
+  methods: {
+    findMasters: function findMasters() {
+      this.$http.post('/api/findmasters/' + this.selectedCat + '/' + this.selectedCity).then(function (response) {
+        console.log(response.data);
+        if (_underscore2.default.isEmpty(response.data)) {
+          swal({
+            title: "",
+            text: "К сожалению поиск не дал результатов",
+            timer: 1500,
+            showConfirmButton: false
+          });
+        } else {
+          this.masters = response.data;
         }
+      });
+    },
+    makethumbpath: function makethumbpath(path) {
+      if (path) {
+        return '/' + path;
+      } else {
+        return "/profile/sitephotos/thumb-no-photo.jpg";
+      }
+    },
+    makephotopath: function makephotopath(path) {
+      if (path) {
+        return '/' + path;
+      } else {
+        return "/profile/sitephotos/no-photo.jpg";
+      }
+    },
+    findCat: function findCat(id) {
+      return _underscore2.default.findWhere(this.cats, {
+        id: id
+      }).name;
+    },
+    findCity: function findCity(id) {
+      return _underscore2.default.findWhere(this.cities, {
+        id: id
+      }).name;
+    },
+    findclient: function findclient(id) {
+      return _underscore2.default.findWhere(this.clients, {
+        id: id
+      }).name;
+    },
+    ratingsum: function ratingsum(rating) {
+
+      var sum = 0;
+      _underscore2.default.each(rating, function (el) {
+        sum += el.points;
+      });
+      if (sum > 0) {
+
+        return "Средняя оценка: " + (sum / rating.length).toFixed(1);
+      }
+    },
+    ratingcounts: function ratingcounts(rating) {
+      var five = 0;
+      var four = 0;
+      var three = 0;
+
+      _underscore2.default.each(rating, function (el) {
+        if (el.points == '5') {
+          five += 1;
+        }
+
+        if (el.points == '4') {
+          four += 1;
+        }
+
+        if (el.points == '3') {
+          three += 1;
+        }
+      });
+      return (five ? 'Оценка 5 - ' + five + ' клиент(а) ' : '') + (four ? 'Оценка 4 - ' + four + ' клиент(а) ' : '') + (three ? 'Оценка 3 - ' + three + ' клиент(а) ' : '');
     }
+  }
 
 };
 
@@ -34192,7 +34200,10 @@ exports.default = {
     props: ['jobid'],
 
     data: function data() {
-        return { offers: [], alert: false };
+        return {
+            offers: [],
+            alert: false
+        };
     },
     ready: function ready() {
 
@@ -34272,7 +34283,10 @@ exports.default = {
     props: ['jobid'],
 
     data: function data() {
-        return { offers: [], alert: false };
+        return {
+            offers: [],
+            alert: false
+        };
     },
     ready: function ready() {
 
@@ -34426,7 +34440,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _vue2.default.use(_vueResource2.default);
 
 exports.default = _vue2.default.extend({
-    template: '\n            <label class="col-md-12 control-label">Мобильный номер</label>\n            <div class="col-md-12">\n                 <input \n                 type="text" \n                 id="form-control.tel"   \n                 class="form-control" \n                 placeholder="Например: 77075553322" \n                 v-model="phonenumber" \n                 name="phone_number" \n                 required>\n            </div>\n\n            <div class="col-md-12 checkbox">\n            <label>\n                 <input v-model="checked" type="checkbox"> Я соглашаюсь с <a data-lity href="/agreement2.pdf">c пользовательским соглашением<a/>\n            </div>\n\n\n            <div class="col-md-12 Register--button"  v-show="!confirmed">\n                 <button type="submit" @click="sendSMS" class="form-control btn btn-warning __button">Зарегистроваться</button>\n            </div>\n\n\n            <div class="col-md-12 Register--button" v-show="confirmed && checked">\n                <button type="submit" class="form-control btn btn-primary __button">\n                   Закончить регистрацию\n                </button>\n            </div>    \n',
+    template: '\n            <label class="col-md-12 control-label">Мобильный номер</label>\n            <div class="col-md-12">\n                 <input \n                 type="text" \n                 id="form-control.tel"   \n                 class="form-control" \n                 placeholder="Например: 77075553322" \n                 v-model="phonenumber" \n                 name="phone_number" \n                 data-toggle="popover"\n                 data-placement="top"\n                 data-trigger="focus"\n                 data-content="На Ваш телефон мы отправим смс с кодом для подтверждения номера"\n                 required>\n            </div>\n\n            <div class="col-md-12 checkbox">\n            <label>\n                 <input v-model="checked" type="checkbox"> Я соглашаюсь с <a data-lity href="/agreement2.pdf">c пользовательским соглашением<a/>\n            </div>\n\n\n            <div class="col-md-12 Register--button"  v-show="!confirmed">\n                 <button type="submit" @click="sendSMS" class="form-control btn btn-warning __button">Отправить код</button>\n            </div>\n\n\n            <div class="col-md-12 Register--button" v-show="confirmed && checked">\n                <button type="submit" class="form-control btn btn-primary __button">\n                   Закончить регистрацию\n                </button>\n            </div>    \n',
 
     props: ['code'],
 
@@ -34444,30 +34458,34 @@ exports.default = _vue2.default.extend({
             var _this = this;
 
             e.preventDefault();
+            if (this.phonenumber.length < 11) {
+                swal(" ", "Некорректный мобильный номер. Необходимо корректно ввести номер. Например: 77071234455");
+            } else {
+                this.send();
+                swal({
 
-            this.send();
-            swal({
+                    title: "Мы отправили вам SMS с кодом",
+                    text: "На Ваш телефон в течении нескольки минут придет 4-значный код. Введите этот код в поле ниже и нажмите 'OK' ",
+                    type: "input",
+                    showCancelButton: false,
+                    cancelButtonText: 'Не пришло СМС? Повторить',
+                    closeOnConfirm: false,
+                    animation: "slide-from-top",
+                    inputPlaceholder: "Пример кода: 4432"
 
-                title: "Мы отправили вам SMS с кодом",
-                text: "Введите этот код в поле ниже, нажмите 'OK' ",
-                type: "input",
-                showCancelButton: true,
-                cancelButtonText: 'Не пришло СМС? Повторить',
-                closeOnConfirm: false,
-                animation: "slide-from-top",
-                inputPlaceholder: "Например: 4432"
-            }, function (inputValue) {
-                var int = parseInt(inputValue);
-                // 1111 заменить на this.code
-                if (int === _this.code) {
-                    swal("ОК", "Ваш номер подтвержден!", "success");
-                    _this.confirmed = true;
-                } else {
+                }, function (inputValue) {
+                    var int = parseInt(inputValue);
+                    // 1111 заменить на this.code
+                    if (int === _this.code) {
+                        swal("ОК", "Ваш номер подтвержден! Нажмите кнопку 'Закончить регистрацию'", "success");
+                        _this.confirmed = true;
+                    } else {
 
-                    swal.showInputError("Неправильный номер");
-                    return false;
-                }
-            });
+                        swal.showInputError("Неправильный номер");
+                        return false;
+                    }
+                });
+            }
         },
         send: function send() {
             var datas = {

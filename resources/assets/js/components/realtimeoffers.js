@@ -1,7 +1,7 @@
 import VueResource from 'vue-resource';
 var socket = io('104.236.12.84:3000');
 export default {
-    template : `
+    template: `
                 <div v-show="alert"
                      transition="fade"
                      class="alert--offer animated">
@@ -22,62 +22,63 @@ export default {
                     </a>
                 </div>
         `,
-        props :['jobid'],
+    props: ['jobid'],
 
-        data(){
-        return {  offers : [], alert: false };
-        },
+    data() {
+        return {
+            offers: [],
+            alert: false
+        };
+    },
 
-        ready() {
+    ready() {
 
-                socket.on('offers-channel-'+ this.jobid, function(data){
-                    this.offers.push(data);
-                    this.alert = true;
-                    setTimeout(() => this.alert = false , 3000);
-                }.bind(this));
-
-
-
-
-            },
+        socket.on('offers-channel-' + this.jobid, function(data) {
+            this.offers.push(data);
+            this.alert = true;
+            setTimeout(() => this.alert = false, 3000);
+        }.bind(this));
 
 
 
-        methods: {
-                    makethumbpath(path){
-                    if(path) { return '/' + path;}
-                    else
-                    {   return "/profile/sitephotos/thumb-no-photo.jpg";}
-
-                    },
-                    makephotopath(path){
-                    if(path) { return '/' + path;}
-                    else
-                    {   return "/profile/sitephotos/no-photo.jpg";}
-
-                    },
-                    makeurl(offerid, userid){
-
-                    return "/job/accept/offer/" + offerid + "/" + userid;
-
-                    },
-
-                    makecomment(comment)
-                    {
-                        if(comment)
-                        {
-                            return comment;
-                        }
-                        else
-                        {
-                            return "нет комментарии";
-                        }
-                    }
+    },
 
 
 
-
+    methods: {
+        makethumbpath(path) {
+            if (path) {
+                return '/' + path;
+            } else {
+                return "/profile/sitephotos/thumb-no-photo.jpg";
             }
 
+        },
+        makephotopath(path) {
+            if (path) {
+                return '/' + path;
+            } else {
+                return "/profile/sitephotos/no-photo.jpg";
+            }
 
-        };
+        },
+        makeurl(offerid, userid) {
+
+            return "/job/accept/offer/" + offerid + "/" + userid;
+
+        },
+
+        makecomment(comment) {
+            if (comment) {
+                return comment;
+            } else {
+                return "нет комментарии";
+            }
+        }
+
+
+
+    }
+
+
+};

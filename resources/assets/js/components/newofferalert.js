@@ -1,7 +1,7 @@
 var socket = io('104.236.12.84:3000');
 
-export default  {
-    template : `
+export default {
+    template: `
     <div v-show="alert"
     transition="fade"
     class="alert--offer animated">
@@ -10,26 +10,28 @@ export default  {
 
 </span>
 `,
-props : ['jobid'],
+    props: ['jobid'],
 
-data(){
-    return {  offers : [], alert: false };
+    data() {
+        return {
+            offers: [],
+            alert: false
+        };
     },
 
-ready()
-    {
+    ready() {
 
-        socket.on('offers-channel-' + this.jobid, function (data) {
+        socket.on('offers-channel-' + this.jobid, function(data) {
             this.offers.push(data);
             this.alert = true;
-            setTimeout(() => this.alert = false , 3000);
+            setTimeout(() => this.alert = false, 3000);
         }.bind(this));
-        },
+    },
 
-methods : {
-    makeurl(){
-    return "/job/showoffers/" + this.jobid;
-    }
+    methods: {
+        makeurl() {
+            return "/job/showoffers/" + this.jobid;
+        }
 
     }
 

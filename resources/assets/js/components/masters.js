@@ -1,8 +1,8 @@
 import VueResource from 'vue-resource';
 import _ from 'underscore';
-import sweetalert from  'sweetalert';
+import sweetalert from 'sweetalert';
 export default {
-    template : `
+  template: `
     <div class="col-md-2 col-md-offset-1">
         <div class="categories">
             <form action="/" v-on:submit.prevent="findMasters">
@@ -79,108 +79,112 @@ export default {
     `,
 
 
-    props :['cats', 'masters', 'cities', 'clients'],
+  props: ['cats', 'masters', 'cities', 'clients'],
 
-    data: function ()
-          {
-           return {
-              selectedCat : '',
-              selectedCity : ''
-              };
-              },
+  data: function() {
+    return {
+      selectedCat: '',
+      selectedCity: ''
+    };
+  },
 
-   ready(){
-                    //console.log(this.clients);
+  ready() {
+    //console.log(this.clients);
 
-                   },
-
+  },
 
 
-    methods: {
 
-       findMasters() {
-           this.$http.post('/api/findmasters/' +this.selectedCat + '/' + this.selectedCity).then(function(response){
-                console.log(response.data);
-           if (_.isEmpty(response.data)){
-                                      swal(  {title: "",
-                                               text: "К сожалению поиск не дал результатов",
-                                               timer: 1500,
-                                               showConfirmButton: false });
-                                   }
-                                   else {
-                                   this.masters = response.data;
-                                   }
+  methods: {
 
-                                   });
+    findMasters() {
+      this.$http.post('/api/findmasters/' + this.selectedCat + '/' + this.selectedCity).then(function(response) {
+        console.log(response.data);
+        if (_.isEmpty(response.data)) {
+          swal({
+            title: "",
+            text: "К сожалению поиск не дал результатов",
+            timer: 1500,
+            showConfirmButton: false
+          });
+        } else {
+          this.masters = response.data;
+        }
 
-                      } ,
-         makethumbpath(path){
-           if(path) { return '/' + path;}
-                   else
-                   {   return "/profile/sitephotos/thumb-no-photo.jpg";}
+      });
 
-                   },
-        makephotopath(path){
-                   if(path) { return '/' + path;}
-                   else
-                   {   return "/profile/sitephotos/no-photo.jpg";}
+    },
+    makethumbpath(path) {
+      if (path) {
+        return '/' + path;
+      } else {
+        return "/profile/sitephotos/thumb-no-photo.jpg";
+      }
 
-                   },
+    },
+    makephotopath(path) {
+      if (path) {
+        return '/' + path;
+      } else {
+        return "/profile/sitephotos/no-photo.jpg";
+      }
 
-        findCat(id){
-                       return _.findWhere(this.cats, {id: id}).name;
-                   },
+    },
 
-       findCity(id){
-                   return _.findWhere(this.cities, {id: id}).name;
-                   },
+    findCat(id) {
+      return _.findWhere(this.cats, {
+        id: id
+      }).name;
+    },
 
-       findclient(id){
-                     return _.findWhere(this.clients, {id: id}).name;
-         },
+    findCity(id) {
+      return _.findWhere(this.cities, {
+        id: id
+      }).name;
+    },
 
-        ratingsum (rating) {
+    findclient(id) {
+      return _.findWhere(this.clients, {
+        id: id
+      }).name;
+    },
 
-                           var sum = 0;
-                            _.each(rating, function(el){
-                                   sum += el.points;
-                                   });
-                            if ( sum > 0 )
-                            {
+    ratingsum(rating) {
 
-                                return "Средняя оценка: "+ (sum / rating.length).toFixed(1);
-                            }
-                   },
+      var sum = 0;
+      _.each(rating, function(el) {
+        sum += el.points;
+      });
+      if (sum > 0) {
 
-       ratingcounts (rating ) {
-                   var five = 0;
-                   var four = 0;
-                   var three = 0;
+        return "Средняя оценка: " + (sum / rating.length).toFixed(1);
+      }
+    },
 
-                   _.each(rating, function(el){
-                            if (el.points == '5') {
-                           five += 1;
-                           }
+    ratingcounts(rating) {
+      var five = 0;
+      var four = 0;
+      var three = 0;
 
-                           if (el.points == '4') {
-                           four += 1;
-                           }
+      _.each(rating, function(el) {
+        if (el.points == '5') {
+          five += 1;
+        }
 
-                           if (el.points == '3') {
-                           three += 1;
-                           }
-                   });
- return (five ? 'Оценка 5 - ' + five + ' клиент(а) ' : '') + ( four ? 'Оценка 4 - ' + four + ' клиент(а) ' : '' ) + (three ? 'Оценка 3 - ' + three  + ' клиент(а) ' : '');
-                   }
+        if (el.points == '4') {
+          four += 1;
+        }
 
-
-                   
-
-
+        if (el.points == '3') {
+          three += 1;
+        }
+      });
+      return (five ? 'Оценка 5 - ' + five + ' клиент(а) ' : '') + (four ? 'Оценка 4 - ' + four + ' клиент(а) ' : '') + (three ? 'Оценка 3 - ' + three + ' клиент(а) ' : '');
     }
 
 
 
+  }
 
 
 

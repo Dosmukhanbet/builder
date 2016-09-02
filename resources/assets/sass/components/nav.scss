@@ -74,11 +74,37 @@
 }
 
 
-
+.navbar-header{
+  position: relative;
+}
 .navbar-brand {
   font-family:  'Jura', sans-serif;
   font-size: 1.4em;
   letter-spacing: 1px;
+  margin-bottom: 0px;
+  
+}
+
+a.navbar-brand {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+
+ .slogan {
+  position: absolute;
+  top: 32px;
+  left: 0;
+    color: #ccc;
+    font-size: 0.7em;
+    font-family: 'Open Sans Condensed', sans-serif;
+    letter-spacing: 1.5px;
+    font-weight: normal;
+    padding: 0px;
+    margin: 0px;
+    margin-left: 15px;
+    
+    
 }
 
 .navbar-brand > i{

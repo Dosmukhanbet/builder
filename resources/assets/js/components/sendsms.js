@@ -14,6 +14,10 @@ export default Vue.extend({
                  placeholder="Например: 77075553322" 
                  v-model="phonenumber" 
                  name="phone_number" 
+                 data-toggle="popover"
+                 data-placement="top"
+                 data-trigger="focus"
+                 data-content="На Ваш телефон мы отправим смс с кодом для подтверждения номера"
                  required>
             </div>
 
@@ -24,7 +28,7 @@ export default Vue.extend({
 
 
             <div class="col-md-12 Register--button"  v-show="!confirmed">
-                 <button type="submit" @click="sendSMS" class="form-control btn btn-warning __button">Зарегистроваться</button>
+                 <button type="submit" @click="sendSMS" class="form-control btn btn-warning __button">Отправить код</button>
             </div>
 
 
@@ -52,34 +56,40 @@ export default Vue.extend({
         sendSMS(e) {
 
             e.preventDefault();
+            if(this.phonenumber.length < 11 ) 
+            {
+                swal(" ", "Некорректный мобильный номер. Необходимо корректно ввести номер. Например: 77071234455");
+            }
+            else
+            {
+                this.send();
+                swal({
 
-            this.send();
-            swal({
+                        title: "Мы отправили вам SMS с кодом",
+                        text: "На Ваш телефон в течении нескольки минут придет 4-значный код. Введите этот код в поле ниже и нажмите 'OK' ",
+                        type: "input",
+                        showCancelButton: false,
+                        cancelButtonText: 'Не пришло СМС? Повторить',
+                        closeOnConfirm: false,
+                        animation: "slide-from-top",
+                        inputPlaceholder: "Пример кода: 4432"
+                        
 
-                    title: "Мы отправили вам SMS с кодом",
-                    text: "Введите этот код в поле ниже, нажмите 'OK' ",
-                    type: "input",
-                    showCancelButton: true,
-                    cancelButtonText: 'Не пришло СМС? Повторить',
-                    closeOnConfirm: false,
-                    animation: "slide-from-top",
-                    inputPlaceholder: "Например: 4432"
-                },
+                    },
 
+                    (inputValue) => {
+                        var int = parseInt(inputValue);
+                        // 1111 заменить на this.code
+                        if (int === this.code) {
+                            swal("ОК", "Ваш номер подтвержден! Нажмите кнопку 'Закончить регистрацию'", "success");
+                            this.confirmed = true;
+                        } else {
 
-                (inputValue) => {
-                    var int = parseInt(inputValue);
-                    // 1111 заменить на this.code
-                    if (int === this.code) {
-                        swal("ОК", "Ваш номер подтвержден!", "success");
-                        this.confirmed = true;
-                    } else {
-
-                        swal.showInputError("Неправильный номер");
-                        return false;
-                    }
-                });
-
+                            swal.showInputError("Неправильный номер");
+                            return false;
+                        }
+                    });
+                }
         },
 
         send() {

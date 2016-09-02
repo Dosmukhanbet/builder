@@ -14,6 +14,8 @@
                                    <a class="navbar-brand" style="margin-left: 0px" href="{{ url('/') }}">
                                       sheber.<span style="color:#03CEBD">club</span>
                                     </a>
+                                    <p class="slogan">мастера вашего города</p>
+
                                 </div>
                                 <!-- Left Side Of Navbar -->
                                 {{--@if(Auth::guest())--}}

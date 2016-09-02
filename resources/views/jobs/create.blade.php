@@ -3,15 +3,29 @@
 @section('content')
 
      <div class="row">
-             <div class="col-md-8 col-md-offset-1 create__formbox">
-                    <h4 class="form_header"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Добавить объявление</h4>
+            
+             <div class="col-md-5 col-md-offset-1 create__formbox">
+                    <!-- <div class="col-md-12 alert alert-success">
+                        
+                    </div> -->
+                    <h4 class="form_header">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Добавить объявление
+                    </h4>
                     <form class="create__form" role="form" method="POST" action="{{ url('/job/create') }}">
                         {!! csrf_field() !!}
                         <div class="form-group{{ $errors->has('Кратко_о_работе') ? ' has-error' : '' }}">
-                            <label class="col-md-8 control-label">Кратко о работе</label>
+                            <label class="col-md-12 control-label">Кратко о работе</label>
 
-                            <div class="col-md-8">
-                                <input type="name" class="form-control" name="Кратко_о_работе" value="{{ old('Кратко_о_работе') }}" required>
+                            <div class="col-md-12">
+                                <input 
+                                type="name" 
+                                class="form-control" 
+                                name="Кратко_о_работе" 
+                                value="{{ old('Кратко_о_работе') }}" data-toggle="popover"
+                                data-placement="top"
+                                data-trigger="focus"
+                                data-content="Опишите коротко Вашу работу. Например: Поклеить обои"
+                                required>
 
                                 @if ($errors->has('Кратко_о_работе'))
                                     <span class="help-block">
@@ -22,10 +36,19 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('Описание') ? ' has-error' : '' }}">
-                            <label class="col-md-8 control-label">Описание</label>
+                            <label class="col-md-12 control-label">Описание</label>
 
-                            <div class="col-md-8">
-                                <textarea class="form-control" rows="3" name="Описание" value="{{ old('Описание') }}" required></textarea>
+                            <div class="col-md-12">
+                                <textarea 
+                                class="form-control" 
+                                rows="3" 
+                                name="Описание" 
+                                value="{{ old('Описание') }}" 
+                                data-toggle="popover"
+                                data-placement="top"
+                                data-trigger="focus"
+                                data-content="Опишите детали работы. Например: Поклеить обои. Площадь 25м/кв"
+                                required></textarea>
                                  @if ($errors->has('Описание'))
                                      <span class="help-block">
                                      <strong>{{ $errors->first('Описание') }}</strong>
@@ -37,9 +60,15 @@
                          <jobstype></jobstype>
 
                          <div class="form-group{{ $errors->has('Дата_Исполнения') ? ' has-error' : '' }}">
-                             <label class="col-md-8 control-label">Дата и Время исполнения</label>
-                                  <div class="col-md-8">
-                                       <input id="datetimepicker" type="text" class="form-control" name="dateOfMake">
+                             <label class="col-md-12 control-label">Дата и Время исполнения</label>
+                                  <div class="col-md-12">
+                                       <input id="datetimepicker" type="text" class="form-control" name="dateOfMake"
+                                       data-toggle="popover"
+                                       data-placement="top"
+                                       data-trigger="focus"
+                                       data-content="Выберите удобное для Вас дату и время выполнения работы"
+                                      placeholder="Выберите время выполнения работы" 
+                                      required>
                                                         @if ($errors->has('dateOfMake'))
                                                             <span class="help-block">
                                                                 <strong>{{ $errors->first('dateOfMake') }}</strong>
@@ -49,8 +78,8 @@
                           </div>
 
                          <div class="form-group">
-                             <label class="col-md-8 control-label">Бюджет</label>
-                                  <div class="col-md-8">
+                             <label class="col-md-12 control-label">Бюджет</label>
+                                  <div class="col-md-12">
                                        <input type="text" placeholder="в тенге"
                                        data-toggle="popover"
                                        data-placement="top"
@@ -63,7 +92,7 @@
 
 
                         <div class="form-group">
-                            <div class="col-md-8">
+                            <div class="col-md-12">
                                 <button type="submit" class="btn btn-warning __button">
                                    Опубликовать
                                 </button>

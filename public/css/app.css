@@ -5744,6 +5744,8 @@ button.close {
 
 .Register--button {
   margin-top: 1em; }
+  .Register--button button {
+    font-size: 1em; }
 
 .Register--link {
   padding-left: 10px; }
@@ -5820,10 +5822,31 @@ ul.Job__list {
   .navbar-inverse .navbar-toggle:hover {
     background-color: #1a9e90; }
 
+.navbar-header {
+  position: relative; }
+
 .navbar-brand {
   font-family: 'Jura', sans-serif;
   font-size: 1.4em;
-  letter-spacing: 1px; }
+  letter-spacing: 1px;
+  margin-bottom: 0px; }
+
+a.navbar-brand {
+  padding-bottom: 0px;
+  margin-bottom: 0px; }
+
+.slogan {
+  position: absolute;
+  top: 32px;
+  left: 0;
+  color: #ccc;
+  font-size: 0.7em;
+  font-family: 'Open Sans Condensed', sans-serif;
+  letter-spacing: 1.5px;
+  font-weight: normal;
+  padding: 0px;
+  margin: 0px;
+  margin-left: 15px; }
 
 .navbar-brand > i {
   font-size: 1em;
@@ -5913,6 +5936,10 @@ a.accept__offer__link:hover {
   margin-bottom: 20px;
   padding: 0; }
 
+.Profile__form {
+  width: 50%;
+  margin-top: 15px; }
+
 .Profile__list {
   list-style: none;
   padding-left: 0; }
@@ -5965,6 +5992,12 @@ a.accept__offer__link:hover {
   background: #fff;
   border: 1px solid #ccc; }
 
+/**
+*create job header
+*/
+.form_header {
+  margin-left: 15px; }
+
 .form-group {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5985,7 +6018,7 @@ a.accept__offer__link:hover {
   appearance: none; }
 
 .__button {
-  padding: 8px 15px 8px 15px;
+  padding: 5px 15px 15px 15px;
   border-radius: 2px;
   font-size: 15px; }
 

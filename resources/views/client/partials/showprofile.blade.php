@@ -12,8 +12,12 @@
                     </li>
                   </ul>
                     @else
-                          <div class="col-md-10">
-                                    <form class="Profile__form" enctype="multipart/form-data" method="POST" action="{{url('job/clientprofile/addphoto')}}">
+                                    <form 
+                                        class="Profile__form" 
+                                        enctype="multipart/form-data" 
+                                        method="POST" 
+                                        action="{{url('job/clientprofile/addphoto')}}"
+                                        >
 
                                             {{csrf_field()}}
 
@@ -30,6 +34,6 @@
                                                                <button type="submit" class="btn btn-warning">Отправить фото</button>
                                             </div>
                                      </form>
-                          </div>
+                          
                     @endif
 </div>
