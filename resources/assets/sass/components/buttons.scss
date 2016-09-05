@@ -10,6 +10,36 @@
   padding-left: 10px;
 }
 
+.skip__button {
+    background:#049E8E;
+    padding: 8px 15px 10px 15px;
+    border: 1px solid #036359;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 0.8em;
+    font-family: 'Open Sans Condensed', sans-serif;
+     &:hover {
+      background:#036359;
+      color: #fff;
+    }
+}
+.finish__register {
+    margin-top:15px;
+    background:#049E8E;
+    padding: 8px 15px 10px 15px;
+    border: 1px solid #036359;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 0.8em;
+    font-family: 'Open Sans Condensed', sans-serif;
+
+  a {
+      color: #fff;
+      &:hover {
+        color: #fff;
+      }
+  }
+}
 .btn-primary {
   background: #049e8e;
   border: 1px solid #036359;
@@ -17,3 +47,4 @@
     background: #036359;
   }
 }
+

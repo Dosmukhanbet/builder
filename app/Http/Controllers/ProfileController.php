@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
 use DB;
+use Auth;
+use Image;
 use App\User;
 use App\Offer;
 use App\Invite;
-use Image;
+use App\Skills;
+use App\Attachment;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 
 
 class ProfileController extends Controller
@@ -59,10 +62,55 @@ class ProfileController extends Controller
         $user->photo_path = $path;
         $user->thumbnail_path = $thumb;
         $user->save();
-        return back();
-
+        flash()->success('ok', 'Фотография успешно добавлена!');
+        return redirect('master/addskills');        
     }
 
+    public function addSkills ()
+    {
+        return view('master.addskills');        
+    } 
+
+
+    public function saveSkills(Request $request)
+    {
+         $this->validate($request, [
+            'years' => 'required|numeric',
+            'intro'=> 'required|min:20',
+        ]);
+        $skills = new Skills;
+        $skills->years = $request['years'];
+        $skills->intro = $request ['intro'];
+        $user = Auth::user();
+        $user->addSkills($skills);
+        flash()->success('Ваши данные сохранены!', 'Добавьте вложения');
+        return redirect('master/attachments');
+
+    } 
+
+    public function attachments ()
+    {
+        return view('master.attachments');
+    } 
+
+    public function saveAttachments (Request $request)
+    {
+        $file = $request->file('attachment');
+        $name = time().$file->getClientOriginalName();
+        $file->move('user/attachments', $name);
+        $path = 'user/attachments/' . $name;
+        $thumb = sprintf("%s/thumb-%s",'user/attachments', $name);
+        $this->makeThumbnail($path, $thumb, 120);
+        $attachment = new Attachment;
+        $attachment->user_id = Auth::user()->id;
+        $attachment->path = $path;
+        $attachment->thumbnail_path = $thumb;
+        $attachment->save();
+
+    } 
+
+
+    
     public function update(Request $request, $userid)
     {
         $this->validate($request, [
@@ -83,14 +131,16 @@ class ProfileController extends Controller
         return back();
     }
 
+    public function addPhoto ()
+    {
+        return view('master.addphoto');
+    } 
 
 
-
-
-    public function makeThumbnail($path, $thumb)
+    public function makeThumbnail($path, $thumb, $size = 75)
     {
         Image::make($path)
-            ->fit(75)
+            ->fit($size)
 //            ->circle(80,50, 50, function ($draw) {
 //                $draw->background('#fff');
 //                $draw->border(5, '#ccc');

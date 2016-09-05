@@ -12,6 +12,7 @@ import newoffers from './components/newoffers.js';
 import newinvites from './components/newinvites.js';
 import newofferalert from './components/newofferalert.js';
 import jobmademasters from './components/jobmademasters.js';
+import Graph from './components/Graph.js';
 
 Vue.transition('fade', {
     enterClass: 'fadeInUp',
@@ -35,7 +36,8 @@ new Vue ({
        newoffers,
        newinvites,
        newofferalert,
-       jobmademasters
+       jobmademasters,
+       Graph
    },
 
    ready(){

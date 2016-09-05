@@ -140,7 +140,15 @@
                                                 <label class="col-md-12 control-label">Пароль (не менее 6-и символов)</label>
 
                                                 <div class="col-md-12">
-                                                    <input type="password" class="form-control" name="password" required>
+                                                    <input 
+                                                    type="password" 
+                                                    class="form-control" 
+                                                    name="password"
+                                                    data-toggle="popover"
+                                                    data-placement="top"
+                                                    data-trigger="focus"
+                                                    data-content="Придумайте пароль. Хороший пароль должен быть не менее 6-и символов."
+                                                    required>
 
                                                     @if ($errors->has('password'))
                                                         <span class="help-block">

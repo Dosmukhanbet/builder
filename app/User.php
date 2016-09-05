@@ -4,9 +4,12 @@ namespace App;
 
 use App\Job;
 use App\Offer;
-use App\Feedback;
 use App\Invite;
 use App\Rating;
+use App\Skills;
+use App\Feedback;
+use App\Attachment;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -66,6 +69,21 @@ class User extends Authenticatable
     public function ratings()
     {
         return $this->hasMany(Rating::class);
+    }
+
+    public function skills()
+    {
+        return $this->hasOne(Skills::class);
+    }
+
+    public function addSkills(Skills $skills)
+    {
+        $this->skills()->save($skills);
+    } 
+
+    public function attachments()
+    {
+        return $this->hasMany(Attachment::class);
     }
 
 

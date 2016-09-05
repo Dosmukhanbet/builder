@@ -74,7 +74,11 @@ Route::group(['prefix' => 'master', 'middleware' => ['auth','master']], function
     Route::get('profile', 'ProfileController@show');
     Route::post('profile/addphoto', 'ProfileController@savePhoto');
     Route::get('invites', 'InvitesController@all');
-
+    Route::get('addphoto', 'ProfileController@addPhoto');
+    Route::get('addskills', 'ProfileController@addSkills');
+    Route::post('addskills', 'ProfileController@saveSkills');
+    Route::get('attachments', 'ProfileController@attachments');
+    Route::post('attachments', 'ProfileController@saveAttachments');
 });
 
 

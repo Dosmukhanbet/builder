@@ -5750,6 +5750,32 @@ button.close {
 .Register--link {
   padding-left: 10px; }
 
+.skip__button {
+  background: #049E8E;
+  padding: 8px 15px 10px 15px;
+  border: 1px solid #036359;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 0.8em;
+  font-family: 'Open Sans Condensed', sans-serif; }
+  .skip__button:hover {
+    background: #036359;
+    color: #fff; }
+
+.finish__register {
+  margin-top: 15px;
+  background: #049E8E;
+  padding: 8px 15px 10px 15px;
+  border: 1px solid #036359;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 0.8em;
+  font-family: 'Open Sans Condensed', sans-serif; }
+  .finish__register a {
+    color: #fff; }
+    .finish__register a:hover {
+      color: #fff; }
+
 .btn-primary {
   background: #049e8e;
   border: 1px solid #036359; }
@@ -5829,7 +5855,9 @@ ul.Job__list {
   font-family: 'Jura', sans-serif;
   font-size: 1.4em;
   letter-spacing: 1px;
-  margin-bottom: 0px; }
+  margin-bottom: 0px;
+  margin-top: 0px;
+  padding-top: 10px; }
 
 a.navbar-brand {
   padding-bottom: 0px;
@@ -5936,6 +5964,33 @@ a.accept__offer__link:hover {
   margin-bottom: 20px;
   padding: 0; }
 
+.Profile__addphoto h4, .Profile__addphoto p, .Profile__addskills h4, .Profile__addskills p {
+  margin-left: 15px; }
+
+.Profile__addphoto p, .Profile__addskills p {
+  padding: 10px;
+  background: #fff;
+  color: #6F7072;
+  border: 1px solid #ccc;
+  margin-bottom: 15px; }
+
+.Profile__attachments p {
+  padding: 10px;
+  background: #fff;
+  color: #6F7072;
+  border: 1px solid #ccc; }
+
+.registration_steps {
+  color: #36A2EB; }
+
+.Profile__photo {
+  background: #fff;
+  padding: 10px;
+  margin-top: 50px; }
+
+.chart h4 {
+  margin-left: 70px; }
+
 .Profile__form {
   width: 50%;
   margin-top: 15px; }
@@ -5991,6 +6046,10 @@ a.accept__offer__link:hover {
 .Table__jobs {
   background: #fff;
   border: 1px solid #ccc; }
+
+.required {
+  color: red;
+  font-weight: bold; }
 
 /**
 *create job header
@@ -6573,6 +6632,7 @@ span.ratingcounts {
 body {
   margin: 0;
   padding: 0;
+  padding-bottom: 120px;
   font-family: 'Open Sans Condensed', sans-serif;
   background: #f0f2ea; }
 

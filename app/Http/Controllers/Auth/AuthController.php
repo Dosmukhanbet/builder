@@ -74,7 +74,7 @@ class AuthController extends Controller
 
         $user = User::create([
             'email' =>$data['email'],
-            'name' => $data['name'],
+            'name' => $data['name'],    
             'type' => $data['type'],
             'city_id' => $data['city_id'],
             'category_id' => $data['type'] == 'client' ?  0 : $data['category_id'],
@@ -84,11 +84,11 @@ class AuthController extends Controller
 
         $this->mailer->sendEmailTo($user, 'email.confirm', 'Регистрация завершена!');
 
-        flash()->success('Поздравляем!','Вы успешно зарегистрировались!');
 
         if($user->type == 'master')
         {
-            $this->redirectTo = 'master/active/jobs';
+            flash()->success('Поздравляем!','Вы успешно зарегистрировались!');
+            $this->redirectTo = 'master/addphoto';
         }
         else
         {

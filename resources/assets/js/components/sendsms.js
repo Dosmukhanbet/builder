@@ -1,3 +1,4 @@
+
 import Vue from 'vue';
 import sweetalert from 'sweetalert';
 import VueResource from 'vue-resource';
@@ -11,13 +12,13 @@ export default Vue.extend({
                  type="text" 
                  id="form-control.tel"   
                  class="form-control" 
-                 placeholder="Например: 77075553322" 
+                 placeholder="Например: +77075553322" 
                  v-model="phonenumber" 
                  name="phone_number" 
                  data-toggle="popover"
                  data-placement="top"
                  data-trigger="focus"
-                 data-content="На Ваш телефон мы отправим смс с кодом для подтверждения номера"
+                 data-content="Для подтверждения номера мы вышлем на Ваш мобильный телефон бесплатное сообщение с кодом"
                  required>
             </div>
 
@@ -28,7 +29,7 @@ export default Vue.extend({
 
 
             <div class="col-md-12 Register--button"  v-show="!confirmed">
-                 <button type="submit" @click="sendSMS" class="form-control btn btn-warning __button">Отправить код</button>
+                 <button type="submit" @click="sendSMS" class="form-control btn btn-warning __button">Получить код</button>
             </div>
 
 
@@ -58,7 +59,7 @@ export default Vue.extend({
             e.preventDefault();
             if(this.phonenumber.length < 11 ) 
             {
-                swal(" ", "Некорректный мобильный номер. Необходимо корректно ввести номер. Например: 77071234455");
+                swal(" ", "Некорректный мобильный номер. Необходимо корректно ввести номер в международном формате. Например: +77071234455");
             }
             else
             {
