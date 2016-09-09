@@ -6122,7 +6122,7 @@ hr {
 .Registations__info__block {
   margin-top: 25px;
   padding: 20px;
-  padding-bottom: 97px;
+  padding-bottom: 40px;
   background: #fff; }
   .Registations__info__block .Registations__info {
     margin-bottom: 50px; }
@@ -6147,6 +6147,8 @@ hr {
         color: #03CEBD; }
       .Registations__info__block .Registations__info .Registations__info__header .clock {
         color: #FF5C2D; }
+      .Registations__info__block .Registations__info .Registations__info__header .list__ol {
+        color: #97CD76; }
       .Registations__info__block .Registations__info .Registations__info__header h4 {
         color: #000;
         margin: 3px 0 0 10px;
@@ -6168,6 +6170,28 @@ hr {
   padding-bottom: 125px; }
   .Job__create__block h4 {
     margin-left: 15px; }
+
+.how__to__start__today {
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  padding: 1em; }
+  .how__to__start__today h3 {
+    color: #FF5C2D;
+    text-align: center;
+    margin-bottom: 20px; }
+  .how__to__start__today .numbers {
+    color: #FF5C2D;
+    margin-right: 8px;
+    font-size: 1.1em;
+    font-weight: bold; }
+  .how__to__start__today h4 {
+    color: #ED6C63; }
+  .how__to__start__today p {
+    text-align: justify; }
+
+.steps__one, .steps__two, .steps__three {
+  height: 200px;
+  padding: 10px; }
 
 .job__list__header {
   border-bottom: 1px solid #ddd;

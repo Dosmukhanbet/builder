@@ -83,7 +83,7 @@ class ProfileController extends Controller
         $skills->intro = $request ['intro'];
         $user = Auth::user();
         $user->addSkills($skills);
-        flash()->success('Ваши данные сохранены!', 'Добавьте вложения');
+        flash()->success('Ваши данные сохранены!', 'Прикрепите копию вашего диплома, сертификата, грамоты, рекомендацию от работодателя');
         return redirect('master/attachments');
 
     } 

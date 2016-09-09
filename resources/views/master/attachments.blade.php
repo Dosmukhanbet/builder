@@ -8,18 +8,19 @@
     		<h4>Сертификаты, Дипломы, Рекомендации</h4>
 
 				    
-          @if( ! count($user->attachments))
+          @if( ! count($user->attachments) )
             <p>Прикрепите копию вашего диплома, сертификата, грамоты, рекомендацию от работодателя.</p>
              @include('master.formpartials.attachments')
+             <button class="finish__register"><a href="{{ url('master/active/jobs')  }}">Пропустить</a></button>
           @else 
                 <div class="attachments">
-                  @foreach($user->attachments as $attachment)
-                    <a href="/{{$attachment->path}}" data-lity><img src="/{{$attachment->thumbnail_path}}" 
-                      class="img-thumbnail">
-                    </a>
-                  @endforeach
+                      @foreach($user->attachments as $attachment)
+                        <a href="/{{$attachment->path}}" data-lity><img src="/{{$attachment->thumbnail_path}}" 
+                          class="img-thumbnail">
+                        </a>
+                      @endforeach
                 </div>         
-                <button class="finish__register"><a href="{{ url('master/active/jobs') }}"> Завершить регистрацию</a></button>
+                <button class="finish__register"><a href="{{ url('master/active/jobs')  }}"> Завершить регистрацию</a></button>
           @endif
 
 				
