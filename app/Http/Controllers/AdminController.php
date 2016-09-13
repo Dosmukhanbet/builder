@@ -37,6 +37,11 @@ class AdminController extends Controller
                  $query->where('type', 'master');
         }])->get();
 
-        return view('admin.users', compact('cityWithusers'));
+        $catWithusers = Category::withCount(['user' => function($query)
+        {
+                 $query->where('type', 'master');
+        }])->get();
+
+        return view('admin.users', compact('cityWithusers', 'catWithusers'));
     }
 }

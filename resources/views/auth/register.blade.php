@@ -28,6 +28,9 @@
               </p>
             </div>
         </div>
+        {{-- <div class="alert alert-info statistics">
+          Зарегистривовано: клиентов - 2250, мастеров 340, заявок 7500
+        </div> --}}
     </div>
 
 

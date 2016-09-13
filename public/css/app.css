@@ -6194,6 +6194,11 @@ hr {
   height: 200px;
   padding: 10px; }
 
+.statistics {
+  position: absolute;
+  bottom: 20px;
+  left: 20px; }
+
 .job__list__header {
   border-bottom: 1px solid #ddd;
   padding: 10px;

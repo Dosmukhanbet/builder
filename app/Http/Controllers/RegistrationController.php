@@ -3,14 +3,19 @@
 namespace App\Http\Controllers;
 
 use Auth;
-use App\User;
 use App\Job;
+use App\User;
+use App\Services\SMS;
+use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Events\JobWasPublished;
-use App\Http\Requests;
 
 class RegistrationController extends Controller
 {
+    function __construct(SMS $sms)
+    {
+        $this->sms = $sms;
+    }
 
     public function storeUserAndJob(Request $request)
     {
@@ -45,6 +50,8 @@ class RegistrationController extends Controller
 
         flash()->success('Заявка добавлена!', "Вы можете добавить фотографии");
 
+        $this->nofifyMasters($request['category_id'], $request['city_id']);
+
         Auth::login($user);
         event(new JobWasPublished($job));
 
@@ -52,6 +59,20 @@ class RegistrationController extends Controller
 
 
     }
+
+    public function nofifyMasters ($catId, $cityId)
+    {
+        $masters = User::where('type', 'master')
+                        ->where('category_id', $catId)
+                        ->where('city_id', $cityId)
+                        ->get();
+
+                        foreach ($masters as $master) {
+                            $text = 'Uvajaemyi master! Vam postupila zaiavka, speshite ee vypolnit!. http://sheber.club/master/active/jobs';
+                            $this->sms->send($master->phone_number, $text);
+                        }
+
+    } 
 
     public function registerAndCreateJob()
     {

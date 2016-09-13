@@ -10,5 +10,13 @@
             @endforeach
         </ul>
     </div>
+    <div class="col-md-4">
+        <li class="list-group-item active">Зарегистрированные мастера по категориям</li>
+        <ul class="list-group">
+            @foreach($catWithusers as $cat)
+             <li class="list-group-item">{{$cat->name}} <span class="badge">{{$cat->user_count}} </span> </li>
+            @endforeach
+        </ul>
+    </div>
 </div>
 @stop

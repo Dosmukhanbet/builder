@@ -51,6 +51,8 @@ class JobsController extends Controller
 
         event(new JobWasPublished($job));
 
+        
+
         return redirect('job/showoffers/'. $job->id);
 
 
