@@ -32,16 +32,28 @@ class AdminController extends Controller
 
     public function users()
     {
+
         $cityWithusers = City::withCount(['users' => function($query)
         {
                  $query->where('type', 'master');
         }])->get();
+
+        
+
+        $ms = DB::table('users')
+                 ->select('category_id', DB::raw('count(*) as category_total'))
+                 ->select('city_id', DB::raw('count(*) as city_total'))
+                 ->groupBy('category_id')
+                 ->groupBy('city_id')
+                 ->get();
+                 dd($ms);
+
 
         $catWithusers = Category::withCount(['user' => function($query)
         {
                  $query->where('type', 'master');
         }])->get();
 
-        return view('admin.users', compact('cityWithusers', 'catWithusers'));
+        return view('admin.users', compact('cityWithusers', 'catWithusers', 'ms'));
     }
 }

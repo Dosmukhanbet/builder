@@ -18,11 +18,13 @@ Vue.transition('fade', {
     enterClass: 'fadeInUp',
     leaveClass: 'fadeOutLeft'
 });
+
 Vue.use(Vuikit);
 new Vue ({
    el : '#app-layout',
     data:{
-        price : ''
+        price : '',
+        showMobile : false
     },
 
    components : {
@@ -37,7 +39,8 @@ new Vue ({
        newinvites,
        newofferalert,
        jobmademasters,
-       Graph
+       Graph,
+       newMasters
    },
 
    ready(){
@@ -45,6 +48,10 @@ new Vue ({
 
     methods:
     {
+        showMobile() {
+          this.showMobile = true;
+        },
+
         onEnter(e){
                   e.preventDefault();
                  },

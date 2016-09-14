@@ -3,10 +3,12 @@
 namespace App;
 
 use App\Job;
+use App\City;
 use App\Offer;
 use App\Invite;
 use App\Rating;
 use App\Skills;
+use App\Category;
 use App\Feedback;
 use App\Attachment;
 use Illuminate\Http\Request;
@@ -43,6 +45,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    } 
 
 
     public function jobs()

@@ -11,6 +11,8 @@ export default {
                             Найти специалиста <i class="fa fa-caret-down" aria-hidden="true"></i>
                     </label>
                     <select v-model="selectedCat" class="form-control">
+                        <option selected disabled>Выберите категорию
+                        </option>
                         <option v-for="cat in cats" :value="cat.id">{{cat.name}}</option>
                     </select>
                 </div>
@@ -19,6 +21,8 @@ export default {
                             В городе <i class="fa fa-caret-down" aria-hidden="true"></i>
                     </label>
                     <select v-model="selectedCity" class="form-control">
+                    <option selected disabled>Выберите город
+                        </option>
                         <option v-for="city in cities" :value="city.id">{{city.name}}</option>
                     </select>
                 </div>
