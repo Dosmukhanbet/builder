@@ -45178,8 +45178,7 @@ new _vue2.default({
         newinvites: _newinvites2.default,
         newofferalert: _newofferalert2.default,
         jobmademasters: _jobmademasters2.default,
-        Graph: _Graph2.default,
-        newMasters: newMasters
+        Graph: _Graph2.default
     },
 
     ready: function ready() {},

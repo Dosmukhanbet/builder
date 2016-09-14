@@ -39,8 +39,7 @@ new Vue ({
        newinvites,
        newofferalert,
        jobmademasters,
-       Graph,
-       newMasters
+       Graph
    },
 
    ready(){
