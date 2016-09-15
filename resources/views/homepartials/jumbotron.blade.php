@@ -1,5 +1,8 @@
  <div class="jumbotron nopaddings">
       <div class="container">
+      <div class="col-md-8 col-md-offset-2 blockquote__block">
+  <p class="blockquote__home">"Шебер (рус. Мастер) — человек, достигший высокого искусства в своем деле, вкладывающий в свой труд смекалку, творчество, делающий предметы необычные и оригинальные, а также превосходно знающий своё ремесло."</p>
+  </div>
         <div class="col-md-8 col-md-offset-2 home__font">
             <h3 class="home_page_heading" style="text-align: center;">
                 Доверьте работу <br>
