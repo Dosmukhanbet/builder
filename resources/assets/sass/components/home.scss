@@ -1,12 +1,17 @@
 .blockquote__block{
-  margin-top: 2em;
+    margin-top: 2em;
 }
 
 .blockquote__home {
-font-size:1em !important;
+text-align:justify;
+font-size:0.8em !important;
 font-family: 'Roboto Slab', serif;
 // font-style: italic;
+background:#f9f9f9;
 color:#ada8a8;
+border:1px solid #ccc;
+border-radius: 8px;
+padding:10px;
 
 }
 .create__button{

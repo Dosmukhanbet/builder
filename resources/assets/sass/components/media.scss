@@ -2,6 +2,7 @@
   .main_image {
     display: none;
   }
+  
 
 
   .jumbotron {
@@ -34,6 +35,9 @@
 }
 
 @media (max-width: 800px) {
+  .blockquote__block{
+    display:none;
+}
   .how_to, .home__font, .formasters
   {
         h3{
