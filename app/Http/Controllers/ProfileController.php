@@ -147,4 +147,6 @@ class ProfileController extends Controller
 //            })
             ->save($thumb);
     }
+
+    
 }

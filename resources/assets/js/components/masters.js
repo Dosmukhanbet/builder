@@ -42,9 +42,12 @@ export default {
               </p>
 
                <p><span>Имя:</span> {{master.name}}<br>
-                <span>Мобильный номер:</span> +{{master.phone_number}}<br>
                 <span>Специальность:</span>  {{ findCat(master.category_id) }}<br>
                 <span>Город:</span>  {{ findCity(master.city_id) }}<br>
+                <button class="btn find__button" type="button" data-toggle="collapse" data-target="#{{master.phone_number}}" aria-expanded="false" aria-controls="collapseExample">
+                Показать номер
+                </button> <br>
+                <span class="collapse" id="{{master.phone_number}}">Мобильный номер:+{{master.phone_number}}</span>
 
                 <span v-show="master.ratings.length" >{{ ratingsum(master.ratings)}}</span><br v-show="master.ratings.length">
                 <span v-show="master.ratings.length" class="ratingcounts">{{ratingcounts(master.ratings) }}</span><br v-show="master.ratings.length">

@@ -5782,6 +5782,10 @@ button.close {
   .btn-primary:hover {
     background: #036359; }
 
+.showMobile {
+  background: #FF3900;
+  border-radius: 2px; }
+
 .Job__name {
   margin-top: 0; }
 

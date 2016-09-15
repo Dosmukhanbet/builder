@@ -17,8 +17,11 @@
                 <span>Имя:</span> {{$master->name}}<br>
                 <span>Город:</span> {{$cities[$master->city_id]}}<br>
                 <span>Специальность:</span> {{$categories[$master->category_id]}}<br>
-                <span>Мобильный номер:+{{$master->phone_number}}</span>
-                             
+                <button class="btn find__button" type="button" data-toggle="collapse" data-target="#{{$master->phone_number}}" aria-expanded="false" aria-controls="collapseExample">
+                Показать номер
+                </button> <br>
+                <span class="collapse" id="{{$master->phone_number}}">Мобильный номер:+{{$master->phone_number}}</span>
+                  
 
                  @if ($master->ratings->pluck('points')->sum() > 0 )
                      <span>Средний балл:</span> {{ number_format($master->ratings->pluck('points')->sum() / $master->ratings->pluck('points')->count(), 1) }}<br>

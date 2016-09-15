@@ -74,6 +74,16 @@ class RegistrationController extends Controller
 
     } 
 
+    public function sendSmsRecomendation ()
+    {
+        $masters = User::where('type', 'master')
+                    ->where('photo_path', '')
+                    ->get();
+                        foreach ($masters as $master) {
+                            
+                        }
+    } 
+
     public function registerAndCreateJob()
     {
         return view('jobs.createjobanduser');
