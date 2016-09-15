@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+<title>Шеберлер клубы - Клуб мастеров</title>
+@stop
 @section('content')
 <div class="row">
              <div class="col-md-11 col-md-offset-1">

@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+<title>Шеберлер клубы - Клуб мастеров. Регистрация</title>
+@stop
 @section('content')
     <div class="row">
         <div class="col-md-5 col-md-offset-1 Registations__info__block">

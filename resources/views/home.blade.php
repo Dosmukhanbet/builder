@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+<title>Шеберлер клубы - Клуб мастеров</title>
+@stop
 @section('homecontent')
     @include('homepartials.jumbotron')
     @include('homepartials.howto')
