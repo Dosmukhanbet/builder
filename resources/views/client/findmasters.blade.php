@@ -19,10 +19,11 @@
                 <span>Имя:</span> {{$master->name}}<br>
                 <span>Город:</span> {{$cities[$master->city_id]}}<br>
                 <span>Специальность:</span> {{$categories[$master->category_id]}}<br>
+                <span class="collapse" id="{{$master->phone_number}}">Мобильный номер:+{{$master->phone_number}}</span>
+
                 <button class="btn find__button" type="button" id="showMobile" data-toggle="collapse" data-target="#{{$master->phone_number}}" aria-expanded="false" aria-controls="collapseExample">
                 Показать номер
-                </button> <br>
-                <span class="collapse" id="{{$master->phone_number}}">Мобильный номер:+{{$master->phone_number}}</span>
+                </button> 
                   
 
                  @if ($master->ratings->pluck('points')->sum() > 0 )

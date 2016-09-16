@@ -7,14 +7,19 @@ use App\Job;
 use App\User;
 use App\Services\SMS;
 use App\Http\Requests;
+use App\Services\AppMailer;
 use Illuminate\Http\Request;
 use App\Events\JobWasPublished;
 
 class RegistrationController extends Controller
 {
-    function __construct(SMS $sms)
+    protected $sms;
+    protected $mailer;
+
+    function __construct(SMS $sms, AppMailer $mailer)
     {
         $this->sms = $sms;
+        $this->mailer = $mailer;
     }
 
     public function storeUserAndJob(Request $request)
@@ -74,13 +79,14 @@ class RegistrationController extends Controller
 
     } 
 
-    public function sendSmsRecomendation ()
+    public function sendMailRecomendation ()
     {
         $masters = User::where('type', 'master')
-                    ->where('photo_path', '')
+                    ->where('photo_path', NULL)
                     ->get();
+                    // dd($masters);
                         foreach ($masters as $master) {
-                            
+                          $this->mailer->sendEmailTo($master, 'email.addphoto',  'Добавьте фото для профиля!');  
                         }
     } 
 

@@ -15,7 +15,7 @@
                   @else
                   </ul>
                   <div class="col-md-12">
-                <form class="form-horizontal Profile__form" enctype="multipart/form-data" method="POST" action="{{url('master/profile/addphoto')}}">
+                <form class="form-horizontal Profile__form" enctype="multipart/form-data" method="POST" action="{{url('master/profile/addnewphoto')}}">
 
                         {{csrf_field()}}
 

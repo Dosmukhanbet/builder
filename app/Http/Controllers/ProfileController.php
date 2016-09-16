@@ -48,6 +48,7 @@ class ProfileController extends Controller
 
     public function savePhoto(Request $request)
     {
+
         $this->validate($request, ['photo' => 'required']);
         $photo = $request->file('photo');
 
@@ -65,6 +66,26 @@ class ProfileController extends Controller
         flash()->success('ok', 'Фотография успешно добавлена!');
         return redirect('master/addskills');        
     }
+
+    public function savePhotoProfile (Request $request)
+    {
+        $this->validate($request, ['photo' => 'required']);
+        $photo = $request->file('photo');
+
+        $name = time().$photo->getClientOriginalName();
+
+        $photo->move('profile/photos', $name);
+        $path = 'profile/photos/' . $name;
+        $thumb = sprintf("%sthumb-%s",'profile/photos/', $name);
+        $this->makeThumbnail($path, $thumb);
+
+        $user = Auth::user();
+        $user->photo_path = $path;
+        $user->thumbnail_path = $thumb;
+        $user->save();
+        flash()->success('ok', 'Фотография успешно добавлена!');
+        return redirect('master/profile');      
+    } 
 
     public function addSkills ()
     {

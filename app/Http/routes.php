@@ -11,6 +11,7 @@ Route::post('registerandcreatejob', 'RegistrationController@storeUserAndJob');
 
 //find masters
 Route::get('find/masters', 'SearchMastersController@findMasters');
+Route::get('sendemail', 'RegistrationController@sendMailRecomendation');
 
 // API
 Route::post('api/sendsms', 'NotifyController@sendSms');
@@ -73,6 +74,7 @@ Route::group(['prefix' => 'master', 'middleware' => ['auth','master']], function
     Route::post('offer/for/{jobId}', 'OffersController@store');
     Route::get('profile', 'ProfileController@show');
     Route::post('profile/addphoto', 'ProfileController@savePhoto');
+    Route::post('profile/addnewphoto', 'ProfileController@savePhotoProfile');
     Route::get('invites', 'InvitesController@all');
     Route::get('addphoto', 'ProfileController@addPhoto');
     Route::get('addskills', 'ProfileController@addSkills');

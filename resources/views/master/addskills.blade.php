@@ -8,9 +8,6 @@
     		<h4>Опыт работы | Рекламный текст для профиля </h4>
 				  
 					@include('master.formpartials.addskillsform')
-
-						
-
     	</div>
     	<div class="col-md-4 chart">
     	<h4>Профиль завершен на 60%</h4>
