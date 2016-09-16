@@ -44,7 +44,7 @@ export default {
                <p><span>Имя:</span> {{master.name}}<br>
                 <span>Специальность:</span>  {{ findCat(master.category_id) }}<br>
                 <span>Город:</span>  {{ findCity(master.city_id) }}<br>
-                <button class="btn find__button" type="button" data-toggle="collapse" data-target="#{{master.phone_number}}" aria-expanded="false" aria-controls="collapseExample">
+                <button class="btn find__button" type="button" data-toggle="collapse" id="showMobile" data-target="#{{master.phone_number}}" aria-expanded="false" aria-controls="collapseExample">
                 Показать номер
                 </button> <br>
                 <span class="collapse" id="{{master.phone_number}}">Мобильный номер:+{{master.phone_number}}</span>
