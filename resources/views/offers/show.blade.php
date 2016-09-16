@@ -49,9 +49,23 @@
       e.preventDefault()
       $(this).tab('show')
     });
+    jQuery.datetimepicker.setLocale('ru');
     jQuery('#datetimepicker').datetimepicker({
+      i18n:{
+  ru:{
+   months:[
+    'Январь','Февраль','Март','Апрель',
+    'Май','Июнь','Июль','Августь',
+    'Сентябрь','Октябрь','Ноябрь','Декабрь',
+   ],
+   dayOfWeek:[
+    "Пн", "Вт", "Ср", "Чт", 
+    "Пн", "Сб", "Вс",
+   ]
+  }
+ },
       format:'Y-m-d H:i',
-    //  inline:true,
+    dayOfWeekStart:1,
       lang:'ru'
     });
 
