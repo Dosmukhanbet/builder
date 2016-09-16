@@ -44413,6 +44413,43 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _chart = require('chart.js');
+
+var _chart2 = _interopRequireDefault(_chart);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+    template: '<canvas width="300"  height="200" id="myChart"></canvas>',
+    props: ['labels', 'values'],
+
+    ready: function ready() {
+        var data = {
+            labels: ["Клиенты", "Мастера", "Заявки"],
+            datasets: [{
+                label: "Зарегистрированные пользователи / Опубликованные заявки",
+                backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'],
+                borderColor: ['rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+                borderWidth: 1,
+                data: [2632, 1325, 3234]
+            }]
+        };
+        var ctx = document.getElementById("myChart").getContext("2d");
+
+        new _chart2.default(ctx, {
+            type: 'bar',
+            data: data
+        });
+    }
+};
+
+},{"chart.js":1}],85:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _vueResource = require('vue-resource');
 
 var _vueResource2 = _interopRequireDefault(_vueResource);
@@ -44450,7 +44487,7 @@ exports.default = {
 
 };
 
-},{"./leavefeedback.js":87,"vue-resource":70}],85:[function(require,module,exports){
+},{"./leavefeedback.js":88,"vue-resource":70}],86:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -44516,7 +44553,7 @@ exports.default = {
 
 };
 
-},{"underscore":56,"vue-resource":70}],86:[function(require,module,exports){
+},{"underscore":56,"vue-resource":70}],87:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -44555,7 +44592,7 @@ exports.default = {
 
 };
 
-},{"vue-resource":70}],87:[function(require,module,exports){
+},{"vue-resource":70}],88:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -44582,7 +44619,7 @@ exports.default = {
 
 };
 
-},{"vue-resource":70}],88:[function(require,module,exports){
+},{"vue-resource":70}],89:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -44701,7 +44738,7 @@ exports.default = {
 
 };
 
-},{"sweetalert":54,"underscore":56,"vue-resource":70}],89:[function(require,module,exports){
+},{"sweetalert":54,"underscore":56,"vue-resource":70}],90:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -44734,7 +44771,7 @@ exports.default = {
 
 };
 
-},{}],90:[function(require,module,exports){
+},{}],91:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -44774,7 +44811,7 @@ exports.default = {
 
 };
 
-},{}],91:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -44811,7 +44848,7 @@ exports.default = {
 
 };
 
-},{}],92:[function(require,module,exports){
+},{}],93:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -44879,7 +44916,7 @@ exports.default = {
 
 };
 
-},{"vue-resource":70}],93:[function(require,module,exports){
+},{"vue-resource":70}],94:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -44963,7 +45000,7 @@ exports.default = {
 
 };
 
-},{"underscore":56,"vue-resource":70}],94:[function(require,module,exports){
+},{"underscore":56,"vue-resource":70}],95:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -45047,7 +45084,7 @@ exports.default = _vue2.default.extend({
 
 });
 
-},{"sweetalert":54,"vue":81,"vue-resource":70}],95:[function(require,module,exports){
+},{"sweetalert":54,"vue":81,"vue-resource":70}],96:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -45089,7 +45126,7 @@ exports.default = {
 
 };
 
-},{"vue-resource":70}],96:[function(require,module,exports){
+},{"vue-resource":70}],97:[function(require,module,exports){
 'use strict';
 
 var _vue = require('vue');
@@ -45148,6 +45185,10 @@ var _Graph = require('./components/Graph.js');
 
 var _Graph2 = _interopRequireDefault(_Graph);
 
+var _Statistics = require('./components/Statistics.js');
+
+var _Statistics2 = _interopRequireDefault(_Statistics);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue2.default.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('value');
@@ -45178,7 +45219,8 @@ new _vue2.default({
         newinvites: _newinvites2.default,
         newofferalert: _newofferalert2.default,
         jobmademasters: _jobmademasters2.default,
-        Graph: _Graph2.default
+        Graph: _Graph2.default,
+        Statistics: _Statistics2.default
     },
 
     ready: function ready() {},
@@ -45198,6 +45240,6 @@ new _vue2.default({
 
 });
 
-},{"./components/Graph.js":83,"./components/jobdone.js":84,"./components/jobmademasters.js":85,"./components/jobstype.js":86,"./components/masters.js":88,"./components/newinvites.js":89,"./components/newofferalert.js":90,"./components/newoffers.js":91,"./components/realtimeoffers.js":92,"./components/recommendations.js":93,"./components/sendsms":94,"./components/types.js":95,"vue":81,"vuikit":82}]},{},[96]);
+},{"./components/Graph.js":83,"./components/Statistics.js":84,"./components/jobdone.js":85,"./components/jobmademasters.js":86,"./components/jobstype.js":87,"./components/masters.js":89,"./components/newinvites.js":90,"./components/newofferalert.js":91,"./components/newoffers.js":92,"./components/realtimeoffers.js":93,"./components/recommendations.js":94,"./components/sendsms":95,"./components/types.js":96,"vue":81,"vuikit":82}]},{},[97]);
 
 //# sourceMappingURL=main.js.map

@@ -19,6 +19,7 @@
     </div>
 
 
+
 @stop
 @section('footer')
     <script src="/js/all.js"></script>

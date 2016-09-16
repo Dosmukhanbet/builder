@@ -1,4 +1,4 @@
- <div class="Registations__info">
+    <div class="Registations__info">
                 <div class="Registations__info__header">
                     <i class="fa fa-briefcase briefcase" aria-hidden="true"></i>
                     <h4>
@@ -10,9 +10,9 @@
                  Получайте еженедельный гонорар лишь за то, что помогаете пользователям решать их бытовые проблемы.
                  Будьте сами себе начальником и получайте оплату за работу, придерживаясь собственного графика.
                 </p>
-            </div>
+    </div>
 
-            <div class="Registations__info">
+    <div class="Registations__info">
                             <div class="Registations__info__header">
                                 <i class="fa fa-money money" aria-hidden="true"></i>
                                 <h4>
@@ -23,9 +23,9 @@
                                 У вас золотые руки, вы профессионал своего дела? Превратите это в источник заработка!
                                 Начать работать можно уже сегодня.
                             </p>
-            </div>
+    </div>
 
-            <div class="Registations__info">
+    <div class="Registations__info">
                               <div class="Registations__info__header">
                                         <i class="fa fa-clock-o clock" aria-hidden="true"></i>
                                         <h4>
@@ -36,9 +36,9 @@
                                             Есть дела до 9 или после 17? Как независимый подрядчик <span class="Registations__info__link">sheber.club</span> , вы можете работать только тогда, когда вам удобно.
                                             Самостоятельно составьте свой график работы и не пропускайте ни одного важного события вашей жизни.
                                         </p>
-            </div>
+    </div>
 
-            <div class="Registations__info">
+    <div class="Registations__info">
                                 <div class="Registations__info__header">
                                     <i class="fa fa-list-ol list__ol" aria-hidden="true"></i>
                                     <h4>
@@ -48,5 +48,10 @@
                                         <p>                                       
                                         Вы можете работать как по своей специальности, так и пробовать свои силы в других направлениях 
                                          </p>
-            </div>
+    </div>
+
+    <div class="Registations__info">
+    <p class="counter"><span class="count">3422</span> заявок</p>
+                                {{-- <statistics></statistics> --}}
+    </div>
 
