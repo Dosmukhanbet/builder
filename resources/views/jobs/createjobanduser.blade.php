@@ -212,16 +212,31 @@
 @section('footer')
 <script src="/js/all.js"></script>
 <script>
-jQuery('#datetimepicker').datetimepicker({
-  format:'Y-m-d H:i',
-//  inline:true,
-  lang:'ru'
-});
+  jQuery.datetimepicker.setLocale('ru');
+  jQuery('#datetimepicker').datetimepicker({
+                  i18n:{
+  ru:{
+   months:[
+    'Январь','Февраль','Март','Апрель',
+    'Май','Июнь','Июль','Августь',
+    'Сентябрь','Октябрь','Ноябрь','Декабрь',
+   ],
+   dayOfWeek:[
+    "Пн", "Вт", "Ср", "Чт", 
+    "Пн", "Сб", "Вс",
+   ]
+  }
+ },
+                  format:'Y-m-d H:i',
+                  dayOfWeekStart:1,
+                //  inline:true,
+                  lang:'ru'
+                });
 
-$(function () {
-  $('[data-toggle="popover"]').popover()
-});
+                $(function () {
+                  $('[data-toggle="popover"]').popover()
+                });
 
 
-</script>
+    </script>
 @stop
