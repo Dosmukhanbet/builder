@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-4 col-md-offset-1">
+    <div class="col-md-4">
         <li class="list-group-item active">Зарегистрированные мастера по городам</li>
         <ul class="list-group">
             @foreach($cityWithusers as $city)
@@ -19,7 +19,18 @@
         </ul>
     </div>
     <div class="col-md-4">
-        
+         <li class="list-group-item active">Зарегистрированные мастера по городам и категориям</li>
+        <ul class="list-group">
+            @foreach($masters as $cityId => $users)
+                    <li class="list-group-item">
+                            {{$cities[$cityId]}} <ul>
+                                                    @foreach($users->groupBy('category_id') as $catid => $mss)
+                                                            <li>{{$categories[$catid]}} - {{$mss->count()}} мастеров </li>
+                                                    @endforeach
+                                                </ul>
+                    </li>
+            @endforeach
+        </ul>
     </div>
 </div>
 @stop

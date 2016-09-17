@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
             Cache::forever('ceties', $cities);
         }
 
-        view()->composer(['auth.register', 'admin.manage' ,'jobs.create', 'jobs.show', 'master.activejobs', 'master.showjob', 'master.profile.profile','master.profile.editprofile', 'client.profileshow' , 'client.findmasters' , 'jobs.createjobanduser','offers.show'], function($view){
+        view()->composer(['auth.register', 'admin.manage' ,'admin.users' ,'jobs.create', 'jobs.show', 'master.activejobs', 'master.showjob', 'master.profile.profile','master.profile.editprofile', 'client.profileshow' , 'client.findmasters' , 'jobs.createjobanduser','offers.show'], function($view){
             $view->with('cities', Cache::get('ceties'));
         });
 
@@ -36,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
             $categories = \App\Category::orderBy('name')->lists('name', 'id')->toArray();
             Cache::put('categories', $categories, 1440);
         }
-        view()->composer(['auth.register', 'jobs.createjobanduser','jobs.show', 'jobs.all', 'admin.manage' , 'email.jobposted', 'master.showjob', 'master.profile.profile','master.profile.editprofile','client.partials.editprofile',  'client.findmasters', 'offers.show' ], function($view){
+        view()->composer(['auth.register', 'jobs.createjobanduser','jobs.show', 'jobs.all', 'admin.manage' ,'admin.users' , 'email.jobposted', 'master.showjob', 'master.profile.profile','master.profile.editprofile','client.partials.editprofile',  'client.findmasters', 'offers.show' ], function($view){
             $view->with('categories', Cache::get('categories'));
         });
 

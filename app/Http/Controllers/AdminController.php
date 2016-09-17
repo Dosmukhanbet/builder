@@ -46,14 +46,15 @@ class AdminController extends Controller
                  ->groupBy('category_id')
                  ->groupBy('city_id')
                  ->get();
-                 dd($ms);
 
+               $masters = User::where('type', 'master')->get(); 
+               $masters = $masters->groupBy('city_id');
 
         $catWithusers = Category::withCount(['user' => function($query)
         {
                  $query->where('type', 'master');
         }])->get();
 
-        return view('admin.users', compact('cityWithusers', 'catWithusers', 'ms'));
+        return view('admin.users', compact('cityWithusers', 'catWithusers', 'ms', 'masters'));
     }
 }
