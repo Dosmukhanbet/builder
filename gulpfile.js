@@ -22,13 +22,15 @@ elixir(function(mix) {
                     'lity.css',
                     'jquery.datetimepicker.min.css',
                     'slick.css',
-                    'slick-theme.css'
+                    'slick-theme.css',
+                    'jquery.bxslider.css'
         ])
         .scripts([
                     'libs/dropzone.js',
                     'libs/lity.js',
                     'libs/datetimepicker.js',
-                    'libs/slick.js'
+                    'libs/slick.js',
+                    'libs/jquery.bxslider.js'
         ])
         .browserify('main.js');
 });

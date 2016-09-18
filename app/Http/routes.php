@@ -81,6 +81,8 @@ Route::group(['prefix' => 'master', 'middleware' => ['auth','master']], function
     Route::post('addskills', 'ProfileController@saveSkills');
     Route::get('attachments', 'ProfileController@attachments');
     Route::post('attachments', 'ProfileController@saveAttachments');
+    Route::get('finish', 'ProfileController@finish');
+
 });
 
 

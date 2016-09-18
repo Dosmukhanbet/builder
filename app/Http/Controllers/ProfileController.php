@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use DB;
 use Auth;
 use Image;
+use App\Job;
 use App\User;
 use App\Offer;
 use App\Invite;
 use App\Skills;
+use Carbon\Carbon;
 use App\Attachment;
 use App\Http\Requests;
 use Illuminate\Http\Request;
@@ -127,6 +129,19 @@ class ProfileController extends Controller
         $attachment->path = $path;
         $attachment->thumbnail_path = $thumb;
         $attachment->save();
+
+    } 
+
+    public function finish ()
+    {
+        flash()->success('Поздравляем!', 'Ваш профил создан, теперь Вам будут доступны все заявки вашего города по вашей специальности!');
+        
+        $jobs = Job::where('category_id', Auth::user()->category_id )
+            ->where('city_id', Auth::user()->city_id )
+            ->where('dateOfMake', '>=' , Carbon::now())
+            ->get();
+            
+        return view('master.activejobs', compact('jobs'));
 
     } 
 

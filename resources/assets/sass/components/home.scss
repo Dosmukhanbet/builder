@@ -128,3 +128,42 @@ p.home_page_text {
   top: 70px;
   right: 50px;
 }
+
+.homeslider{
+  padding:10px;
+  margin-top:80px;
+  width: 90%;
+  margin: auto;
+    h3{
+      text-align:center;
+    }
+    .slider__item{
+      padding:25px 20px 25px 20px ;
+      width:300px;
+      height:200px;
+      background:#fff;
+      border:1px solid #F0F2EA;
+
+      .slider__header{
+        display:flex;
+        align-items:start;
+
+        .feedback__author {
+          font-size:1.1em;
+          font-weight: 700;
+          margin-left: 20px;
+          margin-top:0px;
+          padding-top:0px;
+        }
+        .feedback__author__speciality {
+          font-size: 0.8em;
+          font-weight: 700;
+        }
+      }
+
+      p{
+        margin-top:12px;
+      }
+
+    }
+}

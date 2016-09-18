@@ -11,7 +11,7 @@
           @if( ! count($user->attachments) )
             <p>Прикрепите копию вашего диплома, сертификата, грамоты, рекомендацию от работодателя.</p>
              @include('master.formpartials.attachments')
-             <button class="finish__register"><a href="{{ url('master/active/jobs')  }}">Пропустить</a></button>
+             <button class="finish__register"><a href="{{ url('master/finish')  }}">Пропустить</a></button>
           @else 
                 <div class="attachments">
                       @foreach($user->attachments as $attachment)
@@ -20,7 +20,7 @@
                         </a>
                       @endforeach
                 </div>         
-                <button class="finish__register"><a href="{{ url('master/active/jobs')  }}"> Завершить регистрацию</a></button>
+                <button class="finish__register"><a href="{{ url('master/finish')  }}"> Завершить создание профиля</a></button>
           @endif
 
 				

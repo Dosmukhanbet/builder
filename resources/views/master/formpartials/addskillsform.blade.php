@@ -11,7 +11,7 @@
                                                             data-placement="top"
                                                             data-trigger="focus"
                                                             data-content="Укажите сколько лет опыта имеете в данной специальности"
-                                                            placeholder="сколько лет опыта"
+                                                            placeholder="сколько лет опыта (прописать числом)"
                                                             value="{{ old('years') }}" 
                                                             required>
 

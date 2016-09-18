@@ -6374,6 +6374,38 @@ p.home_page_text {
   top: 70px;
   right: 50px; }
 
+.homeslider {
+  padding: 10px;
+  margin-top: 80px;
+  width: 90%;
+  margin: auto; }
+  .homeslider h3 {
+    text-align: center; }
+  .homeslider .slider__item {
+    padding: 25px 20px 25px 20px;
+    width: 300px;
+    height: 200px;
+    background: #fff;
+    border: 1px solid #F0F2EA; }
+    .homeslider .slider__item .slider__header {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-align-items: start;
+      -ms-flex-align: start;
+      align-items: start; }
+      .homeslider .slider__item .slider__header .feedback__author {
+        font-size: 1.1em;
+        font-weight: 700;
+        margin-left: 20px;
+        margin-top: 0px;
+        padding-top: 0px; }
+      .homeslider .slider__item .slider__header .feedback__author__speciality {
+        font-size: 0.8em;
+        font-weight: 700; }
+    .homeslider .slider__item p {
+      margin-top: 12px; }
+
 .active__jobs {
   background: #fff;
   padding: 10px;
@@ -6577,6 +6609,9 @@ p.home_page_text {
   left: 10px;
   border-radius: 5px;
   z-index: 9999; }
+
+.warning {
+  color: #A94450; }
 
 .editjob__header {
   margin-left: 17px; }

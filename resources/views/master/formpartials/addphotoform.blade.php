@@ -10,7 +10,7 @@
                                                             data-toggle="popover"
                                                             data-placement="top"
                                                             data-trigger="focus"
-                                                            data-content="Добавьте фото к Вашему профилю. Мастера с фото вызывает больше доверия у клиентов"
+                                                            data-content="Добавьте фото к Вашему профилю. Мастера с фото получают больше заявок от заказщиков"
                                                             value="{{ old('photo') }}"
                                                             required>
 
@@ -23,12 +23,10 @@
                         </div>
                         <div class="form-group">
 						                            <div class="col-md-12">
-                                          @if( ! $user->photo_path)
 						                                <button type="submit" class="btn btn-warning __button">
 						                                   Добавить фото
 						                                </button>
-                                          @endif  
-                                                        <a class="skip__button" href="{{url('master/addskills')}}">{{$user->photo_path ? "Далее" : "Пропустить" }}</a>
+                                          
 						                            </div>
                        	</div>
 
