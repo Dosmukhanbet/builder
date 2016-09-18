@@ -10,7 +10,7 @@
                                                             data-toggle="popover"
                                                             data-placement="top"
                                                             data-trigger="focus"
-                                                            data-content="Добавьте фото к Вашему профилю. Мастера с фото получают больше заявок от заказщиков"
+                                                            data-content="Добавьте фото к Вашему профилю. Мастера с фото получают больше заявок от заказчиков"
                                                             value="{{ old('photo') }}"
                                                             required>
 
